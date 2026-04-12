@@ -150,16 +150,16 @@ const VocabService = {
   _cache: new Map(),
 
   /* ── PRODUCTION: replace this body with the Supabase version below ── */
-  async fetchChunk(chunkId) {
-    if (this._cache.has(chunkId)) return this._cache.get(chunkId);
-    // Simulate network latency in mock mode
-    await new Promise(r => setTimeout(r, 220));
-    const data = MOCK_VOCAB_CHUNKS[chunkId] ?? [];
-    this._cache.set(chunkId, data);
-    return data;
-  },
+  // async fetchChunk(chunkId) {
+  //   if (this._cache.has(chunkId)) return this._cache.get(chunkId);
+  //   // Simulate network latency in mock mode
+  //   await new Promise(r => setTimeout(r, 220));
+  //   const data = MOCK_VOCAB_CHUNKS[chunkId] ?? [];
+  //   this._cache.set(chunkId, data);
+  //   return data;
+  // },
 
-  /* ── SUPABASE VERSION (uncomment and replace fetchChunk above) ──────────
+  /* ── SUPABASE VERSION (uncomment and replace fetchChunk above) ──────────*/
   async fetchChunk(chunkId) {
     if (this._cache.has(chunkId)) return this._cache.get(chunkId);
     const [cefrLevel, stageId] = chunkId.split("-", 2);  // e.g. "a1-s1" → ["a1","s1"]
@@ -184,7 +184,7 @@ const VocabService = {
     this._cache.set(chunkId, words);
     return words;
   },
-  ── ─────────────────────────────────────────────────────────────────────── */
+  /*── ─────────────────────────────────────────────────────────────────────── */
 
   /* Fetch ALL words for a given CEFR level (used by auto-mastery + Word Bank) */
   async fetchAllForLevel(cefrLevel) {
