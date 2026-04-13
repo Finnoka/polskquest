@@ -1,271 +1,187 @@
 #!/usr/bin/env node
 /**
- * ══════════════════════════════════════════════════════════════════════════════
- * POLSKQUEST — SUPABASE VOCABULARY SEEDER
- * Phase 10: Seeds the vocabulary table from Polish frequency lists
+ * seed_vocabulary.cjs — PolskQuest Supabase seeder
  *
- * USAGE:
- *   1. npm install @supabase/supabase-js csv-parse
- *   2. Set environment variables:
- *        SUPABASE_URL=https://your-project.supabase.co
- *        SUPABASE_SERVICE_KEY=your-service-role-key   (NOT the anon key!)
- *   3. Obtain a Polish frequency list CSV (see SOURCES below)
- *   4. Run: node seed_vocabulary.js --file=polish_frequency.csv --level=a1
+ * Usage:
+ *   node seed_vocabulary.cjs --file=<level>_translated.csv --level=<level>
  *
- * SOURCES FOR POLISH FREQUENCY LISTS:
- *   • https://github.com/hermitdave/FrequencyWords  (CC-BY)
- *       → Download pol_50k.txt  (word + frequency count, space-separated)
- *   • Wiktionary frequency lists (public domain)
- *   • SUBTLEX-PL corpus (academic, free for research)
+ * Options:
+ *   --file=PATH    CSV produced by translate.cjs
+ *   --level=LEVEL  a1 | a2 | b1 | b2 | c1
+ *   --no-clear     Skip deleting existing rows (append mode)
+ *   --batch=N      Rows per request — default 100 (keep low to avoid timeouts)
  *
- * CSV FORMAT EXPECTED (auto-detected):
- *   Format A (hermitdave style): "word count"  — space separated, no header
- *   Format B (custom CSV):       polish,english,category,subtext,accepted_answers
- *
- * The script handles Format A automatically by leaving english="" and
- * flagging rows for manual translation. For a full auto-translated seed,
- *  use Format B which you can generate by running the words through a
- * translation API (DeepL, Google Translate, etc.) first.
- * ══════════════════════════════════════════════════════════════════════════════
+ * Env vars (reads ANY of these names):
+ *   VITE_SUPABASE_URL
+ *   VITE_SUPABASE_ANON_KEY      ← your service-role key (despite the name)
+ *   VITE_SUPABASE_SERVICE_KEY
+ *   SUPABASE_URL
+ *   SUPABASE_SERVICE_KEY
  */
 
-const { createClient } = require("@supabase/supabase-js");
-const fs   = require("fs");
-const path = require("path");
-const { parse } = require("csv-parse/sync");
+const fs    = require("fs");
+const https = require("https");
 
-// ──────────────────────────────────────────────────────────────────────────────
-// CONFIG
-// ──────────────────────────────────────────────────────────────────────────────
-const SUPABASE_URL     = process.env.SUPABASE_URL     || "https://YOUR_PROJECT.supabase.co";
-const SUPABASE_SERVICE = process.env.SUPABASE_SERVICE_KEY || "YOUR_SERVICE_ROLE_KEY";
+// ── Args ──────────────────────────────────────────────────────────────────────
+const args = {};
+for (const a of process.argv.slice(2)) {
+  const [k, v] = a.replace(/^--/, "").split("=");
+  args[k] = v ?? true;
+}
 
-// CEFR level → word count targets
-const CEFR_TARGETS = {
-  a1:   700,
-  a2:  2000,
-  b1:  3000,
-  b2:  5000,
-  c1: 10000,
-};
-
-// Words per stage (game splits each dungeon into stages of this many words)
+const csvPath = args.file;
+const level   = args.level?.toLowerCase();
+const doClear = !args["no-clear"];
+const BATCH   = parseInt(args.batch ?? "100", 10);
 const WORDS_PER_STAGE = 50;
 
-// Batch size for Supabase upserts (stay under 1000 to avoid timeouts)
-const BATCH_SIZE = 200;
-
-// ──────────────────────────────────────────────────────────────────────────────
-// ARG PARSING
-// ──────────────────────────────────────────────────────────────────────────────
-function parseArgs() {
-  const args = {};
-  process.argv.slice(2).forEach(a => {
-    const [k, v] = a.replace("--", "").split("=");
-    args[k] = v ?? true;
-  });
-  return args;
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// CSV PARSING
-// ──────────────────────────────────────────────────────────────────────────────
-function parseCsvFile(filePath) {
-  const raw = fs.readFileSync(filePath, "utf-8");
-
-  // Detect format
-  const firstLine = raw.split("\n")[0].trim();
-  const isFormatA = !firstLine.includes(",") && firstLine.split(" ").length === 2;
-
-  if (isFormatA) {
-    // Format A: "word count" (hermitdave)
-    console.log("📂 Detected Format A (frequency list — no translations)");
-    return raw.trim().split("\n").map((line, i) => {
-      const [polish, freq] = line.trim().split(/\s+/);
-      return {
-        polish:           polish ?? "",
-        english:          "",                    // needs translation
-        category:         "misc",
-        subtext:          null,
-        accepted_answers: [],
-        frequency_rank:   parseInt(freq, 10) || (i + 1),
-        needs_translation: true,
-      };
-    }).filter(r => r.polish.length > 0);
-  }
-
-  // Format B: custom CSV with headers
-  console.log("📂 Detected Format B (translated CSV)");
-  const records = parse(raw, { columns: true, skip_empty_lines: true, trim: true });
-  return records.map((r, i) => ({
-    polish:           r.polish ?? "",
-    english:          r.english ?? "",
-    category:         r.category ?? "misc",
-    subtext:          r.subtext || null,
-    accepted_answers: r.accepted_answers
-      ? JSON.parse(r.accepted_answers)
-      : [r.english?.toLowerCase()].filter(Boolean),
-    frequency_rank:   parseInt(r.frequency_rank, 10) || (i + 1),
-    needs_translation: false,
-  })).filter(r => r.polish.length > 0);
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// STAGE ASSIGNMENT
-//   Given a list of words sorted by frequency_rank, assign each one a
-//   cefr_level and stage_id based on their position in the list.
-// ──────────────────────────────────────────────────────────────────────────────
-function assignStages(words, cefrLevel) {
-  return words.map((word, i) => {
-    const stageNum = Math.floor(i / WORDS_PER_STAGE) + 1;
-    const stageId  = `s${stageNum}`;
-    const wordNum  = (i % WORDS_PER_STAGE) + 1;
-    const id       = `${cefrLevel}-${stageId}-${String(wordNum).padStart(3, "0")}`;
-
-    return {
-      id,
-      cefr_level:       cefrLevel,
-      stage_id:         stageId,
-      polish:           word.polish,
-      english:          word.english,
-      subtext:          word.subtext,
-      category:         word.category,
-      accepted_answers: word.accepted_answers.length > 0
-        ? word.accepted_answers
-        : [word.english.toLowerCase()].filter(Boolean),
-      frequency_rank:   word.frequency_rank,
-      audio_url:        null,
-    };
-  });
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// SUPABASE BATCH UPSERT
-// ──────────────────────────────────────────────────────────────────────────────
-async function upsertBatch(supabase, rows, dryRun = false) {
-  if (dryRun) {
-    console.log(`  [DRY RUN] Would upsert ${rows.length} rows`);
-    console.log("  Sample:", JSON.stringify(rows[0], null, 2));
-    return;
-  }
-
-  const { error } = await supabase
-    .from("vocabulary")
-    .upsert(rows, { onConflict: "id" });
-
-  if (error) {
-    console.error("  ✗ Upsert error:", error.message);
-    throw error;
-  }
-  console.log(`  ✓ Upserted ${rows.length} rows`);
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// MAIN
-// ──────────────────────────────────────────────────────────────────────────────
-async function main() {
-  const args = parseArgs();
-
-  const filePath  = args.file;
-  const cefrLevel = (args.level ?? "a1").toLowerCase();
-  const dryRun    = args["dry-run"] === true || args["dry-run"] === "true";
-  const limit     = parseInt(args.limit, 10) || CEFR_TARGETS[cefrLevel] || 700;
-
-  console.log("\n╔══════════════════════════════════════════════════════════════╗");
-  console.log("║          POLSKQUEST — VOCABULARY SEEDER v1.0                ║");
-  console.log("╚══════════════════════════════════════════════════════════════╝\n");
-
-  if (!filePath) {
-    console.error("ERROR: --file argument required");
-    console.error("Usage: node seed_vocabulary.js --file=polish_freq.csv --level=a1 [--dry-run]");
-    process.exit(1);
-  }
-
-  if (!fs.existsSync(filePath)) {
-    console.error(`ERROR: File not found: ${filePath}`);
-    process.exit(1);
-  }
-
-  if (!CEFR_TARGETS[cefrLevel]) {
-    console.error(`ERROR: Unknown CEFR level: ${cefrLevel}. Use: ${Object.keys(CEFR_TARGETS).join(", ")}`);
-    process.exit(1);
-  }
-
-  console.log(`📋 Config:`);
-  console.log(`   File:       ${filePath}`);
-  console.log(`   CEFR Level: ${cefrLevel.toUpperCase()}`);
-  console.log(`   Word limit: ${limit}`);
-  console.log(`   Batch size: ${BATCH_SIZE}`);
-  console.log(`   Dry run:    ${dryRun ? "YES — no data will be written" : "NO — writing to Supabase"}\n`);
-
-  // Parse CSV
-  console.log("1️⃣  Parsing CSV…");
-  let words = parseCsvFile(filePath);
-  const needsTranslation = words.filter(w => w.needs_translation).length;
-  if (needsTranslation > 0) {
-    console.warn(`⚠  ${needsTranslation} words have no English translation.`);
-    console.warn("   Run a translation pass first, or provide a Format B CSV.");
-    console.warn("   Words without translations will be inserted with english='' and skipped in-game.\n");
-  }
-
-  // Sort by frequency rank and limit
-  words = words
-    .sort((a, b) => a.frequency_rank - b.frequency_rank)
-    .slice(0, limit);
-  console.log(`   Parsed ${words.length} words (limited to ${limit})\n`);
-
-  // Assign stage IDs
-  console.log("2️⃣  Assigning stages…");
-  const rows = assignStages(words, cefrLevel);
-  const stageCount = new Set(rows.map(r => r.stage_id)).size;
-  console.log(`   ${rows.length} words assigned to ${stageCount} stages (${WORDS_PER_STAGE} words/stage)\n`);
-
-  // Preview
-  console.log("3️⃣  Sample rows:");
-  console.log("   " + JSON.stringify(rows[0]));
-  if (rows.length > 1) console.log("   " + JSON.stringify(rows[rows.length - 1]));
-  console.log();
-
-  if (dryRun) {
-    console.log("🔎 DRY RUN complete. No data written.\n");
-    return;
-  }
-
-  // Connect to Supabase
-  console.log("4️⃣  Connecting to Supabase…");
-  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE, {
-    auth: { persistSession: false }
-  });
-  console.log("   Connected.\n");
-
-  // Upsert in batches
-  console.log("5️⃣  Upserting to Supabase…");
-  let inserted = 0;
-  for (let i = 0; i < rows.length; i += BATCH_SIZE) {
-    const batch = rows.slice(i, i + BATCH_SIZE);
-    process.stdout.write(`   Batch ${Math.floor(i/BATCH_SIZE)+1}/${Math.ceil(rows.length/BATCH_SIZE)} `);
-    await upsertBatch(supabase, batch, dryRun);
-    inserted += batch.length;
-  }
-
-  console.log(`\n✅ Done! ${inserted} words seeded into Supabase.`);
-  console.log(`   CEFR level ${cefrLevel.toUpperCase()}: ${stageCount} stages × ~${WORDS_PER_STAGE} words/stage\n`);
-
-  // Verification query
-  console.log("6️⃣  Verifying…");
-  const { count, error } = await supabase
-    .from("vocabulary")
-    .select("*", { count: "exact", head: true })
-    .eq("cefr_level", cefrLevel);
-
-  if (error) {
-    console.warn("   ⚠ Could not verify:", error.message);
-  } else {
-    console.log(`   ✓ ${count} rows confirmed in vocabulary table for ${cefrLevel.toUpperCase()}\n`);
-  }
-}
-
-main().catch(e => {
-  console.error("\n✗ Fatal error:", e.message);
+if (!csvPath || !level) {
+  console.error("Usage: node seed_vocabulary.cjs --file=<csv> --level=<level>");
   process.exit(1);
-});
+}
+
+// ── Env vars — accept any of the common names ─────────────────────────────────
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+const SERVICE_KEY  =
+  process.env.VITE_SUPABASE_ANON_KEY        ||
+  process.env.VITE_SUPABASE_SERVICE_KEY      ||
+  process.env.SUPABASE_SERVICE_KEY           ||
+  process.env.SUPABASE_ANON_KEY;
+
+if (!SUPABASE_URL) { console.error("ERROR: VITE_SUPABASE_URL not set."); process.exit(1); }
+if (!SERVICE_KEY)  { console.error("ERROR: VITE_SUPABASE_ANON_KEY not set."); process.exit(1); }
+
+console.log(`Supabase: ${SUPABASE_URL}`);
+console.log(`Key prefix: ${SERVICE_KEY.slice(0, 20)}…`);
+console.log(`Level: ${level}  |  Batch: ${BATCH}  |  Clear: ${doClear}\n`);
+
+// ── Supabase REST helper with timeout + retry ─────────────────────────────────
+function supabaseRequest(method, urlPath, body, attempt = 1) {
+  return new Promise((resolve, reject) => {
+    const url     = new URL(SUPABASE_URL);
+    const payload = body ? JSON.stringify(body) : null;
+
+    const req = https.request({
+      hostname: url.hostname,
+      path:     `/rest/v1/${urlPath}`,
+      method,
+      headers: {
+        "apikey":        SERVICE_KEY,
+        "Authorization": `Bearer ${SERVICE_KEY}`,
+        "Content-Type":  "application/json",
+        "Prefer":        "return=minimal,resolution=merge-duplicates",
+        ...(payload ? { "Content-Length": Buffer.byteLength(payload) } : {}),
+      },
+      timeout: 30000,
+    }, res => {
+      let data = "";
+      res.on("data", c => (data += c));
+      res.on("end", () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(data ? JSON.parse(data) : null);
+        } else {
+          const msg = `HTTP ${res.statusCode}: ${data}`;
+          if (attempt < 3 && res.statusCode >= 500) {
+            console.warn(`\n  Retry ${attempt + 1} after: ${msg}`);
+            setTimeout(() => supabaseRequest(method, urlPath, body, attempt + 1).then(resolve, reject), 2000);
+          } else {
+            reject(new Error(msg));
+          }
+        }
+      });
+    });
+
+    req.on("timeout", () => {
+      req.destroy();
+      if (attempt < 3) {
+        console.warn(`\n  Timeout — retry ${attempt + 1}…`);
+        setTimeout(() => supabaseRequest(method, urlPath, body, attempt + 1).then(resolve, reject), 3000);
+      } else {
+        reject(new Error("Timed out after 3 attempts"));
+      }
+    });
+
+    req.on("error", e => {
+      if (attempt < 3) {
+        console.warn(`\n  Network error (${e.message}) — retry ${attempt + 1}…`);
+        setTimeout(() => supabaseRequest(method, urlPath, body, attempt + 1).then(resolve, reject), 2000);
+      } else {
+        reject(e);
+      }
+    });
+
+    if (payload) req.write(payload);
+    req.end();
+  });
+}
+
+// ── CSV parser ────────────────────────────────────────────────────────────────
+function splitCSVLine(line) {
+  const out = []; let cur = "", inQuote = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { if (inQuote && line[i+1] === '"') { cur += '"'; i++; } else inQuote = !inQuote; }
+    else if (c === "," && !inQuote) { out.push(cur); cur = ""; }
+    else cur += c;
+  }
+  out.push(cur); return out;
+}
+
+function parseCSV(text) {
+  const lines = text.split("\n").filter(l => l.trim());
+  const headers = splitCSVLine(lines[0]).map(h => h.trim());
+  return lines.slice(1).map(line => {
+    const vals = splitCSVLine(line);
+    return Object.fromEntries(headers.map((h, i) => [h, (vals[i] ?? "").trim()]));
+  });
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+async function main() {
+  const rows = parseCSV(fs.readFileSync(csvPath, "utf-8")).filter(r => r.polish && r.english);
+  console.log(`Loaded ${rows.length} rows from ${csvPath}`);
+
+  if (doClear) {
+    process.stdout.write(`Deleting existing rows for cefr_level='${level}'… `);
+    await supabaseRequest("DELETE", `vocabulary?cefr_level=eq.${level}`, null);
+    console.log("✓ Cleared");
+  }
+
+  const insertRows = rows.map((r, idx) => {
+    const rank       = parseInt(r.frequency_rank, 10) || (idx + 1);
+    const stageNum   = Math.ceil(rank / WORDS_PER_STAGE);
+    const stageId    = `s${stageNum}`;
+    const posInStage = ((rank - 1) % WORDS_PER_STAGE) + 1;
+    const id         = `${level}-${stageId}-${String(posInStage).padStart(3, "0")}`;
+    let accepted = [];
+    try { accepted = JSON.parse(r.accepted_answers || "[]"); } catch { accepted = [r.english.toLowerCase()]; }
+    return { id, polish: r.polish, english: r.english, category: r.category || "misc",
+             subtext: r.subtext || null, accepted_answers: accepted,
+             cefr_level: level, stage_id: stageId, frequency_rank: rank };
+  });
+
+  const batches = [];
+  for (let i = 0; i < insertRows.length; i += BATCH) batches.push(insertRows.slice(i, i + BATCH));
+
+  console.log(`Inserting ${insertRows.length} rows in ${batches.length} batch(es) of ${BATCH}…`);
+  let done = 0;
+  for (let b = 0; b < batches.length; b++) {
+    try {
+      await supabaseRequest("POST", "vocabulary", batches[b]);
+      done += batches[b].length;
+      process.stdout.write(`\r  Batch ${b+1}/${batches.length} — ${done}/${insertRows.length} rows ✓   `);
+    } catch (e) {
+      console.error(`\n\nBatch ${b+1} FAILED: ${e.message}`);
+      console.error(`First row in failed batch: ${JSON.stringify(batches[b][0], null, 2)}`);
+      process.exit(1);
+    }
+    if (b < batches.length - 1) await sleep(150);
+  }
+
+  console.log(`\n\n✓ Done — ${done} words seeded for level="${level}"`);
+  console.log(`  ${Math.ceil(rows.length / WORDS_PER_STAGE)} stages × ${WORDS_PER_STAGE} words`);
+}
+
+main().catch(e => { console.error("FATAL:", e.message); process.exit(1); });

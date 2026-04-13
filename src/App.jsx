@@ -1,16 +1,21 @@
 import { useState, useEffect, useRef, useCallback, useMemo, useReducer } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+/* ── Supabase client ── initialised once from Vite env vars ── */
+const _supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_SERVICE_KEY
+);
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   POLSKQUEST — PHASE 11: PROCEDURAL GENERATION & STATE PERSISTENCE FIXES
+   POLSKQUEST — PHASE 12: SUPABASE LIVE DATA FOR ALL CEFR LEVELS
 
-   KEY CHANGES FROM PHASE 10:
+   KEY CHANGES FROM PHASE 11:
    ┌──────────────────────────────────────────────────────────────────────────┐
-   │  TRAINING FIX   initialCount captured at room-load, never shrinks       │
-   │  PROC GEN       generateDungeonStructure() replaces all hardcoded stages │
-   │  SESSION BUFFER unseen words → buffer on room entry; battle uses buffer  │
-   │                 + 20% review mix from learned bucket                     │
-   │  CEFR ISOLATION A2–C1 pull from correct cefr_level, not A1 fallback     │
-   │  SCROLLABLE MAP DungeonSelect shows paginated stage list (10 per page)  │
+   │  SUPABASE ON    fetchChunk & fetchAllForLevel now query Supabase live    │
+   │  CASE FLEXIBLE  tries uppercase cefr_level ("B2") then lowercase ("b2") │
+   │  NO MOCK BLEED  B2/C1 no longer fall back to placeholder "Słowo" names  │
+   │  CLIENT INIT    createClient() from VITE env vars, no window.__supabase  │
    └──────────────────────────────────────────────────────────────────────────┘
 ══════════════════════════════════════════════════════════════════════════════ */
 
@@ -112,74 +117,95 @@ const SFX = (() => {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §3  VOCAB SERVICE v3 — CEFR-isolated fetching
-   
-   Phase 11 fix: fetchChunk now strictly filters by cefrLevel extracted from
-   the chunkId — A2 words never bleed into A1 rooms and vice-versa.
-   
-   Mock mode: MOCK_VOCAB_CHUNKS keyed exactly as "cefr-sN" (e.g. "a2-s1").
-   Production: swap fetchChunk body for the Supabase version below.
+   §3  VOCAB SERVICE v4 — Supabase-backed, CEFR-isolated fetching
+
+   fetchChunk queries Supabase by (cefr_level, stage_id).
+   Tries uppercase cefr_level first ("B2") then lowercase ("b2") to handle
+   both import conventions from DeepL.
+   fetchAllForLevel fetches the entire level for dungeon-clear mastery marking.
 ══════════════════════════════════════════════════════════════════════════════ */
 const VocabService = {
   _cache: new Map(),
 
-  /* ── MOCK / DEV version ── */
-  // async fetchChunk(chunkId) {
-  //   if (this._cache.has(chunkId)) return this._cache.get(chunkId);
-  //   await new Promise(r => setTimeout(r, 120));
-  //   // Extract cefr level from chunkId — strictly scoped, no fallback bleed
-  //   const cefrLevel = chunkId.split("-")[0];  // "a2-s3" → "a2"
-  //   const exact     = MOCK_VOCAB_CHUNKS[chunkId];
-  //   const fallback  = MOCK_VOCAB_CHUNKS[`${cefrLevel}-s1`];
-  //   // If exact chunk not found, use level-scoped fallback (same CEFR), never A1
-  //   const data = exact ?? fallback ?? [];
-  //   this._cache.set(chunkId, data);
-  //   return data;
-  // },
-
-  /* ── SUPABASE VERSION (uncomment and replace fetchChunk above) ─────────── */
+  /* ── SUPABASE VERSION — active ── */
   async fetchChunk(chunkId) {
     if (this._cache.has(chunkId)) return this._cache.get(chunkId);
-    const [cefrLevel, stageId] = chunkId.split("-", 2);
-    const { data, error } = await window.__supabase
+    // chunkId e.g. "b2-s3"  =>  cefrRaw="b2", stageId="s3"
+    const [cefrRaw, stageId] = chunkId.split("-", 2);
+    const cefrUpper = cefrRaw.toUpperCase(); // "B2" — typical from DeepL imports
+    const cefrLower = cefrRaw.toLowerCase(); // "b2" — fallback
+
+    let data, error;
+
+    // First attempt: uppercase cefr_level (most common from DeepL/Supabase imports)
+    ({ data, error } = await _supabase
       .from("vocabulary")
       .select("*")
-      .eq("cefr_level", cefrLevel)
+      .eq("cefr_level", cefrUpper)
       .eq("stage_id", stageId)
-      .order("frequency_rank", { ascending: true });
+      .order("frequency_rank", { ascending: true }));
+
+    // Second attempt: lowercase, in case the table stores lowercase
+    if (!error && (!data || data.length === 0)) {
+      ({ data, error } = await _supabase
+        .from("vocabulary")
+        .select("*")
+        .eq("cefr_level", cefrLower)
+        .eq("stage_id", stageId)
+        .order("frequency_rank", { ascending: true }));
+    }
+
     if (error) throw error;
+
     const words = (data ?? []).map(r => ({
       id:        r.id,
       polish:    r.polish,
       english:   r.english,
       subtext:   r.subtext ?? null,
-      cat:       r.category,
+      cat:       r.category ?? "misc",
       accepted:  r.accepted_answers ?? [r.english.toLowerCase()],
-      cefrLevel: r.cefr_level,
+      cefrLevel: cefrLower,
       stageId:   r.stage_id,
     }));
     this._cache.set(chunkId, words);
     return words;
   },
-  /* ── ─────────────────────────────────────────────────────────────────────── */
 
+
+  /* ── SUPABASE VERSION — active ── */
   async fetchAllForLevel(cefrLevel) {
     const key = `__all_${cefrLevel}`;
     if (this._cache.has(key)) return this._cache.get(key);
-    const allWords = [];
-    for (const [chunkId, words] of Object.entries(MOCK_VOCAB_CHUNKS)) {
-      if (chunkId.startsWith(cefrLevel + "-")) allWords.push(...words);
+    const cefrUpper = cefrLevel.toUpperCase();
+    const cefrLower = cefrLevel.toLowerCase();
+
+    let data, error;
+    ({ data, error } = await _supabase
+      .from("vocabulary")
+      .select("id, polish, english, subtext, category, accepted_answers, cefr_level, stage_id")
+      .eq("cefr_level", cefrUpper));
+
+    if (!error && (!data || data.length === 0)) {
+      ({ data, error } = await _supabase
+        .from("vocabulary")
+        .select("id, polish, english, subtext, category, accepted_answers, cefr_level, stage_id")
+        .eq("cefr_level", cefrLower));
     }
-    this._cache.set(key, allWords);
-    return allWords;
-    /* SUPABASE VERSION:
-    const { data, error } = await window.__supabase
-      .from("vocabulary").select("id").eq("cefr_level", cefrLevel);
+
     if (error) throw error;
-    const result = (data ?? []).map(r => r.id);
-    this._cache.set(key, result);
-    return result;
-    */
+
+    const words = (data ?? []).map(r => ({
+      id:        r.id,
+      polish:    r.polish,
+      english:   r.english,
+      subtext:   r.subtext ?? null,
+      cat:       r.category ?? "misc",
+      accepted:  r.accepted_answers ?? [r.english.toLowerCase()],
+      cefrLevel: cefrLower,
+      stageId:   r.stage_id,
+    }));
+    this._cache.set(key, words);
+    return words;
   },
 };
 
@@ -1763,9 +1789,9 @@ export default function App() {
             <div>
               <h1 style={{ fontSize:15,fontWeight:900,letterSpacing:"0.15em",color:"#f97316",lineHeight:1 }}>
                 POLSK<span style={{ color:"#ef4444" }}>QUEST</span>
-                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 11</span>
+                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 12</span>
               </h1>
-              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>PROC GEN · SESSION BUFFER · TRAINING FIX · PAGINATED MAP</p>
+              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>SUPABASE LIVE · PROC GEN · SESSION BUFFER · TRAINING FIX</p>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center" }}>
               {(view==="combat"||view==="practice") ? (
