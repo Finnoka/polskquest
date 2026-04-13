@@ -1,24 +1,22 @@
 import { useState, useEffect, useRef, useCallback, useMemo, useReducer } from "react";
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   POLSKQUEST — PHASE 10: INFRASTRUCTURE, CEFR SCALING & INPUT DEBOUNCING
+   POLSKQUEST — PHASE 11: PROCEDURAL GENERATION & STATE PERSISTENCE FIXES
 
-   KEY CHANGES FROM PHASE 9:
+   KEY CHANGES FROM PHASE 10:
    ┌──────────────────────────────────────────────────────────────────────────┐
-   │  INPUT LOCK    500ms lock after first Enter → prevents double-tap skip  │
-   │  AUDIO SPLIT   Correct ding on submit · Slash/Oof on action button only │
-   │  TRAINING MODE Only unseen words shown in Practice (strict filter)      │
-   │  AUTO-MASTERY  Dungeon Clear → bulk-mastered all words in that CEFR lvl │
-   │  REPLAY MODE   Cleared dungeons/stages can be replayed at 20% gold      │
-   │  DEV CHEAT     isUnlocked:true on all dungeons A1→C1 for testing        │
-   │  SUPABASE ARCH VocabService swaps mock → Supabase fetch by cefr+stage   │
-   │  WORD BANK     Filter by CEFR level · shows unseen count too            │
+   │  TRAINING FIX   initialCount captured at room-load, never shrinks       │
+   │  PROC GEN       generateDungeonStructure() replaces all hardcoded stages │
+   │  SESSION BUFFER unseen words → buffer on room entry; battle uses buffer  │
+   │                 + 20% review mix from learned bucket                     │
+   │  CEFR ISOLATION A2–C1 pull from correct cefr_level, not A1 fallback     │
+   │  SCROLLABLE MAP DungeonSelect shows paginated stage list (10 per page)  │
    └──────────────────────────────────────────────────────────────────────────┘
 ══════════════════════════════════════════════════════════════════════════════ */
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §1  AUDIO SERVICE v2  (unchanged — battle-tested)
+   §1  AUDIO SERVICE v2  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 class AudioServiceV2 {
   _voices=[]; _voice=null; _warmed=false; _voicePromise=null;
@@ -80,7 +78,7 @@ const AudioService = new AudioServiceV2();
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §2  SFX ENGINE v2 — Phase 9 4-sound split (unchanged)
+   §2  SFX ENGINE v2  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 const SFX = (() => {
   let ctx = null;
@@ -103,33 +101,10 @@ const SFX = (() => {
   };
   const resume = () => { const c = getCtx(); if (c && c.state === "suspended") c.resume(); return c; };
   return {
-    successDing() {
-      const c = resume(); if (!c) return;
-      const t = c.currentTime;
-      tone(660, "sine",     t,       0.08, 0.28, 990);
-      tone(990, "sine",     t+0.07,  0.14, 0.22, 1320);
-      tone(1320,"triangle", t+0.14,  0.08, 0.12);
-    },
-    incorrectBuzzer() {
-      const c = resume(); if (!c) return;
-      const t = c.currentTime;
-      tone(160, "sawtooth", t,       0.18, 0.32, 100);
-      tone(280, "sawtooth", t,       0.12, 0.12, 140);
-    },
-    bladeSlash() {
-      const c = resume(); if (!c) return;
-      const t = c.currentTime;
-      tone(800,  "sawtooth", t,       0.04, 0.22, 200);
-      tone(1600, "sawtooth", t,       0.12, 0.18, 100);
-      tone(300,  "sine",     t+0.04,  0.10, 0.10, 80);
-    },
-    oofImpact() {
-      const c = resume(); if (!c) return;
-      const t = c.currentTime;
-      tone(120,  "square",   t,       0.20, 0.35, 60);
-      tone(200,  "sawtooth", t,       0.08, 0.20, 80);
-      tone(80,   "sine",     t+0.10,  0.25, 0.28, 40);
-    },
+    successDing()    { const c=resume(); if(!c)return; const t=c.currentTime; tone(660,"sine",t,0.08,0.28,990); tone(990,"sine",t+0.07,0.14,0.22,1320); tone(1320,"triangle",t+0.14,0.08,0.12); },
+    incorrectBuzzer(){ const c=resume(); if(!c)return; const t=c.currentTime; tone(160,"sawtooth",t,0.18,0.32,100); tone(280,"sawtooth",t,0.12,0.12,140); },
+    bladeSlash()     { const c=resume(); if(!c)return; const t=c.currentTime; tone(800,"sawtooth",t,0.04,0.22,200); tone(1600,"sawtooth",t,0.12,0.18,100); tone(300,"sine",t+0.04,0.10,0.10,80); },
+    oofImpact()      { const c=resume(); if(!c)return; const t=c.currentTime; tone(120,"square",t,0.20,0.35,60); tone(200,"sawtooth",t,0.08,0.20,80); tone(80,"sine",t+0.10,0.25,0.28,40); },
     correct() { this.successDing(); },
     wrong()   { this.incorrectBuzzer(); },
   };
@@ -137,32 +112,35 @@ const SFX = (() => {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §3  VOCAB SERVICE v2 — Supabase-ready
+   §3  VOCAB SERVICE v3 — CEFR-isolated fetching
    
-   HOW IT WORKS NOW:
-   • In dev (mock mode): reads from MOCK_VOCAB_CHUNKS keyed by "cefrLevel-stageId"
-   • In production: swap the fetchChunk body for a Supabase fetch (see comments)
+   Phase 11 fix: fetchChunk now strictly filters by cefrLevel extracted from
+   the chunkId — A2 words never bleed into A1 rooms and vice-versa.
    
-   The interface is IDENTICAL so the rest of the app needs zero changes when
-   you flip the switch to real data.
+   Mock mode: MOCK_VOCAB_CHUNKS keyed exactly as "cefr-sN" (e.g. "a2-s1").
+   Production: swap fetchChunk body for the Supabase version below.
 ══════════════════════════════════════════════════════════════════════════════ */
 const VocabService = {
   _cache: new Map(),
 
-  /* ── PRODUCTION: replace this body with the Supabase version below ── */
+  /* ── MOCK / DEV version ── */
   // async fetchChunk(chunkId) {
   //   if (this._cache.has(chunkId)) return this._cache.get(chunkId);
-  //   // Simulate network latency in mock mode
-  //   await new Promise(r => setTimeout(r, 220));
-  //   const data = MOCK_VOCAB_CHUNKS[chunkId] ?? [];
+  //   await new Promise(r => setTimeout(r, 120));
+  //   // Extract cefr level from chunkId — strictly scoped, no fallback bleed
+  //   const cefrLevel = chunkId.split("-")[0];  // "a2-s3" → "a2"
+  //   const exact     = MOCK_VOCAB_CHUNKS[chunkId];
+  //   const fallback  = MOCK_VOCAB_CHUNKS[`${cefrLevel}-s1`];
+  //   // If exact chunk not found, use level-scoped fallback (same CEFR), never A1
+  //   const data = exact ?? fallback ?? [];
   //   this._cache.set(chunkId, data);
   //   return data;
   // },
 
-  /* ── SUPABASE VERSION (uncomment and replace fetchChunk above) ──────────*/
+  /* ── SUPABASE VERSION (uncomment and replace fetchChunk above) ─────────── */
   async fetchChunk(chunkId) {
     if (this._cache.has(chunkId)) return this._cache.get(chunkId);
-    const [cefrLevel, stageId] = chunkId.split("-", 2);  // e.g. "a1-s1" → ["a1","s1"]
+    const [cefrLevel, stageId] = chunkId.split("-", 2);
     const { data, error } = await window.__supabase
       .from("vocabulary")
       .select("*")
@@ -170,23 +148,21 @@ const VocabService = {
       .eq("stage_id", stageId)
       .order("frequency_rank", { ascending: true });
     if (error) throw error;
-    // Map snake_case DB cols → camelCase game format
     const words = (data ?? []).map(r => ({
-      id:       r.id,
-      polish:   r.polish,
-      english:  r.english,
-      subtext:  r.subtext ?? null,
-      cat:      r.category,
-      accepted: r.accepted_answers ?? [r.english.toLowerCase()],
+      id:        r.id,
+      polish:    r.polish,
+      english:   r.english,
+      subtext:   r.subtext ?? null,
+      cat:       r.category,
+      accepted:  r.accepted_answers ?? [r.english.toLowerCase()],
       cefrLevel: r.cefr_level,
       stageId:   r.stage_id,
     }));
     this._cache.set(chunkId, words);
     return words;
   },
-  /*── ─────────────────────────────────────────────────────────────────────── */
+  /* ── ─────────────────────────────────────────────────────────────────────── */
 
-  /* Fetch ALL words for a given CEFR level (used by auto-mastery + Word Bank) */
   async fetchAllForLevel(cefrLevel) {
     const key = `__all_${cefrLevel}`;
     if (this._cache.has(key)) return this._cache.get(key);
@@ -198,9 +174,7 @@ const VocabService = {
     return allWords;
     /* SUPABASE VERSION:
     const { data, error } = await window.__supabase
-      .from("vocabulary")
-      .select("id")
-      .eq("cefr_level", cefrLevel);
+      .from("vocabulary").select("id").eq("cefr_level", cefrLevel);
     if (error) throw error;
     const result = (data ?? []).map(r => r.id);
     this._cache.set(key, result);
@@ -211,9 +185,13 @@ const VocabService = {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §4  MOCK VOCAB CHUNKS  (same data as Phase 9, extended)
+   §4  MOCK VOCAB CHUNKS — each CEFR level has its own distinct words
+   
+   Phase 11 fix: A2, B1, B2, C1 now have genuinely different mock words so
+   the "placeholder loop" bug (all levels showing A1 words) is eliminated.
 ══════════════════════════════════════════════════════════════════════════════ */
 const MOCK_VOCAB_CHUNKS = {
+  /* ── A1 ── */
   "a1-s1": [
     { id:"a1-s1-001", polish:"Dzień dobry",  english:"good day",     subtext:"(formal)",            cat:"greetings", accepted:["good day","good morning","good afternoon"] },
     { id:"a1-s1-002", polish:"Cześć",         english:"hi",           subtext:"(informal)",          cat:"greetings", accepted:["hi","hello","hey","bye"] },
@@ -238,29 +216,87 @@ const MOCK_VOCAB_CHUNKS = {
     { id:"a1-s2-009", polish:"Cztery",  english:"four",   subtext:null, cat:"numbers", accepted:["four","4"] },
     { id:"a1-s2-010", polish:"Pięć",    english:"five",   subtext:null, cat:"numbers", accepted:["five","5"] },
   ],
-  "a1-s3": Array.from({length:10},(_,i)=>({ id:`a1-s3-${String(i+1).padStart(3,"0")}`, polish:`Kolor ${i+1}`, english:`colour ${i+1}`, subtext:null, cat:"colours", accepted:[`colour ${i+1}`,`color ${i+1}`] })),
-  "a1-s4": Array.from({length:10},(_,i)=>({ id:`a1-s4-${String(i+1).padStart(3,"0")}`, polish:`Czas ${i+1}`, english:`time ${i+1}`, subtext:null, cat:"time", accepted:[`time ${i+1}`] })),
-  // Stubs for A2, B1 (in production these come from Supabase)
-  "a2-s1": Array.from({length:10},(_,i)=>({ id:`a2-s1-${String(i+1).padStart(3,"0")}`, polish:`Słowo A2-${i+1}`, english:`word a2-${i+1}`, subtext:null, cat:"misc", accepted:[`word a2-${i+1}`] })),
-  "b1-s1": Array.from({length:10},(_,i)=>({ id:`b1-s1-${String(i+1).padStart(3,"0")}`, polish:`Słowo B1-${i+1}`, english:`word b1-${i+1}`, subtext:null, cat:"misc", accepted:[`word b1-${i+1}`] })),
-  "b2-s1": Array.from({length:10},(_,i)=>({ id:`b2-s1-${String(i+1).padStart(3,"0")}`, polish:`Słowo B2-${i+1}`, english:`word b2-${i+1}`, subtext:null, cat:"misc", accepted:[`word b2-${i+1}`] })),
-  "c1-s1": Array.from({length:10},(_,i)=>({ id:`c1-s1-${String(i+1).padStart(3,"0")}`, polish:`Słowo C1-${i+1}`, english:`word c1-${i+1}`, subtext:null, cat:"misc", accepted:[`word c1-${i+1}`] })),
+  // Remaining A1 stages use generated mock data
+  ...Object.fromEntries(
+    Array.from({length:12}, (_,i) => [`a1-s${i+3}`, Array.from({length:10}, (_,j) => ({
+      id:`a1-s${i+3}-${String(j+1).padStart(3,"0")}`, polish:`Słowo A1.${i+3}.${j+1}`,
+      english:`a1 word ${i+3}-${j+1}`, subtext:null, cat:"misc",
+      accepted:[`a1 word ${i+3}-${j+1}`]
+    }))])
+  ),
+
+  /* ── A2 — distinctly different vocabulary (grammar, intermediate) ── */
+  "a2-s1": [
+    { id:"a2-s1-001", polish:"Rozumiem",    english:"I understand",  subtext:null, cat:"phrases", accepted:["i understand","i get it","understood"] },
+    { id:"a2-s1-002", polish:"Nie rozumiem",english:"I don't understand", subtext:null, cat:"phrases", accepted:["i don't understand","i do not understand"] },
+    { id:"a2-s1-003", polish:"Mówię po angielsku", english:"I speak English", subtext:null, cat:"phrases", accepted:["i speak english"] },
+    { id:"a2-s1-004", polish:"Mieszkam w",  english:"I live in",     subtext:null, cat:"phrases", accepted:["i live in"] },
+    { id:"a2-s1-005", polish:"Ile kosztuje",english:"how much is it",subtext:null, cat:"shopping", accepted:["how much is it","how much does it cost","how much"] },
+    { id:"a2-s1-006", polish:"Gdzie jest",  english:"where is",      subtext:null, cat:"directions", accepted:["where is","where's"] },
+    { id:"a2-s1-007", polish:"Na lewo",     english:"to the left",   subtext:null, cat:"directions", accepted:["to the left","on the left","left"] },
+    { id:"a2-s1-008", polish:"Na prawo",    english:"to the right",  subtext:null, cat:"directions", accepted:["to the right","on the right","right"] },
+    { id:"a2-s1-009", polish:"Prosto",      english:"straight ahead",subtext:null, cat:"directions", accepted:["straight ahead","straight on","straight"] },
+    { id:"a2-s1-010", polish:"Niedaleko",   english:"nearby",        subtext:null, cat:"directions", accepted:["nearby","not far","close"] },
+  ],
+  ...Object.fromEntries(
+    Array.from({length:39}, (_,i) => [`a2-s${i+2}`, Array.from({length:10}, (_,j) => ({
+      id:`a2-s${i+2}-${String(j+1).padStart(3,"0")}`, polish:`Słowo A2.${i+2}.${j+1}`,
+      english:`a2 word ${i+2}-${j+1}`, subtext:null, cat:"misc",
+      accepted:[`a2 word ${i+2}-${j+1}`]
+    }))])
+  ),
+
+  /* ── B1 — cases, verbs of motion ── */
+  "b1-s1": [
+    { id:"b1-s1-001", polish:"Mianownik",   english:"nominative",    subtext:"(case)",  cat:"grammar", accepted:["nominative"] },
+    { id:"b1-s1-002", polish:"Dopełniacz",  english:"genitive",      subtext:"(case)",  cat:"grammar", accepted:["genitive"] },
+    { id:"b1-s1-003", polish:"Celownik",    english:"dative",        subtext:"(case)",  cat:"grammar", accepted:["dative"] },
+    { id:"b1-s1-004", polish:"Biernik",     english:"accusative",    subtext:"(case)",  cat:"grammar", accepted:["accusative"] },
+    { id:"b1-s1-005", polish:"Narzędnik",   english:"instrumental",  subtext:"(case)",  cat:"grammar", accepted:["instrumental"] },
+    { id:"b1-s1-006", polish:"Miejscownik", english:"locative",      subtext:"(case)",  cat:"grammar", accepted:["locative"] },
+    { id:"b1-s1-007", polish:"Wołacz",      english:"vocative",      subtext:"(case)",  cat:"grammar", accepted:["vocative"] },
+    { id:"b1-s1-008", polish:"Iść",         english:"to go (on foot)",subtext:null,     cat:"motion",  accepted:["to go","go","to walk","walk"] },
+    { id:"b1-s1-009", polish:"Jechać",      english:"to go (by vehicle)", subtext:null, cat:"motion",  accepted:["to go by vehicle","to drive","to ride","drive"] },
+    { id:"b1-s1-010", polish:"Lecieć",      english:"to fly",        subtext:null,      cat:"motion",  accepted:["to fly","fly"] },
+  ],
+  ...Object.fromEntries(
+    Array.from({length:59}, (_,i) => [`b1-s${i+2}`, Array.from({length:10}, (_,j) => ({
+      id:`b1-s${i+2}-${String(j+1).padStart(3,"0")}`, polish:`Słowo B1.${i+2}.${j+1}`,
+      english:`b1 word ${i+2}-${j+1}`, subtext:null, cat:"misc",
+      accepted:[`b1 word ${i+2}-${j+1}`]
+    }))])
+  ),
+
+  /* ── B2 — advanced fluency ── */
+  "b2-s1": Array.from({length:10}, (_,j) => ({
+    id:`b2-s1-${String(j+1).padStart(3,"0")}`, polish:`Słowo B2.1.${j+1}`,
+    english:`b2 word 1-${j+1}`, subtext:null, cat:"advanced", accepted:[`b2 word 1-${j+1}`]
+  })),
+  ...Object.fromEntries(
+    Array.from({length:99}, (_,i) => [`b2-s${i+2}`, Array.from({length:10}, (_,j) => ({
+      id:`b2-s${i+2}-${String(j+1).padStart(3,"0")}`, polish:`Słowo B2.${i+2}.${j+1}`,
+      english:`b2 word ${i+2}-${j+1}`, subtext:null, cat:"misc",
+      accepted:[`b2 word ${i+2}-${j+1}`]
+    }))])
+  ),
+
+  /* ── C1 — near-native ── */
+  "c1-s1": Array.from({length:10}, (_,j) => ({
+    id:`c1-s1-${String(j+1).padStart(3,"0")}`, polish:`Słowo C1.1.${j+1}`,
+    english:`c1 word 1-${j+1}`, subtext:null, cat:"native", accepted:[`c1 word 1-${j+1}`]
+  })),
+  ...Object.fromEntries(
+    Array.from({length:199}, (_,i) => [`c1-s${i+2}`, Array.from({length:10}, (_,j) => ({
+      id:`c1-s${i+2}-${String(j+1).padStart(3,"0")}`, polish:`Słowo C1.${i+2}.${j+1}`,
+      english:`c1 word ${i+2}-${j+1}`, subtext:null, cat:"misc",
+      accepted:[`c1 word ${i+2}-${j+1}`]
+    }))])
+  ),
 };
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §5  MASTERY STORE  (Phase 10 — bulk mastery added for Dungeon Clear)
-   
-   BUCKET LOGIC:
-   ┌───────────────────────────────────────────────────────────────────────┐
-   │  unseen     Word never encountered.                                   │
-   │  training   Introduced in Practice Mode but not yet used in battle.  │
-   │  learning   Seen in battle. Correct answers build toward mastered.   │
-   │  mastered   Answered correctly 5× in a streak. PERMANENT. Immune.   │
-   └───────────────────────────────────────────────────────────────────────┘
-   
-   NEW in Phase 10:
-   • BULK_MASTER_LEVEL { wordIds: string[] } — used by Dungeon Clear hook
+   §5  MASTERY STORE  (unchanged from Phase 10)
 ══════════════════════════════════════════════════════════════════════════════ */
 const TRAINING_SCORE    = -99;
 const MASTERY_THRESHOLD = 5;
@@ -295,13 +331,10 @@ function ledgerReducer(state, action) {
       if (state[wordId] !== undefined && state[wordId] >= MASTERY_THRESHOLD) return state;
       return { ...state, [wordId]: 0 };
     }
-    /* Phase 10 — Dungeon Clear: bulk-upgrade all words for a CEFR level to mastered */
     case "BULK_MASTER_LEVEL": {
       if (!wordIds?.length) return state;
       const patch = {};
-      for (const id of wordIds) {
-        patch[id] = MASTERY_THRESHOLD; // set to 5 (mastered)
-      }
+      for (const id of wordIds) patch[id] = MASTERY_THRESHOLD;
       return { ...state, ...patch };
     }
     default: return state;
@@ -325,111 +358,140 @@ function computeMasteryPct(ledger, dungeonTotalWords, allLedgerIds) {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §6  DUNGEON MANIFEST
+   §6  PROCEDURAL DUNGEON GENERATOR
    
-   Phase 10 changes:
-   • All dungeons isUnlocked:true for dev/testing (cheat code)
-   • A2, B1, B2, C1 fully stubbed with stages (for replay + progress testing)
-   • CEFR word targets: A1=700, A2=2000, B1=3000, B2=5000, C1=10000
+   Phase 11: Replaces ALL hardcoded stages arrays.
+   
+   Structure per dungeon:
+     • N stages = ceil(totalWords / WORDS_PER_STAGE)
+     • Each stage has 5 rooms
+     • Each room introduces 10 new words (WORDS_PER_STAGE / 5 = 10)
+     • wordSlice per room: non-overlapping windows into the stage's 50-word chunk
+     • Boss uses entire stage word pool for final test
+   
+   Room word slices:
+     Room 1: [0, 10]   Room 2: [10, 20]   Room 3: [20, 30]
+     Room 4: [30, 40]  Room 5: [40, 50]   Boss:   [0, 50]
 ══════════════════════════════════════════════════════════════════════════════ */
-// Helper to generate stages for a dungeon
-function generateStages(dungeonId, totalWords, wordsPerStage = 50) {
-  const stageCount = Math.ceil(totalWords / wordsPerStage);
-  const stageThemes = [
-    { name: "The Gateway",        icon: "🚪" },
-    { name: "The Market",         icon: "🏪" },
-    { name: "The Forest",         icon: "🌲" },
-    { name: "The River",          icon: "🌊" },
-    { name: "The Mountain",       icon: "⛰" },
-    { name: "The Castle",         icon: "🏰" },
-    { name: "The Library",        icon: "📚" },
-    { name: "The Temple",         icon: "🏛" },
-    { name: "The Academy",        icon: "🎓" },
-    { name: "The Tower",          icon: "🗼" },
-  ];
+const WORDS_PER_STAGE = 50;
+const ROOMS_PER_STAGE = 5;
+const WORDS_PER_ROOM  = WORDS_PER_STAGE / ROOMS_PER_STAGE; // 10
+
+// Rotating pools for procedural variety
+const STAGE_THEMES = [
+  { name:"The Gateway",      icon:"🚪" }, { name:"The Forest",       icon:"🌲" },
+  { name:"The Market",       icon:"🏪" }, { name:"The River",        icon:"🌊" },
+  { name:"The Mountain",     icon:"⛰"  }, { name:"The Castle",       icon:"🏰" },
+  { name:"The Library",      icon:"📚" }, { name:"The Temple",       icon:"🏛"  },
+  { name:"The Academy",      icon:"🎓" }, { name:"The Tower",        icon:"🗼" },
+  { name:"The Dungeon",      icon:"⚔️" }, { name:"The Tavern",       icon:"🍺" },
+  { name:"The Harbour",      icon:"⚓" }, { name:"The Arena",        icon:"🏟" },
+  { name:"The Vault",        icon:"🔐" }, { name:"The Citadel",      icon:"🏯" },
+  { name:"The Observatory",  icon:"🔭" }, { name:"The Crossroads",   icon:"🛤"  },
+  { name:"The Ruins",        icon:"🏚"  }, { name:"The Fortress",     icon:"🛡"  },
+];
+
+const ROOM_ENEMIES = [
+  { name:"The Rusty Guard",   emoji:"🧟" }, { name:"The Echo Imp",     emoji:"👺" },
+  { name:"The Mimic Spider",  emoji:"🕷" }, { name:"The Fog Specter",  emoji:"👁" },
+  { name:"The Hollow Knight", emoji:"🗡" }, { name:"The Word Wraith",  emoji:"💀" },
+  { name:"The Ink Golem",     emoji:"📜" }, { name:"The Rune Warden",  emoji:"🔮" },
+  { name:"The Tongue Thief",  emoji:"👅" }, { name:"The Cipher Beast", emoji:"🦎" },
+];
+
+const BOSS_GUARDIANS = [
+  { name:"The Ancient One",    emoji:"🌳", title:"Rex" },
+  { name:"The Word Tyrant",    emoji:"🐉", title:"Maximus" },
+  { name:"The Grand Linguist", emoji:"👑", title:"Supremus" },
+  { name:"The Lexicon Lord",   emoji:"📖", title:"Infinitus" },
+  { name:"The Syllable Sphinx",emoji:"🦁", title:"Eternus" },
+];
+
+// XP and gold scale gently with stage depth
+function stageRewards(stageIndex, dungeonIndex) {
+  const depthBonus = Math.floor(stageIndex / 10);
+  const cefrBonus  = dungeonIndex * 20;
+  return {
+    roomXp:   80  + depthBonus * 5  + cefrBonus,
+    roomGold: 30  + depthBonus * 2  + cefrBonus / 2,
+    bossXp:   250 + depthBonus * 15 + cefrBonus * 2,
+    bossGold: 150 + depthBonus * 8  + cefrBonus * 3,
+  };
+}
+
+function generateDungeonStructure(dungeonId, totalWords, dungeonIndex = 0) {
+  const stageCount = Math.ceil(totalWords / WORDS_PER_STAGE);
 
   return Array.from({ length: stageCount }, (_, i) => {
-    const theme    = stageThemes[i % stageThemes.length];
-    const stageNum = i + 1;
-    const chunkId  = `${dungeonId}-s${stageNum}`;
+    const stageNum  = i + 1;
+    const theme     = STAGE_THEMES[i % STAGE_THEMES.length];
+    const rewards   = stageRewards(i, dungeonIndex);
+    const chunkId   = `${dungeonId}-s${stageNum}`;
+    const boss      = BOSS_GUARDIANS[i % BOSS_GUARDIANS.length];
+
+    const rooms = Array.from({ length: ROOMS_PER_STAGE }, (_, j) => {
+      const enemy     = ROOM_ENEMIES[(i * ROOMS_PER_STAGE + j) % ROOM_ENEMIES.length];
+      const sliceStart = j * WORDS_PER_ROOM;
+      const sliceEnd   = sliceStart + WORDS_PER_ROOM;
+      return {
+        id:        `${dungeonId}-s${stageNum}-r${j+1}`,
+        name:      `${theme.name} — Room ${j+1}`,
+        enemyName: enemy.name,
+        emoji:     enemy.emoji,
+        xp:        rewards.roomXp,
+        gold:      rewards.roomGold,
+        wordSlice: [sliceStart, sliceEnd],
+      };
+    });
 
     return {
-      id:      `${dungeonId}-s${stageNum}`,
+      id:      chunkId,
       index:   stageNum,
       name:    `${theme.name} ${stageNum}`,
       chunkId,
       icon:    theme.icon,
       color:   "#6366f1",
-      rooms: Array.from({ length: 5 }, (_, j) => ({
-        id:          `${dungeonId}-s${stageNum}-r${j+1}`,
-        name:        `Room ${j+1}`,
-        enemyName:   `Stage ${stageNum} Enemy ${j+1}`,
-        emoji:       ["👺","🧟","💀","👁","🗡"][j],
-        xp:          100 + (stageNum * 5),
-        gold:        40  + (stageNum * 2),
-        wordSlice:   [j * 10, j * 10 + 10],
-      })),
+      rooms,
       boss: {
         id:               `${dungeonId}-s${stageNum}-boss`,
-        name:             `The ${theme.name} Guardian`,
-        enemyName:        `Guardian of Stage ${stageNum}`,
-        emoji:            "👑",
-        lore:             `Master of words ${(i * wordsPerStage) + 1}–${(i+1) * wordsPerStage}.`,
-        xp:               300 + (stageNum * 10),
-        gold:             150 + (stageNum * 5),
-        bossTimerSeconds: 10,
-        wordSlice:        [0, 50],
+        name:             `${boss.name} ${stageNum}`,
+        enemyName:        `${boss.name} ${boss.title}`,
+        emoji:            boss.emoji,
+        lore:             `Guardian of words ${(i * WORDS_PER_STAGE) + 1}–${Math.min((i+1) * WORDS_PER_STAGE, totalWords)}. Answer before time expires.`,
+        xp:               rewards.bossXp,
+        gold:             rewards.bossGold,
+        bossTimerSeconds: Math.max(6, 12 - Math.floor(i / 20)), // gets harder at depth
+        wordSlice:        [0, WORDS_PER_STAGE],
       },
     };
   });
 }
 
-const DUNGEON_MANIFEST = [
-  {
-    id:"a1", name:"A1 Dungeon", subtitle:"700 Basic Polish Words",
-    cefr:"A1", color:"#10b981", bg:"rgba(16,185,129,0.09)",
-    border:"rgba(16,185,129,0.26)", icon:"🏰",
-    locked:false, isUnlocked:true,
-    totalWords:700,
-    stages: generateStages("a1", 700),  // 14 stages
-  },
-  {
-    id:"a2", name:"A2 Dungeon", subtitle:"2000 Grammar & Intermediate Vocab",
-    cefr:"A2", color:"#3b82f6", bg:"rgba(59,130,246,0.09)",
-    border:"rgba(59,130,246,0.26)", icon:"🗼",
-    locked:false, isUnlocked:true,
-    totalWords:2000,
-    stages: generateStages("a2", 2000),  // 40 stages
-  },
-  {
-    id:"b1", name:"B1 Dungeon", subtitle:"3000 Cases, Verbs of Motion & Beyond",
-    cefr:"B1", color:"#a855f7", bg:"rgba(168,85,247,0.09)",
-    border:"rgba(168,85,247,0.26)", icon:"⚔️",
-    locked:false, isUnlocked:true,
-    totalWords:3000,
-    stages: generateStages("b1", 3000),  // 60 stages
-  },
-  {
-    id:"b2", name:"B2 Dungeon", subtitle:"5000 Advanced Fluency",
-    cefr:"B2", color:"#f97316", bg:"rgba(249,115,22,0.09)",
-    border:"rgba(249,115,22,0.26)", icon:"🏛",
-    locked:false, isUnlocked:true,
-    totalWords:5000,
-    stages: generateStages("b2", 5000),  // 100 stages
-  },
-  {
-    id:"c1", name:"C1 Dungeon", subtitle:"10000 Near-Native Mastery",
-    cefr:"C1", color:"#ec4899", bg:"rgba(236,72,153,0.09)",
-    border:"rgba(236,72,153,0.26)", icon:"👑",
-    locked:false, isUnlocked:true,
-    totalWords:10000,
-    stages: generateStages("c1", 10000),  // 200 stages
-  },
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   §7  DUNGEON MANIFEST — fully procedural, no hardcoded stages
+══════════════════════════════════════════════════════════════════════════════ */
+const DUNGEON_CONFIG = [
+  { id:"a1", name:"A1 Dungeon", subtitle:"700 Basic Polish Words",           cefr:"A1", color:"#10b981", bg:"rgba(16,185,129,0.09)", border:"rgba(16,185,129,0.26)", icon:"🏰", totalWords:700   },
+  { id:"a2", name:"A2 Dungeon", subtitle:"2000 Grammar & Intermediate",      cefr:"A2", color:"#3b82f6", bg:"rgba(59,130,246,0.09)", border:"rgba(59,130,246,0.26)", icon:"🗼", totalWords:2000  },
+  { id:"b1", name:"B1 Dungeon", subtitle:"3000 Cases & Verbs of Motion",     cefr:"B1", color:"#a855f7", bg:"rgba(168,85,247,0.09)", border:"rgba(168,85,247,0.26)", icon:"⚔️", totalWords:3000  },
+  { id:"b2", name:"B2 Dungeon", subtitle:"5000 Advanced Fluency",            cefr:"B2", color:"#f97316", bg:"rgba(249,115,22,0.09)", border:"rgba(249,115,22,0.26)", icon:"🏛", totalWords:5000  },
+  { id:"c1", name:"C1 Dungeon", subtitle:"10000 Near-Native Mastery",        cefr:"C1", color:"#ec4899", bg:"rgba(236,72,153,0.09)", border:"rgba(236,72,153,0.26)", icon:"👑", totalWords:10000 },
 ];
+
+const DUNGEON_MANIFEST = DUNGEON_CONFIG.map((cfg, idx) => ({
+  ...cfg,
+  locked:     false,
+  isUnlocked: true, // DEV CHEAT — remove for production gating
+  stages:     generateDungeonStructure(cfg.id, cfg.totalWords, idx),
+}));
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §7  VOCAB ENGINE v3  (unchanged — stage-scoped generation with mastery weighting)
+   §8  VOCAB ENGINE v3 — session buffer aware
+   
+   Phase 11: generateQuestion now accepts a sessionBuffer (array of words) as
+   the primary pool. Review words (learning/mastered) are injected at 20%.
 ══════════════════════════════════════════════════════════════════════════════ */
 function removeDiacritics(s) {
   return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
@@ -438,13 +500,31 @@ function removeDiacritics(s) {
           .replace(/ę/g,"e").replace(/ą/g,"a");
 }
 
+/* Build battle pool: session buffer + 20% review words from learned bucket */
+function buildBattlePool(sessionBuffer, fullWordPool, ledger) {
+  if (!sessionBuffer?.length) return fullWordPool;
+
+  // Collect learned words NOT already in the session buffer
+  const bufferIds = new Set(sessionBuffer.map(w => w.id));
+  const learnedWords = fullWordPool.filter(w =>
+    !bufferIds.has(w.id) &&
+    scoreToTier(ledger[w.id], w.id in ledger) === "learning"
+  );
+
+  // 20% review cap
+  const reviewCount = Math.max(1, Math.floor(sessionBuffer.length * 0.20));
+  const reviewWords = learnedWords
+    .sort(() => Math.random() - 0.5)
+    .slice(0, reviewCount);
+
+  return [...sessionBuffer, ...reviewWords];
+}
+
 function weightedPick(pool, ledger, excludeId) {
   const eligible = pool.length > 1 ? pool.filter(w => w.id !== excludeId) : pool;
   const weights  = eligible.map(w => {
-    const s   = ledger[w.id];
-    const tier = scoreToTier(s, w.id in ledger);
-    const base = { unseen:5, training:7, learning:6, mastered:1 };
-    return base[tier] ?? 5;
+    const tier = scoreToTier(ledger[w.id], w.id in ledger);
+    return { unseen:5, training:7, learning:6, mastered:1 }[tier] ?? 5;
   });
   const total = weights.reduce((a,b) => a+b, 0);
   let r = Math.random() * total;
@@ -489,22 +569,26 @@ function checkAnswer(q, raw) {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §8  TUTOR DATABASE (unchanged)
+   §9  TUTOR DATABASE  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 const TUTOR_DB = {
-  greetings:{ title:"Polish Greeting Registers", coreRule:"Polish distinguishes formal and informal sharply. 'Dzień dobry' for strangers; 'Cześć' only with peers.", breakdown:[{label:"Formal",text:"Dzień dobry (day), Dobry wieczór (evening), Do widzenia (goodbye)."},{label:"Informal",text:"Cześć covers hi AND bye. Nara / Na razie = very casual."},{label:"Proszę",text:"Please / here you go / you're welcome — context determines meaning."}], mnemonic:"Dzień = day → Dzień dobry. Cześć rhymes with 'fresh' — keep it fresh with friends.", antiPattern:"Using Cześć with a teacher — it signals casualness and can read as rude.", analogyEN:"Like 'Good day sir' vs 'Hey!' — same idea, very different register." },
-  core:     { title:"Polish Core Words", coreRule:"Tak / Nie / Dobrze / Bardzo — highest-frequency non-pronoun words.", breakdown:[{label:"Tak/Nie",text:"Yes/no. 'Nie' also negates verbs: 'Nie wiem' = I don't know."},{label:"Dobrze",text:"Good + okay: 'Dobrze, rozumiem' = Okay, I understand."},{label:"Bardzo",text:"Very: 'Bardzo dobrze' = very good."}], mnemonic:"Nie = knee (no, bends). Tak = tock (yes, ticks).", antiPattern:"'Nie' in response to a negative question may confuse — Polish double-negatives work differently.", analogyEN:"Dobrze is Italian 'bene' — covers quality and acknowledgement both." },
-  food:     { title:"Polish Food & Drink", coreRule:"Food nouns have gender. Masculine: chleb. Feminine: woda, herbata, kawa. Neuter: piwo, mleko.", breakdown:[{label:"Drinks",text:"Woda (water), kawa (coffee), herbata (tea), piwo (beer)."},{label:"Staples",text:"Chleb (bread) — 'ch' like Scottish loch, NOT English chess."},{label:"Gender note",text:"Learning gender with each word now saves enormous headaches later."}], mnemonic:"Chleb = kh-leb (like Russian хлеб). Herbata = hehr-BAH-tah, not herb.", antiPattern:"Pronouncing chleb with English 'ch'. It's a velar fricative — try gargling gently.", analogyEN:"Like café vs caffè — same liquid, different register." },
-  numbers:  { title:"Polish Numbers", coreRule:"Learn 1–10 as pure sound first — don't overthink spelling.", breakdown:[{label:"1–3",text:"Jeden, dwa, trzy. Trzy ≈ tsheh — tree without th."},{label:"4–5",text:"Cztery = ch-tereh. Pięć = pyench — nasal ę."},{label:"6–10",text:"Sześć, siedem, osiem, dziewięć, dziesięć."}], mnemonic:"Trzy = tree (3 branches). Cztery starts like Polish 'ch' — like czar.", antiPattern:"Reading 'cz' like English ch in church. Polish cz is always ch as in chess.", analogyEN:"French numbers reward ear-training over eye-reading. Polish is the same." },
-  colours:  { title:"Polish Colours", coreRule:"Colours agree in gender and case with the noun they modify.", breakdown:[{label:"Basic",text:"Czerwony (red), niebieski (blue), zielony (green), żółty (yellow)."},{label:"Agreement",text:"Biały kot (white cat-m.), biała kawa (white coffee-f.)."},{label:"Tip",text:"Start with the dictionary form; worry about agreement after."}], mnemonic:"Czerwony = red, think 'czar' — red-hot magic.", antiPattern:"Forgetting gender agreement — in Polish every adjective must match.", analogyEN:"Like French rouge / rouge / rouge — but Polish adds more forms." },
-  time:     { title:"Polish Time Words", coreRule:"Days and months are not capitalised in Polish.", breakdown:[{label:"Days",text:"Poniedziałek (Mon), wtorek (Tue), środa (Wed), czwartek (Thu), piątek (Fri)."},{label:"Months",text:"Styczeń (Jan), luty (Feb), marzec (Mar), kwiecień (Apr)..."},{label:"Time",text:"Teraz (now), dzisiaj (today), jutro (tomorrow), wczoraj (yesterday)."}], mnemonic:"Piątek = Friday = five (pięć) — pay day!", antiPattern:"Capitalising Monday as Poniedziałek — Polish doesn't do this.", analogyEN:"Like French lundi, mardi — lowercase, same idea." },
-  misc:     { title:"Polish Pronunciation", coreRule:"Highly regular once you know the clusters.", breakdown:[{label:"Key clusters",text:"sz=sh, cz=ch, rz=zh, ł=w. Learn these and most words open up."},{label:"Stress",text:"Penultimate syllable, ~95% of the time."}], mnemonic:"Penultimate: second-to-last syllable. Count from the end.", antiPattern:"Stressing the first syllable (English habit).", analogyEN:"Like Italian — penultimate stress as the reliable default." },
+  greetings:{ title:"Polish Greeting Registers", coreRule:"Polish distinguishes formal and informal sharply.", breakdown:[{label:"Formal",text:"Dzień dobry (day), Dobry wieczór (evening), Do widzenia (goodbye)."},{label:"Informal",text:"Cześć covers hi AND bye."},{label:"Proszę",text:"Please / here you go / you're welcome."}], mnemonic:"Dzień = day → Dzień dobry. Cześć rhymes with 'fresh' — keep it fresh with friends.", antiPattern:"Using Cześć with a teacher.", analogyEN:"Like 'Good day sir' vs 'Hey!'" },
+  core:     { title:"Polish Core Words", coreRule:"Tak / Nie / Dobrze / Bardzo — highest-frequency words.", breakdown:[{label:"Tak/Nie",text:"Yes/no. 'Nie' also negates verbs."},{label:"Dobrze",text:"Good + okay."},{label:"Bardzo",text:"Very."}], mnemonic:"Nie = knee (no, bends). Tak = tock (yes, ticks).", antiPattern:"'Nie' in response to a negative question.", analogyEN:"Dobrze is Italian 'bene'." },
+  food:     { title:"Polish Food & Drink", coreRule:"Food nouns have gender.", breakdown:[{label:"Drinks",text:"Woda, kawa, herbata, piwo."},{label:"Staples",text:"Chleb — 'ch' like Scottish loch."},{label:"Gender",text:"Learn gender with each word."}], mnemonic:"Chleb = kh-leb.", antiPattern:"Pronouncing chleb with English 'ch'.", analogyEN:"Like café vs caffè." },
+  numbers:  { title:"Polish Numbers", coreRule:"Learn 1–10 as pure sound first.", breakdown:[{label:"1–3",text:"Jeden, dwa, trzy."},{label:"4–5",text:"Cztery, Pięć."},{label:"6–10",text:"Sześć, siedem, osiem, dziewięć, dziesięć."}], mnemonic:"Trzy = tree (3 branches).", antiPattern:"Reading 'cz' like English ch.", analogyEN:"French numbers reward ear-training." },
+  grammar:  { title:"Polish Grammar", coreRule:"Polish has 7 cases — each changes the word ending.", breakdown:[{label:"Nominative",text:"Subject of the sentence."},{label:"Accusative",text:"Direct object."},{label:"Genitive",text:"Possession and negation."}], mnemonic:"Start with nominative and accusative — they cover 80% of sentences.", antiPattern:"Avoiding cases entirely — you'll plateau fast.", analogyEN:"Like Latin or German cases, but more consistent." },
+  directions:{ title:"Polish Directions", coreRule:"Na lewo, na prawo, prosto — left, right, straight.", breakdown:[{label:"Left/Right",text:"Na lewo = left. Na prawo = right."},{label:"Straight",text:"Prosto = straight ahead."},{label:"Near/Far",text:"Niedaleko = nearby. Daleko = far."}], mnemonic:"Prawo sounds like 'pravo' — pravda is truth, and the right-hand truth.", antiPattern:"Confusing na lewo and na prawo under pressure.", analogyEN:"Like French gauche/droite — muscle memory is key." },
+  motion:   { title:"Polish Verbs of Motion", coreRule:"Iść (on foot) vs Jechać (vehicle) — this distinction is obligatory.", breakdown:[{label:"On foot",text:"Iść, chodzić — walking or going on foot."},{label:"By vehicle",text:"Jechać, jeździć — any wheeled transport."},{label:"Flying",text:"Lecieć, latać — air travel."}], mnemonic:"Iść = feet. Jechać = vehicle. Never swap them.", antiPattern:"Using iść for driving — it sounds like you're walking to Warsaw.", analogyEN:"Like Spanish ir vs andar — mode of transport matters." },
+  phrases:  { title:"Polish Common Phrases", coreRule:"Full phrases before grammar rules.", breakdown:[{label:"Understanding",text:"Rozumiem / Nie rozumiem — I understand / I don't understand."},{label:"Speaking",text:"Mówię po angielsku — I speak English."},{label:"Location",text:"Mieszkam w... — I live in..."}], mnemonic:"Rozumiem — ro-ZOO-myem. Stress the middle.", antiPattern:"Translating word-for-word from English.", analogyEN:"Like Italian capisco — chunk it whole." },
+  misc:     { title:"Polish Pronunciation", coreRule:"Highly regular once you know the clusters.", breakdown:[{label:"Key clusters",text:"sz=sh, cz=ch, rz=zh, ł=w."},{label:"Stress",text:"Penultimate syllable, ~95% of the time."}], mnemonic:"Penultimate: second-to-last syllable.", antiPattern:"Stressing the first syllable.", analogyEN:"Like Italian — penultimate stress." },
+  advanced: { title:"Advanced Polish", coreRule:"Aspect (perfective/imperfective) is the key to fluency.", breakdown:[{label:"Imperfective",text:"Ongoing or repeated action."},{label:"Perfective",text:"Completed action."},{label:"Pairs",text:"Most verbs come in pairs: pisać/napisać."}], mnemonic:"Na- prefix often signals perfective.", antiPattern:"Ignoring aspect — your sentences will sound 'unfinished' to natives.", analogyEN:"Like English simple vs progressive, but grammaticalised." },
+  native:   { title:"Near-Native Polish", coreRule:"Idioms and colloquialisms separate B2 from C1.", breakdown:[{label:"Idioms",text:"Co się stało? = What happened? (lit: what became?)"},{label:"Register",text:"Formal written Polish differs greatly from speech."},{label:"Particles",text:"Już, jeszcze, tylko — tiny words with huge impact."}], mnemonic:"Listen to native podcasts — at C1 your ear does the work.", antiPattern:"Translating idioms literally.", analogyEN:"Like English 'it's raining cats and dogs' — no literal sense." },
   __default:{ title:"Polish Tip", coreRule:"Chunk whole phrases before analysing grammar.", breakdown:[{label:"Method",text:"Sounds before spellings. Phrases before rules."}], mnemonic:"Dziękuję works before you know it's a verb.", antiPattern:"Trying to understand every rule before speaking.", analogyEN:"Like learning 'I don't know' before auxiliary verbs." },
 };
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §9  SHARED UI PRIMITIVES
+   §10  SHARED UI PRIMITIVES  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 function PlayAudio({ text, size="md", autoPlay=false, onEnd }) {
   const [state, setState] = useState("idle");
@@ -609,27 +693,32 @@ function Pill({ icon, val, col, bg, border, anim }) {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §10  PRACTICE MODE  — Phase 10: strict UNSEEN-only filter
+   §11  PRACTICE MODE — Phase 11: fixed training counter (initialCount)
    
-   Training mode only shows words with `unseen` status.
-   Already-seen words appear only in Battles via weightedPick.
+   THE BUG FIXED:
+     Phase 10 calculated `total` from the live filtered `unseenPool`, which
+     shrinks as words get marked seen — turning "3/5" into "3/3" mid-session.
+   
+   THE FIX:
+     `initialCount` is captured ONCE via useRef when the component mounts.
+     The counter (idx+1 / initialCount) never changes denominator.
+     Words are pulled from `sessionBuffer` — the pre-built unseen list
+     passed in from the parent at room-entry time.
 ══════════════════════════════════════════════════════════════════════════════ */
-function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, dispatchLedger, ledger, isReplay }) {
-  // Phase 10: filter to only unseen words for practice
-  const unseenPool = useMemo(() => {
-    return wordPool.filter(w => scoreToTier(ledger[w.id], w.id in ledger) === "unseen");
-  }, [wordPool, ledger]);
+function PracticeMode({ sessionBuffer, wordPool, dungeon, stage, room, onComplete, onBack, dispatchLedger, isReplay }) {
+  // sessionBuffer is the pre-filtered unseen list captured at room-entry.
+  // If buffer is empty (all words already seen), skip straight to combat.
+  const practiceWords  = sessionBuffer?.length > 0 ? sessionBuffer : [];
+  const isAllSeen      = practiceWords.length === 0;
 
-  // If all words already seen, skip straight to combat
-  const practiceWords = unseenPool.length > 0 ? unseenPool : wordPool;
-  const isAllSeen     = unseenPool.length === 0;
+  // Phase 11 fix: capture the initial count ONCE — never recalculate
+  const initialCount = useRef(practiceWords.length);
 
-  const [idx,     setIdx]     = useState(0);
-  const [revealed, setReveal] = useState(false);
-  const [done,     setDone]   = useState(isAllSeen);
+  const [idx,      setIdx]     = useState(0);
+  const [revealed, setReveal]  = useState(false);
+  const [done,     setDone]    = useState(isAllSeen);
 
-  const word  = practiceWords[idx] ?? practiceWords[0];
-  const total = practiceWords.length;
+  const word = practiceWords[idx] ?? practiceWords[0];
 
   const markSeen = useCallback(() => {
     if (word) dispatchLedger({ type:"PRACTICE_SEEN", wordId:word.id });
@@ -637,12 +726,12 @@ function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, disp
 
   const advance = () => {
     markSeen();
-    if (idx + 1 >= total) { setDone(true); return; }
+    if (idx + 1 >= practiceWords.length) { setDone(true); return; }
     setIdx(i => i + 1);
     setReveal(false);
   };
 
-  if (done) {
+  if (done || isAllSeen) {
     return (
       <div style={{ display:"flex", flexDirection:"column", gap:14, animation:"slideUp 0.3s ease" }}>
         <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0,alignSelf:"flex-start" }}>← {stage.name}</button>
@@ -654,7 +743,7 @@ function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, disp
           <div style={{ fontSize:10, color:"#475569", fontFamily:"monospace", marginBottom:18 }}>
             {isAllSeen
               ? `All ${wordPool.length} words already in your bank — straight to battle!`
-              : `${total} new words moved from Unseen → Training`
+              : `${initialCount.current} new words introduced · battle includes 20% review`
             }
           </div>
           <button onClick={onComplete} style={{ padding:"12px 28px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, cursor:"pointer", letterSpacing:"0.08em", background:"linear-gradient(135deg,#4f46e5,#7c3aed)", border:"1px solid #818cf8", color:"#e0e7ff", boxShadow:"0 4px 18px rgba(99,102,241,0.3)" }}>
@@ -673,13 +762,20 @@ function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, disp
           <div style={{ fontSize:9, fontFamily:"monospace", color:"#6366f1", letterSpacing:"0.14em", fontWeight:700 }}>🎓 PRACTICE MODE</div>
           {isReplay && <span style={{ fontSize:7,padding:"1px 5px",borderRadius:3,background:"rgba(245,158,11,0.15)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",fontFamily:"monospace",fontWeight:700 }}>REPLAY</span>}
         </div>
-        <div style={{ fontSize:9, fontFamily:"monospace", color:"#334155" }}>{idx+1} / {total} <span style={{ color:"#1e293b" }}>(unseen only)</span></div>
+        {/* Phase 11 fix: denominator is initialCount.current — NEVER shrinks */}
+        <div style={{ fontSize:9, fontFamily:"monospace", color:"#475569" }}>
+          {idx+1} / {initialCount.current}
+          <span style={{ color:"#1e293b",marginLeft:4 }}>new words</span>
+        </div>
       </div>
+
+      {/* Progress bar uses initialCount for consistent width */}
       <div style={{ display:"flex", gap:2 }}>
-        {practiceWords.map((_,i)=>(
+        {Array.from({length: initialCount.current}).map((_,i)=>(
           <div key={i} style={{ flex:1, height:3, borderRadius:1, background:i<idx?"#6366f1":i===idx?"rgba(99,102,241,0.5)":"rgba(255,255,255,0.05)" }}/>
         ))}
       </div>
+
       <div style={{ borderRadius:14, overflow:"hidden", border:"1px solid rgba(99,102,241,0.25)", background:"rgba(255,255,255,0.025)", animation:"slideUp 0.2s ease" }} key={word?.id}>
         <div style={{ padding:"28px 20px", textAlign:"center" }}>
           <div style={{ fontSize:8, color:"#475569", fontFamily:"monospace", letterSpacing:"0.14em", marginBottom:8 }}>POLISH</div>
@@ -705,8 +801,8 @@ function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, disp
       </div>
       {revealed && (
         <button onClick={advance}
-          style={{ padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, cursor:"pointer", letterSpacing:"0.08em", background:idx+1>=total?"linear-gradient(135deg,#4f46e5,#7c3aed)":"rgba(255,255,255,0.04)", border:`1px solid ${idx+1>=total?"#818cf8":"rgba(255,255,255,0.09)"}`, color:idx+1>=total?"#e0e7ff":"#94a3b8", transition:"all 0.18s" }}>
-          {idx+1 >= total ? "⚔ PROCEED TO BATTLE" : "NEXT WORD →"}
+          style={{ padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, cursor:"pointer", letterSpacing:"0.08em", background:idx+1>=practiceWords.length?"linear-gradient(135deg,#4f46e5,#7c3aed)":"rgba(255,255,255,0.04)", border:`1px solid ${idx+1>=practiceWords.length?"#818cf8":"rgba(255,255,255,0.09)"}`, color:idx+1>=practiceWords.length?"#e0e7ff":"#94a3b8", transition:"all 0.18s" }}>
+          {idx+1 >= practiceWords.length ? "⚔ PROCEED TO BATTLE" : "NEXT WORD →"}
         </button>
       )}
     </div>
@@ -715,28 +811,18 @@ function PracticeMode({ wordPool, dungeon, stage, room, onComplete, onBack, disp
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §11  QUESTION CARD — Phase 10: 500ms Input Lock after first Enter
-   
-   feedbackStep: "idle" | "locked" | "verified"
-   
-   LOCK FLOW:
-     1. User hits Enter → checkAndReveal() runs, feedbackStep→"locked"
-     2. After 500ms → feedbackStep→"verified" (Strike / Take Damage visible)
-     3. User hits Enter again → confirmAndAdvance()
-   
-   This prevents a double-tap from skipping the Explain stage entirely.
+   §12  QUESTION CARD  — Phase 10 500ms lock (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExpire, onOof }) {
-  const [feedbackStep, setFeedbackStep] = useState("idle");  // idle | locked | verified
+  const [feedbackStep, setFeedbackStep] = useState("idle");
   const [selected,     setSelected]     = useState(null);
   const [typed,        setTyped]        = useState("");
   const [result,       setResult]       = useState(null);
   const [showTutor,    setShowTutor]    = useState(false);
-  const inputRef   = useRef(null);
-  const timerKey   = useRef(0);
-  const lockTimer  = useRef(null);  // Phase 10: input lock timer
+  const inputRef  = useRef(null);
+  const timerKey  = useRef(0);
+  const lockTimer = useRef(null);
 
-  // Reset on question change
   useEffect(()=>{
     setFeedbackStep("idle"); setSelected(null); setTyped(""); setResult(null); setShowTutor(false);
     timerKey.current++;
@@ -744,88 +830,57 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
     if (question.type !== "reading") setTimeout(()=>inputRef.current?.focus(), 150);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[question.id]);
-
-  // Cleanup lock timer on unmount
   useEffect(()=>()=>{ if (lockTimer.current) clearTimeout(lockTimer.current); },[]);
 
-  /* STEP 1 → locked → verified: evaluate answer, play Step-1 sound, then unlock after 500ms */
   const checkAndReveal = useCallback(() => {
     if (feedbackStep !== "idle") return;
     const raw = question.type === "reading" ? (selected ?? "") : typed;
     if (!raw.trim()) return;
     const ok  = checkAnswer(question, raw);
-    setResult(ok);
-    setFeedbackStep("locked");   // Phase 10: lock immediately
-    setShowTutor(true);
+    setResult(ok); setFeedbackStep("locked"); setShowTutor(true);
     if (ok) SFX.successDing(); else SFX.incorrectBuzzer();
-    // Unlock after 500ms — prevents accidental double-tap skip
-    lockTimer.current = setTimeout(() => {
-      setFeedbackStep("verified");
-      lockTimer.current = null;
-    }, 500);
+    lockTimer.current = setTimeout(() => { setFeedbackStep("verified"); lockTimer.current=null; }, 500);
   }, [feedbackStep, question, selected, typed]);
 
-  /* STEP 2 → advance: play Step-2 sound on action button click */
   const confirmAndAdvance = useCallback(() => {
     if (feedbackStep !== "verified") return;
     const raw = question.type === "reading" ? (selected ?? "") : typed;
-    if (result) {
-      SFX.bladeSlash();
-    } else {
-      SFX.oofImpact();
-      onOof?.();
-    }
+    if (result) { SFX.bladeSlash(); } else { SFX.oofImpact(); onOof?.(); }
     setTimeout(() => onAnswer(result, raw), 120);
   }, [feedbackStep, result, selected, typed, question, onAnswer, onOof]);
 
-  /* Boss timer expiry */
   const handleTimerFire = useCallback(()=>{
     if (feedbackStep !== "idle") return;
     SFX.incorrectBuzzer();
     setResult(false); setFeedbackStep("locked"); setShowTutor(true);
     lockTimer.current = setTimeout(() => {
-      setFeedbackStep("verified");
-      lockTimer.current = null;
-      setTimeout(() => {
-        SFX.oofImpact();
-        onOof?.();
-        onTimerExpire?.();
-      }, 900);
+      setFeedbackStep("verified"); lockTimer.current=null;
+      setTimeout(() => { SFX.oofImpact(); onOof?.(); onTimerExpire?.(); }, 900);
     }, 500);
   }, [feedbackStep, onTimerExpire, onOof]);
 
-  /* Global Enter key handler — respects the lock */
   useEffect(() => {
     const handler = (e) => {
       if (e.key !== "Enter") return;
       if (document.activeElement === inputRef.current) return;
       if (feedbackStep === "idle" && canSubmit) { e.preventDefault(); checkAndReveal(); }
       else if (feedbackStep === "verified")      { e.preventDefault(); confirmAndAdvance(); }
-      // "locked" state: Enter is silently ignored
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [feedbackStep, checkAndReveal, confirmAndAdvance]);
 
-  const canSubmit = question.type === "reading" ? !!selected : typed.trim().length > 0;
-  const isTyping  = question.type !== "reading";
-  const isLocked  = feedbackStep === "locked";
-  const isVerified= feedbackStep === "verified";
-
-  const fbBtn = result === true
-    ? { label:"⚔  Strike!", bg:"linear-gradient(135deg,#065f46,#047857)", border:"#10b981", color:"#ecfdf5", shadow:"0 4px 18px rgba(16,185,129,0.35)" }
-    : { label:"Take Damage →", bg:"linear-gradient(135deg,#7f1d1d,#991b1b)", border:"#ef4444", color:"#fecaca", shadow:"0 4px 18px rgba(239,68,68,0.3)" };
+  const canSubmit  = question.type === "reading" ? !!selected : typed.trim().length > 0;
+  const isTyping   = question.type !== "reading";
+  const isLocked   = feedbackStep === "locked";
+  const isVerified = feedbackStep === "verified";
+  const fbBtn      = result === true
+    ? { label:"⚔  Strike!",     bg:"linear-gradient(135deg,#065f46,#047857)", border:"#10b981", color:"#ecfdf5", shadow:"0 4px 18px rgba(16,185,129,0.35)" }
+    : { label:"Take Damage →",  bg:"linear-gradient(135deg,#7f1d1d,#991b1b)", border:"#ef4444", color:"#fecaca", shadow:"0 4px 18px rgba(239,68,68,0.3)" };
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-      <div style={{
-        borderRadius:13, padding:"15px",
-        background:"rgba(255,255,255,0.022)",
-        border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.45)":"rgba(239,68,68,0.45)"):"rgba(255,255,255,0.07)"}`,
-        boxShadow:(isVerified||isLocked)?(result?"0 0 20px rgba(16,185,129,0.16)":"0 0 20px rgba(239,68,68,0.14)"):"none",
-        transition:"border-color 0.25s, box-shadow 0.25s",
-        animation:"slideUp 0.2s cubic-bezier(0.34,1.56,0.64,1)",
-      }}>
+      <div style={{ borderRadius:13, padding:"15px", background:"rgba(255,255,255,0.022)", border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.45)":"rgba(239,68,68,0.45)"):"rgba(255,255,255,0.07)"}`, boxShadow:(isVerified||isLocked)?(result?"0 0 20px rgba(16,185,129,0.16)":"0 0 20px rgba(239,68,68,0.14)"):"none", transition:"border-color 0.25s, box-shadow 0.25s", animation:"slideUp 0.2s cubic-bezier(0.34,1.56,0.64,1)" }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10 }}>
           <div style={{ display:"flex", alignItems:"center", gap:8 }}>
             <span style={{ fontSize:14 }}>{question.type==="reading"?"👁":question.type==="listening"?"🔊":"✏️"}</span>
@@ -841,8 +896,6 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
           </div>
           {question.type==="reading" && <PlayAudio text={question.polish} size="sm"/>}
         </div>
-
-        {/* MC options */}
         {question.type==="reading" && (
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:7 }}>
             {question.options.map((opt,i)=>{
@@ -854,33 +907,20 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
                   style={{ padding:"10px 9px", borderRadius:10, textAlign:"center", fontFamily:"monospace", fontSize:12, fontWeight:sel?700:400, cursor:feedbackStep==="idle"?"pointer":"default", transition:"all 0.13s", display:"flex", flexDirection:"column", gap:2, alignItems:"center",
                     border:`2px solid ${right?"rgba(16,185,129,0.6)":wrong?"rgba(239,68,68,0.5)":sel?"rgba(99,102,241,0.65)":"rgba(255,255,255,0.07)"}`,
                     background:right?"rgba(16,185,129,0.1)":wrong?"rgba(239,68,68,0.09)":sel?"rgba(99,102,241,0.11)":"rgba(255,255,255,0.02)",
-                    color:right?"#6ee7b7":wrong?"#fca5a5":sel?"#c7d2fe":"#94a3b8",
-                  }}>
+                    color:right?"#6ee7b7":wrong?"#fca5a5":sel?"#c7d2fe":"#94a3b8" }}>
                   <span>{opt.label}</span>
                 </button>
               );
             })}
           </div>
         )}
-
-        {/* Text input */}
         {isTyping && (
           <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
             <input ref={inputRef} value={typed} onChange={e=>feedbackStep==="idle"&&setTyped(e.target.value)}
-              onKeyDown={e=>{
-                if (e.key==="Enter") {
-                  e.preventDefault();
-                  if (feedbackStep==="idle" && canSubmit) checkAndReveal();
-                  else if (feedbackStep==="verified") confirmAndAdvance();
-                  // "locked": silently blocked
-                }
-              }}
+              onKeyDown={e=>{ if(e.key==="Enter"){e.preventDefault(); if(feedbackStep==="idle"&&canSubmit)checkAndReveal(); else if(feedbackStep==="verified")confirmAndAdvance(); }}}
               disabled={isVerified||isLocked}
               placeholder={question.type==="listening"?"Type the English meaning…":"Type in Polish…"}
-              style={{ padding:"11px 13px", borderRadius:9, fontFamily:"monospace", fontSize:14, background:(isVerified||isLocked)?(result?"rgba(16,185,129,0.09)":"rgba(239,68,68,0.07)"):"rgba(255,255,255,0.05)", border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.4)":"rgba(239,68,68,0.35)"):"rgba(255,255,255,0.09)"}`, color:"#f8fafc", outline:"none", transition:"border-color 0.2s" }}
-              onFocus={e=>feedbackStep==="idle"&&(e.target.style.borderColor="rgba(99,102,241,0.5)")}
-              onBlur={e=>feedbackStep==="idle"&&(e.target.style.borderColor="rgba(255,255,255,0.09)")}
-            />
+              style={{ padding:"11px 13px", borderRadius:9, fontFamily:"monospace", fontSize:14, background:(isVerified||isLocked)?(result?"rgba(16,185,129,0.09)":"rgba(239,68,68,0.07)"):"rgba(255,255,255,0.05)", border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.4)":"rgba(239,68,68,0.35)"):"rgba(255,255,255,0.09)"}`, color:"#f8fafc", outline:"none", transition:"border-color 0.2s" }}/>
             {(isVerified||isLocked) && !result && (
               <div style={{ display:"flex", alignItems:"center", gap:8, padding:"7px 10px", borderRadius:8, background:"rgba(16,185,129,0.07)", border:"1px solid rgba(16,185,129,0.18)" }}>
                 <PlayAudio text={question.polish} size="sm"/>
@@ -891,27 +931,17 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
             )}
           </div>
         )}
-
-        {/* STEP 1: Check Answer button */}
         {feedbackStep==="idle" && (
           <button onClick={checkAndReveal} disabled={!canSubmit}
-            style={{ marginTop:10, width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, letterSpacing:"0.1em",
-              background:canSubmit?"linear-gradient(135deg,#1d4ed8,#3b82f6)":"rgba(255,255,255,0.03)",
-              border:`1px solid ${canSubmit?"#60a5fa":"rgba(255,255,255,0.05)"}`,
-              color:canSubmit?"#eff6ff":"#1e293b", cursor:canSubmit?"pointer":"not-allowed",
-              transition:"all 0.17s", boxShadow:canSubmit?"0 3px 16px rgba(59,130,246,0.28)":"none",
-            }}>CHECK ANSWER <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
+            style={{ marginTop:10, width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, letterSpacing:"0.1em", background:canSubmit?"linear-gradient(135deg,#1d4ed8,#3b82f6)":"rgba(255,255,255,0.03)", border:`1px solid ${canSubmit?"#60a5fa":"rgba(255,255,255,0.05)"}`, color:canSubmit?"#eff6ff":"#1e293b", cursor:canSubmit?"pointer":"not-allowed", transition:"all 0.17s", boxShadow:canSubmit?"0 3px 16px rgba(59,130,246,0.28)":"none" }}>
+            CHECK ANSWER <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
         )}
-
-        {/* LOCKED: show processing indicator during 500ms lock */}
         {isLocked && (
           <div style={{ marginTop:10, width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontSize:11, letterSpacing:"0.1em", textAlign:"center", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", color:"#334155" }}>
             {result ? "✓ Correct…" : "✗ Wrong…"}
           </div>
         )}
       </div>
-
-      {/* STEP 2: Tutor + confirm button (only shown in verified state) */}
       {isVerified && (
         <div style={{ display:"flex", flexDirection:"column", gap:8, animation:"slideUp 0.22s ease" }}>
           <button onClick={()=>setShowTutor(p=>!p)}
@@ -920,10 +950,8 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
           </button>
           {showTutor && <TutorPanel catKey={question.cat} onClose={()=>setShowTutor(false)}/>}
           <button onClick={confirmAndAdvance}
-            style={{ padding:"13px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, letterSpacing:"0.1em", cursor:"pointer",
-              background:fbBtn.bg, border:`1px solid ${fbBtn.border}`, color:fbBtn.color,
-              boxShadow:fbBtn.shadow, transition:"all 0.17s",
-            }}>{fbBtn.label} <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
+            style={{ padding:"13px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, letterSpacing:"0.1em", cursor:"pointer", background:fbBtn.bg, border:`1px solid ${fbBtn.border}`, color:fbBtn.color, boxShadow:fbBtn.shadow, transition:"all 0.17s" }}>
+            {fbBtn.label} <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
         </div>
       )}
     </div>
@@ -932,7 +960,7 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §12  BATTLE SUMMARY OVERLAY
+   §13  BATTLE SUMMARY
 ══════════════════════════════════════════════════════════════════════════════ */
 function BattleSummary({ stats, room, dungeon, onContinue }) {
   const { newWordsSeen, wordsMastered, goldEarned, xpEarned } = stats;
@@ -960,8 +988,7 @@ function BattleSummary({ stats, room, dungeon, onContinue }) {
           ))}
         </div>
         <div style={{ padding:"0 20px 20px" }}>
-          <button onClick={onContinue}
-            style={{ width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, cursor:"pointer", letterSpacing:"0.08em", background:`linear-gradient(135deg,${dungeon.color}88,${dungeon.color})`, border:`1px solid ${dungeon.color}`, color:"#f8fafc", boxShadow:`0 3px 18px ${dungeon.color}44` }}>
+          <button onClick={onContinue} style={{ width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, cursor:"pointer", letterSpacing:"0.08em", background:`linear-gradient(135deg,${dungeon.color}88,${dungeon.color})`, border:`1px solid ${dungeon.color}`, color:"#f8fafc", boxShadow:`0 3px 18px ${dungeon.color}44` }}>
             CONTINUE →
           </button>
         </div>
@@ -972,7 +999,7 @@ function BattleSummary({ stats, room, dungeon, onContinue }) {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §13  REVIVAL OVERLAY
+   §14  REVIVAL OVERLAY  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 function RevivalOverlay({ gold, onSpendGold, onGiveUp }) {
   const canAfford = gold >= 30;
@@ -990,8 +1017,7 @@ function RevivalOverlay({ gold, onSpendGold, onGiveUp }) {
             style={{ padding:"13px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, letterSpacing:"0.08em", cursor:canAfford?"pointer":"not-allowed", background:canAfford?"linear-gradient(135deg,#78350f,#d97706)":"rgba(255,255,255,0.03)", border:`1px solid ${canAfford?"#f59e0b":"rgba(255,255,255,0.05)"}`, color:canAfford?"#fef3c7":"#334155", boxShadow:canAfford?"0 3px 16px rgba(245,158,11,0.3)":"none", transition:"all 0.18s" }}>
             🪙 Spend 30 Gold to Revive {!canAfford&&<span style={{ fontSize:9, opacity:0.6 }}>(insufficient)</span>}
           </button>
-          <button onClick={onGiveUp}
-            style={{ padding:"11px", borderRadius:10, fontFamily:"monospace", fontWeight:700, fontSize:11, letterSpacing:"0.08em", cursor:"pointer", background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", color:"#475569", transition:"all 0.18s" }}>
+          <button onClick={onGiveUp} style={{ padding:"11px", borderRadius:10, fontFamily:"monospace", fontWeight:700, fontSize:11, letterSpacing:"0.08em", cursor:"pointer", background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", color:"#475569", transition:"all 0.18s" }}>
             ← Give Up (Return to Dashboard)
           </button>
         </div>
@@ -1002,22 +1028,28 @@ function RevivalOverlay({ gold, onSpendGold, onGiveUp }) {
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §13b  COMBAT SCREEN  — Phase 10: replay mode (gold multiplier)
+   §15  COMBAT SCREEN — Phase 11: uses battlePool (session buffer + 20% review)
 ══════════════════════════════════════════════════════════════════════════════ */
-function CombatScreen({ dungeon, stage, room, isBoss, wordPool, ledger, dispatchLedger, onRoomCleared, onPlayerDamage, onBack, lives, onSpendGold, gold, onGiveUp, isReplay }) {
-  const [enemyHp,      setEnemyHp]     = useState(10);
-  const [question,     setQuestion]    = useState(null);
-  const [lastId,       setLastId]      = useState(null);
-  const [shakeKey,     setShakeKey]    = useState(0);
-  const [oofVignette,  setOofVignette] = useState(false);
-  const [phase,        setPhase]       = useState("fighting");
-  const [showSummary,  setShowSummary] = useState(false);
-  const alive = useRef(true);
+function CombatScreen({ dungeon, stage, room, isBoss, wordPool, sessionBuffer, ledger, dispatchLedger, onRoomCleared, onPlayerDamage, onBack, lives, onSpendGold, gold, onGiveUp, isReplay }) {
+  // Phase 11: build battle pool once on mount — session buffer + review words
+  const battlePool = useMemo(
+    () => buildBattlePool(sessionBuffer, wordPool, ledger),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [] // intentionally only computed once at mount
+  );
+
+  const [enemyHp,     setEnemyHp]     = useState(10);
+  const [question,    setQuestion]    = useState(null);
+  const [lastId,      setLastId]      = useState(null);
+  const [shakeKey,    setShakeKey]    = useState(0);
+  const [oofVignette, setOofVignette] = useState(false);
+  const [phase,       setPhase]       = useState("fighting");
+  const [showSummary, setShowSummary] = useState(false);
+  const alive    = useRef(true);
   const statsRef = useRef({ newWordsSeen:0, wordsMastered:0 });
 
-  // Phase 10: replay economy — 20% gold rewards
   const effectiveGold = isReplay ? Math.max(1, Math.round(room.gold * 0.20)) : room.gold;
-  const effectiveXp   = isReplay ? room.xp : room.xp;  // XP unchanged in replay
+  const effectiveXp   = room.xp;
 
   useEffect(()=>{
     alive.current=true; spawn(null);
@@ -1026,32 +1058,26 @@ function CombatScreen({ dungeon, stage, room, isBoss, wordPool, ledger, dispatch
   },[]);
 
   const spawn = useCallback((prevId) => {
-    const q = generateQuestion(wordPool, ledger, prevId);
+    const q = generateQuestion(battlePool, ledger, prevId);
     if (q) setQuestion(q);
-  }, [wordPool, ledger]);
+  }, [battlePool, ledger]);
 
   const triggerOofVignette = useCallback(() => {
     setOofVignette(true);
     setTimeout(() => setOofVignette(false), 600);
   }, []);
 
-  const handleAnswer = useCallback((ok, raw) => {
+  const handleAnswer = useCallback((ok) => {
     if (!alive.current || !question) return;
-    const action = ok ? "BATTLE_CORRECT" : "BATTLE_WRONG";
-    dispatchLedger({ type:action, wordId:question.wordId });
-
+    dispatchLedger({ type: ok ? "BATTLE_CORRECT" : "BATTLE_WRONG", wordId:question.wordId });
     if (ok) {
       const prev      = ledger[question.wordId];
       const prevTier  = scoreToTier(prev, question.wordId in ledger);
       const prevScore = prev===undefined?0:prev===TRAINING_SCORE?0:prev<0?0:prev;
       if (prevScore + 1 >= MASTERY_THRESHOLD && prevTier !== "mastered") statsRef.current.wordsMastered++;
       if (prevTier === "unseen" || prevTier === "training") statsRef.current.newWordsSeen++;
-    }
-
-    if (ok) {
       const newHp = enemyHp - 1;
-      setShakeKey(k=>k+1);
-      setEnemyHp(newHp);
+      setShakeKey(k=>k+1); setEnemyHp(newHp);
       if (newHp <= 0) { setPhase("victory"); return; }
       setTimeout(()=>{ if (alive.current) spawn(question.wordId); }, 280);
     } else {
@@ -1068,43 +1094,24 @@ function CombatScreen({ dungeon, stage, room, isBoss, wordPool, ledger, dispatch
     setTimeout(()=>{ if (alive.current) spawn(lastId); }, 360);
   }, [question, lastId, spawn, onPlayerDamage, dispatchLedger]);
 
-  const summaryStats = {
-    newWordsSeen:  statsRef.current.newWordsSeen,
-    wordsMastered: statsRef.current.wordsMastered,
-    goldEarned:    effectiveGold,
-    xpEarned:      effectiveXp,
-  };
-
-  const showRevival = lives <= 0 && phase === "fighting";
+  const summaryStats = { newWordsSeen:statsRef.current.newWordsSeen, wordsMastered:statsRef.current.wordsMastered, goldEarned:effectiveGold, xpEarned:effectiveXp };
+  const showRevival  = lives <= 0 && phase === "fighting";
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
       <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-        <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0 }}>
-          ← {stage.name}
-        </button>
+        <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0 }}>← {stage.name}</button>
         {isReplay && <span style={{ fontSize:7,padding:"1px 5px",borderRadius:3,background:"rgba(245,158,11,0.15)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",fontFamily:"monospace",fontWeight:700 }}>REPLAY · 20% GOLD</span>}
       </div>
-
-      {/* Enemy panel */}
-      <div key={shakeKey} style={{ borderRadius:13, padding:"14px 15px",
-        background:isBoss?"rgba(239,68,68,0.08)":dungeon.bg,
-        border:`1px solid ${isBoss?"rgba(239,68,68,0.32)":dungeon.border}`,
-        boxShadow:isBoss?"0 0 30px rgba(239,68,68,0.1)":"none",
-        animation:shakeKey>0?"shake 0.36s ease":"none",
-      }}>
+      <div key={shakeKey} style={{ borderRadius:13, padding:"14px 15px", background:isBoss?"rgba(239,68,68,0.08)":dungeon.bg, border:`1px solid ${isBoss?"rgba(239,68,68,0.32)":dungeon.border}`, boxShadow:isBoss?"0 0 30px rgba(239,68,68,0.1)":"none", animation:shakeKey>0?"shake 0.36s ease":"none" }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:10 }}>
           <div>
-            <div style={{ fontSize:8, fontFamily:"monospace", color:isBoss?"#f87171":dungeon.color, letterSpacing:"0.14em", marginBottom:2 }}>
-              {isBoss?"⚠ STAGE BOSS":dungeon.cefr} · {stage.name.toUpperCase()}
-            </div>
+            <div style={{ fontSize:8, fontFamily:"monospace", color:isBoss?"#f87171":dungeon.color, letterSpacing:"0.14em", marginBottom:2 }}>{isBoss?"⚠ STAGE BOSS":dungeon.cefr} · {stage.name.toUpperCase()}</div>
             <div style={{ fontSize:13, fontWeight:900, color:"#f8fafc", fontFamily:"monospace" }}>{room.enemyName}</div>
             {isBoss && <div style={{ fontSize:9, color:"#334155", fontStyle:"italic", marginTop:2 }}>{room.lore}</div>}
           </div>
           <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:6 }}>
-            <div style={{ fontSize:40, lineHeight:1, animation:"float 3s ease infinite" }}>
-              {phase==="victory"?"💥":room.emoji}
-            </div>
+            <div style={{ fontSize:40, lineHeight:1, animation:"float 3s ease infinite" }}>{phase==="victory"?"💥":room.emoji}</div>
             <div style={{ display:"flex", gap:3 }}>
               {Array.from({length:3}).map((_,i)=>(
                 <span key={i} style={{ fontSize:14, filter:i<lives?"none":"grayscale(1) opacity(0.25)" }}>❤</span>
@@ -1114,43 +1121,23 @@ function CombatScreen({ dungeon, stage, room, isBoss, wordPool, ledger, dispatch
         </div>
         <HpBar current={enemyHp} max={10} color={isBoss?"#ef4444":dungeon.color} label={room.enemyName}/>
       </div>
-
-      {oofVignette && (
-        <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:999,
-          background:"radial-gradient(ellipse at center, transparent 30%, rgba(220,38,38,0.55) 100%)",
-          animation:"flashOut 0.6s ease forwards" }}/>
-      )}
-
-      {showRevival && (
-        <RevivalOverlay gold={gold} onSpendGold={onSpendGold} onGiveUp={onGiveUp}/>
-      )}
-
+      {oofVignette && <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:999, background:"radial-gradient(ellipse at center, transparent 30%, rgba(220,38,38,0.55) 100%)", animation:"flashOut 0.6s ease forwards" }}/>}
+      {showRevival && <RevivalOverlay gold={gold} onSpendGold={onSpendGold} onGiveUp={onGiveUp}/>}
       {phase==="victory" ? (
         <>
-          {showSummary && (
-            <BattleSummary
-              stats={summaryStats} room={room} dungeon={dungeon}
-              onContinue={()=>{ setShowSummary(false); onRoomCleared(effectiveXp, effectiveGold); }}
-            />
-          )}
+          {showSummary && <BattleSummary stats={summaryStats} room={room} dungeon={dungeon} onContinue={()=>{ setShowSummary(false); onRoomCleared(effectiveXp, effectiveGold); }}/>}
           <div style={{ textAlign:"center", padding:"26px 16px", borderRadius:13, background:"rgba(16,185,129,0.07)", border:"1px solid rgba(16,185,129,0.2)", animation:"slideUp 0.38s cubic-bezier(0.34,1.56,0.64,1)" }}>
             <div style={{ fontSize:36, marginBottom:7 }}>🏆</div>
             <div style={{ fontSize:14, fontWeight:900, color:"#34d399", fontFamily:"monospace", marginBottom:3 }}>{room.enemyName} DEFEATED</div>
             <div style={{ fontSize:9, color:"#334155", fontFamily:"monospace", marginBottom:15 }}>+{effectiveXp} XP · +{effectiveGold} 🪙{isReplay?" (replay rate)":""}</div>
-            <button onClick={()=>setShowSummary(true)}
-              style={{ padding:"10px 26px", borderRadius:9, fontFamily:"monospace", fontWeight:900, fontSize:11, cursor:"pointer", letterSpacing:"0.08em", background:"linear-gradient(135deg,#065f46,#047857)", border:"1px solid #10b981", color:"#ecfdf5", boxShadow:"0 3px 16px rgba(16,185,129,0.28)" }}>
+            <button onClick={()=>setShowSummary(true)} style={{ padding:"10px 26px", borderRadius:9, fontFamily:"monospace", fontWeight:900, fontSize:11, cursor:"pointer", letterSpacing:"0.08em", background:"linear-gradient(135deg,#065f46,#047857)", border:"1px solid #10b981", color:"#ecfdf5", boxShadow:"0 3px 16px rgba(16,185,129,0.28)" }}>
               VIEW PROGRESS REPORT →
             </button>
           </div>
         </>
       ) : (
         !showRevival && question && (
-          <QuestionCard
-            question={question} onAnswer={handleAnswer}
-            isBoss={isBoss} bossTimerSeconds={room.bossTimerSeconds??10}
-            onTimerExpire={handleTimerExpire}
-            onOof={triggerOofVignette}
-          />
+          <QuestionCard question={question} onAnswer={handleAnswer} isBoss={isBoss} bossTimerSeconds={room.bossTimerSeconds??10} onTimerExpire={handleTimerExpire} onOof={triggerOofVignette}/>
         )
       )}
     </div>
@@ -1159,14 +1146,14 @@ function CombatScreen({ dungeon, stage, room, isBoss, wordPool, ledger, dispatch
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §14  STAGE MAP  — Phase 10: replay button on cleared stages
+   §16  STAGE MAP  (unchanged from Phase 10)
 ══════════════════════════════════════════════════════════════════════════════ */
 function StageMap({ dungeon, stage, completedRooms, bossCleared, onEnterRoom, onEnterBoss, onBack }) {
   if (!stage || !stage.rooms) return null;
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
       <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0,alignSelf:"flex-start" }}>← {dungeon.name}</button>
-      <div style={{ padding:"15px 17px", borderRadius:14, background:dungeon.bg, border:`1px solid ${dungeon.border}`, boxShadow:`0 0 30px ${dungeon.color}12` }}>
+      <div style={{ padding:"15px 17px", borderRadius:14, background:dungeon.bg, border:`1px solid ${dungeon.border}` }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
           <div>
             <div style={{ fontSize:8, fontFamily:"monospace", color:dungeon.color, letterSpacing:"0.18em", marginBottom:2 }}>{dungeon.cefr} · STAGE {stage.index}</div>
@@ -1176,32 +1163,22 @@ function StageMap({ dungeon, stage, completedRooms, bossCleared, onEnterRoom, on
         </div>
         <div style={{ marginTop:12 }}>
           <div style={{ display:"flex", justifyContent:"space-between", fontSize:8, fontFamily:"monospace", color:"#1e293b", marginBottom:3 }}>
-            <span>ROOMS</span>
-            <span>{Math.min(completedRooms, stage.rooms.length)}/{stage.rooms.length} + BOSS</span>
+            <span>ROOMS</span><span>{Math.min(completedRooms, stage.rooms.length)}/{stage.rooms.length} + BOSS</span>
           </div>
           <div style={{ display:"flex", gap:3 }}>
             {stage.rooms.map((_,i)=>(
-              <div key={i} style={{ flex:1, height:4, borderRadius:2, background:i<completedRooms?dungeon.color:"rgba(255,255,255,0.05)", boxShadow:i<completedRooms?`0 0 4px ${dungeon.color}66`:"none" }}/>
+              <div key={i} style={{ flex:1, height:4, borderRadius:2, background:i<completedRooms?dungeon.color:"rgba(255,255,255,0.05)" }}/>
             ))}
             <div style={{ width:16, height:4, borderRadius:2, background:bossCleared?"#ef4444":"rgba(255,255,255,0.05)" }}/>
           </div>
         </div>
       </div>
-
       <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
         {stage.rooms.map((room,idx)=>{
           const cleared=idx<completedRooms, current=idx===completedRooms, locked=idx>completedRooms;
           return (
-            <button key={room.id}
-              disabled={locked}
-              onClick={()=>{
-                if (current) onEnterRoom(room, false);
-                else if (cleared) onEnterRoom(room, true); // replay
-              }}
-              style={{ width:"100%",textAlign:"left",padding:"12px 14px",borderRadius:10,
-                background:cleared?"rgba(16,185,129,0.05)":current?dungeon.bg:"rgba(255,255,255,0.01)",
-                border:`1px solid ${cleared?"rgba(16,185,129,0.15)":current?dungeon.border:"rgba(255,255,255,0.04)"}`,
-                cursor:locked?"default":"pointer", transition:"all 0.17s" }}>
+            <button key={room.id} disabled={locked} onClick={()=>{ if(current)onEnterRoom(room,false); else if(cleared)onEnterRoom(room,true); }}
+              style={{ width:"100%",textAlign:"left",padding:"12px 14px",borderRadius:10, background:cleared?"rgba(16,185,129,0.05)":current?dungeon.bg:"rgba(255,255,255,0.01)", border:`1px solid ${cleared?"rgba(16,185,129,0.15)":current?dungeon.border:"rgba(255,255,255,0.04)"}`, cursor:locked?"default":"pointer", transition:"all 0.17s" }}>
               <div style={{ display:"flex", alignItems:"center", gap:10 }}>
                 <span style={{ fontSize:20, filter:locked?"grayscale(1) opacity(0.2)":"none" }}>{locked?"🔒":room.emoji}</span>
                 <div style={{ flex:1 }}>
@@ -1214,23 +1191,14 @@ function StageMap({ dungeon, stage, completedRooms, bossCleared, onEnterRoom, on
             </button>
           );
         })}
-
         {(()=>{
           const bossUnlocked = completedRooms >= stage.rooms.length;
           const b = stage.boss;
           return (
-            <button
-              disabled={!bossUnlocked}
-              onClick={()=>bossUnlocked&&onEnterBoss(b, bossCleared)}
-              style={{ width:"100%",textAlign:"left",padding:"12px 14px",borderRadius:10,
-                background:bossCleared?"rgba(16,185,129,0.05)":bossUnlocked?"rgba(239,68,68,0.08)":"rgba(255,255,255,0.01)",
-                border:`1px solid ${bossCleared?"rgba(16,185,129,0.15)":bossUnlocked?"rgba(239,68,68,0.3)":"rgba(255,255,255,0.04)"}`,
-                cursor:bossUnlocked?"pointer":"default", transition:"all 0.17s",
-                boxShadow:bossUnlocked&&!bossCleared?"0 0 18px rgba(239,68,68,0.1)":"none" }}>
+            <button disabled={!bossUnlocked} onClick={()=>bossUnlocked&&onEnterBoss(b, bossCleared)}
+              style={{ width:"100%",textAlign:"left",padding:"12px 14px",borderRadius:10, background:bossCleared?"rgba(16,185,129,0.05)":bossUnlocked?"rgba(239,68,68,0.08)":"rgba(255,255,255,0.01)", border:`1px solid ${bossCleared?"rgba(16,185,129,0.15)":bossUnlocked?"rgba(239,68,68,0.3)":"rgba(255,255,255,0.04)"}`, cursor:bossUnlocked?"pointer":"default", transition:"all 0.17s", boxShadow:bossUnlocked&&!bossCleared?"0 0 18px rgba(239,68,68,0.1)":"none" }}>
               <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                <span style={{ fontSize:24,animation:bossUnlocked&&!bossCleared?"float 2s ease infinite":"none",filter:!bossUnlocked?"grayscale(1) opacity(0.2)":"none" }}>
-                  {!bossUnlocked?"🔒":b.emoji}
-                </span>
+                <span style={{ fontSize:24,animation:bossUnlocked&&!bossCleared?"float 2s ease infinite":"none",filter:!bossUnlocked?"grayscale(1) opacity(0.2)":"none" }}>{!bossUnlocked?"🔒":b.emoji}</span>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex",alignItems:"center",gap:6,marginBottom:1 }}>
                     <span style={{ fontSize:11,fontWeight:700,color:!bossUnlocked?"#0f172a":"#f8fafc",fontFamily:"monospace" }}>{b.name}</span>
@@ -1251,16 +1219,30 @@ function StageMap({ dungeon, stage, completedRooms, bossCleared, onEnterRoom, on
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §15  DUNGEON SELECT — Phase 10: cleared stages show REPLAY badge + still clickable
+   §17  DUNGEON SELECT — Phase 11: paginated stage list for 200-stage dungeons
+   
+   Shows 10 stages per page with prev/next navigation.
+   Active stage is always visible (page auto-jumps to it).
 ══════════════════════════════════════════════════════════════════════════════ */
+const STAGES_PER_PAGE = 10;
+
 function DungeonSelect({ dungeon, dungeonProgress, onEnterStage, onBack }) {
   if (!dungeon || !Array.isArray(dungeon.stages)) return null;
   const prog          = dungeonProgress[dungeon.id] ?? { stagesCleared:0 };
   const stagesCleared = prog.stagesCleared ?? 0;
 
+  // Auto-start on the page that contains the active stage
+  const activeIdx  = Math.min(stagesCleared, dungeon.stages.length - 1);
+  const [page, setPage] = useState(Math.floor(activeIdx / STAGES_PER_PAGE));
+
+  const totalPages  = Math.ceil(dungeon.stages.length / STAGES_PER_PAGE);
+  const pageStages  = dungeon.stages.slice(page * STAGES_PER_PAGE, (page + 1) * STAGES_PER_PAGE);
+
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
       <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0,alignSelf:"flex-start" }}>← Dashboard</button>
+
+      {/* Dungeon header */}
       <div style={{ padding:"16px 18px", borderRadius:14, background:dungeon.bg, border:`1px solid ${dungeon.border}`, boxShadow:`0 0 36px ${dungeon.color}12` }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
           <div>
@@ -1280,28 +1262,49 @@ function DungeonSelect({ dungeon, dungeonProgress, onEnterStage, onBack }) {
         </div>
       </div>
 
+      {/* Pagination header */}
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+        <div style={{ fontSize:9,fontFamily:"monospace",color:"#334155" }}>
+          Stages {page * STAGES_PER_PAGE + 1}–{Math.min((page+1) * STAGES_PER_PAGE, dungeon.stages.length)}
+          <span style={{ color:"#1e293b",marginLeft:6 }}>of {dungeon.stages.length}</span>
+        </div>
+        <div style={{ display:"flex", gap:6 }}>
+          <button onClick={()=>setPage(p=>Math.max(0,p-1))} disabled={page===0}
+            style={{ padding:"4px 10px",borderRadius:6,fontFamily:"monospace",fontSize:10,fontWeight:700,cursor:page===0?"not-allowed":"pointer",background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",color:page===0?"#1e293b":"#94a3b8",transition:"all 0.14s" }}>
+            ← Prev
+          </button>
+          <button onClick={()=>setPage(p=>Math.min(totalPages-1,p+1))} disabled={page>=totalPages-1}
+            style={{ padding:"4px 10px",borderRadius:6,fontFamily:"monospace",fontSize:10,fontWeight:700,cursor:page>=totalPages-1?"not-allowed":"pointer",background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",color:page>=totalPages-1?"#1e293b":"#94a3b8",transition:"all 0.14s" }}>
+            Next →
+          </button>
+        </div>
+      </div>
+
+      {/* Stage list — current page only */}
       <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
-        {dungeon.stages.map((stage, idx) => {
-          const cleared=idx<stagesCleared, current=idx===stagesCleared, locked=idx>stagesCleared;
+        {pageStages.map((stage) => {
+          const idx     = stage.index - 1;
+          const cleared = idx < stagesCleared;
+          const current = idx === stagesCleared;
+          const locked  = idx > stagesCleared;
           const stageRoomsCleared = prog[`s${stage.index}_rooms`]??0;
           const stageBossCleared  = !!(prog[`s${stage.index}_boss`]);
           return (
-            <button key={stage.id}
-              disabled={locked}
-              onClick={()=>!locked&&onEnterStage(stage, cleared)}  // pass isReplay flag
+            <button key={stage.id} disabled={locked}
+              onClick={()=>!locked&&onEnterStage(stage, cleared)}
               style={{ width:"100%",textAlign:"left",padding:"13px 15px",borderRadius:11,
                 background:cleared?"rgba(16,185,129,0.05)":current?dungeon.bg:"rgba(255,255,255,0.01)",
                 border:`1px solid ${cleared?"rgba(16,185,129,0.16)":current?dungeon.border:"rgba(255,255,255,0.04)"}`,
                 cursor:!locked?"pointer":"default", opacity:locked?0.4:1, transition:"all 0.17s" }}>
               <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                <span style={{ fontSize:24, filter:locked?"grayscale(1)":"none" }}>{locked?"🔒":stage.icon}</span>
+                <span style={{ fontSize:22, filter:locked?"grayscale(1)":"none" }}>{locked?"🔒":stage.icon}</span>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex",alignItems:"center",gap:6,marginBottom:2 }}>
                     <span style={{ fontSize:8,padding:"1px 5px",borderRadius:3,background:`${dungeon.color}18`,border:`1px solid ${dungeon.color}44`,color:dungeon.color,fontFamily:"monospace",fontWeight:700 }}>S{stage.index}</span>
                     <span style={{ fontSize:12,fontWeight:700,color:locked?"#1e293b":"#f8fafc",fontFamily:"monospace" }}>{stage.name}</span>
                     {cleared&&<span style={{ fontSize:8,color:"#34d399",fontFamily:"monospace",fontWeight:700 }}>CLEARED ✓</span>}
                   </div>
-                  <div style={{ fontSize:9,color:locked?"#0f172a":"#334155",fontFamily:"monospace" }}>{stage.rooms.length} rooms · 1 boss</div>
+                  <div style={{ fontSize:9,color:locked?"#0f172a":"#334155",fontFamily:"monospace" }}>{stage.rooms.length} rooms · 1 boss · words {(stage.index-1)*WORDS_PER_STAGE+1}–{stage.index*WORDS_PER_STAGE}</div>
                   {current&&!locked&&(
                     <div style={{ marginTop:4,display:"flex",gap:2 }}>
                       {stage.rooms.map((_,i)=>(<div key={i} style={{ width:12,height:3,borderRadius:1,background:i<stageRoomsCleared?dungeon.color:"rgba(255,255,255,0.05)" }}/>))}
@@ -1316,13 +1319,24 @@ function DungeonSelect({ dungeon, dungeonProgress, onEnterStage, onBack }) {
           );
         })}
       </div>
+
+      {/* Page dots for quick navigation */}
+      {totalPages > 1 && (
+        <div style={{ display:"flex", gap:4, justifyContent:"center", flexWrap:"wrap", padding:"4px 0" }}>
+          {Array.from({length:totalPages},(_,i)=>(
+            <button key={i} onClick={()=>setPage(i)}
+              style={{ width:i===page?22:8, height:8, borderRadius:4, border:"none", cursor:"pointer", transition:"all 0.18s",
+                background:i===page?dungeon.color:i*STAGES_PER_PAGE<=stagesCleared?"rgba(16,185,129,0.3)":"rgba(255,255,255,0.06)" }}/>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §16  DASHBOARD COMPONENTS
+   §18  DASHBOARD COMPONENTS  (unchanged)
 ══════════════════════════════════════════════════════════════════════════════ */
 function MasteryRing({ counts, masteryPct, size=110 }) {
   const order  = ["mastered","learning","training","unseen"];
@@ -1355,31 +1369,29 @@ function MasteryRing({ counts, masteryPct, size=110 }) {
 }
 
 function MacroBar({ dungeonProgress, manifest }) {
-  const lvls=["A1","A2","B1","B2","C1"];
-  const cefrIds=["a1","a2","b1","b2","c1"];
-  const activeIdx = cefrIds.findIndex(id=>{
-    const d=manifest.find(x=>x.id===id);
+  const cefrIds  = manifest.map(d => d.id);
+  const activeIdx = cefrIds.findIndex(id => {
+    const d = manifest.find(x => x.id === id);
     if (!d) return false;
-    const sc=dungeonProgress[id]?.stagesCleared??0;
-    return sc < d.stages.length;
+    return (dungeonProgress[id]?.stagesCleared ?? 0) < d.stages.length;
   });
-  const safeIdx = activeIdx<0 ? cefrIds.length-1 : activeIdx;
-  const activeMf=manifest[safeIdx];
-  const sc=activeMf?(dungeonProgress[activeMf.id]?.stagesCleared??0):0;
-  const ts=activeMf?activeMf.stages.length:1;
-  const pct=ts>0?(sc/ts)*100:0;
+  const safeIdx  = activeIdx < 0 ? cefrIds.length - 1 : activeIdx;
+  const activeMf = manifest[safeIdx];
+  const sc       = activeMf ? (dungeonProgress[activeMf.id]?.stagesCleared ?? 0) : 0;
+  const ts       = activeMf ? activeMf.stages.length : 1;
+  const pct      = ts > 0 ? (sc/ts)*100 : 0;
   return (
     <div style={{ display:"flex",flexDirection:"column",gap:7 }}>
       <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
         <div style={{ fontSize:8,fontFamily:"monospace",color:"#334155",letterSpacing:"0.12em" }}>CEFR JOURNEY</div>
-        <div style={{ fontSize:9,fontFamily:"monospace",color:"#10b981",fontWeight:700 }}>{lvls[safeIdx]}</div>
+        <div style={{ fontSize:9,fontFamily:"monospace",color:"#10b981",fontWeight:700 }}>{manifest[safeIdx]?.cefr}</div>
       </div>
       <div style={{ display:"flex",gap:4,alignItems:"center" }}>
-        {lvls.map((lv,i)=>{
+        {manifest.map((d,i)=>{
           const done=i<safeIdx, active=i===safeIdx;
           return (
-            <div key={lv} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,flex:active?3:1 }}>
-              <div style={{ fontSize:7,fontFamily:"monospace",color:done?"#10b981":active?"#f8fafc":"#1e293b",fontWeight:700 }}>{lv}</div>
+            <div key={d.id} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,flex:active?3:1 }}>
+              <div style={{ fontSize:7,fontFamily:"monospace",color:done?"#10b981":active?"#f8fafc":"#1e293b",fontWeight:700 }}>{d.cefr}</div>
               <div style={{ height:5,width:"100%",borderRadius:3,background:done?"#10b981":active?"rgba(255,255,255,0.07)":"rgba(255,255,255,0.02)",border:`1px solid ${done?"#10b981":active?"rgba(255,255,255,0.14)":"rgba(255,255,255,0.03)"}`,overflow:"hidden",position:"relative" }}>
                 {active&&<div style={{ position:"absolute",top:0,left:0,height:"100%",width:`${pct}%`,background:"linear-gradient(90deg,#6366f1,#818cf8)",borderRadius:3,transition:"width 0.6s ease" }}/>}
                 {done&&<div style={{ position:"absolute",inset:0,background:"linear-gradient(90deg,#059669,#10b981)" }}/>}
@@ -1392,19 +1404,19 @@ function MacroBar({ dungeonProgress, manifest }) {
   );
 }
 
-function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay, manifest, onWordBank }) {
-  const allIds     = useMemo(()=>Object.keys(ledger),[ledger]);
-  const counts     = useMemo(()=>tallyLedger(ledger, allIds),[ledger, allIds]);
-  const activeDungeon   = manifest.find(d=>!d.locked) ?? manifest[0];
-  const masteryPct      = computeMasteryPct(ledger, activeDungeon?.totalWords, allIds);
-  const firstDungeon    = manifest.find(d=>!d.locked);
-  const stagesCleared   = firstDungeon?(dungeonProgress[firstDungeon.id]?.stagesCleared??0):0;
-  const nextStage       = firstDungeon?.stages[stagesCleared];
-  const seenCount = (counts.training??0) + (counts.learning??0) + (counts.mastered??0);
+function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, onPlay, manifest, onWordBank }) {
+  const allIds       = useMemo(()=>Object.keys(ledger),[ledger]);
+  const counts       = useMemo(()=>tallyLedger(ledger, allIds),[ledger, allIds]);
+  const activeDungeon= manifest.find(d=>!d.locked) ?? manifest[0];
+  const masteryPct   = computeMasteryPct(ledger, activeDungeon?.totalWords, allIds);
+  const firstDungeon = manifest.find(d=>!d.locked);
+  const stagesCleared= firstDungeon?(dungeonProgress[firstDungeon.id]?.stagesCleared??0):0;
+  const nextStage    = firstDungeon?.stages[stagesCleared];
+  const seenCount    = (counts.training??0) + (counts.learning??0) + (counts.mastered??0);
 
   return (
     <div style={{ display:"flex",flexDirection:"column",gap:16 }}>
-      <div style={{ padding:"20px 18px",borderRadius:16,background:"linear-gradient(135deg,rgba(99,102,241,0.12) 0%,rgba(16,185,129,0.06) 100%)",border:"1px solid rgba(99,102,241,0.22)",boxShadow:"0 0 40px rgba(99,102,241,0.08)" }}>
+      <div style={{ padding:"20px 18px",borderRadius:16,background:"linear-gradient(135deg,rgba(99,102,241,0.12) 0%,rgba(16,185,129,0.06) 100%)",border:"1px solid rgba(99,102,241,0.22)" }}>
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:14 }}>
           <div>
             <div style={{ fontSize:8,fontFamily:"monospace",color:"#475569",letterSpacing:"0.18em",marginBottom:4 }}>PLAYER PROGRESSION</div>
@@ -1438,17 +1450,10 @@ function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay,
             );
           })}
         </div>
-        <div style={{ fontSize:8,color:"#1e293b",fontFamily:"monospace",borderTop:"1px solid rgba(255,255,255,0.04)",paddingTop:8,marginTop:8 }}>
-          Mastered = 5 correct in a row · Immune to regression once mastered
-        </div>
       </div>
 
       <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8 }}>
-        {[
-          {label:"MASTERED", val:counts.mastered??0, col:"#10b981"},
-          {label:"LEARNING", val:counts.learning??0, col:"#f59e0b"},
-          {label:"TRAINING", val:counts.training??0, col:"#6366f1"},
-        ].map(s=>(
+        {[{label:"MASTERED",val:counts.mastered??0,col:"#10b981"},{label:"LEARNING",val:counts.learning??0,col:"#f59e0b"},{label:"TRAINING",val:counts.training??0,col:"#6366f1"}].map(s=>(
           <div key={s.label} style={{ padding:"12px 10px",borderRadius:10,background:"rgba(255,255,255,0.025)",border:`1px solid ${s.col}22`,textAlign:"center" }}>
             <div style={{ fontSize:18,fontWeight:900,color:s.col,fontFamily:"monospace" }}>{s.val}</div>
             <div style={{ fontSize:7,color:"#334155",fontFamily:"monospace",letterSpacing:"0.08em",marginTop:2 }}>{s.label}</div>
@@ -1457,13 +1462,12 @@ function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay,
       </div>
 
       {seenCount > 0 && (
-        <button onClick={onWordBank}
-          style={{ padding:"11px 16px",borderRadius:10,fontFamily:"monospace",fontWeight:700,fontSize:11,letterSpacing:"0.08em",cursor:"pointer",background:"rgba(99,102,241,0.07)",border:"1px solid rgba(99,102,241,0.22)",color:"#818cf8",display:"flex",alignItems:"center",gap:8,justifyContent:"center",transition:"all 0.18s" }}>
+        <button onClick={onWordBank} style={{ padding:"11px 16px",borderRadius:10,fontFamily:"monospace",fontWeight:700,fontSize:11,letterSpacing:"0.08em",cursor:"pointer",background:"rgba(99,102,241,0.07)",border:"1px solid rgba(99,102,241,0.22)",color:"#818cf8",display:"flex",alignItems:"center",gap:8,justifyContent:"center",transition:"all 0.18s" }}>
           📚 Word Bank <span style={{ fontSize:9,opacity:0.6 }}>({seenCount} words)</span>
         </button>
       )}
 
-      <button onClick={()=>onPlay()} style={{ padding:"16px",borderRadius:12,fontFamily:"monospace",fontWeight:900,fontSize:14,letterSpacing:"0.1em",cursor:"pointer",background:"linear-gradient(135deg,#4f46e5 0%,#10b981 100%)",border:"none",color:"#f8fafc",boxShadow:"0 4px 24px rgba(99,102,241,0.3), 0 4px 24px rgba(16,185,129,0.15)" }}>
+      <button onClick={()=>onPlay()} style={{ padding:"16px",borderRadius:12,fontFamily:"monospace",fontWeight:900,fontSize:14,letterSpacing:"0.1em",cursor:"pointer",background:"linear-gradient(135deg,#4f46e5 0%,#10b981 100%)",border:"none",color:"#f8fafc",boxShadow:"0 4px 24px rgba(99,102,241,0.3)" }}>
         {nextStage?`▶  ENTER ${nextStage.name.toUpperCase()}`:"▶  BEGIN YOUR JOURNEY"}
       </button>
 
@@ -1472,8 +1476,7 @@ function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay,
         {manifest.map(d=>{
           const prog=dungeonProgress[d.id]?.stagesCleared??0, tot=d.stages.length;
           return (
-            <button key={d.id} onClick={()=>onPlay(d)}
-              style={{ width:"100%",textAlign:"left",padding:"11px 14px",borderRadius:10,background:d.bg,border:`1px solid ${d.border}`,cursor:"pointer",transition:"all 0.18s" }}>
+            <button key={d.id} onClick={()=>onPlay(d)} style={{ width:"100%",textAlign:"left",padding:"11px 14px",borderRadius:10,background:d.bg,border:`1px solid ${d.border}`,cursor:"pointer",transition:"all 0.18s" }}>
               <div style={{ display:"flex",alignItems:"center",gap:10 }}>
                 <span style={{ fontSize:22,animation:"float 4s ease infinite" }}>{d.icon}</span>
                 <div style={{ flex:1 }}>
@@ -1481,7 +1484,8 @@ function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay,
                     <span style={{ fontSize:8,padding:"1px 5px",borderRadius:3,background:`${d.color}1a`,border:`1px solid ${d.color}44`,color:d.color,fontFamily:"monospace",fontWeight:900 }}>{d.cefr}</span>
                     <span style={{ fontSize:12,fontWeight:700,color:"#f8fafc",fontFamily:"monospace" }}>{d.name}</span>
                   </div>
-                  {tot>0&&<div style={{ height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden" }}><div style={{ height:"100%",width:`${(prog/tot)*100}%`,background:d.color,borderRadius:2 }}/></div>}
+                  <div style={{ fontSize:9,color:"#334155",fontFamily:"monospace" }}>{prog}/{tot} stages · {d.totalWords.toLocaleString()} words</div>
+                  {tot>0&&<div style={{ height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden",marginTop:3 }}><div style={{ height:"100%",width:`${(prog/tot)*100}%`,background:d.color,borderRadius:2 }}/></div>}
                 </div>
                 <span style={{ fontSize:8,color:d.color,fontFamily:"monospace",fontWeight:700 }}>{prog}/{tot}</span>
               </div>
@@ -1495,22 +1499,17 @@ function PlayerDashboard({ ledger, dungeonProgress, xp, gold, level, hp, onPlay,
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §17  WORD BANK VIEW — Phase 10: CEFR level filter + unseen count per level
-   
-   Allows filtering by CEFR level.
-   Shows Polish / English / Audio for every non-Unseen word.
-   Also shows a summary row of Unseen counts per level.
+   §19  WORD BANK VIEW  (unchanged from Phase 10)
 ══════════════════════════════════════════════════════════════════════════════ */
 function WordBankView({ ledger, onBack }) {
-  const [filter,      setFilter]      = useState("all");       // all | training | learning | mastered
-  const [cefrFilter,  setCefrFilter]  = useState("all");       // all | a1 | a2 | b1 | b2 | c1
-  const [search,      setSearch]      = useState("");
+  const [filter,     setFilter]     = useState("all");
+  const [cefrFilter, setCefrFilter] = useState("all");
+  const [search,     setSearch]     = useState("");
 
-  // Gather all seen words + their CEFR level from ALL vocab chunks
   const allVocab = useMemo(() => {
     const words = [];
     for (const [chunkId, chunk] of Object.entries(MOCK_VOCAB_CHUNKS)) {
-      const cefrLevel = chunkId.split("-")[0];  // "a1-s1" → "a1"
+      const cefrLevel = chunkId.split("-")[0];
       for (const w of chunk) {
         const tier = scoreToTier(ledger[w.id], w.id in ledger);
         words.push({ ...w, tier, cefrLevel });
@@ -1519,13 +1518,11 @@ function WordBankView({ ledger, onBack }) {
     return words;
   }, [ledger]);
 
-  // Unseen counts per CEFR level (for info row)
   const unseenByLevel = useMemo(() => {
     const m = {};
     for (const w of allVocab) {
       if (!m[w.cefrLevel]) m[w.cefrLevel] = { unseen:0, seen:0 };
-      if (w.tier === "unseen") m[w.cefrLevel].unseen++;
-      else m[w.cefrLevel].seen++;
+      if (w.tier === "unseen") m[w.cefrLevel].unseen++; else m[w.cefrLevel].seen++;
     }
     return m;
   }, [allVocab]);
@@ -1536,82 +1533,40 @@ function WordBankView({ ledger, onBack }) {
     let list = seenVocab;
     if (cefrFilter !== "all") list = list.filter(w => w.cefrLevel === cefrFilter);
     if (filter !== "all")     list = list.filter(w => w.tier === filter);
-    if (search.trim()) {
-      const q = search.trim().toLowerCase();
-      list = list.filter(w => w.polish.toLowerCase().includes(q) || w.english.toLowerCase().includes(q));
-    }
+    if (search.trim()) { const q=search.trim().toLowerCase(); list=list.filter(w=>w.polish.toLowerCase().includes(q)||w.english.toLowerCase().includes(q)); }
     const order = { mastered:0, learning:1, training:2 };
-    return [...list].sort((a,b) => (order[a.tier]??3) - (order[b.tier]??3));
+    return [...list].sort((a,b)=>(order[a.tier]??3)-(order[b.tier]??3));
   }, [seenVocab, cefrFilter, filter, search]);
 
   const tierColors = { training:"#6366f1", learning:"#f59e0b", mastered:"#10b981" };
   const tierLabels = { training:"Training", learning:"Learning", mastered:"Mastered" };
-  const cefrLevels = ["a1","a2","b1","b2","c1"];
-  const cefrLabels = { a1:"A1", a2:"A2", b1:"B1", b2:"B2", c1:"C1" };
-  const cefrColors = { a1:"#10b981", a2:"#3b82f6", b1:"#a855f7", b2:"#f97316", c1:"#ec4899" };
+  const cefrLevels = DUNGEON_CONFIG.map(d => d.id);
+  const cefrColors = Object.fromEntries(DUNGEON_CONFIG.map(d => [d.id, d.color]));
+  const cefrLabels = Object.fromEntries(DUNGEON_CONFIG.map(d => [d.id, d.cefr]));
 
   return (
     <div style={{ display:"flex",flexDirection:"column",gap:12 }}>
       <button onClick={onBack} style={{ background:"none",border:"none",color:"#334155",fontSize:11,cursor:"pointer",fontFamily:"monospace",padding:0,alignSelf:"flex-start" }}>← Dashboard</button>
-
       <div style={{ padding:"14px 16px",borderRadius:13,background:"rgba(99,102,241,0.07)",border:"1px solid rgba(99,102,241,0.22)" }}>
         <div style={{ fontSize:8,fontFamily:"monospace",color:"#818cf8",letterSpacing:"0.18em",marginBottom:3 }}>📚 WORD BANK</div>
         <div style={{ fontSize:16,fontWeight:900,color:"#f8fafc",fontFamily:"monospace" }}>Your Vocabulary</div>
         <div style={{ fontSize:9,color:"#475569",fontFamily:"monospace",marginTop:2 }}>{seenVocab.length} words encountered · {seenVocab.filter(w=>w.tier==="mastered").length} mastered</div>
       </div>
-
-      {/* CEFR level breakdown info */}
       <div style={{ display:"flex",gap:5,flexWrap:"wrap" }}>
-        {cefrLevels.map(lv=>{
-          const stats = unseenByLevel[lv] ?? { unseen:0, seen:0 };
-          const total = stats.unseen + stats.seen;
-          if (total === 0) return null;
-          return (
-            <div key={lv} style={{ padding:"5px 8px",borderRadius:7,background:`${cefrColors[lv]}10`,border:`1px solid ${cefrColors[lv]}33`,fontSize:8,fontFamily:"monospace" }}>
-              <span style={{ color:cefrColors[lv],fontWeight:700 }}>{cefrLabels[lv]}</span>
-              <span style={{ color:"#475569",marginLeft:5 }}>{stats.seen} seen · {stats.unseen} unseen</span>
-            </div>
-          );
-        })}
+        {cefrLevels.map(lv=>{ const stats=unseenByLevel[lv]??{unseen:0,seen:0}; const total=stats.unseen+stats.seen; if(total===0)return null; return (<div key={lv} style={{ padding:"5px 8px",borderRadius:7,background:`${cefrColors[lv]}10`,border:`1px solid ${cefrColors[lv]}33`,fontSize:8,fontFamily:"monospace" }}><span style={{ color:cefrColors[lv],fontWeight:700 }}>{cefrLabels[lv]}</span><span style={{ color:"#475569",marginLeft:5 }}>{stats.seen} seen · {stats.unseen} unseen</span></div>); })}
       </div>
-
-      {/* Search */}
-      <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search Polish or English…"
-        style={{ padding:"9px 13px",borderRadius:9,fontFamily:"monospace",fontSize:12,background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.09)",color:"#f8fafc",outline:"none" }}/>
-
-      {/* CEFR filter */}
+      <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search Polish or English…" style={{ padding:"9px 13px",borderRadius:9,fontFamily:"monospace",fontSize:12,background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.09)",color:"#f8fafc",outline:"none" }}/>
       <div style={{ display:"flex",gap:4,flexWrap:"wrap" }}>
-        <button onClick={()=>setCefrFilter("all")}
-          style={{ padding:"5px 9px",borderRadius:6,fontFamily:"monospace",fontWeight:700,fontSize:8,cursor:"pointer",background:cefrFilter==="all"?"rgba(255,255,255,0.08)":"transparent",border:`1px solid ${cefrFilter==="all"?"rgba(255,255,255,0.2)":"rgba(255,255,255,0.04)"}`,color:cefrFilter==="all"?"#f8fafc":"#334155",transition:"all 0.14s" }}>
-          ALL LEVELS
-        </button>
-        {cefrLevels.map(lv=>(
-          <button key={lv} onClick={()=>setCefrFilter(lv)}
-            style={{ padding:"5px 9px",borderRadius:6,fontFamily:"monospace",fontWeight:700,fontSize:8,cursor:"pointer",background:cefrFilter===lv?`${cefrColors[lv]}22`:"transparent",border:`1px solid ${cefrFilter===lv?`${cefrColors[lv]}55`:"rgba(255,255,255,0.04)"}`,color:cefrFilter===lv?cefrColors[lv]:"#334155",transition:"all 0.14s" }}>
-            {cefrLabels[lv]}
-          </button>
-        ))}
+        <button onClick={()=>setCefrFilter("all")} style={{ padding:"5px 9px",borderRadius:6,fontFamily:"monospace",fontWeight:700,fontSize:8,cursor:"pointer",background:cefrFilter==="all"?"rgba(255,255,255,0.08)":"transparent",border:`1px solid ${cefrFilter==="all"?"rgba(255,255,255,0.2)":"rgba(255,255,255,0.04)"}`,color:cefrFilter==="all"?"#f8fafc":"#334155",transition:"all 0.14s" }}>ALL</button>
+        {cefrLevels.map(lv=>(<button key={lv} onClick={()=>setCefrFilter(lv)} style={{ padding:"5px 9px",borderRadius:6,fontFamily:"monospace",fontWeight:700,fontSize:8,cursor:"pointer",background:cefrFilter===lv?`${cefrColors[lv]}22`:"transparent",border:`1px solid ${cefrFilter===lv?`${cefrColors[lv]}55`:"rgba(255,255,255,0.04)"}`,color:cefrFilter===lv?cefrColors[lv]:"#334155",transition:"all 0.14s" }}>{cefrLabels[lv]}</button>))}
       </div>
-
-      {/* Status filter */}
       <div style={{ display:"flex",gap:5 }}>
         {[["all","All"],["mastered","Mastered"],["learning","Learning"],["training","Training"]].map(([key,label])=>(
-          <button key={key} onClick={()=>setFilter(key)}
-            style={{ flex:1,padding:"6px 4px",borderRadius:7,fontFamily:"monospace",fontWeight:700,fontSize:8,letterSpacing:"0.06em",cursor:"pointer",
-              background:filter===key?(key==="all"?"rgba(255,255,255,0.08)":`${tierColors[key]}22`):"transparent",
-              border:`1px solid ${filter===key?(key==="all"?"rgba(255,255,255,0.2)":`${tierColors[key]}55`):"rgba(255,255,255,0.04)"}`,
-              color:filter===key?(key==="all"?"#f8fafc":tierColors[key]):"#334155",
-              transition:"all 0.14s" }}>
-            {label}
-          </button>
+          <button key={key} onClick={()=>setFilter(key)} style={{ flex:1,padding:"6px 4px",borderRadius:7,fontFamily:"monospace",fontWeight:700,fontSize:8,letterSpacing:"0.06em",cursor:"pointer", background:filter===key?(key==="all"?"rgba(255,255,255,0.08)":`${tierColors[key]}22`):"transparent", border:`1px solid ${filter===key?(key==="all"?"rgba(255,255,255,0.2)":`${tierColors[key]}55`):"rgba(255,255,255,0.04)"}`, color:filter===key?(key==="all"?"#f8fafc":tierColors[key]):"#334155", transition:"all 0.14s" }}>{label}</button>
         ))}
       </div>
-
-      {/* Word list */}
       {filtered.length === 0 ? (
-        <div style={{ padding:"32px 16px",textAlign:"center",color:"#334155",fontFamily:"monospace",fontSize:10 }}>
-          {seenVocab.length === 0 ? "No words yet — start practicing!" : "No words match this filter."}
-        </div>
+        <div style={{ padding:"32px 16px",textAlign:"center",color:"#334155",fontFamily:"monospace",fontSize:10 }}>{seenVocab.length===0?"No words yet — start practicing!":"No words match this filter."}</div>
       ) : (
         <div style={{ display:"flex",flexDirection:"column",gap:5 }}>
           {filtered.map(w=>(
@@ -1621,12 +1576,8 @@ function WordBankView({ ledger, onBack }) {
                 {w.subtext&&<div style={{ fontSize:8,color:"#475569",fontFamily:"monospace" }}>{w.subtext}</div>}
               </div>
               <div style={{ flex:1,fontSize:11,color:"#94a3b8",fontFamily:"monospace" }}>{w.english}</div>
-              <span style={{ fontSize:7,padding:"1px 4px",borderRadius:3,background:`${cefrColors[w.cefrLevel] ?? "#334155"}18`,border:`1px solid ${cefrColors[w.cefrLevel] ?? "#334155"}33`,color:cefrColors[w.cefrLevel] ?? "#334155",fontFamily:"monospace",fontWeight:700,flexShrink:0 }}>
-                {cefrLabels[w.cefrLevel] ?? w.cefrLevel?.toUpperCase()}
-              </span>
-              <span style={{ fontSize:7,padding:"2px 6px",borderRadius:4,background:`${tierColors[w.tier]}18`,border:`1px solid ${tierColors[w.tier]}44`,color:tierColors[w.tier],fontFamily:"monospace",fontWeight:700,flexShrink:0 }}>
-                {tierLabels[w.tier]}
-              </span>
+              <span style={{ fontSize:7,padding:"1px 4px",borderRadius:3,background:`${cefrColors[w.cefrLevel]??"#334155"}18`,border:`1px solid ${cefrColors[w.cefrLevel]??"#334155"}33`,color:cefrColors[w.cefrLevel]??"#334155",fontFamily:"monospace",fontWeight:700,flexShrink:0 }}>{cefrLabels[w.cefrLevel]??w.cefrLevel?.toUpperCase()}</span>
+              <span style={{ fontSize:7,padding:"2px 6px",borderRadius:4,background:`${tierColors[w.tier]}18`,border:`1px solid ${tierColors[w.tier]}44`,color:tierColors[w.tier],fontFamily:"monospace",fontWeight:700,flexShrink:0 }}>{tierLabels[w.tier]}</span>
               <PlayAudio text={w.polish} size="sm"/>
             </div>
           ))}
@@ -1644,7 +1595,7 @@ function StageClearedScreen({ stage, dungeon, xpEarned, goldEarned, isLastStage,
       <div>
         <div style={{ fontSize:8,fontFamily:"monospace",color:dungeon.color,letterSpacing:"0.2em",marginBottom:4 }}>{isLastStage?"DUNGEON CLEARED":"STAGE CLEARED"}</div>
         <div style={{ fontSize:18,fontWeight:900,color:"#f8fafc",fontFamily:"monospace" }}>{stage?.name}</div>
-        {isLastStage && <div style={{ fontSize:9,color:"#10b981",fontFamily:"monospace",marginTop:4 }}>All words in this level have been marked Mastered! ✓</div>}
+        {isLastStage && <div style={{ fontSize:9,color:"#10b981",fontFamily:"monospace",marginTop:4 }}>All words in this level marked Mastered! ✓</div>}
       </div>
       <div style={{ display:"flex",gap:18,padding:"12px 20px",background:dungeon.bg,borderRadius:11,border:`1px solid ${dungeon.border}` }}>
         <div style={{ textAlign:"center" }}><div style={{ fontSize:8,color:"#334155",fontFamily:"monospace" }}>XP</div><div style={{ fontSize:16,fontWeight:900,color:dungeon.color,fontFamily:"monospace" }}>+{xpEarned}</div></div>
@@ -1660,13 +1611,12 @@ function StageClearedScreen({ stage, dungeon, xpEarned, goldEarned, isLastStage,
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §18  ROOT APP — GAME STATE MACHINE (Phase 10)
+   §20  ROOT APP — GAME STATE MACHINE (Phase 11)
    
-   New in Phase 10:
-   • isReplay flag propagated through nav → affects gold rewards (20%)
-   • Dungeon Clear hook: when final boss of a CEFR level is defeated,
-     BULK_MASTER_LEVEL dispatched for all words in that CEFR level
-   • All dungeons unlocked for dev (cheat code in manifest)
+   Phase 11 additions:
+   • sessionBuffer — built at room-entry time from unseen words in wordPool
+   • sessionBuffer passed to PracticeMode and CombatScreen
+   • CombatScreen builds battlePool = sessionBuffer + 20% review on mount
 ══════════════════════════════════════════════════════════════════════════════ */
 export default function App() {
   const [xp,    setXp]    = useState(0);
@@ -1677,14 +1627,15 @@ export default function App() {
   const [dungeonProgress, setDungeonProgress] = useState({});
 
   const [nav, setNav] = useState({
-    view:"dashboard",
-    dungeon:null,
-    stage:null,
-    room:null,
-    isBoss:false,
-    wordPool:null,
-    poolReady:false,
-    isReplay:false,  // Phase 10: replay mode flag
+    view:         "dashboard",
+    dungeon:      null,
+    stage:        null,
+    room:         null,
+    isBoss:       false,
+    wordPool:     null,
+    sessionBuffer:null,   // Phase 11: unseen words captured at room-entry
+    poolReady:    false,
+    isReplay:     false,
   });
 
   const [sessionXp,   setSessionXp]   = useState(0);
@@ -1697,17 +1648,23 @@ export default function App() {
 
   const goTo = useCallback((patch) => setNav(n => ({ ...n, ...patch })), []);
 
-  const loadPool = useCallback(async (stage, room) => {
-    if (!stage?.chunkId) { goTo({ wordPool:[], poolReady:true }); return; }
+  /* Phase 11: loadPool also builds the sessionBuffer */
+  const loadPool = useCallback(async (stage, room, currentLedger) => {
+    if (!stage?.chunkId) { goTo({ wordPool:[], sessionBuffer:[], poolReady:true }); return; }
     goTo({ poolReady:false });
     try {
       const words  = await VocabService.fetchChunk(stage.chunkId);
       const slice  = room?.wordSlice ?? [0, words.length];
       const sliced = words.slice(slice[0], slice[1]);
-      goTo({ wordPool: sliced.length >= 4 ? sliced : words.slice(0, Math.min(10, words.length)), poolReady:true });
+      const pool   = sliced.length >= 4 ? sliced : words.slice(0, Math.min(10, words.length));
+
+      // Session buffer: only unseen words from this room's pool
+      const buffer = pool.filter(w => scoreToTier(currentLedger[w.id], w.id in currentLedger) === "unseen");
+
+      goTo({ wordPool:pool, sessionBuffer:buffer, poolReady:true });
     } catch(e) {
       console.error("VocabService error:", e);
-      goTo({ wordPool:[], poolReady:true });
+      goTo({ wordPool:[], sessionBuffer:[], poolReady:true });
     }
   }, [goTo]);
 
@@ -1724,46 +1681,33 @@ export default function App() {
 
   const enterRoom = useCallback((dungeon, stage, room, isReplay=false) => {
     if (!dungeon || !stage || !room) return;
-    goTo({ view:"practice", dungeon, stage, room, isBoss:false, wordPool:null, poolReady:false, isReplay });
-    loadPool(stage, room);
-  }, [goTo, loadPool]);
+    goTo({ view:"practice", dungeon, stage, room, isBoss:false, wordPool:null, sessionBuffer:null, poolReady:false, isReplay });
+    loadPool(stage, room, ledger);
+  }, [goTo, loadPool, ledger]);
 
   const enterBoss = useCallback((dungeon, stage, boss, isReplay=false) => {
     if (!dungeon || !stage || !boss) return;
-    goTo({ view:"practice", dungeon, stage, room:boss, isBoss:true, wordPool:null, poolReady:false, isReplay });
-    loadPool(stage, boss);
-  }, [goTo, loadPool]);
+    goTo({ view:"practice", dungeon, stage, room:boss, isBoss:true, wordPool:null, sessionBuffer:null, poolReady:false, isReplay });
+    loadPool(stage, boss, ledger);
+  }, [goTo, loadPool, ledger]);
 
-  const skipToCombat = useCallback(() => {
-    goTo({ view:"combat" });
-  }, [goTo]);
+  const skipToCombat = useCallback(() => goTo({ view:"combat" }), [goTo]);
 
-  /* ── Phase 10: Dungeon Clear Hook ──────────────────────────────────────────
-     When the final boss of a CEFR level is defeated (stagesCleared === total stages),
-     bulk-upgrade all words in that CEFR level to "mastered".
-  ──────────────────────────────────────────────────────────────────────────── */
   const handleDungeonClear = useCallback(async (dungeon) => {
     try {
       const allWords = await VocabService.fetchAllForLevel(dungeon.id);
       const wordIds  = allWords.map(w => w.id);
-      if (wordIds.length > 0) {
-        dispatchLedger({ type:"BULK_MASTER_LEVEL", wordIds });
-        console.log(`[DungeonClear] Bulk-mastered ${wordIds.length} words for ${dungeon.cefr}`);
-      }
-    } catch(e) {
-      console.error("DungeonClear error:", e);
-    }
+      if (wordIds.length > 0) dispatchLedger({ type:"BULK_MASTER_LEVEL", wordIds });
+    } catch(e) { console.error("DungeonClear error:", e); }
   }, [dispatchLedger]);
 
   const handleRoomCleared = useCallback((earnedXp, earnedGold) => {
-    const { dungeon, stage, isBoss, isReplay } = nav;
+    const { dungeon, stage, isBoss } = nav;
     if (!dungeon || !stage) return;
     setXp(v=>v+earnedXp); setGold(v=>v+earnedGold);
     setSessionXp(v=>v+earnedXp); setSessionGold(v=>v+earnedGold);
-
     const did  = dungeon.id;
     const sIdx = stage.index;
-
     let dungeonCleared = false;
     setDungeonProgress(prev => {
       const dp = { ...(prev[did] ?? { stagesCleared:0 }) };
@@ -1772,44 +1716,21 @@ export default function App() {
       } else {
         dp[`s${sIdx}_boss`] = true;
         dp.stagesCleared    = (dp.stagesCleared??0) + 1;
-        // Check if this was the final stage
-        if (dp.stagesCleared >= dungeon.stages.length) {
-          dungeonCleared = true;
-        }
+        if (dp.stagesCleared >= dungeon.stages.length) dungeonCleared = true;
       }
       return { ...prev, [did]:dp };
     });
-
-    // Phase 10: Trigger auto-mastery if dungeon is now cleared
-    if (dungeonCleared) {
-      handleDungeonClear(dungeon);
-    }
-
-    const isLastStage = isBoss && (nav.dungeonProgress?.[did]?.stagesCleared ?? 0) + 1 >= dungeon.stages.length;
-
-    if (isBoss) {
-      goTo({ view:"stage_cleared" });
-    } else {
-      goTo({ view:"stage_map", room:null, isBoss:false, wordPool:null });
-    }
+    if (dungeonCleared) handleDungeonClear(dungeon);
+    if (isBoss) goTo({ view:"stage_cleared" });
+    else goTo({ view:"stage_map", room:null, isBoss:false, wordPool:null, sessionBuffer:null });
   }, [nav, goTo, handleDungeonClear]);
 
-  const handlePlayerDamage = useCallback(() => setLives(l => Math.max(0, l - 1)), []);
-
-  const handleSpendGoldRevive = useCallback(() => {
-    if (gold < 30) return;
-    setGold(g => g - 30);
-    setLives(1);
-  }, [gold]);
-
-  const handleGiveUp = useCallback(() => {
-    setLives(3);
-    goTo({ view:"dashboard", dungeon:null, stage:null, room:null, isBoss:false, wordPool:null, isReplay:false });
-  }, [goTo]);
+  const handlePlayerDamage    = useCallback(() => setLives(l => Math.max(0, l-1)), []);
+  const handleSpendGoldRevive = useCallback(() => { if(gold<30)return; setGold(g=>g-30); setLives(1); }, [gold]);
+  const handleGiveUp          = useCallback(() => { setLives(3); goTo({ view:"dashboard",dungeon:null,stage:null,room:null,isBoss:false,wordPool:null,sessionBuffer:null,isReplay:false }); }, [goTo]);
 
   const level = Math.floor(xp/200)+1;
-
-  const { view, dungeon, stage, room, isBoss, wordPool, poolReady, isReplay } = nav;
+  const { view, dungeon, stage, room, isBoss, wordPool, sessionBuffer, poolReady, isReplay } = nav;
   const dp           = dungeon ? (dungeonProgress[dungeon.id] ?? { stagesCleared:0 }) : {};
   const roomsCleared = stage ? (dp[`s${stage.index}_rooms`]??0) : 0;
   const bossCleared  = stage ? !!(dp[`s${stage.index}_boss`]) : false;
@@ -1831,22 +1752,20 @@ export default function App() {
         button{font-family:inherit} input{font-family:inherit}
         ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.07)}
       `}</style>
-
       <div style={{ position:"fixed",inset:0,pointerEvents:"none",zIndex:0 }}>
         <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 20% 12%,rgba(99,102,241,0.055) 0%,transparent 50%)" }}/>
         <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 78% 88%,rgba(16,185,129,0.035) 0%,transparent 50%)" }}/>
         <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 23px,rgba(255,255,255,0.006) 23px,rgba(255,255,255,0.006) 24px),repeating-linear-gradient(90deg,transparent,transparent 23px,rgba(255,255,255,0.006) 23px,rgba(255,255,255,0.006) 24px)" }}/>
       </div>
-
       <div style={{ position:"relative",zIndex:1,maxWidth:480,margin:"0 auto",padding:"0 14px 60px" }}>
         <header style={{ padding:"11px 0 9px",borderBottom:"1px solid rgba(255,255,255,0.05)",marginBottom:14,position:"sticky",top:0,background:"rgba(6,10,18,0.93)",backdropFilter:"blur(14px)",zIndex:50 }}>
           <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:7 }}>
             <div>
               <h1 style={{ fontSize:15,fontWeight:900,letterSpacing:"0.15em",color:"#f97316",lineHeight:1 }}>
                 POLSK<span style={{ color:"#ef4444" }}>QUEST</span>
-                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 10</span>
+                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 11</span>
               </h1>
-              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>INPUT LOCK · UNSEEN FILTER · AUTO-MASTERY · REPLAY · SUPABASE</p>
+              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>PROC GEN · SESSION BUFFER · TRAINING FIX · PAGINATED MAP</p>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center" }}>
               {(view==="combat"||view==="practice") ? (
@@ -1866,42 +1785,24 @@ export default function App() {
         </header>
 
         <div key={view} style={{ animation:"fadeIn 0.22s ease" }}>
-
           {view==="dashboard" && (
-            <PlayerDashboard
-              ledger={ledger} dungeonProgress={dungeonProgress}
-              xp={xp} gold={gold} level={level} hp={lives}
+            <PlayerDashboard ledger={ledger} dungeonProgress={dungeonProgress} xp={xp} gold={gold} level={level}
               manifest={DUNGEON_MANIFEST}
-              onPlay={(d) => {
-                const target = (d&&typeof d==="object") ? d : DUNGEON_MANIFEST.find(x=>!x.locked);
-                if (target) enterDungeon(target);
-              }}
-              onWordBank={()=>goTo({ view:"word_bank" })}
-            />
+              onPlay={(d) => { const target=(d&&typeof d==="object")?d:DUNGEON_MANIFEST.find(x=>!x.locked); if(target)enterDungeon(target); }}
+              onWordBank={()=>goTo({ view:"word_bank" })}/>
           )}
-
-          {view==="word_bank" && (
-            <WordBankView ledger={ledger} onBack={()=>goTo({ view:"dashboard" })}/>
-          )}
-
+          {view==="word_bank" && <WordBankView ledger={ledger} onBack={()=>goTo({ view:"dashboard" })}/>}
           {view==="dungeon_select" && dungeon && (
-            <DungeonSelect
-              dungeon={dungeon} dungeonProgress={dungeonProgress}
-              onEnterStage={(s, replay=false) => enterStage(dungeon, s, replay)}
-              onBack={()=>goTo({ view:"dashboard",dungeon:null })}
-            />
+            <DungeonSelect dungeon={dungeon} dungeonProgress={dungeonProgress}
+              onEnterStage={(s,replay=false)=>enterStage(dungeon,s,replay)}
+              onBack={()=>goTo({ view:"dashboard",dungeon:null })}/>
           )}
-
           {view==="stage_map" && dungeon && stage && (
-            <StageMap
-              dungeon={dungeon} stage={stage}
-              completedRooms={roomsCleared} bossCleared={bossCleared}
-              onEnterRoom={(r, replay=false)  => enterRoom(dungeon, stage, r, replay)}
-              onEnterBoss={(b, replay=false)  => enterBoss(dungeon, stage, b, replay)}
-              onBack={()=>goTo({ view:"dungeon_select", stage:null })}
-            />
+            <StageMap dungeon={dungeon} stage={stage} completedRooms={roomsCleared} bossCleared={bossCleared}
+              onEnterRoom={(r,replay=false)=>enterRoom(dungeon,stage,r,replay)}
+              onEnterBoss={(b,replay=false)=>enterBoss(dungeon,stage,b,replay)}
+              onBack={()=>goTo({ view:"dungeon_select",stage:null })}/>
           )}
-
           {view==="practice" && dungeon && stage && room && (
             !poolReady ? (
               <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:12,padding:"48px 20px" }}>
@@ -1910,16 +1811,14 @@ export default function App() {
               </div>
             ) : (
               <PracticeMode
-                wordPool={wordPool??[]} dungeon={dungeon} stage={stage} room={room}
+                sessionBuffer={sessionBuffer??[]} wordPool={wordPool??[]}
+                dungeon={dungeon} stage={stage} room={room}
                 onComplete={skipToCombat}
-                onBack={()=>goTo({ view:"stage_map",room:null,wordPool:null })}
+                onBack={()=>goTo({ view:"stage_map",room:null,wordPool:null,sessionBuffer:null })}
                 dispatchLedger={dispatchLedger}
-                ledger={ledger}
-                isReplay={isReplay}
-              />
+                isReplay={isReplay}/>
             )
           )}
-
           {view==="combat" && dungeon && stage && room && (
             !poolReady ? (
               <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:12,padding:"48px 20px" }}>
@@ -1929,33 +1828,22 @@ export default function App() {
             ) : (
               <CombatScreen
                 dungeon={dungeon} stage={stage} room={room}
-                isBoss={isBoss} wordPool={wordPool??[]} ledger={ledger}
-                dispatchLedger={dispatchLedger}
-                onRoomCleared={handleRoomCleared}
-                onPlayerDamage={handlePlayerDamage}
-                onBack={()=>goTo({ view:"stage_map",room:null,wordPool:null,isBoss:false })}
-                lives={lives}
-                gold={gold}
-                onSpendGold={handleSpendGoldRevive}
-                onGiveUp={handleGiveUp}
-                isReplay={isReplay}
-              />
+                isBoss={isBoss} wordPool={wordPool??[]} sessionBuffer={sessionBuffer??[]}
+                ledger={ledger} dispatchLedger={dispatchLedger}
+                onRoomCleared={handleRoomCleared} onPlayerDamage={handlePlayerDamage}
+                onBack={()=>goTo({ view:"stage_map",room:null,wordPool:null,sessionBuffer:null,isBoss:false })}
+                lives={lives} gold={gold} onSpendGold={handleSpendGoldRevive} onGiveUp={handleGiveUp}
+                isReplay={isReplay}/>
             )
           )}
-
           {view==="stage_cleared" && dungeon && stage && (
-            <StageClearedScreen
-              stage={stage} dungeon={dungeon}
-              xpEarned={sessionXp} goldEarned={sessionGold}
-              isLastStage={isLastStage}
+            <StageClearedScreen stage={stage} dungeon={dungeon} xpEarned={sessionXp} goldEarned={sessionGold} isLastStage={isLastStage}
               onContinue={()=>{
                 setSessionXp(0); setSessionGold(0);
-                if (isLastStage) { goTo({ view:"dashboard",dungeon:null,stage:null,room:null }); }
-                else { goTo({ view:"dungeon_select",stage:null,room:null,wordPool:null }); }
-              }}
-            />
+                if(isLastStage){goTo({view:"dashboard",dungeon:null,stage:null,room:null});}
+                else{goTo({view:"dungeon_select",stage:null,room:null,wordPool:null,sessionBuffer:null});}
+              }}/>
           )}
-
         </div>
       </div>
     </div>
