@@ -16,7 +16,7 @@ if (!_supabaseUrl || !_supabaseKey) {
 const _supabase = createClient(_supabaseUrl, _supabaseKey);
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   POLSKQUEST — PHASE 14: COMBAT HARDENING HOTFIXES
+   POLSKQUEST — PHASE 15: CONTEXTUAL LEARNING
 
    KEY CHANGES FROM PHASE 13:
    ┌──────────────────────────────────────────────────────────────────────────┐
@@ -213,7 +213,6 @@ const VocabService = {
 
     if (error) throw error;
 
-    /* Phase 13: map to synonym schema */
     const words = (data ?? []).map(r => {
       const main     = r.english ?? "";
       const synonyms = Array.isArray(r.accepted_answers)
@@ -225,11 +224,13 @@ const VocabService = {
         english_main:     main,
         accepted_synonyms:synonyms,
         context_hint:     r.subtext ?? null,
+        example_pl:       r.example_pl ?? null,   // Polish example sentence
+        example_en:       r.example_en ?? null,   // English translation of example
         cat:              r.category ?? "misc",
         cefrLevel:        cefrLower,
         stageId:          r.stage_id,
-        english:          main,      // legacy alias
-        accepted:         synonyms,  // legacy alias
+        english:          main,
+        accepted:         synonyms,
       };
     });
     this._cache.set(chunkId, words);
@@ -268,6 +269,8 @@ const VocabService = {
         id: r.id, polish: r.polish,
         english_main: main, accepted_synonyms: synonyms,
         context_hint: r.subtext ?? null,
+        example_pl: r.example_pl ?? null,
+        example_en: r.example_en ?? null,
         cat: r.category ?? "misc",
         cefrLevel: cefrLower, stageId: r.stage_id,
         english: main, accepted: synonyms,
@@ -702,7 +705,11 @@ function optionLabel(word) {
 function generateQuestion(pool, ledger, lastId, fullPool=null) {
   if (!pool || pool.length === 0) return null;
   const word   = weightedPick(pool, ledger, lastId);
-  const qTypes = ["reading","reading","listening","listening","writing","writing","writing"];
+  // "context" replaces one "writing" slot when an example sentence is available
+  const hasExample = !!(word.example_pl && word.example_en);
+  const qTypes = hasExample
+    ? ["reading","reading","listening","listening","writing","writing","context"]
+    : ["reading","reading","listening","listening","writing","writing","writing"];
   const qtype  = qTypes[Math.floor(Math.random() * qTypes.length)];
 
   const englishMain = word.english_main ?? word.english ?? "";
@@ -754,6 +761,27 @@ function generateQuestion(pool, ledger, lastId, fullPool=null) {
     ...allValidPolish,
   ])];
 
+  // context: show the Polish example sentence; player identifies the target word's English meaning.
+  // The sentence grounds the word in real usage. We ask "What does [highlighted word] mean?"
+  if (qtype === "context" && word.example_pl && word.example_en) {
+    const distractors = pickDistractors(word, pool, 3, fullPool);
+    const options = [
+      ...distractors.map(d => ({ label: optionLabel(d), wordId: d.id })),
+      { label: optionLabel(word), wordId: word.id },
+    ].sort(() => Math.random()-0.5);
+    return {
+      id: `${word.id}-c-${Date.now()}`, type: "context",
+      wordId: word.id, polish: word.polish,
+      english_main: englishMain, displayLabel,
+      context_hint: word.context_hint ?? null,
+      example_pl: word.example_pl,
+      example_en: word.example_en,
+      options, correctWordId: word.id,
+      cat: word.cat,
+    };
+  }
+
+  // Fallback to writing if context not available
   return {
     id: `${word.id}-w-${Date.now()}`, type: "writing",
     wordId: word.id, polish: word.polish,
@@ -1010,10 +1038,24 @@ function PracticeMode({ sessionBuffer, wordPool, dungeon, stage, room, onComplet
               REVEAL MEANING ▼
             </button>
           ) : (
-            <div style={{ padding:"16px 20px", textAlign:"center", background:"rgba(99,102,241,0.06)", animation:"fadeIn 0.22s ease" }}>
-              <div style={{ fontSize:8, color:"#475569", fontFamily:"monospace", letterSpacing:"0.14em", marginBottom:6 }}>ENGLISH</div>
-              <div style={{ fontSize:20, fontWeight:900, color:"#c7d2fe", fontFamily:"monospace", marginBottom:4 }}>{word?.english}</div>
-              {word?.subtext && <div style={{ fontSize:10, color:"#475569", fontFamily:"monospace" }}>{word?.subtext}</div>}
+            <div style={{ animation:"fadeIn 0.22s ease" }}>
+              <div style={{ padding:"14px 20px", textAlign:"center", background:"rgba(99,102,241,0.06)", borderBottom: word?.example_pl ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
+                <div style={{ fontSize:8, color:"#475569", fontFamily:"monospace", letterSpacing:"0.14em", marginBottom:6 }}>ENGLISH</div>
+                <div style={{ fontSize:20, fontWeight:900, color:"#c7d2fe", fontFamily:"monospace", marginBottom:4 }}>{word?.english_main ?? word?.english}</div>
+                {word?.context_hint && <div style={{ fontSize:10, color:"#6366f1", fontFamily:"monospace", fontStyle:"italic" }}>{word.context_hint}</div>}
+              </div>
+              {word?.example_pl && (
+                <div style={{ padding:"12px 20px", background:"rgba(16,185,129,0.04)" }}>
+                  <div style={{ fontSize:7, color:"#334155", fontFamily:"monospace", letterSpacing:"0.14em", marginBottom:5 }}>EXAMPLE</div>
+                  <div style={{ display:"flex", alignItems:"flex-start", gap:8 }}>
+                    <PlayAudio text={word.example_pl} size="sm"/>
+                    <div>
+                      <div style={{ fontSize:12, fontWeight:700, color:"#f8fafc", fontFamily:"monospace", lineHeight:1.45 }}>{word.example_pl}</div>
+                      {word.example_en && <div style={{ fontSize:11, color:"#64748b", fontFamily:"monospace", marginTop:3, lineHeight:1.4, fontStyle:"italic" }}>{word.example_en}</div>}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -1063,8 +1105,8 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
     isProcessing.current = true;
 
     const raw = question.type === "reading" ? (selectedId ?? "") : typed;
-    if (question.type !== "reading" && !typed.trim()) { isProcessing.current = false; return; }
-    if (question.type === "reading" && !selectedId)   { isProcessing.current = false; return; }
+    if (question.type !== "reading" && question.type !== "context" && !typed.trim()) { isProcessing.current = false; return; }
+    if ((question.type === "reading" || question.type === "context") && !selectedId) { isProcessing.current = false; return; }
 
     const ok = validateAnswer(question, raw);
     setResult(ok); setFeedbackStep("locked"); setShowTutor(true);
@@ -1092,7 +1134,7 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
     if (result) { SFX.bladeSlash(); } else { SFX.oofImpact(); onOof?.(); }
 
     // Advance immediately — lock persists until new question mounts
-    onAnswer(result, question.type === "reading" ? selectedId : typed);
+    onAnswer(result, (question.type === "reading" || question.type === "context") ? selectedId : typed);
   }, [feedbackStep, result, selectedId, typed, question, onAnswer, onOof]);
 
   /* Phase 13: timer expiry — debounce-locked */
@@ -1121,9 +1163,9 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
     return () => window.removeEventListener("keydown", handler);
   }, [feedbackStep, checkAndReveal, confirmAndAdvance]);
 
-  const canSubmit      = question.type === "reading" ? !!selectedId : typed.trim().length > 0;
+  const canSubmit      = (question.type === "reading" || question.type === "context") ? !!selectedId : typed.trim().length > 0;
   const submitDisabled = !canSubmit || isProcessing.current;
-  const isTyping       = question.type !== "reading";
+  const isTyping       = question.type !== "reading" && question.type !== "context";
   const isLocked       = feedbackStep === "locked";
   const isVerified     = feedbackStep === "verified";
   const fbBtn          = result === true
@@ -1135,13 +1177,13 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
       <div style={{ borderRadius:13, padding:"15px", background:"rgba(255,255,255,0.022)", border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.45)":"rgba(239,68,68,0.45)"):"rgba(255,255,255,0.07)"}`, boxShadow:(isVerified||isLocked)?(result?"0 0 20px rgba(16,185,129,0.16)":"0 0 20px rgba(239,68,68,0.14)"):"none", transition:"border-color 0.25s, box-shadow 0.25s", animation:"slideUp 0.2s cubic-bezier(0.34,1.56,0.64,1)" }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:10 }}>
           <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-            <span style={{ fontSize:14 }}>{question.type==="reading"?"👁":question.type==="listening"?"🔊":"✏️"}</span>
+            <span style={{ fontSize:14 }}>{question.type==="reading"?"👁":question.type==="listening"?"🔊":question.type==="context"?"💬":"✏️"}</span>
             {question.type==="listening" && <PlayAudio text={question.polish} size="md" autoPlay={feedbackStep==="idle"} key={`auto-${question.id}`}/>}
           </div>
           {isBoss && feedbackStep==="idle" && <BossTimer key={timerKey.current} totalSeconds={bossTimerSeconds} onExpire={handleTimerFire}/>}
         </div>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 }}>
-          <div style={{ fontFamily:"monospace" }}>
+          <div style={{ fontFamily:"monospace", flex:1 }}>
             {question.type==="reading"  && <div style={{ fontSize:24, fontWeight:900, color:"#f8fafc" }}>{question.polish}</div>}
             {question.type==="listening"&& <div style={{ fontSize:12, color:"#475569", fontStyle:"italic" }}>Translate what you hear</div>}
             {question.type==="writing"  && (
@@ -1159,11 +1201,27 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
                 )}
               </div>
             )}
+            {question.type==="context" && (
+              <div>
+                <div style={{ fontSize:9, color:"#475569", marginBottom:6, letterSpacing:"0.06em" }}>
+                  WHAT DOES THE HIGHLIGHTED WORD MEAN?
+                </div>
+                {/* Render the Polish sentence with the target word highlighted */}
+                <div style={{ fontSize:13, color:"#94a3b8", fontFamily:"monospace", lineHeight:1.6, marginBottom:4 }}>
+                  {question.example_pl.split(new RegExp(`(${question.polish})`, "i")).map((part, i) =>
+                    part.toLowerCase() === question.polish.toLowerCase()
+                      ? <span key={i} style={{ color:"#fbbf24", fontWeight:900, background:"rgba(251,191,36,0.1)", borderRadius:3, padding:"0 3px" }}>{part}</span>
+                      : <span key={i}>{part}</span>
+                  )}
+                </div>
+                <div style={{ fontSize:9, color:"#334155", fontStyle:"italic", marginTop:2 }}>{question.example_en}</div>
+              </div>
+            )}
           </div>
-          {question.type==="reading" && <PlayAudio text={question.polish} size="sm"/>}
+          {(question.type==="reading" || question.type==="context") && <PlayAudio text={question.type==="context" ? question.example_pl : question.polish} size="sm"/>}
         </div>
-        {/* Phase 13: MCQ options — matched by wordId, labels include context hints */}
-        {question.type==="reading" && (
+        {/* MCQ options — reading and context both use multiple choice */}
+        {(question.type==="reading" || question.type==="context") && (
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:7 }}>
             {question.options.map((opt,i)=>{
               const sel   = selectedId === opt.wordId;
@@ -2070,9 +2128,9 @@ export default function App() {
             <div>
               <h1 style={{ fontSize:15,fontWeight:900,letterSpacing:"0.15em",color:"#f97316",lineHeight:1 }}>
                 POLSK<span style={{ color:"#ef4444" }}>QUEST</span>
-                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 14</span>
+                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 15</span>
               </h1>
-              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>ENTER FIX · CO AUDIO · MCQ DEDUP · WORD BANK · COUNTS</p>
+              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>CONTEXT SENTENCES · EXAMPLE AUDIO · CONTEXT QUESTIONS</p>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center" }}>
               {(view==="combat"||view==="practice") ? (

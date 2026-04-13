@@ -1,1389 +1,1301 @@
-polish,english,category,subtext,accepted_answers,frequency_rank
-rok,year,misc,,"[""year""]",1
-pół,half,misc,"(also: połowę, połowa)","[""half"",""pół"",""pol"",""połowę"",""polowe"",""połowa"",""polowa""]",2
-racja,rationale,misc,,"[""rationale""]",3
-lecz,but,misc,(also: ależ),"[""but"",""lecz"",""ależ"",""alez""]",4
-człowiekiem,man,misc,"(also: człowieku, mężczyzna, mężczyzną, mężczyznę)","[""man"",""człowiekiem"",""czlowiekiem"",""człowieku"",""czlowieku"",""mężczyzna"",""mezczyzna"",""mężczyzną"",""mężczyznę"",""mezczyzne""]",5
-czyli,i.e.,misc,,"[""i.e.""]",6
-radę,advice,misc,,"[""advice""]",7
-szybciej,faster,misc,,"[""faster""]",8
-chociaż,although,misc,(also: choć),"[""although"",""chociaż"",""chociaz"",""choć"",""choc""]",9
-jezu,jesus,misc,(also: jezus),"[""jesus"",""jezu"",""jezus""]",10
-krew,blood,misc,,"[""blood""]",11
-późno,late,misc,,"[""late""]",12
-dr,Dr.,misc,,"[""dr.""]",13
-spotkanie,meeting,noun,,"[""meeting""]",14
-you,you,misc,(also: wami),"[""you"",""wami""]",15
-zewnątrz,outside,misc,,"[""outside""]",16
-kapitanie,Captain,noun,"(also: kapitan, kapitana)","[""captain"",""kapitanie"",""kapitan"",""kapitana""]",17
-głowę,head,misc,"(also: głowie, głowa, głową, łeb)","[""head"",""głowę"",""glowe"",""głowie"",""glowie"",""głowa"",""glowa"",""głową"",""łeb"",""leb""]",18
-lubisz,like,misc,"(also: niczym, lubią)","[""like"",""lubisz"",""niczym"",""lubią"",""lubia""]",19
-chciałabym,I would like,misc,,"[""i would like""]",20
-zależy,depends,misc,,"[""depends""]",21
-robota,robot,misc,,"[""robot""]",22
-d,d,misc,,"[""d""]",23
-lubi,likes,misc,,"[""likes""]",24
-słowo,word,adverb,,"[""word""]",25
-wziąć,take,verb,"(also: zabierz, bierz, brać, zabierzcie)","[""take"",""wziąć"",""wziac"",""zabierz"",""bierz"",""brać"",""brac"",""zabierzcie""]",26
-gdybyś,if you,misc,,"[""if you""]",27
-powinno,should,misc,"(also: powinna, powinny)","[""should"",""powinno"",""powinna"",""powinny""]",28
-mówiąc,saying,misc,,"[""saying""]",29
-mała,little,misc,(also: mało),"[""little"",""mała"",""mala"",""mało"",""malo""]",30
-wypadek,accident,misc,(also: wypadku),"[""accident"",""wypadek"",""wypadku""]",31
-znalazłem,found,misc,"(also: znalazł, znalazłam, znalazłeś, znaleźli, znalazła, znaleziono)","[""found"",""znalazłem"",""znalazlem"",""znalazł"",""znalazl"",""znalazłam"",""znalazlam"",""znalazłeś"",""znalazles"",""znaleźli"",""znalezli"",""znalazła"",""znalazla"",""znaleziono""]",32
-dawaj,donate,misc,"(also: oddać, oddaj, przekazać)","[""donate"",""dawaj"",""oddać"",""oddac"",""oddaj"",""przekazać"",""przekazac""]",33
-miesięcy,months,misc,(also: miesiące),"[""months"",""miesięcy"",""miesiecy"",""miesiące"",""miesiace""]",34
-pójść,go,misc,"(also: jechać, pójdziesz, jedź, idźcie, idą, pojechać)","[""go"",""pójść"",""pojsc"",""jechać"",""jechac"",""pójdziesz"",""pojdziesz"",""jedź"",""jedz"",""idźcie"",""idzcie"",""idą"",""ida"",""pojechać"",""pojechac""]",35
-wejść,enter,misc,"(also: wejdź, podać, wchodzę)","[""enter"",""wejść"",""wejsc"",""wejdź"",""wejdz"",""podać"",""podac"",""wchodzę"",""wchodze""]",36
-nowe,new,adjective,"(also: nowym, nowa, nową, nowych, nowej, new)","[""new"",""nowe"",""nowym"",""nowa"",""nową"",""nowych"",""nowej""]",37
-robimy,we do,misc,,"[""we do""]",38
-stronie,website,adverb,(also: stronę),"[""website"",""stronie"",""stronę"",""strone""]",39
-zobaczymy,we'll see,misc,,"[""we'll see""]",40
-wrócę,I'll be back,misc,,"[""i'll be back""]",41
-mniej,less,misc,,"[""less""]",42
-praca,work,misc,(also: pracować),"[""work"",""praca"",""pracować"",""pracowac""]",43
-moi,my,misc,"(also: moimi, mojemu, mego)","[""my"",""moi"",""moimi"",""mojemu"",""mego""]",44
-pierwsze,first,misc,"(also: pierwsza, pierwszym, pierwszą, pierwszej, pierwszego)","[""first"",""pierwsze"",""pierwsza"",""pierwszym"",""pierwszą"",""pierwszej"",""pierwszego""]",45
-tydzień,week,misc,"(also: tygodniu, tygodnia)","[""week"",""tydzień"",""tydzien"",""tygodniu"",""tygodnia""]",46
-zupełnie,entirely,adverb,(also: całkowicie),"[""entirely"",""zupełnie"",""zupelnie"",""całkowicie"",""calkowicie""]",47
-rodzina,family,adjective,"(also: rodzinę, rodziną, rodzinie)","[""family"",""rodzina"",""rodzinę"",""rodzine"",""rodziną"",""rodzinie""]",48
-boga,god,misc,(also: bogu),"[""god"",""boga"",""bogu""]",49
-czeka,waits,misc,,"[""waits""]",50
-zna,knows,adjective,,"[""knows""]",51
-wody,waters,misc,,"[""waters""]",52
-zrobi,will do,misc,(also: zrobią),"[""will do"",""zrobi"",""zrobią"",""zrobia""]",53
-prawdopodobnie,probably,adverb,(also: zapewne),"[""probably"",""prawdopodobnie"",""zapewne""]",54
-serca,hearts,misc,,"[""hearts""]",55
-widział,seen,misc,(also: widziała),"[""seen"",""widział"",""widzial"",""widziała"",""widziala""]",56
-prawa,rights,adjective,,"[""rights""]",57
-nieważne,never mind,adjective,,"[""never mind""]",58
-złe,bad,misc,"(also: złego, zła, złym)","[""bad"",""złe"",""zle"",""złego"",""zlego"",""zła"",""zla"",""złym"",""zlym""]",59
-mogli,they could,misc,,"[""they could""]",60
-jakoś,somehow,misc,,"[""somehow""]",61
-mógłbyś,you could,misc,"(also: mogłeś, mogłabyś, mogłaś)","[""you could"",""mógłbyś"",""moglbys"",""mogłeś"",""mogles"",""mogłabyś"",""moglabys"",""mogłaś"",""moglas""]",62
-doktor,doctor,misc,"(also: lekarza, lekarz, lekarzem)","[""doctor"",""doktor"",""lekarza"",""lekarz"",""lekarzem""]",64
-sprawdzić,check,verb,,"[""check""]",65
-chłopak,boyfriend,misc,"(also: chłopaka, chłopakiem)","[""boyfriend"",""chłopak"",""chlopak"",""chłopaka"",""chlopaka"",""chłopakiem"",""chlopakiem""]",66
-film,video,misc,"(also: filmu, filmie)","[""video"",""film"",""filmu"",""filmie""]",67
-według,according to,misc,(also: zgodnie),"[""according to"",""według"",""wedlug"",""zgodnie""]",69
-szansę,chance,misc,,"[""chance""]",70
-mieście,city,noun,"(also: miasto, city)","[""city"",""mieście"",""miescie"",""miasto""]",71
-robią,do,misc,,"[""do""]",72
-wiedziałam,knew,misc,"(also: wiedzieli, znał)","[""knew"",""wiedziałam"",""wiedzialam"",""wiedzieli"",""znał"",""znal""]",73
-spotkać,meet,misc,(also: spotkamy),"[""meet"",""spotkać"",""spotkac"",""spotkamy""]",74
-mówiłeś,you said,misc,"(also: powiedziałaś, mówiłaś)","[""you said"",""mówiłeś"",""mowiles"",""powiedziałaś"",""powiedzialas"",""mówiłaś"",""mowilas""]",76
-sądzisz,think,misc,"(also: myśleć, pomyśl, myślicie, pomyśleć)","[""think"",""sądzisz"",""sadzisz"",""myśleć"",""myslec"",""pomyśl"",""pomysl"",""myślicie"",""myslicie"",""pomyśleć"",""pomyslec""]",77
-wspólnego,common,misc,,"[""common""]",78
-spać,sleep,misc,(also: sen),"[""sleep"",""spać"",""spac"",""sen""]",79
-ojcem,father,misc,"(also: ojcze, ojcu)","[""father"",""ojcem"",""ojcze"",""ojcu""]",80
-małe,small,misc,"(also: małą, małego, małym, małej)","[""small"",""małe"",""male"",""małą"",""mala"",""małego"",""malego"",""małym"",""malym"",""małej"",""malej""]",81
-tymi,with these,misc,,"[""with these""]",82
-mógłby,could,misc,"(also: mogło, mogłaby, mogłoby)","[""could"",""mógłby"",""moglby"",""mogło"",""moglo"",""mogłaby"",""moglaby"",""mogłoby"",""mogloby""]",83
-gówno,shit,misc,,"[""shit""]",84
-koleś,dude,misc,,"[""dude""]",85
-ciała,bodies,misc,,"[""bodies""]",86
-pracuje,works,misc,(also: roboty),"[""works"",""pracuje"",""roboty""]",87
-ponad,over,misc,,"[""over""]",88
-chwila,moment,misc,"(also: moment, momencie, chwilą)","[""moment"",""chwila"",""momencie"",""chwilą""]",89
-uwagę,attention,misc,(also: uwaga),"[""attention"",""uwagę"",""uwage"",""uwaga""]",90
-problemy,problems,misc,(also: problemów),"[""problems"",""problemy"",""problemów"",""problemow""]",91
-wystarczająco,enough,misc,,"[""enough""]",92
-brak,no,misc,(also: żaden),"[""no"",""brak"",""żaden"",""zaden""]",93
-zdjęcia,photos,misc,(also: zdjęć),"[""photos"",""zdjęcia"",""zdjecia"",""zdjęć"",""zdjec""]",94
-wkrótce,coming soon,misc,(also: niedługo),"[""coming soon"",""wkrótce"",""wkrotce"",""niedługo"",""niedlugo""]",96
-rękę,hand,misc,"(also: ręki, ręka)","[""hand"",""rękę"",""reke"",""ręki"",""reki"",""ręka"",""reka""]",97
-okej,okay,misc,,"[""okay""]",98
-kilku,several,misc,,"[""several""]",99
-wasza,your,misc,"(also: wasze, wasz, twoi, waszej, pański, waszym, waszą, waszych, waszego, pańskie, twoimi, pańska)","[""your"",""wasza"",""wasze"",""wasz"",""twoi"",""waszej"",""pański"",""panski"",""waszym"",""waszą"",""waszych"",""waszego"",""pańskie"",""panskie"",""twoimi"",""pańska"",""panska""]",101
-góry,mountains,misc,,"[""mountains""]",103
-uh,uh,misc,,"[""uh""]",104
-charlie,charlie,misc,,"[""charlie""]",105
-michael,michael,misc,,"[""michael""]",106
-znać,know,misc,,"[""know""]",107
-zatrzymać,stop,misc,"(also: zatrzymaj, przestańcie, stop)","[""stop"",""zatrzymać"",""zatrzymac"",""zatrzymaj"",""przestańcie"",""przestancie""]",108
-jakąś,some,misc,"(also: jakaś, niektórzy, jakimś, niektóre, jakiejś)","[""some"",""jakąś"",""jakas"",""jakaś"",""niektórzy"",""niektorzy"",""jakimś"",""jakims"",""niektóre"",""niektore"",""jakiejś"",""jakiejs""]",109
-nazywam,I call,misc,(also: dzwonię),"[""i call"",""nazywam"",""dzwonię"",""dzwonie""]",110
-wiedzą,knowledge,misc,,"[""knowledge""]",111
-całym,throughout,misc,,"[""throughout""]",112
-broni,arms,misc,(also: bronią),"[""arms"",""broni"",""bronią"",""bronia""]",113
-drogę,way,misc,,"[""way""]",114
-gotowa,ready,adjective,"(also: gotowi, gotowe, gotów)","[""ready"",""gotowa"",""gotowi"",""gotowe"",""gotów"",""gotow""]",115
-pogadać,chat,misc,,"[""chat""]",116
-droga,road,misc,,"[""road""]",117
-wszędzie,everywhere,misc,,"[""everywhere""]",118
-przyjaciół,friends,misc,"(also: przyjaciele, przyjaciółmi)","[""friends"",""przyjaciół"",""przyjaciol"",""przyjaciele"",""przyjaciółmi"",""przyjaciolmi""]",119
-dał,gave,misc,(also: dała),"[""gave"",""dał"",""dal"",""dała"",""dala""]",120
-mówiłam,said,misc,"(also: powiedzieli, mówili)","[""said"",""mówiłam"",""mowilam"",""powiedzieli"",""mówili"",""mowili""]",122
-pomoże,will help,misc,,"[""will help""]",123
-prosto,straight,misc,,"[""straight""]",124
-pomóż,Help,misc,"(also: pomożesz, pomocą)","[""help"",""pomóż"",""pomoz"",""pomożesz"",""pomozesz"",""pomocą"",""pomoca""]",125
-wielkie,great,misc,"(also: świetny, wielka, wspaniałe, wielkiego, wielkim, wielką, świetne, świetna, wspaniała)","[""great"",""wielkie"",""świetny"",""swietny"",""wielka"",""wspaniałe"",""wspaniale"",""wielkiego"",""wielkim"",""wielką"",""świetne"",""swietne"",""świetna"",""swietna"",""wspaniała"",""wspaniala""]",127
-niemożliwe,impossible,adjective,,"[""impossible""]",129
-ostatnie,last,adverb,"(also: ostatniej, ostatnia, zeszłym, ostatnim, ostatnią, ostatnich, zeszłej)","[""last"",""ostatnie"",""ostatniej"",""ostatnia"",""zeszłym"",""zeszlym"",""ostatnim"",""ostatnią"",""ostatnich"",""zeszłej"",""zeszlej""]",130
-przyjaciel,friend,misc,"(also: przyjacielem, przyjaciela, kolego, przyjacielu, przyjaciółka, przyjaciółką)","[""friend"",""przyjaciel"",""przyjacielem"",""przyjaciela"",""kolego"",""przyjacielu"",""przyjaciółka"",""przyjaciolka"",""przyjaciółką""]",131
-samochodu,car,misc,(also: samochodzie),"[""car"",""samochodu"",""samochodzie""]",132
-zdjęcie,photo,noun,,"[""photo""]",133
-dziewczynę,girl,misc,"(also: dziewczyną, dziewczynka)","[""girl"",""dziewczynę"",""dziewczyne"",""dziewczyną"",""dziewczyna"",""dziewczynka""]",134
-pokaż,show,misc,"(also: pokazać, pokażę, show)","[""show"",""pokaż"",""pokaz"",""pokazać"",""pokazac"",""pokażę"",""pokaze""]",135
-zapomnij,forget,misc,(also: zapomnieć),"[""forget"",""zapomnij"",""zapomnieć"",""zapomniec""]",136
-pa,bye,misc,,"[""bye""]",137
-słyszysz,hear,misc,"(also: słyszę, usłyszeć, słyszeć)","[""hear"",""słyszysz"",""slyszysz"",""słyszę"",""slysze"",""usłyszeć"",""uslyszec"",""słyszeć"",""slyszec""]",138
-nagle,suddenly,misc,,"[""suddenly""]",139
-zmienić,switch,verb,,"[""switch""]",140
-razu,immediately,misc,,"[""immediately""]",141
-samego,itself,misc,"(also: samej, samą)","[""itself"",""samego"",""samej"",""samą"",""sama""]",142
-brata,brother,misc,"(also: bracie, bratem)","[""brother"",""brata"",""bracie"",""bratem""]",143
-miłości,love,misc,"(also: kochasz, uwielbiam, kochać)","[""love"",""miłości"",""milosci"",""kochasz"",""uwielbiam"",""kochać"",""kochac""]",144
-nazwisko,name,misc,(also: imienia),"[""name"",""nazwisko"",""imienia""]",145
-drugi,second,misc,"(also: drugiej, drugie, drugą, druga, drugim, drugiego)","[""second"",""drugi"",""drugiej"",""drugie"",""drugą"",""druga"",""drugim"",""drugiego""]",147
-wracaj,return,misc,"(also: wracać, powrót, wróć)","[""return"",""wracaj"",""wracać"",""wracac"",""powrót"",""powrot"",""wróć"",""wroc""]",148
-rodzice,parents,misc,(also: rodziców),"[""parents"",""rodzice"",""rodziców"",""rodzicow""]",149
-popatrz,look at,misc,,"[""look at""]",150
-kłopoty,trouble,misc,(also: kłopotów),"[""trouble"",""kłopoty"",""klopoty"",""kłopotów"",""klopotow""]",151
-większość,most,noun,,"[""most""]",152
-czuje,feels,misc,,"[""feels""]",153
-trudno,difficult,misc,(also: trudne),"[""difficult"",""trudno"",""trudne""]",154
-zaczyna,starts,adjective,,"[""starts""]",156
-dół,bottom,misc,(also: dole),"[""bottom"",""dół"",""dol"",""dole""]",158
-odejść,leave,misc,"(also: zostawić, opuścić, wyjechać, zostawcie)","[""leave"",""odejść"",""odejsc"",""zostawić"",""zostawic"",""opuścić"",""opuscic"",""wyjechać"",""wyjechac"",""zostawcie""]",159
-szkole,school,misc,"(also: szkoła, szkołę)","[""school"",""szkole"",""szkoła"",""szkola"",""szkołę""]",160
-pozwolić,allow,verb,(also: pozwolisz),"[""allow"",""pozwolić"",""pozwolic"",""pozwolisz""]",161
-frank,frank,misc,,"[""frank""]",162
-zobacz,see,misc,"(also: zobaczysz, zobaczę, patrzcie, zobaczmy)","[""see"",""zobacz"",""zobaczysz"",""zobaczę"",""zobacze"",""patrzcie"",""zobaczmy""]",163
-zrobiła,she did,misc,,"[""she did""]",164
-dobrym,good,misc,"(also: dobrego, dobrą, dobrej, dobrych)","[""good"",""dobrym"",""dobrego"",""dobrą"",""dobra"",""dobrej"",""dobrych""]",165
-ruszaj,move,misc,,"[""move""]",167
-często,often,misc,,"[""often""]",168
-faceta,guy,misc,(also: facetem),"[""guy"",""faceta"",""facetem""]",169
-muszą,must,misc,(also: musze),"[""must"",""muszą"",""musza"",""musze""]",170
-szkoda,pity,misc,,"[""pity""]",171
-żadnej,any,misc,,"[""any""]",172
-jedziemy,we go,misc,,"[""we go""]",173
-początku,beginning,misc,(also: początek),"[""beginning"",""początku"",""poczatku"",""początek"",""poczatek""]",174
-dziecka,child,misc,(also: dzieckiem),"[""child"",""dziecka"",""dzieckiem""]",175
-matki,mothers,misc,,"[""mothers""]",176
-zacząć,start,verb,"(also: zaczniemy, zacznij)","[""start"",""zacząć"",""zaczac"",""zaczniemy"",""zacznij""]",177
-piękna,beautiful,adjective,"(also: piękne, piękny)","[""beautiful"",""piękna"",""piekna"",""piękne"",""piekne"",""piękny"",""piekny""]",179
-godzinę,one hour,misc,,"[""one hour""]",180
-głupi,dumb,misc,,"[""dumb""]",181
-policji,police,misc,(also: policję),"[""police"",""policji"",""policję"",""policje""]",183
-musiałem,I had to,misc,(also: musiałam),"[""i had to"",""musiałem"",""musialem"",""musiałam"",""musialam""]",184
-chłopcy,boys,misc,(also: chłopców),"[""boys"",""chłopcy"",""chlopcy"",""chłopców"",""chlopcow""]",185
-błąd,error,misc,,"[""error""]",186
-niestety,unfortunately,misc,,"[""unfortunately""]",187
-przykład,example,misc,,"[""example""]",188
-dowiedzieć,learn,verb,,"[""learn""]",189
-czekać,wait,misc,"(also: poczekać, doczekać, czekajcie, zaczekać)","[""wait"",""czekać"",""czekac"",""poczekać"",""poczekac"",""doczekać"",""doczekac"",""czekajcie"",""zaczekać"",""zaczekac""]",191
-pomyślałem,thought,misc,"(also: myśl, myślą, pomyślałam, myślałeś, myślał, sądziłem)","[""thought"",""pomyślałem"",""pomyslalem"",""myśl"",""mysl"",""myślą"",""mysla"",""pomyślałam"",""pomyslalam"",""myślałeś"",""myslales"",""myślał"",""myslal"",""sądziłem"",""sadzilem""]",192
-zadzwonić,call,verb,"(also: zadzwonię, zadzwoń, nazywają, dzwoń)","[""call"",""zadzwonić"",""zadzwonic"",""zadzwonię"",""zadzwonie"",""zadzwoń"",""zadzwon"",""nazywają"",""nazywaja"",""dzwoń"",""dzwon""]",194
-zabawne,funny,adjective,(also: śmieszne),"[""funny"",""zabawne"",""śmieszne"",""smieszne""]",195
-zostań,become,misc,,"[""become""]",196
-widzenia,viewings,noun,,"[""viewings""]",197
-trzech,three,misc,,"[""three""]",198
-górę,top,misc,(also: górze),"[""top"",""górę"",""gore"",""górze"",""gorze""]",199
-synu,son,misc,,"[""son""]",200
-najlepszy,best,misc,"(also: najlepsze, najlepiej, najlepszym, najlepsza, najlepszych, najlepszą)","[""best"",""najlepszy"",""najlepsze"",""najlepiej"",""najlepszym"",""najlepsza"",""najlepszych"",""najlepszą""]",201
-córka,daughter,misc,(also: córkę),"[""daughter"",""córka"",""corka"",""córkę"",""corke""]",202
-pewnego,certain,misc,"(also: pewne, pewnym)","[""certain"",""pewnego"",""pewne"",""pewnym""]",203
-trzymać,hold,misc,(also: trzymam),"[""hold"",""trzymać"",""trzymac"",""trzymam""]",204
-szefie,Chief,misc,,"[""chief""]",205
-dawno,long time,misc,,"[""long time""]",206
-rany,wounds,adjective,,"[""wounds""]",207
-miało,had,misc,(also: miały),"[""had"",""miało"",""mialo"",""miały"",""mialy""]",209
-przyszedł,came,misc,"(also: przyszedłem, przyszłam)","[""came"",""przyszedł"",""przyszedl"",""przyszedłem"",""przyszedlem"",""przyszłam"",""przyszlam""]",210
-joe,joe,misc,,"[""joe""]",211
-siostra,sister,misc,"(also: siostrę, siostro, siostrą)","[""sister"",""siostra"",""siostrę"",""siostre"",""siostro"",""siostrą""]",212
-sami,themselves,misc,,"[""themselves""]",213
-ponownie,again,adverb,,"[""again""]",214
-jedynie,only,adverb,(also: jedyny),"[""only"",""jedynie"",""jedyny""]",216
-zamiast,instead of,misc,,"[""instead of""]",218
-inni,others,misc,,"[""others""]",219
-jakim,which,misc,,"[""which""]",220
-jednej,one,misc,,"[""one""]",221
-historia,history,misc,(also: historię),"[""history"",""historia"",""historię"",""historie""]",222
-kraju,country,misc,"(also: kraj, państwo)","[""country"",""kraju"",""kraj"",""państwo"",""panstwo""]",223
-obiecuję,promise,misc,,"[""promise""]",224
-obok,next to,misc,,"[""next to""]",226
-spróbuj,try,misc,(also: spróbować),"[""try"",""spróbuj"",""sprobuj"",""spróbować"",""sprobowac""]",227
-wieku,age,misc,,"[""age""]",228
-środka,measure,misc,,"[""measure""]",229
-musicie,you must,noun,,"[""you must""]",230
-powie,will say,adverb,,"[""will say""]",231
-hey,hey,misc,,"[""hey""]",232
-dłużej,longer,misc,,"[""longer""]",233
-george,george,misc,,"[""george""]",234
-chciałeś,wanted,misc,"(also: chcieli, chciałaś)","[""wanted"",""chciałeś"",""chciales"",""chcieli"",""chciałaś"",""chcialas""]",235
-łatwo,easily,misc,,"[""easily""]",236
-będziecie,you will,noun,,"[""you will""]",237
-okazji,occasions,misc,,"[""occasions""]",238
-statek,ship,misc,(also: statku),"[""ship"",""statek"",""statku""]",239
-zamierzam,I'm going to,misc,,"[""i'm going to""]",240
-uważam,believe,misc,"(also: uważasz, wierzyć, uwierz)","[""believe"",""uważam"",""uwazam"",""uważasz"",""uwazasz"",""wierzyć"",""wierzyc"",""uwierz""]",241
-wróci,will return,misc,,"[""will return""]",242
-dasz,dash,misc,,"[""dash""]",244
-pracuję,I work,misc,,"[""i work""]",245
-rady,tips,misc,,"[""tips""]",246
-mike,mike,misc,,"[""mike""]",247
-znaleźliśmy,we found,misc,,"[""we found""]",248
-oraz,and,misc,(also: and),"[""and"",""oraz""]",249
-oboje,both,misc,"(also: obaj, obu, obie)","[""both"",""oboje"",""obaj"",""obu"",""obie""]",250
-nikomu,to no one,misc,,"[""to no one"",""no one""]",251
-samym,alone,misc,"(also: same, samych)","[""alone"",""samym"",""same"",""samych""]",253
-cicho,quietly,misc,,"[""quietly""]",255
-istnieje,there is,misc,,"[""there is""]",256
-zrobiłam,I made,misc,,"[""i made""]",257
-mimo,despite,misc,,"[""despite""]",258
-odkąd,since,misc,,"[""since""]",259
-musiała,must have,misc,(also: musiało),"[""must have"",""musiała"",""musiala"",""musiało"",""musialo""]",261
-leci,flies,misc,,"[""flies""]",262
-jakiegoś,of some,misc,,"[""of some""]",263
-męża,husband,misc,(also: mężem),"[""husband"",""męża"",""meza"",""mężem"",""mezem""]",265
-kupić,purchase,verb,,"[""purchase""]",266
-zatem,so,misc,,"[""so""]",268
-prawdziwe,real,adjective,"(also: prawdziwym, prawdziwą, prawdziwego)","[""real"",""prawdziwe"",""prawdziwym"",""prawdziwą"",""prawdziwa"",""prawdziwego""]",269
-cie,thou,noun,,"[""thou""]",271
-osób,people,misc,"(also: ludźmi, ludziom)","[""people"",""osób"",""osob"",""ludźmi"",""ludzmi"",""ludziom""]",272
-wezmę,I'll take,misc,"(also: zajmę, zabiorę)","[""i'll take"",""wezmę"",""wezme"",""zajmę"",""zajme"",""zabiorę"",""zabiore""]",273
-takiej,such,misc,(also: tacy),"[""such"",""takiej"",""tacy""]",274
-mówiła,she said,misc,,"[""she said""]",275
-wiadomości,news,misc,(also: wieści),"[""news"",""wiadomości"",""wiadomosci"",""wieści"",""wiesci""]",276
-sześć,six,misc,,"[""six""]",277
-żonę,wife,misc,(also: żoną),"[""wife"",""żonę"",""zone"",""żoną"",""zona""]",278
-gość,Guest,noun,"(also: gościa, gościem)","[""guest"",""gość"",""gosc"",""gościa"",""goscia"",""gościem"",""gosciem""]",279
-słyszałeś,heard,misc,"(also: słyszałam, słyszał)","[""heard"",""słyszałeś"",""slyszales"",""słyszałam"",""slyszalam"",""słyszał"",""slyszal""]",281
-około,about,misc,,"[""about""]",282
-fbi,fbi,misc,,"[""fbi""]",283
-boję,I'm afraid,misc,,"[""i'm afraid""]",285
-tędy,this way,misc,,"[""this way""]",286
-znajdziemy,find,misc,"(also: znajdziesz, znajdź, odnaleźć, znajdą)","[""find"",""znajdziemy"",""znajdziesz"",""znajdź"",""znajdz"",""odnaleźć"",""odnalezc"",""znajdą"",""znajda""]",287
-walczyć,struggle,verb,(also: walka),"[""struggle"",""walczyć"",""walczyc"",""walka""]",288
-zamiar,intent,misc,,"[""intent""]",289
-kocha,loves,misc,,"[""loves""]",290
-osobą,person,misc,"(also: osoba, osobę)","[""person"",""osobą"",""osoba"",""osobę"",""osobe""]",292
-historii,stories,misc,,"[""stories""]",293
-ciągu,string,misc,,"[""string""]",294
-boli,hurts,misc,,"[""hurts""]",296
-panno,Miss,misc,"(also: panna, stracić)","[""miss"",""panno"",""panna"",""stracić"",""stracic""]",297
-strasznie,terribly,adverb,,"[""terribly""]",299
-powodzenia,good luck,noun,,"[""good luck""]",301
-panem,Mr.,misc,,"[""mr.""]",302
-zwykle,usually,misc,(also: zazwyczaj),"[""usually"",""zwykle"",""zazwyczaj""]",304
-czyż,whether,misc,,"[""whether""]",305
-wracam,back,misc,"(also: tyłu, wracamy, plecy)","[""back"",""wracam"",""tyłu"",""tylu"",""wracamy"",""plecy""]",306
-tom,volume,misc,,"[""volume""]",307
-niby,seemingly,misc,,"[""seemingly""]",308
-umrzeć,die,verb,,"[""die""]",309
-następnym,next,misc,"(also: następny, następnego, następne, kolejna)","[""next"",""następnym"",""nastepnym"",""następny"",""nastepny"",""następnego"",""nastepnego"",""następne"",""nastepne"",""kolejna""]",310
-przyjdzie,will come,misc,,"[""will come""]",315
-włosy,hair,misc,,"[""hair""]",318
-proste,simple,misc,,"[""simple""]",319
-prawdziwy,genuine,adjective,(also: prawdziwa),"[""genuine"",""prawdziwy"",""prawdziwa""]",320
-daje,gives,misc,,"[""gives""]",322
-pewnością,certainly,misc,,"[""certainly""]",324
-pytania,questions,noun,(also: pytań),"[""questions"",""pytania"",""pytań"",""pytan""]",325
-nienawidzę,I hate,misc,,"[""i hate""]",326
-wrócił,returned,misc,"(also: wróciła, wróciłem)","[""returned"",""wrócił"",""wrocil"",""wróciła"",""wrocila"",""wróciłem"",""wrocilem""]",327
-kobietą,woman,misc,(also: kobietę),"[""woman"",""kobietą"",""kobieta"",""kobietę"",""kobiete""]",329
-ulicy,street,misc,(also: street),"[""street"",""ulicy""]",330
-widać,can be seen,misc,,"[""can be seen""]",332
-znajdę,I find,misc,,"[""i find""]",333
-stan,state,misc,,"[""state""]",334
-jedzenie,eating,noun,(also: jedzenia),"[""eating"",""jedzenie"",""jedzenia""]",338
-zostały,have been,misc,(also: zostali),"[""have been"",""zostały"",""zostaly"",""zostali""]",340
-powód,reason,misc,,"[""reason""]",341
-nigdzie,Nowhere,misc,,"[""nowhere""]",342
-seks,sex,misc,(also: seksu),"[""sex"",""seks"",""seksu""]",344
-próbuję,I'm trying,misc,,"[""i'm trying""]",346
-sporo,a lot,misc,,"[""a lot"",""lot""]",348
-ziemię,land,misc,(also: ziemia),"[""land"",""ziemię"",""ziemie"",""ziemia""]",349
-potrafię,I can,misc,(also: umiem),"[""i can"",""potrafię"",""potrafie"",""umiem""]",350
-zająć,occupy,verb,,"[""occupy""]",353
-przysięgam,swear,misc,,"[""swear""]",354
-szpitala,hospital,misc,"(also: szpitalu, szpital)","[""hospital"",""szpitala"",""szpitalu"",""szpital""]",355
-spokoju,calm,misc,,"[""calm""]",356
-szczerze,sincerely,adverb,,"[""sincerely""]",358
-przestać,cease,misc,,"[""cease""]",359
-twarzy,face,misc,,"[""face""]",360
-żartujesz,are you kidding,misc,,"[""are you kidding""]",361
-pewny,sure,adjective,,"[""sure""]",362
-póki,until,misc,,"[""until""]",363
-tysięcy,thousands,misc,(also: tysiące),"[""thousands"",""tysięcy"",""tysiecy"",""tysiące"",""tysiace""]",365
-nogi,legs,misc,,"[""legs""]",366
-zrobiłaś,you did,misc,(also: robiłeś),"[""you did"",""zrobiłaś"",""zrobilas"",""robiłeś"",""robiles""]",367
-wolno,slowly,misc,(also: powoli),"[""slowly"",""wolno"",""powoli""]",369
-mieszka,lives,misc,,"[""lives""]",370
-miałaś,you had,misc,,"[""you had""]",371
-głos,voice,misc,,"[""voice""]",372
-pasuje,fits,misc,,"[""fits""]",373
-robił,made,misc,,"[""made""]",374
-mogłam,I could,misc,(also: mogłabym),"[""i could"",""mogłam"",""moglam"",""mogłabym"",""moglabym""]",375
-otwórz,open,misc,"(also: otworzyć, otwarte)","[""open"",""otwórz"",""otworz"",""otworzyć"",""otworzyc"",""otwarte""]",376
-wyboru,selection,misc,(also: wybór),"[""selection"",""wyboru"",""wybór"",""wybor""]",377
-zrozumieć,understand,verb,,"[""understand""]",378
-chwileczkę,wait a minute,misc,,"[""wait a minute""]",379
-każdej,each,misc,"(also: każda, każdą, każde)","[""each"",""każdej"",""kazdej"",""każda"",""kazda"",""każdą"",""każde"",""kazde""]",380
-m,m,misc,,"[""m""]",381
-powstrzymać,deter,misc,,"[""deter""]",382
-grać,play,misc,(also: zagrać),"[""play"",""grać"",""grac"",""zagrać"",""zagrac""]",386
-kolację,dinner,misc,(also: obiad),"[""dinner"",""kolację"",""kolacje"",""obiad""]",387
-uciec,flee,misc,,"[""flee""]",389
-moglibyśmy,we could,misc,(also: mogliśmy),"[""we could"",""moglibyśmy"",""moglibysmy"",""mogliśmy"",""moglismy""]",390
-zabiję,I'll kill,misc,,"[""i'll kill""]",391
-uspokój,calm down,misc,,"[""calm down""]",392
-centrum,center,misc,,"[""center""]",393
-żony,wives,adjective,,"[""wives""]",394
-wreszcie,finally,noun,,"[""finally""]",395
-przyjść,come,misc,"(also: przyjdę, przyjdź)","[""come"",""przyjść"",""przyjsc"",""przyjdę"",""przyjde"",""przyjdź"",""przyjdz""]",396
-y,y,misc,,"[""y""]",397
-kolejny,another,adjective,"(also: inną, innej, kolejną)","[""another"",""kolejny"",""inną"",""inna"",""innej"",""kolejną"",""kolejna""]",398
-cel,purpose,misc,"(also: celu, celem)","[""purpose"",""cel"",""celu"",""celem""]",399
-szczęśliwy,happy,adjective,(also: szczęśliwa),"[""happy"",""szczęśliwy"",""szczesliwy"",""szczęśliwa"",""szczesliwa""]",401
-biura,offices,misc,,"[""offices""]",402
-mocno,hard,misc,,"[""hard""]",405
-musieli,They had to,misc,,"[""they had to""]",406
-znaczenia,meanings,noun,,"[""meanings""]",407
-poszedł,went,misc,"(also: poszło, poszła)","[""went"",""poszedł"",""poszedl"",""poszło"",""poszlo"",""poszła"",""poszla""]",410
-młody,young,misc,(also: młoda),"[""young"",""młody"",""mlody"",""młoda"",""mloda""]",411
-tygodni,weeks,misc,(also: tygodnie),"[""weeks"",""tygodni"",""tygodnie""]",412
-odpowiedź,answer,misc,,"[""answer""]",413
-stój,stand,misc,,"[""stand""]",414
-david,david,misc,,"[""david""]",416
-szukam,looking for,misc,"(also: szukasz, szukamy)","[""looking for"",""szukam"",""szukasz"",""szukamy""]",417
-duży,large,misc,"(also: duże, duża, dużą)","[""large"",""duży"",""duzy"",""duże"",""duze"",""duża"",""duza"",""dużą""]",418
-korekta,correction,misc,,"[""correction""]",419
-t,t,misc,,"[""t""]",421
-widziałaś,have you seen,misc,(also: widzieliście),"[""have you seen"",""widziałaś"",""widzialas"",""widzieliście"",""widzieliscie""]",422
-chodźcie,come on,noun,,"[""come on""]",423
-części,parts,misc,,"[""parts""]",426
-obawiam,concern,misc,,"[""concern""]",427
-henry,henry,misc,,"[""henry""]",428
-informacje,information,misc,(also: informacji),"[""information"",""informacje"",""informacji""]",431
-sekund,seconds,misc,,"[""seconds""]",432
-fajnie,cool,adverb,"(also: spoko, fajne)","[""cool"",""fajnie"",""spoko"",""fajne""]",433
-jedyną,the only,misc,"(also: jedynym, jedyne, jedyna)","[""the only"",""only"",""jedyną"",""jedyna"",""jedynym"",""jedyne""]",435
-wow,wow,misc,,"[""wow""]",436
-yeah,yeah,misc,,"[""yeah""]",438
-wojny,wars,adjective,,"[""wars""]",440
-mocy,powers,misc,,"[""powers""]",441
-ból,pain,misc,(also: bólu),"[""pain"",""ból"",""bol"",""bólu"",""bolu""]",443
-matką,mother,misc,"(also: matkę, matko, matce)","[""mother"",""matką"",""matka"",""matkę"",""matke"",""matko"",""matce""]",444
-związek,union,misc,,"[""union""]",445
-tony,tons,adjective,,"[""tons""]",447
-jakbym,as if,misc,,"[""as if""]",448
-dajcie,Give,noun,(also: dajesz),"[""give"",""dajcie"",""dajesz""]",449
-żebyśmy,so that,misc,(also: abyś),"[""so that"",""żebyśmy"",""zebysmy"",""abyś"",""abys""]",450
-mnóstwo,lots of,noun,,"[""lots of""]",453
-ktokolwiek,whoever,misc,,"[""whoever""]",454
-jakiego,of which,misc,"(also: jakiej, jakich)","[""of which"",""jakiego"",""jakiej"",""jakich""]",455
-peter,peter,misc,,"[""peter""]",456
-reszta,rest,misc,,"[""rest""]",458
-lepsze,better,misc,"(also: lepszy, lepszego)","[""better"",""lepsze"",""lepszy"",""lepszego""]",459
-pozwolę,let me,misc,,"[""let me""]",461
-ach,ah,misc,(also: ah),"[""ah"",""ach""]",464
-hotelu,hotel,misc,(also: hotel),"[""hotel"",""hotelu""]",465
-stoi,stands,misc,,"[""stands""]",466
-łóżka,beds,misc,,"[""beds""]",467
-list,letter,misc,,"[""letter""]",468
-sądzie,court,misc,"(also: sądu, sąd)","[""court"",""sądzie"",""sadzie"",""sądu"",""sadu"",""sąd"",""sad""]",469
-niesamowite,amazing,misc,,"[""amazing""]",472
-zapytać,ask,misc,"(also: prosić, spytać, zapytaj)","[""ask"",""zapytać"",""zapytac"",""prosić"",""prosic"",""spytać"",""spytac"",""zapytaj""]",473
-światło,light,misc,,"[""light""]",474
-sensu,sense,misc,"(also: sens, poczucie)","[""sense"",""sensu"",""sens"",""poczucie""]",475
-dostał,got,misc,"(also: dostałem, dostałeś, dostałam)","[""got"",""dostał"",""dostal"",""dostałem"",""dostalem"",""dostałeś"",""dostales"",""dostałam"",""dostalam""]",477
-los,fate,misc,,"[""fate""]",478
-ruszać,launch,misc,,"[""launch""]",479
-wiedziała,she knew,misc,,"[""she knew""]",480
-prezent,gift,misc,,"[""gift""]",481
-resztę,the rest,misc,,"[""the rest"",""rest""]",483
-ciekawe,interesting,adjective,(also: interesujące),"[""interesting"",""ciekawe"",""interesujące"",""interesujace""]",485
-l,l,misc,,"[""l""]",487
-martwy,dead,adjective,(also: martwi),"[""dead"",""martwy"",""martwi""]",488
-więzienia,prisons,noun,,"[""prisons""]",490
-przyszłość,future,noun,"(also: przyszłości, przyszła, przyszłym)","[""future"",""przyszłość"",""przyszlosc"",""przyszłości"",""przyszlosci"",""przyszła"",""przyszla"",""przyszłym"",""przyszlym""]",492
-uważa,believes,misc,(also: wierzy),"[""believes"",""uważa"",""uwaza"",""wierzy""]",493
-chodziło,was about,misc,,"[""was about""]",494
-tyłek,butt,misc,,"[""butt""]",495
-potrafi,can,misc,(also: moge),"[""can"",""potrafi"",""moge""]",496
-osoby,persons,misc,,"[""persons""]",498
-pomiędzy,between,misc,,"[""between""]",499
-walki,fights,misc,,"[""fights""]",500
-szukać,look for,misc,,"[""look for""]",502
-związku,relationship,misc,,"[""relationship""]",504
-danny,danny,adjective,,"[""danny""]",508
-jorku,york,misc,,"[""york""]",509
-aaccff,aaccff,misc,,"[""aaccff""]",511
-dostaniesz,get,misc,"(also: zdobyć, dostanę)","[""get"",""dostaniesz"",""zdobyć"",""zdobyc"",""dostanę"",""dostane""]",512
-zaczął,started,misc,"(also: zaczęło, zaczęła, zacząłem)","[""started"",""zaczął"",""zaczal"",""zaczęło"",""zaczelo"",""zaczęła"",""zaczela"",""zacząłem"",""zaczalem""]",513
-martwić,worry,verb,,"[""worry""]",514
-szansa,opportunity,misc,(also: okazję),"[""opportunity"",""szansa"",""okazję"",""okazje""]",515
-nieprawda,untrue,misc,,"[""untrue""]",517
-james,james,misc,,"[""james""]",518
-system,system,misc,(also: systemu),"[""system"",""systemu""]",519
-ben,ben,misc,,"[""ben""]",521
-zabije,will kill,misc,,"[""will kill""]",522
-całej,whole,misc,(also: całego),"[""whole"",""całej"",""calej"",""całego"",""calego""]",523
-widzi,sees,misc,,"[""sees""]",524
-ślub,wedding,misc,,"[""wedding""]",525
-jimmy,jimmy,misc,,"[""jimmy""]",526
-zajmie,will take,misc,,"[""will take""]",527
-sytuacji,situations,misc,,"[""situations""]",528
-niezły,nice,misc,"(also: miły, ładnie, miłe, niezła, ładna, miła, ładne, ładny)","[""nice"",""niezły"",""niezly"",""miły"",""mily"",""ładnie"",""ladnie"",""miłe"",""mile"",""niezła"",""niezla"",""ładna"",""ladna"",""miła"",""mila"",""ładne"",""ladne"",""ładny"",""ladny""]",529
-wierzysz,you believe,misc,,"[""you believe""]",530
-szef,head of,misc,"(also: szefem, szefa)","[""head of"",""szef"",""szefem"",""szefa""]",533
-częścią,part of,misc,,"[""part of""]",534
-własne,own,adjective,"(also: własną, własnej, własnego, własny, własnym, własnych)","[""own"",""własne"",""wlasne"",""własną"",""wlasna"",""własnej"",""wlasnej"",""własnego"",""wlasnego"",""własny"",""wlasny"",""własnym"",""wlasnym"",""własnych"",""wlasnych""]",535
-mowy,speech,adjective,,"[""speech""]",536
-moc,power,misc,,"[""power""]",537
-kobiet,women,misc,,"[""women""]",538
-it,it,misc,,"[""it""]",539
-coraz,increasingly,misc,,"[""increasingly""]",540
-skończyć,finish,verb,,"[""finish""]",541
-gry,games,misc,,"[""games""]",542
-dzieciak,kid,misc,(also: dzieciaka),"[""kid"",""dzieciak"",""dzieciaka""]",543
-próbował,tried,misc,,"[""tried""]",546
-patrzeć,look,verb,"(also: wyglądam, wyglądają, spojrzeć, wyglądać)","[""look"",""patrzeć"",""patrzec"",""wyglądam"",""wygladam"",""wyglądają"",""wygladaja"",""spojrzeć"",""spojrzec"",""wyglądać"",""wygladac""]",547
-pamiętaj,remember,misc,(also: pamiętać),"[""remember"",""pamiętaj"",""pamietaj"",""pamiętać"",""pamietac""]",551
-ofiary,victims,misc,(also: ofiar),"[""victims"",""ofiary"",""ofiar""]",552
-pójdzie,will go,misc,,"[""will go""]",553
-miesiąc,month,misc,,"[""month""]",554
-pomogę,I will help,misc,,"[""i will help""]",555
-skończy,will finish,misc,,"[""will finish""]",556
-zamierzasz,intend to,misc,,"[""intend to""]",558
-słuchać,listen to,misc,"(also: słuchajcie, posłuchać)","[""listen to"",""słuchać"",""sluchac"",""słuchajcie"",""sluchajcie"",""posłuchać"",""posluchac""]",559
-siły,forces,misc,,"[""forces""]",562
-stara,old,misc,"(also: stare, starego)","[""old"",""stara"",""stare"",""starego""]",563
-interes,business,misc,,"[""business""]",564
-dna,bottoms,adjective,,"[""bottoms""]",565
-zdanie,phrase,noun,,"[""phrase""]",567
-przyjęcie,adoption,noun,,"[""adoption""]",568
-zjeść,eat,misc,(also: jeść),"[""eat"",""zjeść"",""zjesc"",""jeść"",""jesc""]",569
-przejść,pass,misc,(also: podaj),"[""pass"",""przejść"",""przejsc"",""podaj""]",571
-robotę,job,misc,,"[""job""]",572
-dowód,proof,misc,,"[""proof""]",573
-próbowałem,I tried,misc,(also: próbowałam),"[""i tried"",""próbowałem"",""probowalem"",""próbowałam"",""probowalam""]",574
-paul,paul,misc,,"[""paul""]",575
-jakbyś,as if you,misc,,"[""as if you""]",576
-wstawaj,get up,misc,,"[""get up""]",577
-robicie,you do,noun,,"[""you do""]",578
-wokół,around,misc,,"[""around""]",579
-mary,mary,misc,,"[""mary""]",581
-max,max,misc,,"[""max""]",582
-rodzaju,kind of,misc,(also: rodzaj),"[""kind of"",""rodzaju"",""rodzaj""]",583
-stylu,style,misc,,"[""style""]",584
-pójdziemy,we'll go,misc,,"[""we'll go""]",585
-odpowiedzi,answers,misc,(also: odpowiada),"[""answers"",""odpowiedzi"",""odpowiada""]",586
-milionów,millions,misc,(also: miliony),"[""millions"",""milionów"",""milionow"",""miliony""]",588
-dosyć,pretty,verb,,"[""pretty""]",590
-dzieciaki,kids,misc,,"[""kids""]",592
-wspaniały,wonderful,misc,(also: cudowne),"[""wonderful"",""wspaniały"",""wspanialy"",""cudowne""]",593
-usiądź,sit,misc,"(also: siedzieć, usiąść)","[""sit"",""usiądź"",""usiadz"",""siedzieć"",""siedziec"",""usiąść"",""usiasc""]",595
-staram,I try,misc,,"[""i try""]",596
-najwyraźniej,apparently,misc,,"[""apparently""]",597
-chronić,conserve,verb,,"[""conserve""]",598
-byłby,would be,misc,(also: byłaby),"[""would be"",""byłby"",""bylby"",""byłaby"",""bylaby""]",599
-morderstwo,murder,noun,,"[""murder""]",600
-wysoki,high,misc,,"[""high""]",601
-próbuje,tries,misc,,"[""tries""]",602
-oko,eye,misc,,"[""eye""]",605
-ogień,fire,misc,(also: ognia),"[""fire"",""ogień"",""ogien"",""ognia""]",606
-wiedziałeś,did you know,misc,(also: wiedziałaś),"[""did you know"",""wiedziałeś"",""wiedziales"",""wiedziałaś"",""wiedzialas""]",608
-juz,juz,misc,,"[""juz""]",609
-pies,dog,misc,(also: psa),"[""dog"",""pies"",""psa""]",612
-nieco,somewhat,misc,,"[""somewhat""]",614
-harry,harry,misc,,"[""harry""]",618
-sprawdź,check out,misc,(also: sprawdzę),"[""check out"",""sprawdź"",""sprawdz"",""sprawdzę"",""sprawdze""]",619
-komuś,to sb.,misc,,"[""to sb."",""sb.""]",620
-telefonu,phone,misc,,"[""phone""]",627
-stamtąd,from here,misc,,"[""from here""]",630
-me,me,misc,,"[""me""]",631
-ciąży,pregnancy,misc,,"[""pregnancy""]",632
-spraw,matters,misc,,"[""matters""]",634
-pracujesz,you work,misc,,"[""you work""]",635
-jadę,I'm going,misc,,"[""i'm going""]",637
-brakuje,missing,misc,,"[""missing""]",642
-światła,lights,misc,,"[""lights""]",644
-boisz,afraid,misc,,"[""afraid""]",646
-uratować,rescue,verb,,"[""rescue""]",647
-alex,alex,misc,,"[""alex""]",649
-buty,shoes,misc,,"[""shoes""]",651
-zbrodni,crimes,misc,,"[""crimes""]",652
-zrobili,they did,misc,,"[""they did""]",653
-program,program,misc,(also: programu),"[""program"",""programu""]",654
-potrzeba,need,misc,"(also: potrzebują, potrzebować)","[""need"",""potrzeba"",""potrzebują"",""potrzebuja"",""potrzebować"",""potrzebowac""]",655
-więzieniu,prison,misc,,"[""prison""]",656
-głupie,silly,misc,(also: głupia),"[""silly"",""głupie"",""glupie"",""głupia"",""glupia""]",658
-wcześnie,early,adverb,,"[""early""]",659
-wyjaśnić,clarify,verb,,"[""clarify""]",660
-użyć,use,verb,(also: używać),"[""use"",""użyć"",""uzyc"",""używać"",""uzywac""]",661
-laboratorium,laboratory,misc,,"[""laboratory""]",664
-wiec,rally,misc,,"[""rally""]",665
-bob,bob,misc,,"[""bob""]",667
-pobliżu,near,misc,(also: niedaleko),"[""near"",""pobliżu"",""poblizu"",""niedaleko""]",668
-puść,release,misc,,"[""release""]",670
-gorzej,worse,misc,,"[""worse""]",671
-klucz,key,misc,,"[""key""]",672
-mózgu,brain,misc,(also: mózg),"[""brain"",""mózgu"",""mozgu"",""mózg"",""mozg""]",674
-chłopiec,boy,misc,"(also: chłopcze, chłopca, chłopcem)","[""boy"",""chłopiec"",""chlopiec"",""chłopcze"",""chlopcze"",""chłopca"",""chlopca"",""chłopcem"",""chlopcem""]",678
-drinka,drink,misc,"(also: pić, napić)","[""drink"",""drinka"",""pić"",""pic"",""napić"",""napic""]",680
-atak,attack,misc,(also: ataku),"[""attack"",""atak"",""ataku""]",681
-zasady,rules,misc,,"[""rules""]",682
-potrafisz,you can,misc,(also: umiesz),"[""you can"",""potrafisz"",""umiesz""]",683
-tommy,tommy,misc,,"[""tommy""]",684
-zabiłeś,you killed,misc,,"[""you killed""]",685
-firmy,Companies,misc,,"[""companies""]",686
-koło,wheel,misc,,"[""wheel""]",688
-siedem,seven,misc,,"[""seven""]",691
-adres,address,misc,,"[""address""]",692
-zamknąć,close,verb,,"[""close""]",693
-biurze,office,adverb,(also: biuro),"[""office"",""biurze"",""biuro""]",694
-dziesięć,ten,misc,,"[""ten""]",695
-siadaj,sit down,misc,,"[""sit down""]",696
-umarł,died,misc,"(also: zginął, zmarł, umarła, zmarła)","[""died"",""umarł"",""umarl"",""zginął"",""zginal"",""zmarł"",""zmarl"",""umarła"",""umarla"",""zmarła"",""zmarla""]",697
-osobiście,in person,noun,,"[""in person""]",698
-problemu,problem,misc,(also: problemem),"[""problem"",""problemu"",""problemem""]",699
-nauczyć,teach,verb,(also: uczyć),"[""teach"",""nauczyć"",""nauczyc"",""uczyć"",""uczyc""]",700
-poproszę,please,misc,"(also: błagam, prosze)","[""please"",""poproszę"",""poprosze"",""błagam"",""blagam"",""prosze""]",702
-potrzebował,needed,misc,"(also: potrzebny, potrzebne, potrzebna)","[""needed"",""potrzebował"",""potrzebowal"",""potrzebny"",""potrzebne"",""potrzebna""]",703
-wychodzi,goes out,misc,,"[""goes out""]",705
-woda,water,misc,(also: wodę),"[""water"",""woda"",""wodę"",""wode""]",706
-piwo,beer,misc,,"[""beer""]",707
-samolot,plane,misc,,"[""plane""]",708
-owszem,yes,misc,,"[""yes""]",710
-słychać,can be heard,misc,,"[""can be heard""]",712
-bezpieczeństwa,security,adjective,,"[""security""]",714
-wojna,war,adjective,"(also: wojnę, wojnie)","[""war"",""wojna"",""wojnę"",""wojne"",""wojnie""]",716
-znajdzie,finds,misc,(also: znajduje),"[""finds"",""znajdzie"",""znajduje""]",717
-uczucie,feeling,noun,,"[""feeling""]",719
-em,em,misc,,"[""em""]",721
-minuty,minutes,misc,,"[""minutes""]",722
-załatwić,sort out,verb,,"[""sort out""]",723
-jaja,eggs,misc,,"[""eggs""]",724
-tuż,just,misc,(also: poprostu),"[""just"",""tuż"",""tuz"",""poprostu""]",725
-książki,books,misc,,"[""books""]",726
-łóżku,bed,misc,,"[""bed""]",727
-nick,nickname,misc,,"[""nickname""]",728
-of,of,misc,,"[""of""]",729
-prowadzi,runs,misc,,"[""runs""]",730
-zniszczyć,destroy,verb,,"[""destroy""]",731
-wolny,free,adjective,"(also: wolne, darmo)","[""free"",""wolny"",""wolne"",""darmo""]",732
-wolę,I prefer,misc,,"[""i prefer""]",735
-złapać,catch,misc,,"[""catch""]",736
-powiedzenia,sayings,noun,,"[""sayings""]",738
-pięknie,beautifully,adverb,,"[""beautifully""]",739
-billy,billy,misc,,"[""billy""]",740
-budynku,building,misc,(also: budynek),"[""building"",""budynku"",""budynek""]",741
-siostry,sisters,misc,,"[""sisters""]",743
-pracował,worked,misc,(also: pracowałem),"[""worked"",""pracował"",""pracowal"",""pracowałem"",""pracowalem""]",744
-zajęty,busy,misc,(also: zajęta),"[""busy"",""zajęty"",""zajety"",""zajęta"",""zajeta""]",745
-gratulacje,congratulations,misc,,"[""congratulations""]",746
-mieszkanie,apartment,noun,(also: mieszkaniu),"[""apartment"",""mieszkanie"",""mieszkaniu""]",749
-don,don,misc,,"[""don""]",750
-codziennie,daily,adverb,,"[""daily""]",751
-ślady,traces,misc,(also: śladów),"[""traces"",""ślady"",""slady"",""śladów"",""sladow""]",752
-doskonale,perfectly,misc,(also: idealnie),"[""perfectly"",""doskonale"",""idealnie""]",753
-zabrał,took,misc,(also: wziął),"[""took"",""zabrał"",""zabral"",""wziął"",""wzial""]",754
-zostanę,I will stay,misc,,"[""i will stay""]",755
-zostawił,left,misc,"(also: lewo, lewej)","[""left"",""zostawił"",""zostawil"",""lewo"",""lewej""]",756
-kawałek,piece,misc,,"[""piece""]",757
-byśmy,by,misc,,"[""by""]",758
-przygotować,prepare,verb,(also: przygotuj),"[""prepare"",""przygotować"",""przygotowac"",""przygotuj""]",759
-straszne,scary,adjective,,"[""scary""]",761
-ostrożnie,carefully,adverb,,"[""carefully""]",762
-zespół,team,misc,,"[""team""]",763
-chory,sick,misc,(also: chora),"[""sick"",""chory"",""chora""]",766
-życiem,life,misc,,"[""life""]",769
-badania,research,noun,(also: badań),"[""research"",""badania"",""badań"",""badan""]",771
-wiadomo,known,misc,,"[""known""]",772
-oprócz,apart from,misc,,"[""apart from""]",776
-stał,stood,misc,,"[""stood""]",778
-urodziny,birthday,adjective,,"[""birthday""]",780
-bycie,being,noun,"(also: bycia, będąc)","[""being"",""bycie"",""bycia"",""będąc"",""bedac""]",781
-innymi,other,misc,,"[""other""]",782
-jane,jane,adjective,,"[""jane""]",783
-dane,data,adjective,(also: danych),"[""data"",""dane"",""danych""]",784
-jim,jim,misc,,"[""jim""]",785
-dala,dal,misc,,"[""dal""]",786
-dowody,proofs,misc,(also: dowodów),"[""proofs"",""dowody"",""dowodów"",""dowodow""]",787
-znak,sign,misc,,"[""sign""]",788
-jake,jake,misc,,"[""jake""]",789
-wyszedł,came out,misc,"(also: wyszła, wyszło)","[""came out"",""wyszedł"",""wyszedl"",""wyszła"",""wyszla"",""wyszło"",""wyszlo""]",790
-wśród,among,misc,,"[""among""]",791
-zgadzam,I agree,misc,,"[""i agree""]",795
-zostaniesz,you will stay,misc,,"[""you will stay""]",796
-kawę,coffee,misc,,"[""coffee""]",798
-kuchni,kitchen,misc,,"[""kitchen""]",799
-witamy,welcome,misc,,"[""welcome""]",800
-weekend,weekend,misc,,"[""weekend""]",803
-znamy,we know,misc,,"[""we know""]",804
-założę,I'll set up,misc,,"[""i'll set up""]",805
-rozkaz,order,misc,,"[""order""]",806
-dwoje,two,misc,,"[""two""]",807
-wyjdzie,comes out,misc,,"[""comes out""]",808
-wysokość,height,noun,,"[""height""]",809
-naprawić,fix,verb,,"[""fix""]",810
-grupa,group,misc,,"[""group""]",811
-król,king,misc,"(also: króla, królem)","[""king"",""król"",""krol"",""króla"",""krola"",""królem"",""krolem""]",812
-przyznać,admit,misc,,"[""admit""]",813
-podobno,reportedly,misc,,"[""reportedly""]",814
-steve,steve,misc,,"[""steve""]",815
-kawy,coffees,adjective,,"[""coffees""]",816
-dziękuje,thank you,misc,(also: dziękujemy),"[""thank you"",""dziękuje"",""dziekuje"",""dziękujemy"",""dziekujemy""]",817
-gości,visitors,misc,,"[""visitors""]",818
-zrozumiałem,understood,misc,,"[""understood""]",820
-zdecydowanie,definitely,noun,,"[""definitely""]",821
-plany,plans,adjective,,"[""plans""]",822
-nazywasz,you call,misc,,"[""you call""]",823
-odebrać,collect,misc,,"[""collect""]",825
-przede,primarily,misc,,"[""primarily""]",826
-ruch,movement,misc,,"[""movement""]",827
-córki,daughters,misc,,"[""daughters""]",828
-damy,ladies,misc,,"[""ladies""]",832
-chciałbyś,would you like,misc,,"[""would you like""]",833
-imieniu,on behalf of,misc,,"[""on behalf of""]",834
-zaczynamy,here we go,misc,,"[""here we go""]",835
-pora,season,misc,,"[""season""]",836
-ray,ray,misc,,"[""ray""]",837
-chryste,christ,misc,,"[""christ""]",838
-zadanie,task,noun,,"[""task""]",839
-zapomniałem,I forgot,misc,(also: zapomniałam),"[""i forgot"",""zapomniałem"",""zapomnialem"",""zapomniałam"",""zapomnialam""]",840
-uciekaj,run away,misc,(also: uciekać),"[""run away"",""uciekaj"",""uciekać"",""uciekac""]",842
-raport,report,misc,,"[""report""]",843
-święta,holidays,misc,(also: świąt),"[""holidays"",""święta"",""swieta"",""świąt"",""swiat""]",844
-zróbmy,Let's do,misc,,"[""let's do""]",846
-dziwnie,strangely,adverb,,"[""strangely""]",848
-napisy,subtitles,misc,(also: napisów),"[""subtitles"",""napisy"",""napisów"",""napisow""]",849
-sprawia,makes,misc,(also: czyni),"[""makes"",""sprawia"",""czyni""]",850
-wobec,towards,misc,(also: ku),"[""towards"",""wobec"",""ku""]",851
-kończy,concludes,misc,,"[""concludes""]",852
-różne,various,adjective,(also: różnych),"[""various"",""różne"",""rozne"",""różnych"",""roznych""]",853
-twierdzi,claims,misc,,"[""claims""]",854
-lunch,lunch,misc,,"[""lunch""]",855
-la,la,misc,,"[""la""]",856
-przysługę,favor,misc,,"[""favor""]",857
-chodzić,walk,verb,,"[""walk""]",858
-zdaje,passes,misc,,"[""passes""]",860
-johnny,johnny,adjective,,"[""johnny""]",861
-fakt,fact,misc,,"[""fact""]",862
-kolejne,further,adjective,,"[""further""]",864
-synem,son of,misc,,"[""son of""]",865
-latach,years,misc,,"[""years""]",866
-zostałem,I became,misc,,"[""i became""]",867
-kości,bones,misc,,"[""bones""]",869
-pozbyć,discard,verb,,"[""discard""]",870
-szczęścia,happiness,misc,,"[""happiness""]",872
-agent,agent,misc,,"[""agent""]",873
-um,um,misc,,"[""um""]",875
-listy,letters,misc,,"[""letters""]",878
-zwłaszcza,especially,misc,(also: szczególnie),"[""especially"",""zwłaszcza"",""zwlaszcza"",""szczególnie"",""szczegolnie""]",879
-szuka,seeks,misc,,"[""seeks""]",882
-żyjesz,you live,misc,(also: mieszkasz),"[""you live"",""żyjesz"",""zyjesz"",""mieszkasz""]",884
-dałem,I gave,misc,,"[""i gave""]",885
-rząd,government,misc,,"[""government""]",887
-przychodzi,comes,misc,,"[""comes""]",890
-wrażenie,impression,noun,,"[""impression""]",892
-rozmawialiśmy,we talked,misc,,"[""we talked""]",893
-rana,wound,adjective,,"[""wound""]",894
-odejdź,go away,misc,,"[""go away""]",895
-względu,due to,misc,,"[""due to""]",896
-odzyskać,recover,misc,,"[""recover""]",897
-przeciw,against,misc,,"[""against""]",898
-czuć,feel,misc,,"[""feel""]",900
-zabiłem,I killed,misc,,"[""i killed""]",904
-wyjścia,outputs,misc,,"[""outputs""]",906
-dawna,former,adjective,,"[""former""]",907
-możliwości,capabilities,misc,,"[""capabilities""]",908
-will,will,misc,(also: woli),"[""will"",""woli""]",910
-powinni,they should,misc,,"[""they should""]",912
-niezłe,not bad,misc,,"[""not bad""]",913
-podróż,trip,misc,,"[""trip""]",914
-krok,step,misc,,"[""step""]",915
-trzyma,holds,misc,,"[""holds""]",917
-rachel,rachel,misc,,"[""rachel""]",918
-sygnał,signal,misc,,"[""signal""]",919
-chciałby,would like,misc,(also: chciałabyś),"[""would like"",""chciałby"",""chcialby"",""chciałabyś"",""chcialabys""]",920
-śniadanie,breakfast,noun,,"[""breakfast""]",921
-żyją,live,misc,(also: mieszkać),"[""live"",""żyją"",""zyja"",""mieszkać"",""mieszkac""]",924
-zapłacić,pay,verb,,"[""pay""]",925
-rzeczywiście,indeed,noun,,"[""indeed""]",927
-detektyw,detective,misc,(also: detektywie),"[""detective"",""detektyw"",""detektywie""]",929
-jedzie,is going,misc,,"[""is going""]",930
-chwilkę,momentarily,misc,,"[""momentarily""]",931
-ochotę,fancy,misc,,"[""fancy""]",932
-bill,bill,misc,,"[""bill""]",933
-kate,kate,misc,,"[""kate""]",934
-kolej,rail,misc,,"[""rail""]",935
-sytuacja,situation,misc,(also: sytuację),"[""situation"",""sytuacja"",""sytuację"",""sytuacje""]",936
-rozmowy,interviews,adjective,,"[""interviews""]",937
-kontakt,contact,misc,,"[""contact""]",938
-in,in,misc,,"[""in""]",940
-f,f,misc,,"[""f""]",941
-hmm,hmm,misc,,"[""hmm""]",942
-iż,that,misc,"(also: tamtej, that, tamtego)","[""that"",""iż"",""iz"",""tamtej"",""tamtego""]",943
-książkę,book,misc,(also: książka),"[""book"",""książkę"",""ksiazke"",""książka"",""ksiazka""]",944
-amy,amy,misc,,"[""amy""]",945
-wrócisz,you're back,misc,(also: wróciłeś),"[""you're back"",""wrócisz"",""wrocisz"",""wróciłeś"",""wrociles""]",946
-nasi,our,misc,,"[""our""]",947
-miłego,Enjoy,misc,,"[""enjoy""]",948
-dumny,proud,adjective,,"[""proud""]",949
-mężczyzn,men,misc,(also: mężczyźni),"[""men"",""mężczyzn"",""mezczyzn"",""mężczyźni"",""mezczyzni""]",953
-okno,window,misc,,"[""window""]",954
-miałbym,I would have,misc,,"[""i would have""]",956
-wynoś,take away,misc,,"[""take away""]",958
-spójrzcie,take a look,noun,,"[""take a look""]",959
-udział,share,misc,,"[""share""]",960
-zabawy,plays,adjective,,"[""plays""]",961
-mamą,mom,misc,"(also: mamę, mamie)","[""mom"",""mamą"",""mama"",""mamę"",""mame"",""mamie""]",962
-rozmowę,interview,misc,(also: rozmowa),"[""interview"",""rozmowę"",""rozmowe"",""rozmowa""]",963
-prawdy,truths,misc,,"[""truths""]",965
-rozumie,understands,misc,,"[""understands""]",969
-zmieni,will change,misc,,"[""will change""]",970
-doceniam,appreciate,misc,,"[""appreciate""]",971
-morderstwa,murders,adjective,,"[""murders""]",972
-zrobiliśmy,we did,misc,,"[""we did""]",973
-obraz,image,misc,(also: wyobrazić),"[""image"",""obraz"",""wyobrazić"",""wyobrazic""]",974
-mówimy,we say,misc,,"[""we say""]",975
-dostanie,gets,noun,,"[""gets""]",977
-bobby,bobby,misc,,"[""bobby""]",978
-dzwonił,called,misc,(also: zadzwonił),"[""called"",""dzwonił"",""dzwonil"",""zadzwonił"",""zadzwonil""]",979
-najlepszego,the best,misc,,"[""the best"",""best""]",982
-ochrony,protection,adjective,,"[""protection""]",983
-cudownie,wonderfully,adverb,,"[""wonderfully""]",984
-wydarzyło,happened,misc,(also: zdarzyło),"[""happened"",""wydarzyło"",""wydarzylo"",""zdarzyło"",""zdarzylo""]",985
-liczy,counts,misc,,"[""counts""]",987
-wewnątrz,inside,misc,,"[""inside""]",990
-przypadku,case,misc,(also: przypadek),"[""case"",""przypadku"",""przypadek""]",991
-osiem,eight,misc,,"[""eight""]",992
-niebezpieczne,dangerous,adjective,,"[""dangerous""]",993
-czekam,looking forward,misc,(also: czekamy),"[""looking forward"",""czekam"",""czekamy""]",994
-rzeczą,thing,misc,,"[""thing""]",996
-wyniki,results,misc,,"[""results""]",997
-chętnie,gladly,adverb,,"[""gladly""]",998
-komu,to whom,misc,,"[""to whom"",""whom""]",1000
-swego,its,misc,,"[""its""]",1002
-rozmawiałem,talked,misc,,"[""talked""]",1005
-leży,lies,misc,,"[""lies""]",1007
-karty,cards,misc,,"[""cards""]",1008
-siedzi,sits,misc,,"[""sits""]",1009
-chris,chris,misc,,"[""chris""]",1011
-słońce,sun,misc,,"[""sun""]",1012
-niewiele,few,misc,(also: paru),"[""few"",""niewiele"",""paru""]",1014
-widzicie,you can see,noun,,"[""you can see""]",1015
-jesli,if,misc,,"[""if""]",1016
-wyprawiasz,you're doing,misc,,"[""you're doing""]",1017
-zimno,cold,misc,,"[""cold""]",1019
-wybaczyć,forgive,verb,(also: wybaczcie),"[""forgive"",""wybaczyć"",""wybaczyc"",""wybaczcie""]",1020
-pomaga,helps,misc,,"[""helps""]",1021
-uczucia,feelings,misc,,"[""feelings""]",1022
-pory,pores,misc,,"[""pores""]",1024
-zmienia,changes,noun,(also: zmiany),"[""changes"",""zmienia"",""zmiany""]",1025
-inna,different,adjective,,"[""different""]",1026
-wraca,returns,misc,,"[""returns""]",1027
-decyzję,decision,misc,(also: decyzja),"[""decision"",""decyzję"",""decyzje"",""decyzja""]",1029
-żart,joke,misc,,"[""joke""]",1034
-okolicy,neighborhood,misc,,"[""neighborhood""]",1036
-prezydent,president,misc,(also: prezydenta),"[""president"",""prezydent"",""prezydenta""]",1037
-wyjdź,go out,misc,,"[""go out""]",1038
-kasę,checkout,misc,,"[""checkout""]",1040
-telewizji,TV,misc,(also: tv),"[""tv"",""telewizji""]",1041
-ilu,how many,misc,,"[""how many""]",1042
-zabawa,fun,adjective,,"[""fun""]",1043
-test,test,misc,,"[""test""]",1046
-lee,lee,misc,,"[""lee""]",1047
-dolców,bucks,misc,,"[""bucks""]",1048
-dziećmi,children,misc,,"[""children""]",1049
-grę,game,misc,,"[""game""]",1050
-uwagi,comments,misc,,"[""comments""]",1051
-oglądać,view,misc,(also: widok),"[""view"",""oglądać"",""ogladac"",""widok""]",1052
-poruczniku,lieutenant,misc,(also: porucznik),"[""lieutenant"",""poruczniku"",""porucznik""]",1053
-przyjemność,pleasure,noun,(also: przyjemnością),"[""pleasure"",""przyjemność"",""przyjemnosc"",""przyjemnością"",""przyjemnoscia""]",1054
-słów,words,misc,,"[""words""]",1055
-umrze,will die,adverb,,"[""will die""]",1056
-zaczynam,starting,misc,,"[""starting""]",1057
-wygrać,win,misc,,"[""win""]",1058
-zastanawiam,wonder,misc,,"[""wonder""]",1060
-poradzę,advise,misc,(also: poradzić),"[""advise"",""poradzę"",""poradze"",""poradzić"",""poradzic""]",1061
-zostaje,stays,misc,,"[""stays""]",1062
-działać,act,misc,(also: akt),"[""act"",""działać"",""dzialac"",""akt""]",1063
-zacznie,will start,adverb,,"[""will start""]",1064
-wydostać,get out,misc,(also: wynocha),"[""get out"",""wydostać"",""wydostac"",""wynocha""]",1065
-poziom,level,misc,,"[""level""]",1067
-listę,list,misc,,"[""list""]",1070
-godzina,hour,adjective,,"[""hour""]",1071
-bliżej,closer to,misc,,"[""closer to""]",1072
-zaufaj,trust,misc,"(also: zaufać, ufać)","[""trust"",""zaufaj"",""zaufać"",""zaufac"",""ufać"",""ufac""]",1074
-wybrać,select,misc,,"[""select""]",1075
-straciłem,I lost,misc,,"[""i lost""]",1076
-przynieś,bring,misc,(also: przynieść),"[""bring"",""przynieś"",""przynies"",""przynieść"",""przyniesc""]",1077
-ej,ej,misc,,"[""ej""]",1078
-linii,line,misc,,"[""line""]",1079
-cos,cos,misc,,"[""cos""]",1080
-ryan,ryan,misc,,"[""ryan""]",1082
-taty,dads,misc,,"[""dads""]",1083
-e,e,misc,,"[""e""]",1086
-wyjście,output,noun,,"[""output""]",1088
-zdrowie,health,adverb,,"[""health""]",1089
-oczach,eyes,misc,(also: oczu),"[""eyes"",""oczach"",""oczu""]",1091
-spodoba,will like,misc,,"[""will like""]",1092
-liście,leaves,noun,,"[""leaves""]",1093
-owi,those,misc,,"[""those""]",1094
-niespodzianka,surprise,misc,,"[""surprise""]",1095
-przekonać,convince,misc,,"[""convince""]",1097
-lecieć,fly,verb,,"[""fly""]",1098
-szalony,mad,adjective,,"[""mad""]",1099
-dowie,prove,adverb,(also: udowodnić),"[""prove"",""dowie"",""udowodnić"",""udowodnic""]",1100
-głodny,hungry,adjective,,"[""hungry""]",1101
-boską,divine,misc,,"[""divine""]",1105
-odłóż,put down,misc,,"[""put down""]",1106
-banku,bank,misc,(also: bank),"[""bank"",""banku""]",1107
-kazał,ordered,misc,,"[""ordered""]",1108
-wysłać,send,misc,,"[""send""]",1110
-akurat,acct,misc,,"[""acct""]",1111
-muzyka,music,misc,"(also: muzykę, muzyki)","[""music"",""muzyka"",""muzykę"",""muzyke"",""muzyki""]",1112
-abym,so that I,misc,,"[""so that i""]",1113
-długi,long,misc,(also: długa),"[""long"",""długi"",""dlugi"",""długa"",""dluga""]",1117
-przodu,front,misc,,"[""front""]",1118
-kierunku,direction,misc,,"[""direction""]",1121
-pytasz,you ask,misc,,"[""you ask""]",1124
-jestes,you are,misc,,"[""you are""]",1126
-mieszkania,apartments,noun,,"[""apartments""]",1127
-gadać,talk,misc,"(also: gadasz, pogadamy)","[""talk"",""gadać"",""gadac"",""gadasz"",""pogadamy""]",1128
-ha,ha,misc,,"[""ha""]",1129
-przyszedłeś,you came,misc,,"[""you came""]",1130
-warto,worth,misc,(also: warte),"[""worth"",""warto"",""warte""]",1131
-de,de,misc,,"[""de""]",1132
-śmiercią,death,misc,,"[""death""]",1134
-nazwiska,names,adjective,,"[""names""]",1135
-przeszłości,past,misc,"(also: minęło, przeszłość)","[""past"",""przeszłości"",""przeszlosci"",""minęło"",""minelo"",""przeszłość"",""przeszlosc""]",1136
-eddie,eddie,misc,,"[""eddie""]",1138
-uciekł,escaped,misc,,"[""escaped""]",1139
-dupę,ass,misc,,"[""ass""]",1141
-szanse,opportunities,misc,(also: szans),"[""opportunities"",""szanse"",""szans""]",1142
-faceci,guys,misc,(also: facetów),"[""guys"",""faceci"",""facetów"",""facetow""]",1144
-biorę,I take,misc,,"[""i take""]",1145
-moze,maybe,misc,,"[""maybe""]",1146
-zgoda,approval,misc,,"[""approval""]",1147
-małżeństwo,marriage,noun,,"[""marriage""]",1148
-jazda,driving,misc,,"[""driving""]",1153
-klasy,classes,misc,,"[""classes""]",1154
-rzuć,drop,misc,(also: spadaj),"[""drop"",""rzuć"",""rzuc"",""spadaj""]",1155
-richard,richard,misc,,"[""richard""]",1156
-wątpię,doubt,misc,,"[""doubt""]",1158
-pułkowniku,Colonel,misc,,"[""colonel""]",1161
-nikim,no one,misc,,"[""no one""]",1162
-powiedzmy,say,misc,,"[""say""]",1163
-sarah,sarah,misc,,"[""sarah""]",1165
-mecz,match,misc,,"[""match""]",1166
-randkę,date,misc,,"[""date""]",1167
-indziej,elsewhere,misc,,"[""elsewhere""]",1170
-metrów,meters,misc,,"[""meters""]",1171
-dniu,day,misc,,"[""day""]",1172
-widzieliśmy,we saw,misc,,"[""we saw""]",1173
-operacji,operations,misc,,"[""operations""]",1174
-skończyłem,finished,misc,"(also: skończył, skończyliśmy)","[""finished"",""skończyłem"",""skonczylem"",""skończył"",""skonczyl"",""skończyliśmy"",""skonczylismy""]",1175
-mark,mark,misc,,"[""mark""]",1176
-interesuje,interests,misc,(also: interesy),"[""interests"",""interesuje"",""interesy""]",1178
-gliny,clay,adjective,,"[""clay""]",1181
-zobaczyłem,saw,misc,(also: zobaczył),"[""saw"",""zobaczyłem"",""zobaczylem"",""zobaczył"",""zobaczyl""]",1183
-śmiało,go ahead,misc,,"[""go ahead""]",1184
-podziękować,thank,verb,,"[""thank""]",1187
-absolutnie,absolutely,adverb,,"[""absolutely""]",1190
-znaczyć,mean,verb,,"[""mean""]",1192
-naprzód,forward,misc,,"[""forward""]",1193
-różnica,difference,misc,,"[""difference""]",1194
-zniknął,disappeared,misc,,"[""disappeared""]",1195
-punkt,point,misc,(also: punkcie),"[""point"",""punkt"",""punkcie""]",1196
-wrócimy,we'll be back,misc,,"[""we'll be back""]",1197
-kasy,cash registers,misc,,"[""cash registers""]",1198
-utrzymać,keep,misc,(also: zachować),"[""keep"",""utrzymać"",""utrzymac"",""zachować"",""zachowac""]",1199
-ofiara,victim,misc,,"[""victim""]",1200
-pozwoli,will allow,misc,,"[""will allow""]",1201
-żegnaj,farewell,misc,,"[""farewell""]",1203
-san,san,misc,,"[""san""]",1206
-kyle,kyle,misc,,"[""kyle""]",1207
-szaleństwo,madness,noun,,"[""madness""]",1208
-brian,brian,misc,,"[""brian""]",1211
-umysł,mind,misc,,"[""mind""]",1213
-martwię,I worry,misc,,"[""i worry""]",1214
-bawić,entertain,verb,,"[""entertain""]",1215
-prowadzić,run,verb,(also: biegnij),"[""run"",""prowadzić"",""prowadzic"",""biegnij""]",1219
-emily,emily,misc,,"[""emily""]",1221
-claire,claire,misc,,"[""claire""]",1222
-usta,mouth,misc,,"[""mouth""]",1223
-daleka,far,misc,,"[""far""]",1224
-spotkania,meetings,noun,,"[""meetings""]",1228
-rękach,hands,misc,(also: rąk),"[""hands"",""rękach"",""rekach"",""rąk"",""rak""]",1231
-żył,veins,misc,,"[""veins""]",1232
-sali,hall,misc,,"[""hall""]",1233
-okropne,awful,adjective,(also: okropnie),"[""awful"",""okropne"",""okropnie""]",1237
-widzimy,we see,misc,,"[""we see""]",1239
-żadna,none,adjective,(also: żadne),"[""none"",""żadna"",""zadna"",""żadne"",""zadne""]",1243
-dzwoni,calls,misc,,"[""calls""]",1244
-strzelać,snap,misc,,"[""snap""]",1247
-powietrze,air,adverb,(also: powietrza),"[""air"",""powietrze"",""powietrza""]",1248
-spróbuję,I'll try,misc,,"[""i'll try""]",1252
-bierze,takes,adverb,,"[""takes""]",1254
-andy,andy,misc,,"[""andy""]",1255
-staje,becomes,misc,,"[""becomes""]",1257
-b,b,misc,,"[""b""]",1258
-swoimi,with their,misc,,"[""with their""]",1259
-miałby,would have,misc,,"[""would have""]",1260
-przypomina,reminds,adjective,,"[""reminds""]",1261
-czarny,black,adjective,,"[""black""]",1262
-mil,miles,misc,,"[""miles""]",1263
-zabij,kill,misc,"(also: zabijać, zabiją)","[""kill"",""zabij"",""zabijać"",""zabijac"",""zabiją"",""zabija""]",1264
-słońca,suns,misc,,"[""suns""]",1267
-czułem,felt,misc,(also: czułam),"[""felt"",""czułem"",""czulem"",""czułam"",""czulam""]",1268
-ubrania,clothes,noun,,"[""clothes""]",1269
-dziwnego,strange,misc,(also: dziwny),"[""strange"",""dziwnego"",""dziwny""]",1270
-wychodzę,I'm leaving,misc,,"[""i'm leaving""]",1271
-grupy,groups,misc,,"[""groups""]",1273
-nóż,knife,misc,,"[""knife""]",1274
-akta,file,misc,,"[""file""]",1275
-imprezę,event,misc,(also: impreza),"[""event"",""imprezę"",""impreze"",""impreza""]",1276
-umiera,dies,misc,,"[""dies""]",1277
-wraz,along with,misc,,"[""along with""]",1279
-zasadzie,principle,misc,,"[""principle""]",1280
-nieprawdaż,not true,misc,,"[""not true""]",1281
-bedzie,will be,misc,(also: zostaną),"[""will be"",""bedzie"",""zostaną"",""zostana""]",1282
-znaczenie,meaning,noun,,"[""meaning""]",1284
-sklepu,store,misc,"(also: sklep, sklepie)","[""store"",""sklepu"",""sklep"",""sklepie""]",1286
-usa,usa,misc,,"[""usa""]",1289
-komputer,computer,misc,,"[""computer""]",1290
-nadchodzi,coming,misc,(also: nadszedł),"[""coming"",""nadchodzi"",""nadszedł"",""nadszedl""]",1291
-firma,company,misc,,"[""company""]",1292
-zmieniło,changed,misc,(also: zmienił),"[""changed"",""zmieniło"",""zmienilo"",""zmienił"",""zmienil""]",1293
-stacji,stations,misc,,"[""stations""]",1295
-jasna,bright,adjective,(also: jasno),"[""bright"",""jasna"",""jasno""]",1296
-sprawą,matter,misc,,"[""matter""]",1298
-kod,code,misc,,"[""code""]",1299
-doktora,PhD,misc,,"[""phd""]",1300
-potrzeby,needs,misc,,"[""needs""]",1301
-biały,white,misc,,"[""white""]",1302
-pełne,full,adjective,"(also: pełni, pełna, pełen)","[""full"",""pełne"",""pelne"",""pełni"",""pelni"",""pełna"",""pelna"",""pełen"",""pelen""]",1303
-energii,energies,misc,,"[""energies""]",1304
-wujek,uncle,misc,(also: wujku),"[""uncle"",""wujek"",""wujku""]",1306
-ruchy,moves,misc,,"[""moves""]",1307
-liceum,high school,misc,,"[""high school""]",1309
-pieprzyć,fuck,verb,(also: pierdol),"[""fuck"",""pieprzyć"",""pieprzyc"",""pierdol""]",1310
-równie,equally,adverb,,"[""equally""]",1311
-nieba,heaven,misc,(also: niebie),"[""heaven"",""nieba"",""niebie""]",1312
-podróży,travel,misc,,"[""travel""]",1313
-wiary,faith,misc,,"[""faith""]",1316
-pieprzony,fucking,adjective,,"[""fucking""]",1317
-zamknięte,closed,misc,,"[""closed""]",1318
-dostęp,access,misc,,"[""access""]",1319
-akcji,shares,misc,,"[""shares""]",1320
-znacznie,significantly,adverb,,"[""significantly""]",1324
-pochodzi,comes from,misc,,"[""comes from""]",1325
-sierżancie,sergeant,noun,,"[""sergeant""]",1326
-stracił,lost,misc,,"[""lost""]",1327
-odszedł,gone,misc,(also: odeszła),"[""gone"",""odszedł"",""odszedl"",""odeszła"",""odeszla""]",1330
-szkodzi,harms,misc,,"[""harms""]",1331
-czasy,times,misc,"(also: czasów, czasach)","[""times"",""czasy"",""czasów"",""czasow"",""czasach""]",1332
-milion,million,misc,,"[""million""]",1333
-luke,luke,misc,,"[""luke""]",1334
-pytam,I ask,misc,,"[""i ask""]",1335
-pięciu,five,misc,,"[""five""]",1336
-domem,home,misc,,"[""home""]",1337
-zajmuje,occupies,misc,,"[""occupies""]",1340
-nr,No.,misc,,"[""no.""]",1343
-daję,I give,misc,,"[""i give""]",1345
-przejmuj,take over,misc,,"[""take over""]",1346
-sprzedać,sell,misc,,"[""sell""]",1347
-umowę,contract,misc,(also: umowa),"[""contract"",""umowę"",""umowe"",""umowa""]",1348
-córką,daughter of,misc,,"[""daughter of""]",1349
-drogą,via,misc,(also: poprzez),"[""via"",""drogą"",""droga"",""poprzez""]",1351
-porozmawiamy,we'll talk,misc,,"[""we'll talk""]",1352
-założyć,set up,verb,,"[""set up""]",1354
-matt,matt,misc,,"[""matt""]",1356
-zobaczy,will see,misc,,"[""will see""]",1358
-dotykaj,touch,misc,,"[""touch""]",1360
-słyszałaś,have you heard,misc,,"[""have you heard""]",1364
-gdybyśmy,if we,misc,,"[""if we""]",1366
-język,language,misc,,"[""language""]",1367
-pistolet,gun,misc,,"[""gun""]",1370
-możliwość,possibility,noun,,"[""possibility""]",1372
-auto,auto,misc,,"[""auto""]",1374
-poznałem,met,misc,(also: spotkałem),"[""met"",""poznałem"",""poznalem"",""spotkałem"",""spotkalem""]",1375
-trwa,ongoing,adjective,,"[""ongoing""]",1376
-łatwe,easy,adjective,,"[""easy""]",1377
-musiałeś,you must have,misc,,"[""you must have""]",1378
-żyję,I live,misc,(also: mieszkam),"[""i live"",""żyję"",""zyje"",""mieszkam""]",1379
-restauracji,restaurants,misc,,"[""restaurants""]",1380
-próbujesz,you try,misc,,"[""you try""]",1381
-czterech,four,misc,,"[""four""]",1383
-dupy,asses,misc,,"[""asses""]",1385
-proces,process,misc,,"[""process""]",1386
-obudź,wake up,misc,,"[""wake up""]",1388
-jedziesz,you go,misc,,"[""you go""]",1389
-kwiaty,flowers,misc,,"[""flowers""]",1390
-dave,dave,misc,,"[""dave""]",1391
-spędzić,spend,verb,,"[""spend""]",1393
-winny,guilty,adjective,,"[""guilty""]",1394
-układ,layout,misc,,"[""layout""]",1396
-przeszkadza,disturbs,misc,,"[""disturbs""]",1397
-pokładzie,board,misc,,"[""board""]",1398
-jerry,jerry,misc,,"[""jerry""]",1403
-upewnić,make sure,verb,,"[""make sure""]",1404
-babcia,grandmother,misc,,"[""grandmother""]",1405
-zmęczony,tired,adjective,(also: zmęczona),"[""tired"",""zmęczony"",""zmeczony"",""zmęczona"",""zmeczona""]",1406
-winy,faults,adjective,,"[""faults""]",1408
-carter,carter,misc,,"[""carter""]",1409
-dałeś,you gave,misc,,"[""you gave""]",1417
-opowiedz,tell,misc,,"[""tell""]",1418
-ducha,spirit,misc,(also: duch),"[""spirit"",""ducha"",""duch""]",1421
-konia,horse,noun,,"[""horse""]",1422
-clark,clark,misc,,"[""clark""]",1423
-pete,pete,misc,,"[""pete""]",1426
-strach,fear,misc,(also: strachu),"[""fear"",""strach"",""strachu""]",1427
-alarm,alarm,misc,,"[""alarm""]",1428
-joey,joey,misc,,"[""joey""]",1429
-eric,eric,misc,,"[""eric""]",1430
-wolności,freedoms,misc,,"[""freedoms""]",1431
-robiłem,I did,misc,,"[""i did""]",1433
-leo,leo,misc,,"[""leo""]",1434
-teren,site,misc,,"[""site""]",1435
-kontroli,control,misc,"(also: kontrolę, kontrolować)","[""control"",""kontroli"",""kontrolę"",""kontrole"",""kontrolować"",""kontrolowac""]",1436
-pociąg,train,misc,,"[""train""]",1437
-skrzywdzić,harm,verb,,"[""harm""]",1439
-zapach,smell,misc,,"[""smell""]",1441
-śpi,sleeps,misc,,"[""sleeps""]",1442
-wyglądało,looked,misc,(also: wyglądał),"[""looked"",""wyglądało"",""wygladalo"",""wyglądał"",""wygladal""]",1444
-ufam,I trust,misc,,"[""i trust""]",1445
-ted,ted,misc,,"[""ted""]",1446
-rozkazy,orders,misc,,"[""orders""]",1448
-parku,park,misc,(also: park),"[""park"",""parku""]",1449
-sumie,total,misc,,"[""total""]",1451
-najważniejsze,highlights,misc,,"[""highlights""]",1452
-zabójca,killer,misc,,"[""killer""]",1454
-zdarza,happens,misc,,"[""happens""]",1456
-pamięć,memory,misc,,"[""memory""]",1457
-annie,annie,adverb,,"[""annie""]",1459
-następnie,then,adverb,,"[""then""]",1460
-łódź,boat,misc,,"[""boat""]",1462
-scott,scott,misc,,"[""scott""]",1463
-sercu,heart,misc,,"[""heart""]",1467
-strzał,shot,misc,,"[""shot""]",1470
-wszystkimi,all,misc,,"[""all""]",1473
-móc,may,misc,,"[""may""]",1474
-zamian,exchanges,misc,,"[""exchanges""]",1478
-napisał,He wrote,misc,,"[""he wrote""]",1480
-słodki,sweet,misc,(also: słodkie),"[""sweet"",""słodki"",""slodki"",""słodkie"",""slodkie""]",1481
-stanu,status,misc,,"[""status""]",1484
-czytać,read,misc,,"[""read""]",1485
-wóz,cart,misc,,"[""cart""]",1486
-czyżby,be,misc,(also: byc),"[""be"",""czyżby"",""czyzby"",""byc""]",1487
-wyluzuj,loosen up,misc,,"[""loosen up""]",1488
-barze,bar,adverb,,"[""bar""]",1489
-zostawię,I'll leave,misc,(also: wyjdę),"[""i'll leave"",""zostawię"",""zostawie"",""wyjdę"",""wyjde""]",1490
-cholernie,damn,adverb,(also: cholerny),"[""damn"",""cholernie"",""cholerny""]",1491
-najszybciej,fastest,misc,,"[""fastest""]",1492
-daniel,daniel,misc,,"[""daniel""]",1493
-jenny,jenny,adjective,,"[""jenny""]",1494
-niezbyt,not very,misc,,"[""not very""]",1495
-silny,strong,adjective,,"[""strong""]",1496
-ledwo,barely,misc,,"[""barely""]",1497
-tatuś,daddy,misc,"(also: tatą, tatusiu)","[""daddy"",""tatuś"",""tatus"",""tatą"",""tata"",""tatusiu""]",1498
-studia,study,misc,,"[""study""]",1501
-byłbym,I would be,misc,,"[""i would be""]",1502
-cia,cia,misc,,"[""cia""]",1503
-towar,merchandise,misc,,"[""merchandise""]",1505
-pamięta,remembers,misc,,"[""remembers""]",1508
-dan,dan,misc,,"[""dan""]",1510
-larry,larry,misc,,"[""larry""]",1511
-cenę,price,misc,,"[""price""]",1513
-głęboko,deep,misc,,"[""deep""]",1515
-ocalić,save,verb,,"[""save""]",1516
-psy,dogs,misc,,"[""dogs""]",1517
-angeles,angeles,misc,,"[""angeles""]",1518
-kevin,kevin,misc,,"[""kevin""]",1520
-klubu,club,misc,"(also: klubie, klub)","[""club"",""klubu"",""klubie"",""klub""]",1522
-przeprosić,apologize,verb,,"[""apologize""]",1523
-wolność,freedom,noun,,"[""freedom""]",1524
-liczyć,count,verb,,"[""count""]",1525
-dziadek,grandfather,misc,,"[""grandfather""]",1528
-gorąco,hot,misc,,"[""hot""]",1530
-cisza,silence,misc,,"[""silence""]",1534
-bezpiecznie,safely,adverb,,"[""safely""]",1536
-czekają,await,misc,,"[""await""]",1537
-pole,field,misc,,"[""field""]",1540
-lisa,fox,misc,,"[""fox""]",1541
-sto,hundred,misc,,"[""hundred""]",1542
-gdziekolwiek,anywhere,misc,,"[""anywhere""]",1543
-kompletnie,completely,adverb,,"[""completely""]",1544
-byliście,you were,noun,,"[""you were""]",1546
-mistrzu,master,misc,,"[""master""]",1547
-jutra,tomorrow's,misc,,"[""tomorrow's""]",1549
-normalnie,normally,adverb,,"[""normally""]",1550
-stóp,feet,misc,(also: stopy),"[""feet"",""stóp"",""stop"",""stopy""]",1551
-siłę,strength,misc,,"[""strength""]",1552
-zechcesz,want,misc,,"[""want""]",1553
-bezpieczny,safe,adjective,"(also: bezpieczna, bezpieczne)","[""safe"",""bezpieczny"",""bezpieczna"",""bezpieczne""]",1556
-klientów,customers,misc,,"[""customers""]",1557
-auta,cars,misc,,"[""cars""]",1558
-duszę,soul,misc,(also: duszy),"[""soul"",""duszę"",""dusze"",""duszy""]",1559
-przyjechał,arrived,misc,,"[""arrived""]",1562
-sztuki,arts,misc,,"[""arts""]",1563
-przyniosę,I'll bring,misc,,"[""i'll bring""]",1564
-oczywiste,obvious,misc,,"[""obvious""]",1565
-pewność,assurance,noun,,"[""assurance""]",1566
-zadowolony,pleased,adjective,,"[""pleased""]",1567
-gwiazdy,stars,misc,,"[""stars""]",1570
-planu,plan,misc,,"[""plan""]",1571
-charles,charles,misc,,"[""charles""]",1572
-kotku,cat,misc,,"[""cat""]",1573
-napisane,written,adjective,,"[""written""]",1574
-ukryć,hide,verb,,"[""hide""]",1575
-normalne,normal,adjective,,"[""normal""]",1579
-rose,rose,misc,,"[""rose""]",1582
-piątek,Friday,misc,,"[""friday""]",1583
-bierzesz,you take,misc,,"[""you take""]",1584
-wyjdziesz,come out,misc,,"[""come out""]",1585
-potrwa,will last,adjective,,"[""will last""]",1587
-biorąc,taking,misc,,"[""taking""]",1588
-wątpliwości,doubts,misc,,"[""doubts""]",1589
-pamięci,memories,misc,(also: wspomnienia),"[""memories"",""pamięci"",""pamieci"",""wspomnienia""]",1591
-chicago,chicago,misc,,"[""chicago""]",1592
-zero,zero,misc,,"[""zero""]",1595
-którymi,by which,misc,,"[""by which""]",1596
-niebo,sky,misc,,"[""sky""]",1597
-dokumenty,documents,misc,,"[""documents""]",1598
-śmieci,garbage,misc,,"[""garbage""]",1599
-drużyny,teams,adjective,,"[""teams""]",1600
-powinniście,you should,noun,,"[""you should""]",1603
-żebyście,so that you,noun,,"[""so that you""]",1604
-nawzajem,each other,misc,,"[""each other""]",1605
-zajęcia,activities,misc,,"[""activities""]",1606
-piłkę,ball,misc,,"[""ball""]",1607
-samobójstwo,suicide,noun,,"[""suicide""]",1610
-klucze,keys,misc,,"[""keys""]",1612
-minutę,minute,misc,,"[""minute""]",1613
-ryzyko,risk,misc,,"[""risk""]",1614
-pomógł,helped,misc,,"[""helped""]",1615
-boi,boi,misc,,"[""boi""]",1616
-patrzysz,you're looking,misc,,"[""you're looking""]",1617
-dziewczyn,girls,misc,(also: dziewczynki),"[""girls"",""dziewczyn"",""dziewczynki""]",1618
-kamery,cameras,misc,,"[""cameras""]",1619
-udawać,pretend,misc,(also: udać),"[""pretend"",""udawać"",""udawac"",""udać"",""udac""]",1622
-wyciągnąć,pull,verb,,"[""pull""]",1623
-łatwiej,easier,misc,,"[""easier""]",1625
-grace,grace,misc,,"[""grace""]",1626
-północy,midnight,misc,,"[""midnight""]",1635
-nos,nose,misc,,"[""nose""]",1636
-wymaga,requires,misc,,"[""requires""]",1637
-okazało,proved,misc,,"[""proved""]",1638
-podejdź,approach,misc,,"[""approach""]",1639
-wykorzystać,leverage,misc,,"[""leverage""]",1640
-lucy,lucy,misc,,"[""lucy""]",1641
-wino,wine,misc,,"[""wine""]",1643
-czynienia,deal,noun,,"[""deal""]",1646
-ranny,injured,adjective,,"[""injured""]",1647
-większe,larger,misc,,"[""larger""]",1650
-generale,general,misc,,"[""general""]",1651
-trakcie,during,noun,,"[""during""]",1652
-pojawił,appeared,misc,,"[""appeared""]",1653
-alan,alan,misc,,"[""alan""]",1654
-narkotyki,drugs,misc,"(also: narkotyków, leki)","[""drugs"",""narkotyki"",""narkotyków"",""narkotykow"",""leki""]",1655
-wchodzi,enters,misc,,"[""enters""]",1657
-projekt,project,misc,,"[""project""]",1659
-zęby,teeth,misc,,"[""teeth""]",1661
-zamiaru,intention,misc,,"[""intention""]",1662
-zmiana,change,adjective,,"[""change""]",1664
-szlag,hits,misc,,"[""hits""]",1665
-sekret,secret,misc,(also: tajemnicy),"[""secret"",""sekret"",""tajemnicy""]",1666
-południe,south,adverb,,"[""south""]",1667
-okoliczności,circumstances,misc,,"[""circumstances""]",1668
-pospiesz,hurry,misc,,"[""hurry""]",1669
-państwa,states,adjective,,"[""states""]",1670
-naprawde,naprawde,misc,,"[""naprawde""]",1671
-tęsknię,I miss,misc,,"[""i miss""]",1672
-ciężkie,heavy,misc,,"[""heavy""]",1673
-dupek,asshole,misc,(also: dupku),"[""asshole"",""dupek"",""dupku""]",1674
-zadać,inflict,misc,,"[""inflict""]",1675
-zabili,killed,misc,(also: zabiła),"[""killed"",""zabili"",""zabiła"",""zabila""]",1676
-chuck,chuck,misc,,"[""chuck""]",1677
-aha,aha,misc,,"[""aha""]",1678
-konieczne,necessary,adjective,,"[""necessary""]",1681
-jazdy,drives,misc,,"[""drives""]",1682
-km,km,misc,,"[""km""]",1683
-zrobione,done,adjective,,"[""done""]",1684
-troszkę,bit,misc,,"[""bit""]",1689
-zrobienia,make,noun,,"[""make""]",1691
-zabrali,they took,misc,,"[""they took""]",1693
-pozwala,allows,misc,,"[""allows""]",1695
-trzeci,third,misc,,"[""third""]",1696
-adam,adam,misc,,"[""adam""]",1697
-stole,table,misc,,"[""table""]",1699
-patrzę,I'm looking,misc,,"[""i'm looking""]",1700
-napisać,write,misc,(also: pisać),"[""write"",""napisać"",""napisac"",""pisać"",""pisac""]",1701
-podobnie,likewise,adverb,,"[""likewise""]",1702
-łodzi,boats,misc,,"[""boats""]",1704
-setki,hundreds,misc,,"[""hundreds""]",1705
-chcieliśmy,we wanted,misc,,"[""we wanted""]",1709
-maggie,maggie,misc,,"[""maggie""]",1710
-radio,radio,misc,,"[""radio""]",1712
-wydawało,seemed,misc,,"[""seemed""]",1713
-poszedłem,I went,misc,,"[""i went""]",1715
-misji,missions,misc,,"[""missions""]",1716
-susan,susan,misc,,"[""susan""]",1717
-sa,sa,misc,,"[""sa""]",1718
-odciski,prints,adjective,,"[""prints""]",1719
-najmniej,least,misc,,"[""least""]",1721
-spodnie,pants,adverb,,"[""pants""]",1723
-kelly,kelly,misc,,"[""kelly""]",1726
-karen,karen,misc,,"[""karen""]",1727
-kwestia,issue,misc,,"[""issue""]",1728
-kolor,color,misc,,"[""color""]",1732
-stała,fixed,misc,,"[""fixed""]",1733
-zabija,kills,misc,,"[""kills""]",1734
-poważne,serious,adjective,,"[""serious""]",1735
-walter,walter,misc,,"[""walter""]",1736
-gówna,shits,adjective,,"[""shits""]",1737
-śledztwo,investigation,misc,,"[""investigation""]",1738
-czysty,neat,misc,,"[""neat""]",1739
-przypuszczam,guess,misc,,"[""guess""]",1740
-nosić,carry,verb,,"[""carry""]",1742
-doszło,There was,misc,,"[""there was""]",1745
-van,van,misc,,"[""van""]",1749
-trzymasz,you hold,misc,,"[""you hold""]",1751
-pijany,drunk,adjective,,"[""drunk""]",1752
-obejrzeć,watch,verb,,"[""watch""]",1753
-rzeczywistości,reality,misc,,"[""reality""]",1755
-jason,jason,misc,,"[""jason""]",1756
-kieszeni,pockets,misc,,"[""pockets""]",1759
-odpowiedzialny,responsible,adjective,,"[""responsible""]",1761
-wsparcie,support,noun,,"[""support""]",1763
-julie,julie,misc,,"[""julie""]",1764
-mając,having,misc,,"[""having""]",1765
-kościoła,church,misc,,"[""church""]",1766
-kupiłem,I bought,misc,,"[""i bought""]",1767
-działo,cannon,misc,,"[""cannon""]",1771
-planety,planets,misc,,"[""planets""]",1772
-bój,fight,misc,,"[""fight""]",1773
-czerwony,red,adjective,,"[""red""]",1774
-powodów,reasons,misc,,"[""reasons""]",1775
-lot,flight,misc,,"[""flight""]",1777
-vegas,vegas,misc,,"[""vegas""]",1778
-nogę,leg,misc,,"[""leg""]",1780
-kłamstwo,lie,noun,,"[""lie""]",1782
-martin,martin,misc,,"[""martin""]",1783
-żartuję,just kidding,misc,,"[""just kidding""]",1784
-obecnie,currently,adverb,,"[""currently""]",1788
-podobało,liked,misc,,"[""liked""]",1793
-wieczoru,evening,misc,,"[""evening""]",1795
-sprzęt,equipment,misc,,"[""equipment""]",1796
-straciliśmy,we lost,misc,,"[""we lost""]",1797
-wsiadaj,get on,misc,,"[""get on""]",1799
-piosenkę,song,misc,,"[""song""]",1800
-połóż,put,misc,,"[""put""]",1802
-zwierzęta,animals,misc,,"[""animals""]",1804
-bilety,tickets,misc,,"[""tickets""]",1805
-wprost,straightforward,misc,,"[""straightforward""]",1807
-ameryki,Americas,misc,,"[""americas""]",1808
-umrę,I will die,misc,,"[""i will die""]",1810
-faktycznie,actually,adverb,,"[""actually""]",1814
-armii,army,misc,,"[""army""]",1815
-dotrzeć,reach,verb,,"[""reach""]",1816
-pisze,writes,misc,,"[""writes""]",1818
-kurs,course,misc,,"[""course""]",1819
-rzucić,quit,verb,,"[""quit""]",1820
-północ,north,misc,,"[""north""]",1821
-wyjątkiem,except,misc,,"[""except""]",1822
-gejem,gay,misc,,"[""gay""]",1823
-bracia,brothers,misc,,"[""brothers""]",1825
-n,n,misc,,"[""n""]",1827
-ruchu,traffic,misc,,"[""traffic""]",1828
-patrzy,looks,misc,,"[""looks""]",1831
-żałuję,regret,misc,,"[""regret""]",1832
-przedstawić,submit,verb,,"[""submit""]",1834
-przyjąć,accept,verb,,"[""accept""]",1836
-bomba,bomb,misc,,"[""bomb""]",1837
-klasie,Class,misc,,"[""class""]",1838
-ukradł,stole,misc,,"[""stole""]",1839
-dźwięk,sound,misc,,"[""sound""]",1843
-czysto,purely,misc,,"[""purely""]",1844
-nosi,carries,misc,,"[""carries""]",1846
-bzdury,nonsense,misc,,"[""nonsense""]",1852
-prawdą,truth,misc,,"[""truth""]",1855
-taylor,taylor,misc,,"[""taylor""]",1857
-zachowanie,behavior,noun,,"[""behavior""]",1858
-mylisz,you are confusing,misc,,"[""you are confusing""]",1860
-dowiemy,let's find out,misc,,"[""let's find out""]",1861
-oddech,breath,misc,,"[""breath""]",1862
-chwile,moments,misc,,"[""moments""]",1863
-zbliża,brings  closer,misc,,"[""brings  closer""]",1865
-sean,sean,misc,,"[""sean""]",1867
-przypadkiem,by chance,misc,,"[""by chance""]",1869
-wiatr,wind,misc,,"[""wind""]",1872
-lily,lily,misc,,"[""lily""]",1876
-działania,actions,noun,,"[""actions""]",1877
-drzwiami,door,misc,,"[""door""]",1884
-zostałeś,you have been,misc,,"[""you have been""]",1886
-szacunku,respect,misc,,"[""respect""]",1887
-znacie,do you know,noun,,"[""do you know""]",1888
-wysłał,sent,misc,,"[""sent""]",1891
-pokonać,overcome,misc,,"[""overcome""]",1894
-kawał,prank,misc,,"[""prank""]",1896
-bazy,bases,misc,,"[""bases""]",1897
-kochana,dear,adjective,,"[""dear""]",1898
-wybierasz,you choose,misc,,"[""you choose""]",1899
-robert,robert,misc,,"[""robert""]",1900
-nakaz,injunction,misc,,"[""injunction""]",1901
-kartę,card,misc,,"[""card""]",1905
-doprawdy,truly,misc,,"[""truly""]",1906
-zejdź,go down,misc,,"[""go down""]",1908
-uśmiech,smile,misc,,"[""smile""]",1909
-zginąć,perish,verb,,"[""perish""]",1911
-zaszczyt,honor,misc,,"[""honor""]",1912
-biedny,poor,adjective,,"[""poor""]",1913
-powtarzam,repeat,misc,,"[""repeat""]",1914
-używa,uses,adjective,,"[""uses""]",1917
-pragnę,I would like to,misc,,"[""i would like to""]",1918
-brawo,bravo,misc,,"[""bravo""]",1919
-wakacje,vacations,misc,,"[""vacations""]",1920
-strzelaj,shoot,misc,,"[""shoot""]",1921
-pojadę,I'll go,misc,,"[""i'll go""]",1922
-plaży,beach,misc,,"[""beach""]",1924
-odpowiedzieć,reply,verb,,"[""reply""]",1925
-ryby,fish,misc,,"[""fish""]",1927
-życzę,I wish,misc,,"[""i wish""]",1929
-piwnicy,basement,misc,,"[""basement""]",1931
-alice,alice,misc,,"[""alice""]",1933
-rozmawiamy,we talk,misc,,"[""we talk""]",1934
-okres,period,misc,,"[""period""]",1935
-bohaterem,hero,misc,,"[""hero""]",1937
-anglii,england,misc,,"[""england""]",1938
-kurde,chicken,misc,,"[""chicken""]",1939
-ciśnienie,pressure,noun,,"[""pressure""]",1940
-przeżyć,experience,verb,,"[""experience""]",1941
-wszedł,entered,misc,,"[""entered""]",1942
-niedobrze,not good,adverb,,"[""not good""]",1946
-chloe,chloe,misc,,"[""chloe""]",1947
-piekła,hell,misc,,"[""hell""]",1950
-abby,abby,misc,,"[""abby""]",1952
-uważać,beware,misc,,"[""beware""]",1954
-połączenie,link,noun,,"[""link""]",1955
-klient,customer,misc,,"[""customer""]",1961
-romans,romance,misc,,"[""romance""]",1963
-zauważyłem,spotted,misc,,"[""spotted""]",1964
-lesie,forest,misc,,"[""forest""]",1965
-boku,side,misc,,"[""side""]",1966
-łączy,links,misc,,"[""links""]",1967
-robin,robin,misc,,"[""robin""]",1968
-zamierza,intends,misc,,"[""intends""]",1969
-odpocząć,relax,verb,,"[""relax""]",1970
-ciężki,severe,misc,,"[""severe""]",1973
-przerwę,break,misc,,"[""break""]",1978
-prysznic,shower,misc,,"[""shower""]",1979
-ciele,body,misc,,"[""body""]",1982
-szczery,sincere,misc,,"[""sincere""]",1983
-amen,amen,misc,,"[""amen""]",1984
-kochał,loved,misc,,"[""loved""]",1985
-zakupy,shopping,misc,,"[""shopping""]",1986
-czyste,clean,misc,,"[""clean""]",1990
-tez,also,misc,,"[""also""]",1991
-sądzi,judges,misc,,"[""judges""]",1992
-zacznę,I'll start,misc,,"[""i'll start""]",1993
-kontynuować,continue,verb,,"[""continue""]",1997
-smith,smith,misc,,"[""smith""]",1998
-anna,anna,adjective,,"[""anna""]",2000
+polish,english,category,example_pl,example_en,accepted_answers,frequency_rank
+rok,year,misc,Słowo: rok.,Word: year.,"[""year""]",1
+pół,half,misc,Słowo: pół.,Word: half.,"[""half""]",2
+racja,rationale,misc,Słowo: racja.,Word: right.,"[""rationale""]",3
+lecz,but,misc,Słowo: lecz.,Word: cure.,"[""but""]",4
+człowiekiem,man,misc,Słowo: człowiekiem.,The word: human.,"[""man""]",5
+czyli,i.e.,misc,Słowo: czyli.,Word: meaning.,"[""i.e.""]",6
+radę,advice,misc,Słowo: radę.,Word: advice.,"[""advice""]",7
+szybciej,faster,misc,Słowo: szybciej.,Word: faster.,"[""faster""]",8
+chociaż,although,misc,Słowo: chociaż.,Word: although.,"[""although""]",9
+jezu,jesus,misc,Słowo: jezu.,Word: jesus.,"[""jesus""]",10
+krew,blood,misc,Słowo: krew.,The word: blood.,"[""blood""]",11
+późno,late,misc,Słowo: późno.,The word: late.,"[""late""]",12
+dr,Dr.,misc,Słowo: dr.,Word: dr.,"[""dr.""]",13
+spotkanie,meeting,noun,To jest spotkanie.,This is a meeting.,"[""meeting""]",14
+you,you,misc,Słowo: you.,Word: you.,"[""you""]",15
+zewnątrz,outside,misc,Słowo: zewnątrz.,Word: outside.,"[""outside""]",16
+kapitanie,Captain,noun,To jest kapitanie.,It's a captain.,"[""captain""]",17
+głowę,head,misc,Słowo: głowę.,Word: head.,"[""head""]",18
+lubisz,like,misc,Słowo: lubisz.,Word: like.,"[""like""]",19
+chciałabym,I would like,misc,Słowo: chciałabym.,Word: wish.,"[""i would like""]",20
+zależy,depends,misc,Słowo: zależy.,Word: depends.,"[""depends""]",21
+robota,robot,misc,Słowo: robota.,The word: robot.,"[""robot""]",22
+d,d,misc,Słowo: d.,Word: d.,"[""d""]",23
+lubi,likes,misc,Słowo: lubi.,Word: likes.,"[""likes""]",24
+słowo,word,adverb,Mówię słowo po polsku.,I say the word in Polish.,"[""word""]",25
+wziąć,take,verb,Lubię wziąć.,I like to take.,"[""take""]",26
+gdybyś,if you,misc,Słowo: gdybyś.,Word: if.,"[""if you""]",27
+powinno,should,misc,Słowo: powinno.,Word: should.,"[""should""]",28
+mówiąc,saying,misc,Słowo: mówiąc.,Word: saying.,"[""saying""]",29
+mała,little,misc,Słowo: mała.,Word: small.,"[""little""]",30
+wypadek,accident,noun,To jest wypadek.,This is an accident.,"[""accident""]",31
+znalazłem,found,misc,Słowo: znalazłem.,Word: found.,"[""found""]",32
+dawaj,donate,misc,Słowo: dawaj.,Word: give.,"[""donate""]",33
+miesięcy,months,misc,Słowo: miesięcy.,Word: months.,"[""months""]",34
+pójść,go,misc,Słowo: pójść.,The word: go.,"[""go""]",35
+wejść,enter,misc,Słowo: wejść.,Word: enter.,"[""enter""]",36
+nowe,new,adjective,To jest bardzo nowe.,This is very new.,"[""new""]",37
+robimy,we do,misc,Słowo: robimy.,Word: we do.,"[""we do""]",38
+stronie,website,adverb,Mówię stronie po polsku.,I'm speaking the page in Polish.,"[""website""]",39
+zobaczymy,we'll see,misc,Słowo: zobaczymy.,Word: we'll see.,"[""we'll see""]",40
+wrócę,I'll be back,misc,Słowo: wrócę.,Word: I'll be back.,"[""i'll be back""]",41
+mniej,less,misc,Słowo: mniej.,Word: less.,"[""less""]",42
+praca,work,misc,Słowo: praca.,The word: work.,"[""work""]",43
+moi,my,misc,Słowo: moi.,Word: moi.,"[""my""]",44
+pierwsze,first,misc,Słowo: pierwsze.,Word: first.,"[""first""]",45
+tydzień,week,misc,Słowo: tydzień.,Word: week.,"[""week""]",46
+zupełnie,entirely,adverb,Mówię zupełnie po polsku.,I speak completely in Polish.,"[""entirely""]",47
+rodzina,family,adjective,To jest bardzo rodzina.,It is very much a family.,"[""family""]",48
+boga,god,misc,Słowo: boga.,Word: god.,"[""god""]",49
+czeka,waits,noun,To jest czeka.,This is waiting.,"[""waits""]",50
+zna,knows,adjective,To jest bardzo zna.,It is very familiar.,"[""knows""]",51
+wody,waters,misc,Słowo: wody.,Word: waters.,"[""waters""]",52
+zrobi,will do,misc,Słowo: zrobi.,Word: will do.,"[""will do""]",53
+prawdopodobnie,probably,adverb,Mówię prawdopodobnie po polsku.,I probably speak Polish.,"[""probably""]",54
+serca,hearts,misc,Słowo: serca.,Word: hearts.,"[""hearts""]",55
+widział,seen,misc,Słowo: widział.,Word: seen.,"[""seen""]",56
+prawa,rights,adjective,To jest bardzo prawa.,This is very much a right.,"[""rights""]",57
+nieważne,never mind,adjective,To jest bardzo nieważne.,This is very unimportant.,"[""never mind""]",58
+złe,wrong,misc,Słowo: złe.,Word: bad.,"[""wrong""]",59
+mogli,They could,misc,Słowo: mogli.,Word: they could.,"[""they could""]",60
+jakoś,somehow,misc,Słowo: jakoś.,The word: somehow.,"[""somehow""]",61
+mógłbyś,you could,misc,Słowo: mógłbyś.,Word: you could.,"[""you could""]",62
+człowieku,man,misc,Słowo: człowieku.,Word: man.,"[""man""]",63
+doktor,doctor,misc,Słowo: doktor.,Word: doctor.,"[""doctor""]",64
+sprawdzić,check,verb,Muszę sprawdzić dzisiaj.,I have to check today.,"[""check""]",65
+chłopak,boyfriend,misc,Słowo: chłopak.,Word: boyfriend.,"[""boyfriend""]",66
+film,video,misc,Słowo: film.,Word: film.,"[""video""]",67
+pracować,work,verb,Lubię pracować.,I like to work.,"[""work""]",68
+według,according to,misc,Słowo: według.,Word: according to.,"[""according to""]",69
+szansę,chance,misc,Słowo: szansę.,Word: opportunity.,"[""chance""]",70
+mieście,city,noun,Widzę mieście tutaj.,I see the cities here.,"[""city""]",71
+robią,do,misc,Słowo: robią.,Word: they do.,"[""do""]",72
+wiedziałam,knew,misc,Słowo: wiedziałam.,Word: knew.,"[""knew""]",73
+spotkać,meet,verb,Lubię spotkać.,I like to meet.,"[""meet""]",74
+jechać,go,verb,Muszę jechać dzisiaj.,I have to go today.,"[""go""]",75
+mówiłeś,you said,misc,Słowo: mówiłeś.,Word: you said.,"[""you said""]",76
+sądzisz,think,misc,Słowo: sądzisz.,Word: judge.,"[""think""]",77
+wspólnego,common,misc,Słowo: wspólnego.,Word: common.,"[""common""]",78
+spać,sleep,verb,Muszę spać dzisiaj.,I need to sleep tonight.,"[""sleep""]",79
+ojcem,father,misc,Słowo: ojcem.,Word: father.,"[""father""]",80
+małe,small,misc,Słowo: małe.,Word: small.,"[""small""]",81
+tymi,with these,misc,Słowo: tymi.,Word: these.,"[""with these""]",82
+mógłby,could,misc,Słowo: mógłby.,Word: could.,"[""could""]",83
+gówno,shit,misc,Słowo: gówno.,Word: crap.,"[""shit""]",84
+koleś,dude,misc,Słowo: koleś.,Word: dude.,"[""dude""]",85
+ciała,bodies,misc,Słowo: ciała.,Word: bodies.,"[""bodies""]",86
+pracuje,works,misc,Słowo: pracuje.,The word: works.,"[""works""]",87
+ponad,over,misc,Słowo: ponad.,Word: over.,"[""over""]",88
+chwila,moment,misc,Słowo: chwila.,The word: moment.,"[""moment""]",89
+uwagę,attention,misc,Słowo: uwagę.,Word: attention.,"[""attention""]",90
+problemy,problems,misc,Słowo: problemy.,The word: problems.,"[""problems""]",91
+wystarczająco,enough,misc,Słowo: wystarczająco.,Word: enough.,"[""enough""]",92
+brak,no,misc,Słowo: brak.,Word: none.,"[""no""]",93
+zdjęcia,photos,misc,Słowo: zdjęcia.,Word: photos.,"[""photos""]",94
+miasto,city,misc,Słowo: miasto.,Word: city.,"[""city""]",95
+wkrótce,coming soon,misc,Słowo: wkrótce.,Word: soon.,"[""coming soon""]",96
+rękę,hand,misc,Słowo: rękę.,Word: hand.,"[""hand""]",97
+okej,okay,misc,Słowo: okej.,Word: okay.,"[""okay""]",98
+kilku,several,misc,Słowo: kilku.,Word: several.,"[""several""]",99
+myśleć,think,verb,Lubię myśleć.,I like to think.,"[""think""]",100
+wasza,your,misc,Słowo: wasza.,Word: yours.,"[""your""]",101
+mało,little,adverb,Mówię mało po polsku.,I speak little Polish.,"[""little"",""few"",""not much"",""not many""]",102
+góry,mountains,misc,Słowo: góry.,The word: mountains.,"[""mountains""]",103
+uh,uh,misc,Słowo: uh.,Word: uh.,"[""uh""]",104
+charlie,charlie,misc,Słowo: charlie.,Word: charlie.,"[""charlie""]",105
+michael,michael,misc,Słowo: michael.,Word: michael.,"[""michael""]",106
+znać,know,verb,Lubię znać.,I like to know.,"[""know""]",107
+zatrzymać,stop,verb,Lubię zatrzymać.,I like to stop.,"[""stop""]",108
+jakąś,some,misc,Słowo: jakąś.,Word: some.,"[""some""]",109
+nazywam,I call,misc,Słowo: nazywam.,Word: naming.,"[""i call""]",110
+wiedzą,knowledge,misc,Słowo: wiedzą.,Word: they know.,"[""knowledge""]",111
+całym,throughout,misc,Słowo: całym.,Word: throughout.,"[""throughout""]",112
+broni,arms,misc,Słowo: broni.,Word: weapons.,"[""arms""]",113
+drogę,way,misc,Słowo: drogę.,The word: road.,"[""way""]",114
+gotowa,ready,adjective,To jest bardzo gotowa.,It is very ready.,"[""ready""]",115
+pogadać,chat,verb,Muszę pogadać dzisiaj.,I need to talk today.,"[""chat""]",116
+droga,road,misc,Słowo: droga.,The word: road.,"[""road""]",117
+wszędzie,everywhere,misc,Słowo: wszędzie.,Word: everywhere.,"[""everywhere""]",118
+przyjaciół,friends,misc,Słowo: przyjaciół.,Word: friends.,"[""friends""]",119
+dał,gave,misc,Słowo: dał.,Word: he gave.,"[""gave""]",120
+stronę,website,misc,Słowo: stronę.,Word: page.,"[""website""]",121
+mówiłam,said,misc,Słowo: mówiłam.,Word: spoken.,"[""said""]",122
+pomoże,will help,misc,Słowo: pomoże.,Word: will help.,"[""will help""]",123
+prosto,straight,misc,Słowo: prosto.,Word: straight.,"[""straight""]",124
+pomóż,Help,misc,Słowo: pomóż.,Word: help.,"[""help""]",125
+wami,you,misc,Słowo: wami.,Word: you.,"[""you""]",126
+wielkie,great,misc,Słowo: wielkie.,Word: great.,"[""great""]",127
+powiedziałaś,you said,misc,Słowo: powiedziałaś.,Word: you said.,"[""you said""]",128
+niemożliwe,impossible,adjective,To jest bardzo niemożliwe.,This is very impossible.,"[""impossible""]",129
+ostatnie,last,adverb,Mówię ostatnie po polsku.,I speak the last in Polish.,"[""last""]",130
+przyjaciel,friend,misc,Słowo: przyjaciel.,Word: friend.,"[""friend""]",131
+samochodu,car,misc,Słowo: samochodu.,Word: car.,"[""car""]",132
+zdjęcie,photo,noun,To jest zdjęcie.,Here's a snapshot.,"[""photo""]",133
+dziewczynę,girl,misc,Słowo: dziewczynę.,Word: girl.,"[""girl""]",134
+pokaż,show,misc,Słowo: pokaż.,Word: show.,"[""show""]",135
+zapomnij,forget,misc,Słowo: zapomnij.,The word: forget.,"[""forget""]",136
+pa,bye,misc,Słowo: pa.,Word: bye.,"[""bye""]",137
+słyszysz,hear,misc,Słowo: słyszysz.,Word: hearsay.,"[""hear""]",138
+nagle,suddenly,misc,Słowo: nagle.,Word: sudden.,"[""suddenly""]",139
+zmienić,switch,verb,Muszę zmienić dzisiaj.,I need to change today.,"[""switch""]",140
+razu,immediately,misc,Słowo: razu.,Word: at once.,"[""immediately""]",141
+samego,itself,misc,Słowo: samego.,Word: same.,"[""itself""]",142
+brata,brother,misc,Słowo: brata.,Word: brother.,"[""brother""]",143
+miłości,love,misc,Słowo: miłości.,Word: love.,"[""love""]",144
+nazwisko,name,noun,To jest nazwisko.,The name is.,"[""name""]",145
+roboty,works,misc,Słowo: roboty.,The word: robots.,"[""works""]",146
+drugi,second,misc,Słowo: drugi.,Word: second.,"[""second""]",147
+wracaj,return,misc,Słowo: wracaj.,Word: come back.,"[""return""]",148
+rodzice,parents,misc,Słowo: rodzice.,Word: parents.,"[""parents""]",149
+popatrz,look at,misc,Słowo: popatrz.,Word: look.,"[""look at""]",150
+kłopoty,trouble,misc,Słowo: kłopoty.,The word: trouble.,"[""trouble""]",151
+większość,most,noun,Widzę większość tutaj.,I see the majority here.,"[""most""]",152
+czuje,feels,misc,Słowo: czuje.,The word: feels.,"[""feels""]",153
+trudno,difficult,misc,Słowo: trudno.,Word: difficult.,"[""difficult""]",154
+żaden,none,pronoun,Daj żaden książkę.,Give no book.,"[""none"",""no"",""neither"",""not any""]",155
+zaczyna,starts,adjective,To jest bardzo zaczyna.,It is very much getting started.,"[""starts""]",156
+drugiej,second,misc,Słowo: drugiej.,Word: the other.,"[""second""]",157
+dół,bottom,misc,Słowo: dół.,Word: bottom.,"[""bottom""]",158
+odejść,leave,misc,Słowo: odejść.,The word: leave.,"[""leave""]",159
+szkole,school,misc,Słowo: szkole.,Word: school.,"[""school""]",160
+pozwolić,allow,verb,Lubię pozwolić.,I like to allow.,"[""allow""]",161
+frank,frank,misc,Słowo: frank.,The word: franc.,"[""frank""]",162
+zobacz,see,misc,Słowo: zobacz.,Word: see.,"[""see""]",163
+zrobiła,she did,misc,Słowo: zrobiła.,Word: she did.,"[""she did""]",164
+dobrym,good,misc,Słowo: dobrym.,Word: good.,"[""good""]",165
+głowie,head,adverb,Mówię głowie po polsku.,I speak my head in Polish.,"[""head""]",166
+ruszaj,move,misc,Słowo: ruszaj.,The word: move.,"[""move""]",167
+często,often,misc,Słowo: często.,Word: often.,"[""often""]",168
+faceta,guy,misc,Słowo: faceta.,Word: guy.,"[""guy""]",169
+muszą,must,misc,Słowo: muszą.,Word: must.,"[""must""]",170
+szkoda,pity,misc,Słowo: szkoda.,The word: pity.,"[""pity""]",171
+żadnej,any,misc,Słowo: żadnej.,Word: none.,"[""any""]",172
+jedziemy,we're going,misc,Słowo: jedziemy.,The word: we're going.,"[""we're going""]",173
+początku,beginning,misc,Słowo: początku.,Word: beginnings.,"[""beginning""]",174
+dziecka,child,noun,Widzę dziecka tutaj.,I see a child here.,"[""child""]",175
+matki,mothers,misc,Słowo: matki.,Word: mothers.,"[""mothers""]",176
+zacząć,start,verb,Lubię zacząć.,I like to start.,"[""start""]",177
+całkowicie,entirely,noun,Widzę całkowicie tutaj.,I can see completely here.,"[""entirely""]",178
+piękna,beautiful,adjective,To jest bardzo piękna.,It is very beautiful.,"[""beautiful""]",179
+godzinę,one hour,misc,Słowo: godzinę.,Word: one hour.,"[""one hour""]",180
+głupi,dumb,misc,Słowo: głupi.,Word: stupid.,"[""dumb""]",181
+choć,although,verb,Muszę choć dzisiaj.,I have to at least today.,"[""although""]",182
+policji,police,misc,Słowo: policji.,Word: police.,"[""police""]",183
+musiałem,I had to,misc,Słowo: musiałem.,Word: had to.,"[""i had to""]",184
+chłopcy,boys,misc,Słowo: chłopcy.,The word: boys.,"[""boys""]",185
+błąd,error,misc,Słowo: błąd.,Word: error.,"[""error""]",186
+niestety,unfortunately,misc,Słowo: niestety.,Word: unfortunately.,"[""unfortunately""]",187
+przykład,example,misc,Słowo: przykład.,Word: example.,"[""example""]",188
+dowiedzieć,learn,verb,Muszę dowiedzieć dzisiaj.,I need to find out today.,"[""learn""]",189
+pierwsza,first,misc,Słowo: pierwsza.,Word: first.,"[""first""]",190
+czekać,wait,verb,Lubię czekać.,I like to wait.,"[""wait""]",191
+pomyślałem,thought,misc,Słowo: pomyślałem.,Word: thought.,"[""thought""]",192
+jakaś,some,misc,Słowo: jakaś.,Word: any.,"[""some""]",193
+zadzwonić,call,verb,Muszę zadzwonić dzisiaj.,I have to call today.,"[""call""]",194
+zabawne,funny,adjective,To jest bardzo zabawne.,This is very funny.,"[""funny""]",195
+zostań,become,misc,Słowo: zostań.,The word: stay.,"[""become""]",196
+widzenia,viewings,noun,To jest widzenia.,It's a sight to see.,"[""viewings""]",197
+trzech,three,misc,Słowo: trzech.,Word: three.,"[""three""]",198
+górę,top,misc,Słowo: górę.,Word: mountain.,"[""top""]",199
+synu,son,misc,Słowo: synu.,Word: son.,"[""son""]",200
+najlepszy,best,misc,Słowo: najlepszy.,Word: best.,"[""best""]",201
+córka,daughter,noun,To jest córka.,This is the daughter.,"[""daughter""]",202
+pewnego,certain,misc,Słowo: pewnego.,Word: certain.,"[""certain""]",203
+trzymać,hold,verb,Lubię trzymać.,I like to keep.,"[""hold""]",204
+szefie,Chief,misc,Słowo: szefie.,Word: boss.,"[""chief""]",205
+dawno,long time,misc,Słowo: dawno.,Word: a long time ago.,"[""long time""]",206
+rany,wounds,adjective,To jest bardzo rany.,This is very wounding.,"[""wounds""]",207
+pokazać,show,verb,Lubię pokazać.,I like to show.,"[""show""]",208
+miało,had,misc,Słowo: miało.,The word: had.,"[""had""]",209
+przyszedł,came,misc,Słowo: przyszedł.,The word: came.,"[""came""]",210
+joe,joe,misc,Słowo: joe.,Word: joe.,"[""joe""]",211
+siostra,sister,misc,Słowo: siostra.,Word: sister.,"[""sister""]",212
+sami,themselves,misc,Słowo: sami.,Word: themselves.,"[""themselves""]",213
+ponownie,again,adverb,Mówię ponownie po polsku.,I speak Polish again.,"[""again""]",214
+zostawić,leave,verb,Lubię zostawić.,I like to leave.,"[""leave""]",215
+jedynie,only,adverb,Mówię jedynie po polsku.,I only speak Polish.,"[""only""]",216
+nowym,new,misc,Słowo: nowym.,Word: new.,"[""new""]",217
+zamiast,instead of,misc,Słowo: zamiast.,Word: instead.,"[""instead of""]",218
+inni,others,misc,Słowo: inni.,Word: others.,"[""others""]",219
+jakim,which,misc,Słowo: jakim.,Word: what kind of.,"[""which""]",220
+jednej,one,misc,Słowo: jednej.,Word: one.,"[""one""]",221
+historia,history,misc,Słowo: historia.,The word: history.,"[""history""]",222
+kraju,country,misc,Słowo: kraju.,Word: country.,"[""country""]",223
+obiecuję,promise,misc,Słowo: obiecuję.,Word: promise.,"[""promise""]",224
+tygodniu,week,misc,Słowo: tygodniu.,Word: week.,"[""week""]",225
+obok,next to,misc,Słowo: obok.,Word: next door.,"[""next to""]",226
+spróbuj,try,misc,Słowo: spróbuj.,Word: try it.,"[""try""]",227
+wieku,age,misc,Słowo: wieku.,Word: age.,"[""age""]",228
+środka,measure,noun,Widzę środka tutaj.,I see a middle ground here.,"[""measure""]",229
+musicie,you must,noun,Widzę musicie tutaj.,I see you must here.,"[""you must""]",230
+powie,will say,adverb,Mówię powie po polsku.,I say will say in Polish.,"[""will say""]",231
+hey,hey,misc,Słowo: hey.,Word: hey.,"[""hey""]",232
+dłużej,longer,misc,Słowo: dłużej.,Word: longer.,"[""longer""]",233
+george,george,misc,Słowo: george.,Word: george.,"[""george""]",234
+chciałeś,wanted,misc,Słowo: chciałeś.,Word: you wanted.,"[""wanted""]",235
+łatwo,easily,misc,Słowo: łatwo.,Word: easy.,"[""easily""]",236
+będziecie,you will,noun,To jest będziecie.,This is going to be.,"[""you will""]",237
+okazji,occasions,misc,Słowo: okazji.,Word: opportunity.,"[""occasions""]",238
+statek,ship,noun,Widzę statek tutaj.,I can see the ship here.,"[""ship""]",239
+zamierzam,I'm going to,misc,Słowo: zamierzam.,Word: intend.,"[""i'm going to""]",240
+uważam,believe,misc,Słowo: uważam.,The word: I believe.,"[""believe""]",241
+wróci,will return,misc,Słowo: wróci.,The word: will return.,"[""will return""]",242
+niczym,like,misc,Słowo: niczym.,Word: nothing.,"[""like""]",243
+dasz,dash,misc,Słowo: dasz.,Word: you will give.,"[""dash""]",244
+pracuję,I work,misc,Słowo: pracuję.,Word: working.,"[""i work""]",245
+rady,tips,misc,Słowo: rady.,Word: advice.,"[""tips""]",246
+mike,mike,misc,Słowo: mike.,Word: mike.,"[""mike""]",247
+znaleźliśmy,we found,misc,Słowo: znaleźliśmy.,Word: we found it.,"[""we found""]",248
+oraz,and,misc,Słowo: oraz.,Word: and.,"[""and""]",249
+oboje,both,misc,Słowo: oboje.,Word: both.,"[""both""]",250
+nikomu,to no one,misc,Słowo: nikomu.,Word: to no one.,"[""to no one"",""no one""]",251
+złego,bad,misc,Słowo: złego.,Word: bad.,"[""bad""]",252
+samym,alone,misc,Słowo: samym.,Word: alone.,"[""alone""]",253
+rodzinę,family,misc,Słowo: rodzinę.,The word: family.,"[""family""]",254
+cicho,quietly,misc,Słowo: cicho.,Word: quiet.,"[""quietly""]",255
+istnieje,there is,misc,Słowo: istnieje.,The word: exists.,"[""there is""]",256
+zrobiłam,I made,misc,Słowo: zrobiłam.,Word: I did.,"[""i made""]",257
+mimo,despite,misc,Słowo: mimo.,Word: despite.,"[""despite""]",258
+odkąd,since,misc,Słowo: odkąd.,Word: since.,"[""since""]",259
+uważasz,believe,misc,Słowo: uważasz.,Word: you think.,"[""believe""]",260
+musiała,must have,misc,Słowo: musiała.,Word: had to.,"[""must have""]",261
+leci,flies,misc,Słowo: leci.,The word: flies.,"[""flies""]",262
+jakiegoś,of some,misc,Słowo: jakiegoś.,Word: some.,"[""of some""]",263
+spróbować,try,verb,Lubię spróbować.,I like to try it.,"[""try""]",264
+męża,husband,misc,Słowo: męża.,Word: husband.,"[""husband""]",265
+kupić,purchase,verb,Muszę kupić dzisiaj.,I need to buy today.,"[""purchase""]",266
+moment,moment,misc,Słowo: moment.,Word: moment.,"[""moment""]",267
+zatem,so,misc,Słowo: zatem.,Word: therefore.,"[""so""]",268
+prawdziwe,real,adjective,To jest bardzo prawdziwe.,This is very true.,"[""real""]",269
+zła,bad,misc,Słowo: zła.,Word: evil.,"[""bad""]",270
+cie,thou,noun,To jest cie.,It is thee.,"[""thou""]",271
+osób,people,misc,Słowo: osób.,Word: people.,"[""people""]",272
+wezmę,I'll take,misc,Słowo: wezmę.,The word: I'll take.,"[""i'll take""]",273
+takiej,such,misc,Słowo: takiej.,Word: such.,"[""such""]",274
+mówiła,she said,misc,Słowo: mówiła.,Word: she said.,"[""she said""]",275
+wiadomości,news,misc,Słowo: wiadomości.,Word: news.,"[""news""]",276
+sześć,six,misc,Słowo: sześć.,Word: six.,"[""six""]",277
+żonę,wife,misc,Słowo: żonę.,Word: wife.,"[""wife""]",278
+gość,Guest,noun,To jest gość.,This is a visitor.,"[""guest""]",279
+dziewczyną,girl,misc,Słowo: dziewczyną.,Word: girl.,"[""girl""]",280
+słyszałeś,heard,misc,Słowo: słyszałeś.,Word: you heard.,"[""heard""]",281
+około,about,misc,Słowo: około.,Word: about.,"[""about""]",282
+fbi,fbi,misc,Słowo: fbi.,Word: fbi.,"[""fbi""]",283
+mężczyzna,man,adjective,To jest bardzo mężczyzna.,It is very much a man's man.,"[""man""]",284
+boję,I'm afraid,misc,Słowo: boję.,Word: afraid.,"[""i'm afraid""]",285
+tędy,this way,misc,Słowo: tędy.,Word: this way.,"[""this way""]",286
+znajdziemy,find,misc,Słowo: znajdziemy.,Word: find.,"[""find""]",287
+walczyć,struggle,verb,Lubię walczyć.,I like to fight.,"[""struggle""]",288
+zamiar,intent,misc,Słowo: zamiar.,Word: intent.,"[""intent""]",289
+kocha,loves,misc,Słowo: kocha.,The word: loves.,"[""loves""]",290
+zajmę,I'll take,misc,Słowo: zajmę.,The word: occupy.,"[""i'll take""]",291
+osobą,person,misc,Słowo: osobą.,Word: person.,"[""person""]",292
+historii,stories,misc,Słowo: historii.,Word: history.,"[""stories""]",293
+ciągu,string,misc,Słowo: ciągu.,Word: string.,"[""string""]",294
+wasze,your,misc,Słowo: wasze.,Word: yours.,"[""your""]",295
+boli,hurts,misc,Słowo: boli.,The word: hurts.,"[""hurts""]",296
+panno,Miss,misc,Słowo: panno.,Word: miss.,"[""miss""]",297
+powinna,should,adjective,To jest bardzo powinna.,It is very much should.,"[""should""]",298
+strasznie,terribly,adverb,Mówię strasznie po polsku.,I speak terrible Polish.,"[""terribly""]",299
+and,and,misc,Słowo: and.,Word: and.,"[""and""]",300
+powodzenia,good luck,noun,To jest powodzenia.,This is good luck.,"[""good luck""]",301
+panem,Mr.,misc,Słowo: panem.,Word: panem.,"[""mr.""]",302
+bracie,brother,noun,To jest bracie.,That's brother.,"[""brother""]",303
+zwykle,usually,misc,Słowo: zwykle.,Word: usually.,"[""usually""]",304
+czyż,whether,misc,Słowo: czyż.,Word: whether.,"[""whether""]",305
+wracam,back,misc,Słowo: wracam.,Word: back.,"[""back""]",306
+tom,volume,misc,Słowo: tom.,Word: volume.,"[""volume""]",307
+niby,seemingly,misc,Słowo: niby.,Word: seemingly.,"[""seemingly""]",308
+umrzeć,die,verb,Lubię umrzeć.,I like to die.,"[""die""]",309
+następnym,next,misc,Słowo: następnym.,Word: next.,"[""next""]",310
+zadzwonię,call,misc,Słowo: zadzwonię.,Word: I will call.,"[""call""]",311
+gotowi,ready,misc,Słowo: gotowi.,Word: ready.,"[""ready""]",312
+niedługo,coming soon,misc,Słowo: niedługo.,The word: soon.,"[""coming soon""]",313
+ojcze,Father,misc,Słowo: ojcze.,Word: father.,"[""father""]",314
+przyjdzie,will come,misc,Słowo: przyjdzie.,The word: will come.,"[""will come""]",315
+myśl,thought,misc,Słowo: myśl.,Word: thought.,"[""thought""]",316
+przyjacielem,friend,misc,Słowo: przyjacielem.,Word: friend.,"[""friend""]",317
+włosy,hair,misc,Słowo: włosy.,Word: hair.,"[""hair""]",318
+proste,simple,misc,Słowo: proste.,Word: simple.,"[""simple""]",319
+prawdziwy,genuine,adjective,To jest bardzo prawdziwy.,This is very real.,"[""genuine""]",320
+nowa,new,adjective,To jest bardzo nowa.,This is very new.,"[""new""]",321
+daje,gives,misc,Słowo: daje.,The word: gives.,"[""gives""]",322
+dzieckiem,child,misc,Słowo: dzieckiem.,Word: child.,"[""child""]",323
+pewnością,certainly,misc,Słowo: pewnością.,Word: certainty.,"[""certainly""]",324
+pytania,questions,noun,To jest pytania.,These are the questions.,"[""questions""]",325
+nienawidzę,I hate,misc,Słowo: nienawidzę.,The word: hate.,"[""i hate""]",326
+wrócił,returned,misc,Słowo: wrócił.,The word: returned.,"[""returned""]",327
+najlepsze,best,misc,Słowo: najlepsze.,Word: best.,"[""best""]",328
+kobietą,woman,misc,Słowo: kobietą.,Word: a woman.,"[""woman""]",329
+ulicy,street,misc,Słowo: ulicy.,Word: street.,"[""street""]",330
+najlepiej,best,misc,Słowo: najlepiej.,Word: best.,"[""best""]",331
+widać,can be seen,verb,Lubię widać.,I like you can see.,"[""can be seen""]",332
+znajdę,I find,misc,Słowo: znajdę.,Word: find.,"[""i find""]",333
+stan,state,misc,Słowo: stan.,Word: state.,"[""state""]",334
+przyjaciele,friends,misc,Słowo: przyjaciele.,Word: friends.,"[""friends""]",335
+ludźmi,people,misc,Słowo: ludźmi.,Word: people.,"[""people""]",336
+zabierz,take,misc,Słowo: zabierz.,The word: take away.,"[""take""]",337
+jedzenie,eating,noun,To jest jedzenie.,This is food.,"[""eating""]",338
+wracać,return,verb,Lubię wracać.,I like to go back.,"[""return""]",339
+zostały,have been,misc,Słowo: zostały.,Word: have been.,"[""have been""]",340
+powód,reason,misc,Słowo: powód.,Word: reason.,"[""reason""]",341
+nigdzie,Nowhere,misc,Słowo: nigdzie.,Word: nowhere.,"[""nowhere""]",342
+kochasz,love,misc,Słowo: kochasz.,The word: love.,"[""love""]",343
+seks,sex,misc,Słowo: seks.,The word: sex.,"[""sex""]",344
+ludziom,people,misc,Słowo: ludziom.,Word: people.,"[""people""]",345
+próbuję,I'm trying,misc,Słowo: próbuję.,Word: trying.,"[""i'm trying""]",346
+zadzwoń,Call,misc,Słowo: zadzwoń.,Word: call.,"[""call""]",347
+sporo,a lot,misc,Słowo: sporo.,Word: a lot.,"[""a lot"",""lot""]",348
+ziemię,land,misc,Słowo: ziemię.,The word: land.,"[""land""]",349
+potrafię,I can,misc,Słowo: potrafię.,Word: can.,"[""i can""]",350
+same,alone,misc,Słowo: same.,Word: same.,"[""alone""]",351
+piękne,beautiful,adjective,To jest bardzo piękne.,This is very beautiful.,"[""beautiful""]",352
+zająć,occupy,verb,Muszę zająć dzisiaj.,I need to occupy today.,"[""occupy""]",353
+przysięgam,swear,misc,Słowo: przysięgam.,Word: swear.,"[""swear""]",354
+szpitala,hospital,misc,Słowo: szpitala.,The word: hospital.,"[""hospital""]",355
+spokoju,calm,misc,Słowo: spokoju.,The word: calm.,"[""calm""]",356
+słyszałam,heard,misc,Słowo: słyszałam.,Word: heard.,"[""heard""]",357
+szczerze,sincerely,adverb,Mówię szczerze po polsku.,I speak frankly in Polish.,"[""sincerely""]",358
+przestać,cease,verb,Muszę przestać dzisiaj.,I have to stop today.,"[""cease""]",359
+twarzy,face,misc,Słowo: twarzy.,Word: face.,"[""face""]",360
+żartujesz,are you kidding,misc,Słowo: żartujesz.,Word: you're kidding.,"[""are you kidding""]",361
+pewny,sure,adjective,To jest bardzo pewny.,This is a very sure thing.,"[""sure""]",362
+póki,until,misc,Słowo: póki.,Word: while.,"[""until""]",363
+przyjaciółmi,friends,misc,Słowo: przyjaciółmi.,Word: friends.,"[""friends""]",364
+tysięcy,thousands,misc,Słowo: tysięcy.,Word: thousands.,"[""thousands""]",365
+nogi,legs,misc,Słowo: nogi.,The word: legs.,"[""legs""]",366
+zrobiłaś,you did,misc,Słowo: zrobiłaś.,Word: you did.,"[""you did""]",367
+znalazł,found,misc,Słowo: znalazł.,Word: found.,"[""found""]",368
+wolno,slowly,misc,Słowo: wolno.,Word: slow.,"[""slowly""]",369
+mieszka,lives,noun,To jest mieszka.,It lives.,"[""lives""]",370
+miałaś,you had,misc,Słowo: miałaś.,Word: you had.,"[""you had""]",371
+głos,voice,misc,Słowo: głos.,Word: voice.,"[""voice""]",372
+pasuje,fits,misc,Słowo: pasuje.,The word: fit.,"[""fits""]",373
+robił,made,misc,Słowo: robił.,The word: did.,"[""made""]",374
+mogłam,I could,misc,Słowo: mogłam.,Word: I could.,"[""i could""]",375
+otwórz,open,misc,Słowo: otwórz.,Word: open.,"[""open""]",376
+wyboru,selection,misc,Słowo: wyboru.,Word: choice.,"[""selection""]",377
+zrozumieć,understand,verb,Lubię zrozumieć.,I like to understand.,"[""understand""]",378
+chwileczkę,wait a minute,misc,Słowo: chwileczkę.,Word: a while.,"[""wait a minute""]",379
+każdej,each,misc,Słowo: każdej.,Word: every.,"[""each""]",380
+m,m,misc,Słowo: m.,Word: m.,"[""m""]",381
+powstrzymać,deter,verb,Muszę powstrzymać dzisiaj.,I have to stop today.,"[""deter""]",382
+tyłu,back,misc,Słowo: tyłu.,Word: back.,"[""back""]",383
+mogłeś,you could,misc,Słowo: mogłeś.,Word: you could.,"[""you could""]",384
+słyszę,hear,misc,Słowo: słyszę.,The word: hearsay.,"[""hear""]",385
+grać,play,verb,Lubię grać.,I like to play.,"[""play""]",386
+kolację,dinner,misc,Słowo: kolację.,The word: dinner.,"[""dinner""]",387
+uwielbiam,love,misc,Słowo: uwielbiam.,Word: adore.,"[""love""]",388
+uciec,flee,misc,Słowo: uciec.,The word: escape.,"[""flee""]",389
+moglibyśmy,we could,misc,Słowo: moglibyśmy.,Word: we could.,"[""we could""]",390
+zabiję,I'll kill,misc,Słowo: zabiję.,The word: I will kill.,"[""i'll kill""]",391
+uspokój,calm down,misc,Słowo: uspokój.,Word: calm down.,"[""calm down""]",392
+centrum,center,misc,Słowo: centrum.,Word: center.,"[""center""]",393
+żony,wives,adjective,To jest bardzo żony.,It is very much a wife thing.,"[""wives""]",394
+wreszcie,finally,noun,Widzę wreszcie tutaj.,I see finally here.,"[""finally""]",395
+przyjść,come,misc,Słowo: przyjść.,The word: come.,"[""come""]",396
+y,y,misc,Słowo: y.,Word: y.,"[""y""]",397
+kolejny,another,adjective,To jest bardzo kolejny.,This is very next.,"[""another""]",398
+cel,purpose,misc,Słowo: cel.,Word: target.,"[""purpose""]",399
+dobrego,good,misc,Słowo: dobrego.,Word: good.,"[""good""]",400
+szczęśliwy,happy,adjective,To jest bardzo szczęśliwy.,It is a very happy one.,"[""happy""]",401
+biura,offices,misc,Słowo: biura.,Word: offices.,"[""offices""]",402
+kapitan,Captain,misc,Słowo: kapitan.,Word: captain.,"[""captain""]",403
+tacy,such,misc,Słowo: tacy.,Word: such.,"[""such""]",404
+mocno,hard,misc,Słowo: mocno.,The word: strong.,"[""hard""]",405
+musieli,They had to,misc,Słowo: musieli.,Word: they had to.,"[""they had to""]",406
+znaczenia,meanings,noun,To jest znaczenia.,This is the meaning.,"[""meanings""]",407
+trudne,difficult,adjective,To jest bardzo trudne.,This is very difficult.,"[""difficult""]",408
+świetny,great,adjective,To jest bardzo świetny.,This is a very great one.,"[""great""]",409
+poszedł,went,misc,Słowo: poszedł.,The word: gone.,"[""went""]",410
+młody,young,misc,Słowo: młody.,Word: young.,"[""young""]",411
+tygodni,weeks,misc,Słowo: tygodni.,Word: weeks.,"[""weeks""]",412
+odpowiedź,answer,misc,Słowo: odpowiedź.,Word: response.,"[""answer""]",413
+stój,stand,misc,Słowo: stój.,Word: stop.,"[""stand""]",414
+bogu,god,misc,Słowo: bogu.,Word: god.,"[""god""]",415
+david,david,misc,Słowo: david.,Word: david.,"[""david""]",416
+szukam,looking for,misc,Słowo: szukam.,Word: looking for.,"[""looking for""]",417
+duży,large,misc,Słowo: duży.,Word: big.,"[""large""]",418
+korekta,correction,misc,Słowo: korekta.,The word: correction.,"[""correction""]",419
+niektórzy,some,misc,Słowo: niektórzy.,Word: some.,"[""some""]",420
+t,t,misc,Słowo: t.,Word: t.,"[""t""]",421
+widziałaś,have you seen,misc,Słowo: widziałaś.,Word: you have seen.,"[""have you seen""]",422
+chodźcie,come on,noun,To jest chodźcie.,It's a come-on.,"[""come on""]",423
+gościa,guest,misc,Słowo: gościa.,Word: guest.,"[""guest""]",424
+żoną,wife,misc,Słowo: żoną.,Word: wife.,"[""wife""]",425
+części,parts,misc,Słowo: części.,Word: parts.,"[""parts""]",426
+obawiam,concern,misc,Słowo: obawiam.,Word: fear.,"[""concern""]",427
+henry,henry,misc,Słowo: henry.,Word: henry.,"[""henry""]",428
+następny,next,adjective,To jest bardzo następny.,This is very next.,"[""next""]",429
+tygodnie,weeks,adverb,Mówię tygodnie po polsku.,I speak weeks of Polish.,"[""weeks""]",430
+informacje,information,misc,Słowo: informacje.,Word: information.,"[""information""]",431
+sekund,seconds,misc,Słowo: sekund.,Word: seconds.,"[""seconds""]",432
+fajnie,cool,adverb,Mówię fajnie po polsku.,I speak cool Polish.,"[""cool""]",433
+pewne,certain,adjective,To jest bardzo pewne.,This is very certain.,"[""certain""]",434
+jedyną,the only,misc,Słowo: jedyną.,Word: the only one.,"[""the only"",""only""]",435
+wow,wow,misc,Słowo: wow.,Word: wow.,"[""wow""]",436
+samej,itself,misc,Słowo: samej.,Word: alone.,"[""itself""]",437
+yeah,yeah,misc,Słowo: yeah.,Word: yeah.,"[""yeah""]",438
+wielka,great,noun,Widzę wielka tutaj.,I see a great one here.,"[""great""]",439
+wojny,wars,adjective,To jest bardzo wojny.,It is very much a war.,"[""wars""]",440
+mocy,powers,misc,Słowo: mocy.,Word: power.,"[""powers""]",441
+wieści,news,misc,Słowo: wieści.,Word: news.,"[""news""]",442
+ból,pain,misc,Słowo: ból.,The word: pain.,"[""pain""]",443
+matką,mother,misc,Słowo: matką.,Word: mother.,"[""mother""]",444
+związek,union,noun,Widzę związek tutaj.,I see the connection here.,"[""union""]",445
+zobaczysz,see,misc,Słowo: zobaczysz.,Word: you will see.,"[""see""]",446
+tony,tons,adjective,To jest bardzo tony.,It is very tony.,"[""tons""]",447
+jakbym,as if,misc,Słowo: jakbym.,Word: as if.,"[""as if""]",448
+dajcie,Give,noun,Widzę dajcie tutaj.,I see give here.,"[""give""]",449
+żebyśmy,so that,misc,Słowo: żebyśmy.,Word: so that.,"[""so that""]",450
+pierwszym,first,misc,Słowo: pierwszym.,Word: first.,"[""first""]",451
+górze,top,adverb,Mówię górze po polsku.,I tell the mountain in Polish.,"[""top""]",452
+mnóstwo,lots of,noun,Widzę mnóstwo tutaj.,I see plenty here.,"[""lots of""]",453
+ktokolwiek,whoever,noun,To jest ktokolwiek.,This is whoever.,"[""whoever""]",454
+jakiego,of which,misc,Słowo: jakiego.,Word: which one.,"[""of which""]",455
+peter,peter,misc,Słowo: peter.,Word: peter.,"[""peter""]",456
+przyjaciela,friend,misc,Słowo: przyjaciela.,Word: friend.,"[""friend""]",457
+reszta,rest,misc,Słowo: reszta.,Word: rest.,"[""rest""]",458
+lepsze,better,misc,Słowo: lepsze.,Word: better.,"[""better""]",459
+facetem,guy,misc,Słowo: facetem.,Word: guy.,"[""guy""]",460
+pozwolę,let me,misc,Słowo: pozwolę.,Word: allow.,"[""let me""]",461
+pytań,questions,misc,Słowo: pytań.,Word: questions.,"[""questions""]",462
+policję,police,misc,Słowo: policję.,The word: police.,"[""police""]",463
+ach,ah,misc,Słowo: ach.,Word: ah.,"[""ah""]",464
+hotelu,hotel,misc,Słowo: hotelu.,Word: hotel.,"[""hotel""]",465
+stoi,stands,misc,Słowo: stoi.,Word: stands.,"[""stands""]",466
+łóżka,beds,noun,To jest łóżka.,This is the beds.,"[""beds""]",467
+list,letter,misc,Słowo: list.,Word: letter.,"[""letter""]",468
+sądzie,court,misc,Słowo: sądzie.,Word: court.,"[""court""]",469
+małą,small,misc,Słowo: małą.,Word: small.,"[""small""]",470
+osoba,person,misc,Słowo: osoba.,Word: person.,"[""person""]",471
+niesamowite,amazing,misc,Słowo: niesamowite.,Word: amazing.,"[""amazing""]",472
+zapytać,ask,verb,Lubię zapytać.,I like to ask.,"[""ask""]",473
+światło,light,misc,Słowo: światło.,The word: light.,"[""light""]",474
+sensu,sense,misc,Słowo: sensu.,Word: sense.,"[""sense""]",475
+wasz,your,pronoun,Daj wasz książkę.,Give your book.,"[""your"",""yours""]",476
+dostał,got,misc,Słowo: dostał.,Word: got it.,"[""got""]",477
+los,fate,misc,Słowo: los.,Word: fate.,"[""fate""]",478
+ruszać,launch,verb,Lubię ruszać.,I like to move.,"[""launch""]",479
+wiedziała,she knew,misc,Słowo: wiedziała.,Word: she knew.,"[""she knew""]",480
+prezent,gift,misc,Słowo: prezent.,The word: gift.,"[""gift""]",481
+nową,new,misc,Słowo: nową.,Word: new.,"[""new""]",482
+resztę,the rest,misc,Słowo: resztę.,Word: rest.,"[""the rest"",""rest""]",483
+dostałem,got,misc,Słowo: dostałem.,Word: got it.,"[""got""]",484
+ciekawe,interesting,adjective,To jest bardzo ciekawe.,This is very interesting.,"[""interesting""]",485
+uwaga,attention,misc,Słowo: uwaga.,Word: attention.,"[""attention""]",486
+l,l,misc,Słowo: l.,Word: l.,"[""l""]",487
+martwy,dead,adjective,To jest bardzo martwy.,It is very much a dead giveaway.,"[""dead""]",488
+jedynym,the only,misc,Słowo: jedynym.,Word: the only one.,"[""the only"",""only""]",489
+więzienia,prisons,noun,Widzę więzienia tutaj.,I see prisons here.,"[""prisons""]",490
+obiad,dinner,misc,Słowo: obiad.,The word: dinner.,"[""dinner""]",491
+przyszłość,future,noun,To jest przyszłość.,This is the future.,"[""future""]",492
+uważa,believes,misc,Słowo: uważa.,Word: believes.,"[""believes""]",493
+chodziło,was about,misc,Słowo: chodziło.,The word: walked.,"[""was about""]",494
+tyłek,butt,noun,Widzę tyłek tutaj.,I can see the bottom here.,"[""butt""]",495
+potrafi,can,misc,Słowo: potrafi.,Word: can.,"[""can""]",496
+poszło,went,misc,Słowo: poszło.,Word: it went.,"[""went""]",497
+osoby,persons,misc,Słowo: osoby.,Word: persons.,"[""persons""]",498
+pomiędzy,between,misc,Słowo: pomiędzy.,Word: in-between.,"[""between""]",499
+walki,fights,misc,Słowo: walki.,The word: battles.,"[""fights""]",500
+wspaniałe,great,misc,Słowo: wspaniałe.,Word: great.,"[""great""]",501
+szukać,look for,verb,Muszę szukać dzisiaj.,I have to look for today.,"[""look for""]",502
+rodziców,parents,misc,Słowo: rodziców.,Word: parents.,"[""parents""]",503
+związku,association,misc,Słowo: związku.,Word: relationship.,"[""association""]",504
+zobaczę,see,misc,Słowo: zobaczę.,The word: I will see.,"[""see""]",505
+twoi,your,misc,Słowo: twoi.,Word: yours.,"[""your""]",506
+kobietę,woman,misc,Słowo: kobietę.,The word: woman.,"[""woman""]",507
+danny,danny,adjective,To jest bardzo danny.,This is very danny.,"[""danny""]",508
+jorku,york,misc,Słowo: jorku.,Word: yorkie.,"[""york""]",509
+dobrą,good,misc,Słowo: dobrą.,Word: good.,"[""good""]",510
+aaccff,aaccff,misc,Słowo: aaccff.,Word: aaccff.,"[""aaccff""]",511
+dostaniesz,get,misc,Słowo: dostaniesz.,The word: get.,"[""get""]",512
+zaczął,started,misc,Słowo: zaczął.,The word: started.,"[""started""]",513
+martwić,worry,verb,Muszę martwić dzisiaj.,I have to worry today.,"[""worry""]",514
+szansa,opportunity,misc,Słowo: szansa.,The word: opportunity.,"[""opportunity""]",515
+pójdziesz,go,misc,Słowo: pójdziesz.,Word: you will go.,"[""go""]",516
+nieprawda,untrue,misc,Słowo: nieprawda.,Word: untrue.,"[""untrue""]",517
+james,james,misc,Słowo: james.,Word: james.,"[""james""]",518
+system,system,misc,Słowo: system.,The word: system.,"[""system""]",519
+sen,sleep,misc,Słowo: sen.,Word: dream.,"[""sleep""]",520
+ben,ben,misc,Słowo: ben.,Word: ben.,"[""ben""]",521
+zabije,will kill,misc,Słowo: zabije.,The word: will kill.,"[""will kill""]",522
+całej,whole,misc,Słowo: całej.,Word: entire.,"[""whole""]",523
+widzi,sees,misc,Słowo: widzi.,The word: sees.,"[""sees""]",524
+ślub,wedding,misc,Słowo: ślub.,Word: wedding.,"[""wedding""]",525
+jimmy,jimmy,misc,Słowo: jimmy.,Word: jimmy.,"[""jimmy""]",526
+zajmie,will take,misc,Słowo: zajmie.,Word: it will take.,"[""will take""]",527
+sytuacji,situations,misc,Słowo: sytuacji.,Word: situations.,"[""situations""]",528
+niezły,nice,misc,Słowo: niezły.,Word: not bad.,"[""nice""]",529
+wierzysz,you believe,misc,Słowo: wierzysz.,Word: you believe.,"[""you believe""]",530
+szpitalu,hospital,misc,Słowo: szpitalu.,Word: hospital.,"[""hospital""]",531
+zatrzymaj,stop,misc,Słowo: zatrzymaj.,The word: stop.,"[""stop""]",532
+szef,head of,misc,Słowo: szef.,Word: boss.,"[""head of""]",533
+częścią,part of,misc,Słowo: częścią.,Word: part of.,"[""part of""]",534
+własne,own,adjective,To jest bardzo własne.,It is very much its own thing.,"[""own""]",535
+mowy,speech,adjective,To jest bardzo mowy.,This is very speech-like.,"[""speech""]",536
+moc,power,misc,Słowo: moc.,The word: power.,"[""power""]",537
+kobiet,women,misc,Słowo: kobiet.,Word: women.,"[""women""]",538
+it,it,misc,Słowo: it.,Word: it.,"[""it""]",539
+coraz,increasingly,misc,Słowo: coraz.,Word: getting.,"[""increasingly""]",540
+skończyć,finish,verb,Lubię skończyć.,I like to finish.,"[""finish""]",541
+gry,games,misc,Słowo: gry.,Word: games.,"[""games""]",542
+dzieciak,kid,misc,Słowo: dzieciak.,Word: kid.,"[""kid""]",543
+gotowe,ready,adjective,To jest bardzo gotowe.,It is very ready.,"[""ready""]",544
+jedyny,only,adjective,To jest bardzo jedyny.,This is very much the only one.,"[""only""]",545
+próbował,tried,misc,Słowo: próbował.,The word: tried.,"[""tried""]",546
+patrzeć,look,verb,Muszę patrzeć dzisiaj.,I have to look today.,"[""look""]",547
+mogło,could,misc,Słowo: mogło.,Word: could.,"[""could""]",548
+jedyne,the only,adjective,To jest bardzo jedyne.,This is very much the only one.,"[""the only"",""only""]",549
+chcieli,wanted,misc,Słowo: chcieli.,Word: they wanted to.,"[""wanted""]",550
+pamiętaj,remember,misc,Słowo: pamiętaj.,Word: remember.,"[""remember""]",551
+ofiary,victims,misc,Słowo: ofiary.,Word: victims.,"[""victims""]",552
+pójdzie,will go,misc,Słowo: pójdzie.,The word: will go.,"[""will go""]",553
+miesiąc,month,misc,Słowo: miesiąc.,Word: month.,"[""month""]",554
+pomogę,I will help,misc,Słowo: pomogę.,Word: will help.,"[""i will help""]",555
+skończy,will finish,misc,Słowo: skończy.,The word: finished.,"[""will finish""]",556
+miły,nice,misc,Słowo: miły.,Word: nice.,"[""nice""]",557
+zamierzasz,intend to,misc,Słowo: zamierzasz.,Word: intend.,"[""intend to""]",558
+słuchać,listen to,verb,Lubię słuchać.,I like to listen.,"[""listen to""]",559
+lepszy,better,misc,Słowo: lepszy.,Word: better.,"[""better""]",560
+wypadku,accident,misc,Słowo: wypadku.,Word: accident.,"[""accident""]",561
+siły,forces,misc,Słowo: siły.,Word: forces.,"[""forces""]",562
+stara,old,misc,Słowo: stara.,Word: old.,"[""old""]",563
+interes,business,misc,Słowo: interes.,Word: business.,"[""business""]",564
+dna,bottoms,adjective,To jest bardzo dna.,It's very dna.,"[""bottoms""]",565
+jedź,go,misc,Słowo: jedź.,Word: drive.,"[""go""]",566
+zdanie,phrase,noun,Widzę zdanie tutaj.,I see the sentence here.,"[""phrase""]",567
+przyjęcie,adoption,noun,To jest przyjęcie.,It's a party.,"[""adoption""]",568
+zjeść,eat,misc,Słowo: zjeść.,The word: eat.,"[""eat""]",569
+usłyszeć,hear,verb,Lubię usłyszeć.,I like to hear.,"[""hear""]",570
+przejść,pass,misc,Słowo: przejść.,The word: transitions.,"[""pass""]",571
+robotę,job,misc,Słowo: robotę.,The word: job.,"[""job""]",572
+dowód,proof,misc,Słowo: dowód.,Word: proof.,"[""proof""]",573
+próbowałem,I tried,misc,Słowo: próbowałem.,Word: tried.,"[""i tried""]",574
+paul,paul,misc,Słowo: paul.,Word: paul.,"[""paul""]",575
+jakbyś,as if you,misc,Słowo: jakbyś.,Word: as if.,"[""as if you""]",576
+wstawaj,get up,misc,Słowo: wstawaj.,Word: get up.,"[""get up""]",577
+robicie,you do,noun,Widzę robicie tutaj.,I see you are doing here.,"[""you do""]",578
+wokół,around,misc,Słowo: wokół.,Word: around.,"[""around""]",579
+jeść,eat,misc,Słowo: jeść.,The word: eat.,"[""eat""]",580
+mary,mary,misc,Słowo: mary.,Word: mary.,"[""mary""]",581
+max,max,misc,Słowo: max.,Word: max.,"[""max""]",582
+rodzaju,kind of,misc,Słowo: rodzaju.,Word: kind.,"[""kind of""]",583
+stylu,style,misc,Słowo: stylu.,Word: style.,"[""style""]",584
+pójdziemy,we'll go,misc,Słowo: pójdziemy.,Word: we will go.,"[""we'll go""]",585
+odpowiedzi,answers,misc,Słowo: odpowiedzi.,Word: answers.,"[""answers""]",586
+wybór,selection,misc,Słowo: wybór.,Word: choice.,"[""selection""]",587
+milionów,millions,misc,Słowo: milionów.,Word: millions.,"[""millions""]",588
+pomyśl,think,misc,Słowo: pomyśl.,Word: think.,"[""think""]",589
+dosyć,pretty,verb,Lubię dosyć.,I like enough.,"[""pretty""]",590
+duże,large,misc,Słowo: duże.,Word: big.,"[""large""]",591
+dzieciaki,kids,misc,Słowo: dzieciaki.,The word: kids.,"[""kids""]",592
+wspaniały,wonderful,misc,Słowo: wspaniały.,Word: wonderful.,"[""wonderful""]",593
+powiedzieli,said,misc,Słowo: powiedzieli.,Word: they said.,"[""said""]",594
+usiądź,sit,misc,Słowo: usiądź.,Word: sit down.,"[""sit""]",595
+staram,I try,misc,Słowo: staram.,Word: try.,"[""i try""]",596
+najwyraźniej,apparently,misc,Słowo: najwyraźniej.,Word: apparently.,"[""apparently""]",597
+chronić,conserve,verb,Lubię chronić.,I like to protect.,"[""conserve""]",598
+byłby,would be,misc,Słowo: byłby.,The word: would be.,"[""would be""]",599
+morderstwo,murder,noun,To jest morderstwo.,This is murder.,"[""murder""]",600
+wysoki,high,misc,Słowo: wysoki.,Word: high.,"[""high""]",601
+próbuje,tries,misc,Słowo: próbuje.,Word: trying.,"[""tries""]",602
+otworzyć,open,verb,Lubię otworzyć.,I like to open.,"[""open""]",603
+śmieszne,funny,adjective,To jest bardzo śmieszne.,This is very funny.,"[""funny""]",604
+oko,eye,noun,Widzę oko tutaj.,I can see the eye here.,"[""eye""]",605
+ogień,fire,misc,Słowo: ogień.,The word: fire.,"[""fire""]",606
+celu,purpose,misc,Słowo: celu.,Word: target.,"[""purpose""]",607
+wiedziałeś,did you know,misc,Słowo: wiedziałeś.,Word: you knew.,"[""did you know""]",608
+juz,juz,misc,Słowo: juz.,Word: juz.,"[""juz""]",609
+prosić,ask,verb,Lubię prosić.,I like to ask.,"[""ask""]",610
+miesiące,months,misc,Słowo: miesiące.,Word: months.,"[""months""]",611
+pies,dog,misc,Słowo: pies.,Word: dog.,"[""dog""]",612
+jakimś,some,misc,Słowo: jakimś.,Word: some.,"[""some""]",613
+nieco,somewhat,misc,Słowo: nieco.,Word: somewhat.,"[""somewhat""]",614
+historię,history,misc,Słowo: historię.,Word: history.,"[""history""]",615
+znalazłam,found,misc,Słowo: znalazłam.,Word: found.,"[""found""]",616
+drugie,second,misc,Słowo: drugie.,Word: second.,"[""second""]",617
+harry,harry,misc,Słowo: harry.,Word: harry.,"[""harry""]",618
+sprawdź,check out,misc,Słowo: sprawdź.,Word: check.,"[""check out""]",619
+komuś,to sb.,misc,Słowo: komuś.,Word: sb.,"[""to sb."",""sb.""]",620
+statku,ship,misc,Słowo: statku.,Word: ship.,"[""ship""]",621
+ależ,but,misc,Słowo: ależ.,Word: but.,"[""but""]",622
+drugą,second,misc,Słowo: drugą.,Word: second.,"[""second""]",623
+ostatniej,last,misc,Słowo: ostatniej.,Word: last.,"[""last""]",624
+wejdź,enter,misc,Słowo: wejdź.,Word: enter.,"[""enter""]",625
+spoko,cool,noun,Widzę spoko tutaj.,I see the calm here.,"[""cool""]",626
+telefonu,phone,misc,Słowo: telefonu.,Word: phone.,"[""phone""]",627
+samochodzie,car,misc,Słowo: samochodzie.,Word: car.,"[""car""]",628
+jedyna,the only,adjective,To jest bardzo jedyna.,This is very much the only one.,"[""the only"",""only""]",629
+stamtąd,from here,misc,Słowo: stamtąd.,Word: from there.,"[""from here""]",630
+me,me,misc,Słowo: me.,Word: me.,"[""me""]",631
+ciąży,pregnancy,misc,Słowo: ciąży.,Word: pregnancy.,"[""pregnancy""]",632
+patrzcie,see,noun,To jest patrzcie.,Here's a look.,"[""see""]",633
+spraw,matters,misc,Słowo: spraw.,Word: issues.,"[""matters""]",634
+pracujesz,you work,misc,Słowo: pracujesz.,Word: you're working.,"[""you work""]",635
+wielkiego,great,misc,Słowo: wielkiego.,Word: great.,"[""great""]",636
+jadę,I'm going,misc,Słowo: jadę.,The word: I'm going.,"[""i'm going""]",637
+piękny,beautiful,adjective,To jest bardzo piękny.,It is very beautiful.,"[""beautiful""]",638
+znajdziesz,find,misc,Słowo: znajdziesz.,Word: you will find.,"[""find""]",639
+chłopaka,boyfriend,noun,Widzę chłopaka tutaj.,I see a boy here.,"[""boyfriend""]",640
+spotkamy,meet,misc,Słowo: spotkamy.,Word: we will meet.,"[""meet""]",641
+brakuje,missing,misc,Słowo: brakuje.,Word: missing.,"[""missing""]",642
+dole,bottom,misc,Słowo: dole.,Word: dole.,"[""bottom""]",643
+światła,lights,misc,Słowo: światła.,The word: lights.,"[""lights""]",644
+mogłabym,I could,misc,Słowo: mogłabym.,Word: could.,"[""i could""]",645
+boisz,afraid,misc,Słowo: boisz.,The word: afraid.,"[""afraid""]",646
+uratować,rescue,verb,Muszę uratować dzisiaj.,I have to save today.,"[""rescue""]",647
+ostatnia,last,misc,Słowo: ostatnia.,Word: last.,"[""last""]",648
+alex,alex,misc,Słowo: alex.,Word: alex.,"[""alex""]",649
+przyszedłem,came,misc,Słowo: przyszedłem.,Word: came.,"[""came""]",650
+buty,shoes,misc,Słowo: buty.,The word: shoes.,"[""shoes""]",651
+zbrodni,crimes,misc,Słowo: zbrodni.,The word: crime.,"[""crimes""]",652
+zrobili,they did,misc,Słowo: zrobili.,Word: they did.,"[""they did""]",653
+program,program,misc,Słowo: program.,The word: program.,"[""program""]",654
+potrzeba,need,misc,Słowo: potrzeba.,Word: need.,"[""need""]",655
+więzieniu,prison,misc,Słowo: więzieniu.,Word: prison.,"[""prison""]",656
+córkę,daughter,misc,Słowo: córkę.,Word: daughter.,"[""daughter""]",657
+głupie,silly,misc,Słowo: głupie.,Word: stupid.,"[""silly""]",658
+wcześnie,early,adverb,Mówię wcześnie po polsku.,I speak early Polish.,"[""early""]",659
+wyjaśnić,clarify,verb,Muszę wyjaśnić dzisiaj.,I have to explain today.,"[""clarify""]",660
+użyć,use,verb,Muszę użyć dzisiaj.,I need to use today.,"[""use""]",661
+zdobyć,get,verb,Lubię zdobyć.,I like to get.,"[""get""]",662
+psa,dog,misc,Słowo: psa.,The word: dog.,"[""dog""]",663
+laboratorium,laboratory,misc,Słowo: laboratorium.,Word: laboratory.,"[""laboratory""]",664
+wiec,rally,misc,Słowo: wiec.,Word: rally.,"[""rally""]",665
+abyś,so that,misc,Słowo: abyś.,Word: so that.,"[""so that""]",666
+bob,bob,misc,Słowo: bob.,Word: bob.,"[""bob""]",667
+pobliżu,near,misc,Słowo: pobliżu.,Word: nearby.,"[""near""]",668
+myślą,thought,misc,Słowo: myślą.,Word: think.,"[""thought""]",669
+puść,release,misc,Słowo: puść.,The word: let go.,"[""release""]",670
+gorzej,worse,misc,Słowo: gorzej.,Word: worse.,"[""worse""]",671
+klucz,key,misc,Słowo: klucz.,Word: key.,"[""key""]",672
+ładnie,nice,adverb,Mówię ładnie po polsku.,I speak nice Polish.,"[""nice""]",673
+mózgu,brain,misc,Słowo: mózgu.,Word: brain.,"[""brain""]",674
+pokażę,show,misc,Słowo: pokażę.,Word: will show.,"[""show""]",675
+słuchajcie,listen to,noun,To jest słuchajcie.,This is a listen.,"[""listen to""]",676
+informacji,information,misc,Słowo: informacji.,Word: information.,"[""information""]",677
+chłopiec,boy,misc,Słowo: chłopiec.,Word: boy.,"[""boy""]",678
+samą,itself,misc,Słowo: samą.,Word: alone.,"[""itself""]",679
+drinka,drink,noun,To jest drinka.,This is a drink.,"[""drink""]",680
+atak,attack,misc,Słowo: atak.,The word: attack.,"[""attack""]",681
+zasady,rules,misc,Słowo: zasady.,Word: principles.,"[""rules""]",682
+potrafisz,you can,misc,Słowo: potrafisz.,Word: you can.,"[""you can""]",683
+tommy,tommy,misc,Słowo: tommy.,Word: tommy.,"[""tommy""]",684
+zabiłeś,you killed,misc,Słowo: zabiłeś.,Word: you killed.,"[""you killed""]",685
+firmy,Companies,misc,Słowo: firmy.,Word: companies.,"[""companies""]",686
+miłe,nice,misc,Słowo: miłe.,Word: nice.,"[""nice""]",687
+koło,wheel,misc,Słowo: koło.,Word: wheel.,"[""wheel""]",688
+szczęśliwa,happy,adjective,To jest bardzo szczęśliwa.,It is very happy.,"[""happy""]",689
+kolego,friend,misc,Słowo: kolego.,Word: colleague.,"[""friend""]",690
+siedem,seven,misc,Słowo: siedem.,Word: seven.,"[""seven""]",691
+adres,address,misc,Słowo: adres.,Word: address.,"[""address""]",692
+zamknąć,close,verb,Lubię zamknąć.,I like to close.,"[""close""]",693
+biurze,office,adverb,Mówię biurze po polsku.,I speak office Polish.,"[""office""]",694
+dziesięć,ten,misc,Słowo: dziesięć.,Word: ten.,"[""ten""]",695
+siadaj,sit down,misc,Słowo: siadaj.,Word: sit down.,"[""sit down""]",696
+umarł,died,misc,Słowo: umarł.,The word: died.,"[""died""]",697
+osobiście,in person,noun,Widzę osobiście tutaj.,I see personally here.,"[""in person""]",698
+problemu,problem,misc,Słowo: problemu.,Word: problem.,"[""problem""]",699
+nauczyć,teach,verb,Muszę nauczyć dzisiaj.,I have to teach today.,"[""teach""]",700
+matkę,mother,misc,Słowo: matkę.,Word: mother.,"[""mother""]",701
+poproszę,please,misc,Słowo: poproszę.,Word: please.,"[""please""]",702
+potrzebował,needed,misc,Słowo: potrzebował.,The word: needed.,"[""needed""]",703
+przyszłości,future,misc,Słowo: przyszłości.,Word: future.,"[""future""]",704
+wychodzi,goes out,misc,Słowo: wychodzi.,The word: out.,"[""goes out""]",705
+woda,water,misc,Słowo: woda.,The word: water.,"[""water""]",706
+piwo,beer,misc,Słowo: piwo.,The word: beer.,"[""beer""]",707
+samolot,plane,misc,Słowo: samolot.,Word: airplane.,"[""plane""]",708
+najlepszym,best,misc,Słowo: najlepszym.,Word: the best.,"[""best""]",709
+owszem,yes,misc,Słowo: owszem.,Word: yes.,"[""yes""]",710
+chłopcze,boy,misc,Słowo: chłopcze.,Word: boy.,"[""boy""]",711
+słychać,can be heard,verb,Muszę słychać dzisiaj.,I need to hear today.,"[""can be heard""]",712
+rodziną,family,misc,Słowo: rodziną.,The word: family.,"[""family""]",713
+bezpieczeństwa,security,adjective,To jest bardzo bezpieczeństwa.,This is very security.,"[""security""]",714
+wielkim,great,misc,Słowo: wielkim.,Word: great.,"[""great""]",715
+wojna,war,adjective,To jest bardzo wojna.,This is very much a war.,"[""war""]",716
+znajdzie,finds,misc,Słowo: znajdzie.,The word: finds.,"[""finds""]",717
+pierwszą,first,misc,Słowo: pierwszą.,Word: first.,"[""first""]",718
+uczucie,feeling,noun,To jest uczucie.,It's a feeling.,"[""feeling""]",719
+mówiłaś,you said,misc,Słowo: mówiłaś.,Word: you said.,"[""you said""]",720
+em,em,misc,Słowo: em.,Word: em.,"[""em""]",721
+minuty,minutes,misc,Słowo: minuty.,Word: minutes.,"[""minutes""]",722
+załatwić,sort out,verb,Lubię załatwić.,I like to get things done.,"[""sort out""]",723
+jaja,eggs,misc,Słowo: jaja.,Word: eggs.,"[""eggs""]",724
+tuż,just,misc,Słowo: tuż.,Word: just in.,"[""just""]",725
+książki,books,misc,Słowo: książki.,Word: books.,"[""books""]",726
+łóżku,bed,misc,Słowo: łóżku.,Word: bed.,"[""bed""]",727
+nick,nickname,misc,Słowo: nick.,Word: nickname.,"[""nickname""]",728
+of,of,misc,Słowo: of.,Word: of.,"[""of""]",729
+prowadzi,runs,misc,Słowo: prowadzi.,Word: leads.,"[""runs""]",730
+zniszczyć,destroy,verb,Muszę zniszczyć dzisiaj.,I have to destroy today.,"[""destroy""]",731
+wolny,free,adjective,To jest bardzo wolny.,It is very slow.,"[""free""]",732
+siedzieć,sit,verb,Muszę siedzieć dzisiaj.,I have to sit today.,"[""sit""]",733
+pierwszej,first,misc,Słowo: pierwszej.,Word: first.,"[""first""]",734
+wolę,I prefer,misc,Słowo: wolę.,Word: will.,"[""i prefer""]",735
+złapać,catch,verb,Lubię złapać.,I like to catch.,"[""catch""]",736
+przyjacielu,friend,misc,Słowo: przyjacielu.,Word: friend.,"[""friend""]",737
+powiedzenia,sayings,noun,To jest powiedzenia.,The saying goes.,"[""sayings""]",738
+pięknie,beautifully,adverb,Mówię pięknie po polsku.,I speak beautiful Polish.,"[""beautifully""]",739
+billy,billy,misc,Słowo: billy.,Word: billy.,"[""billy""]",740
+budynku,building,misc,Słowo: budynku.,Word: building.,"[""building""]",741
+powoli,slowly,misc,Słowo: powoli.,Word: slow.,"[""slowly""]",742
+siostry,sisters,misc,Słowo: siostry.,Word: sisters.,"[""sisters""]",743
+pracował,worked,misc,Słowo: pracował.,The word: worked.,"[""worked""]",744
+zajęty,busy,misc,Słowo: zajęty.,Word: busy.,"[""busy""]",745
+gratulacje,congratulations,misc,Słowo: gratulacje.,Word: congratulations.,"[""congratulations""]",746
+całego,whole,misc,Słowo: całego.,Word: whole.,"[""whole""]",747
+każda,each,misc,Słowo: każda.,Word: each.,"[""each""]",748
+mieszkanie,apartment,noun,To jest mieszkanie.,This is an apartment.,"[""apartment""]",749
+don,don,misc,Słowo: don.,Word: don.,"[""don""]",750
+codziennie,daily,adverb,Mówię codziennie po polsku.,I speak Polish every day.,"[""daily""]",751
+ślady,traces,misc,Słowo: ślady.,The word: footprints.,"[""traces""]",752
+doskonale,perfectly,misc,Słowo: doskonale.,The word: perfect.,"[""perfectly""]",753
+zabrał,took,misc,Słowo: zabrał.,The word: took.,"[""took""]",754
+zostanę,I will stay,misc,Słowo: zostanę.,Word: I will stay.,"[""i will stay""]",755
+zostawił,left,misc,Słowo: zostawił.,The word: left.,"[""left""]",756
+kawałek,piece,noun,To jest kawałek.,Here's the piece.,"[""piece""]",757
+byśmy,by,misc,Słowo: byśmy.,Word: would.,"[""by""]",758
+przygotować,prepare,verb,Lubię przygotować.,I like to prepare.,"[""prepare""]",759
+wielką,great,misc,Słowo: wielką.,Word: great.,"[""great""]",760
+straszne,scary,adjective,To jest bardzo straszne.,This is very scary.,"[""scary""]",761
+ostrożnie,carefully,adverb,Mówię ostrożnie po polsku.,I speak careful Polish.,"[""carefully""]",762
+zespół,team,misc,Słowo: zespół.,Word: team.,"[""team""]",763
+początek,beginning,noun,To jest początek.,This is the beginning.,"[""beginning""]",764
+wierzyć,believe,verb,Lubię wierzyć.,I like to believe.,"[""believe""]",765
+chory,sick,misc,Słowo: chory.,The word: sick.,"[""sick""]",766
+martwi,dead,misc,Słowo: martwi.,The word: dead.,"[""dead""]",767
+jedzenia,eating,noun,To jest jedzenia.,This is food.,"[""eating""]",768
+życiem,life,misc,Słowo: życiem.,The word: life.,"[""life""]",769
+prawdziwa,genuine,adjective,To jest bardzo prawdziwa.,This is very true.,"[""genuine""]",770
+badania,research,noun,To jest badania.,This is research.,"[""research""]",771
+wiadomo,known,misc,Słowo: wiadomo.,Word: known.,"[""known""]",772
+pomyślałam,thought,misc,Słowo: pomyślałam.,Word: thought.,"[""thought""]",773
+znajdź,Find,misc,Słowo: znajdź.,Word: find.,"[""find""]",774
+niezła,nice,misc,Słowo: niezła.,Word: not bad.,"[""nice""]",775
+oprócz,apart from,misc,Słowo: oprócz.,Word: except.,"[""apart from""]",776
+mogłabyś,you could,misc,Słowo: mogłabyś.,Word: you could.,"[""you could""]",777
+stał,stood,misc,Słowo: stał.,The word: fixed.,"[""stood""]",778
+zapomnieć,forget,verb,Lubię zapomnieć.,I like to forget.,"[""forget""]",779
+urodziny,birthday,adjective,To jest bardzo urodziny.,It is very much a birthday.,"[""birthday""]",780
+bycie,being,noun,To jest bycie.,This is being.,"[""being""]",781
+innymi,other,misc,Słowo: innymi.,Word: others.,"[""other""]",782
+jane,jane,adjective,To jest bardzo jane.,This is very jane.,"[""jane""]",783
+dane,data,adjective,To jest bardzo dane.,This is very much a given.,"[""data""]",784
+jim,jim,misc,Słowo: jim.,Word: jim.,"[""jim""]",785
+dala,dal,misc,Słowo: dala.,Word: dala.,"[""dal""]",786
+dowody,proofs,misc,Słowo: dowody.,Word: evidence.,"[""proofs""]",787
+znak,sign,misc,Słowo: znak.,Word: sign.,"[""sign""]",788
+jake,jake,misc,Słowo: jake.,Word: jake.,"[""jake""]",789
+wyszedł,came out,misc,Słowo: wyszedł.,Word: he left.,"[""came out""]",790
+wśród,among,misc,Słowo: wśród.,Word: among.,"[""among""]",791
+jakiej,of which,misc,Słowo: jakiej.,Word: which one.,"[""of which""]",792
+druga,second,misc,Słowo: druga.,Word: second.,"[""second""]",793
+zginął,died,misc,Słowo: zginął.,Word: died.,"[""died""]",794
+zgadzam,I agree,misc,Słowo: zgadzam.,Word: agree.,"[""i agree""]",795
+zostaniesz,you will stay,misc,Słowo: zostaniesz.,Word: you will stay.,"[""you will stay""]",796
+zeszłym,last,misc,Słowo: zeszłym.,Word: last year.,"[""last""]",797
+kawę,coffee,misc,Słowo: kawę.,The word: coffee.,"[""coffee""]",798
+kuchni,kitchen,misc,Słowo: kuchni.,Word: kitchen.,"[""kitchen""]",799
+witamy,welcome,misc,Słowo: witamy.,Word: welcome.,"[""welcome""]",800
+lekarza,doctor,misc,Słowo: lekarza.,Word: doctor.,"[""doctor""]",801
+podaj,pass,misc,Słowo: podaj.,Word: pass.,"[""pass""]",802
+weekend,weekend,misc,Słowo: weekend.,The word: weekend.,"[""weekend""]",803
+znamy,we know,misc,Słowo: znamy.,Word: we know.,"[""we know""]",804
+założę,I'll set up,misc,Słowo: założę.,The word: assume.,"[""i'll set up""]",805
+rozkaz,order,misc,Słowo: rozkaz.,The word: order.,"[""order""]",806
+dwoje,two,misc,Słowo: dwoje.,Word: two.,"[""two""]",807
+wyjdzie,comes out,misc,Słowo: wyjdzie.,Word: it will come out.,"[""comes out""]",808
+wysokość,height,noun,Widzę wysokość tutaj.,I can see the altitude here.,"[""height""]",809
+naprawić,fix,verb,Lubię naprawić.,I like to fix things.,"[""fix""]",810
+grupa,group,misc,Słowo: grupa.,Word: group.,"[""group""]",811
+król,king,misc,Słowo: król.,Word: king.,"[""king""]",812
+przyznać,admit,verb,Lubię przyznać.,I like to admit.,"[""admit""]",813
+podobno,reportedly,misc,Słowo: podobno.,Word: reportedly.,"[""reportedly""]",814
+steve,steve,misc,Słowo: steve.,Word: steve.,"[""steve""]",815
+kawy,coffees,adjective,To jest bardzo kawy.,This is very coffee.,"[""coffees""]",816
+dziękuje,thank you,misc,Słowo: dziękuje.,Word: thank you.,"[""thank you""]",817
+gości,visitors,misc,Słowo: gości.,Word: visitors.,"[""visitors""]",818
+rodzinie,family,adverb,Mówię rodzinie po polsku.,I speak Polish to the family.,"[""family""]",819
+zrozumiałem,understood,misc,Słowo: zrozumiałem.,Word: understood.,"[""understood""]",820
+zdecydowanie,definitely,noun,Widzę zdecydowanie tutaj.,I see definitely here.,"[""definitely""]",821
+plany,plans,adjective,To jest bardzo plany.,This is very much plans.,"[""plans""]",822
+nazywasz,you call,misc,Słowo: nazywasz.,Word: you name it.,"[""you call""]",823
+dziękujemy,thank you,misc,Słowo: dziękujemy.,Word: thank you.,"[""thank you""]",824
+odebrać,collect,verb,Muszę odebrać dzisiaj.,I have to pick up today.,"[""collect""]",825
+przede,primarily,misc,Słowo: przede.,Word: before.,"[""primarily""]",826
+ruch,movement,misc,Słowo: ruch.,The word: movement.,"[""movement""]",827
+córki,daughters,misc,Słowo: córki.,Word: daughters.,"[""daughters""]",828
+świetne,great,adjective,To jest bardzo świetne.,This is very great.,"[""great""]",829
+własną,own,misc,Słowo: własną.,Word: own.,"[""own""]",830
+znalazłeś,found,misc,Słowo: znalazłeś.,Word: found.,"[""found""]",831
+damy,ladies,misc,Słowo: damy.,Word: ladies.,"[""ladies""]",832
+chciałbyś,would you like,misc,Słowo: chciałbyś.,Word: would like.,"[""would you like""]",833
+imieniu,on behalf of,misc,Słowo: imieniu.,Word: name.,"[""on behalf of""]",834
+zaczynamy,here we go,misc,Słowo: zaczynamy.,Word: here we go.,"[""here we go""]",835
+pora,season,misc,Słowo: pora.,Word: time.,"[""season""]",836
+ray,ray,misc,Słowo: ray.,Word: ray.,"[""ray""]",837
+chryste,christ,misc,Słowo: chryste.,Word: christ.,"[""christ""]",838
+zadanie,task,noun,To jest zadanie.,That's the task.,"[""task""]",839
+zapomniałem,I forgot,misc,Słowo: zapomniałem.,Word: forgotten.,"[""i forgot""]",840
+poczekać,wait,verb,Lubię poczekać.,I like to wait.,"[""wait""]",841
+uciekaj,run away,misc,Słowo: uciekaj.,The word: run.,"[""run away""]",842
+raport,report,misc,Słowo: raport.,Word: report.,"[""report""]",843
+święta,holidays,misc,Słowo: święta.,Word: holidays.,"[""holidays""]",844
+świetna,great,adjective,To jest bardzo świetna.,This is very great.,"[""great""]",845
+zróbmy,Let's do,misc,Słowo: zróbmy.,Word: let's do.,"[""let's do""]",846
+zobaczmy,let's see,misc,Słowo: zobaczmy.,Word: let's see.,"[""let's see""]",847
+dziwnie,strangely,adverb,Mówię dziwnie po polsku.,I speak strange Polish.,"[""strangely""]",848
+napisy,subtitles,misc,Słowo: napisy.,Word: subtitles.,"[""subtitles""]",849
+sprawia,makes,misc,Słowo: sprawia.,Word: makes.,"[""makes""]",850
+wobec,towards,misc,Słowo: wobec.,Word: towards.,"[""towards""]",851
+kończy,concludes,misc,Słowo: kończy.,The word: ends.,"[""concludes""]",852
+różne,various,adjective,To jest bardzo różne.,This is very different.,"[""various""]",853
+twierdzi,claims,misc,Słowo: twierdzi.,Word: claims.,"[""claims""]",854
+lunch,lunch,misc,Słowo: lunch.,The word: lunch.,"[""lunch""]",855
+la,la,misc,Słowo: la.,Word: la.,"[""la""]",856
+przysługę,favor,misc,Słowo: przysługę.,Word: favor.,"[""favor""]",857
+chodzić,walk,verb,Muszę chodzić dzisiaj.,I have to walk today.,"[""walk""]",858
+wyglądam,look,misc,Słowo: wyglądam.,Word: look.,"[""look""]",859
+zdaje,passes,misc,Słowo: zdaje.,The word: passes.,"[""passes""]",860
+johnny,johnny,adjective,To jest bardzo johnny.,This is very johnny.,"[""johnny""]",861
+fakt,fact,misc,Słowo: fakt.,Word: fact.,"[""fact""]",862
+moimi,my,misc,Słowo: moimi.,Word: mine.,"[""my""]",863
+kolejne,further,adjective,To jest bardzo kolejne.,This is very consecutive.,"[""further""]",864
+synem,son of,misc,Słowo: synem.,Word: son.,"[""son of""]",865
+latach,years,misc,Słowo: latach.,Word: years.,"[""years""]",866
+zostałem,I became,misc,Słowo: zostałem.,The word: stayed.,"[""i became""]",867
+bierz,take,misc,Słowo: bierz.,The word: take.,"[""take""]",868
+kości,bones,misc,Słowo: kości.,Word: bones.,"[""bones""]",869
+pozbyć,discard,verb,Lubię pozbyć.,I like to get rid of.,"[""discard""]",870
+musiałam,I had to,misc,Słowo: musiałam.,Word: had to.,"[""i had to""]",871
+szczęścia,happiness,misc,Słowo: szczęścia.,The word: happiness.,"[""happiness""]",872
+agent,agent,misc,Słowo: agent.,Word: agent.,"[""agent""]",873
+wodę,water,misc,Słowo: wodę.,Word: water.,"[""water""]",874
+um,um,misc,Słowo: um.,Word: um.,"[""um""]",875
+kraj,country,misc,Słowo: kraj.,Word: country.,"[""country""]",876
+momencie,moment,noun,Widzę momencie tutaj.,I see the moment here.,"[""moment""]",877
+listy,letters,misc,Słowo: listy.,The word: letters.,"[""letters""]",878
+zwłaszcza,especially,misc,Słowo: zwłaszcza.,Word: especially.,"[""especially""]",879
+ostatnim,last,misc,Słowo: ostatnim.,Word: recent.,"[""last""]",880
+młoda,young,misc,Słowo: młoda.,Word: young.,"[""young""]",881
+szuka,seeks,noun,Widzę szuka tutaj.,I see he is looking for here.,"[""seeks""]",882
+znaleźli,found,misc,Słowo: znaleźli.,The word: they found.,"[""found""]",883
+żyjesz,you live,misc,Słowo: żyjesz.,Word: you are alive.,"[""you live""]",884
+dałem,I gave,misc,Słowo: dałem.,Word: gave.,"[""i gave""]",885
+rodzaj,kind of,misc,Słowo: rodzaj.,Word: type.,"[""kind of""]",886
+rząd,government,misc,Słowo: rząd.,Word: government.,"[""government""]",887
+musze,must,misc,Słowo: musze.,Word: musts.,"[""must""]",888
+zgodnie,according to,adverb,Mówię zgodnie po polsku.,I speak Polish in unison.,"[""according to""]",889
+przychodzi,comes,misc,Słowo: przychodzi.,The word: comes.,"[""comes""]",890
+przyszła,future,misc,Słowo: przyszła.,The word: came.,"[""future""]",891
+wrażenie,impression,noun,To jest wrażenie.,That's the impression.,"[""impression""]",892
+rozmawialiśmy,we talked,misc,Słowo: rozmawialiśmy.,Word: we talked.,"[""we talked""]",893
+rana,wound,adjective,To jest bardzo rana.,It is very wounded.,"[""wound""]",894
+odejdź,go away,misc,Słowo: odejdź.,The word: go away.,"[""go away""]",895
+względu,due to,misc,Słowo: względu.,Word: due to.,"[""due to""]",896
+odzyskać,recover,verb,Muszę odzyskać dzisiaj.,I need to recover today.,"[""recover""]",897
+przeciw,against,misc,Słowo: przeciw.,Word: against.,"[""against""]",898
+usiąść,sit,misc,Słowo: usiąść.,The word: sit down.,"[""sit""]",899
+czuć,feel,misc,Słowo: czuć.,The word: feel.,"[""feel""]",900
+wziął,took,misc,Słowo: wziął.,The word: took.,"[""took""]",901
+poszła,went,misc,Słowo: poszła.,Word: she went.,"[""went""]",902
+chciałaś,wanted,misc,Słowo: chciałaś.,Word: wanted.,"[""wanted""]",903
+zabiłem,I killed,misc,Słowo: zabiłem.,Word: killed.,"[""i killed""]",904
+oddać,donate,verb,Lubię oddać.,I like to give back.,"[""donate""]",905
+wyjścia,outputs,misc,Słowo: wyjścia.,Word: exits.,"[""outputs""]",906
+dawna,former,adjective,To jest bardzo dawna.,This is a very long time ago.,"[""former""]",907
+możliwości,capabilities,misc,Słowo: możliwości.,The word: opportunities.,"[""capabilities""]",908
+pierwszego,first,misc,Słowo: pierwszego.,Word: the first.,"[""first""]",909
+will,will,misc,Słowo: will.,Word: will.,"[""will""]",910
+każdą,each,misc,Słowo: każdą.,Word: each.,"[""each""]",911
+powinni,they should,misc,Słowo: powinni.,Word: they should.,"[""they should""]",912
+niezłe,not bad,misc,Słowo: niezłe.,Word: not bad.,"[""not bad""]",913
+podróż,trip,misc,Słowo: podróż.,The word: travel.,"[""trip""]",914
+krok,step,misc,Słowo: krok.,Word: step.,"[""step""]",915
+ognia,fire,misc,Słowo: ognia.,Word: fire.,"[""fire""]",916
+trzyma,holds,misc,Słowo: trzyma.,The word: holds.,"[""holds""]",917
+rachel,rachel,misc,Słowo: rachel.,Word: rachel.,"[""rachel""]",918
+sygnał,signal,misc,Słowo: sygnał.,Word: signal.,"[""signal""]",919
+chciałby,would like,misc,Słowo: chciałby.,Word: would like.,"[""would like""]",920
+śniadanie,breakfast,noun,Widzę śniadanie tutaj.,I see breakfast here.,"[""breakfast""]",921
+panna,Miss,adjective,To jest bardzo panna.,It is very much a miss.,"[""miss""]",922
+gotów,ready,misc,Słowo: gotów.,Word: ready.,"[""ready""]",923
+żyją,live,misc,Słowo: żyją.,Word: they are alive.,"[""live""]",924
+zapłacić,pay,verb,Muszę zapłacić dzisiaj.,I have to pay today.,"[""pay""]",925
+lekarz,doctor,misc,Słowo: lekarz.,Word: doctor.,"[""doctor""]",926
+rzeczywiście,indeed,noun,Widzę rzeczywiście tutaj.,I see indeed here.,"[""indeed""]",927
+szukasz,looking for,misc,Słowo: szukasz.,Word: looking for.,"[""looking for""]",928
+detektyw,detective,misc,Słowo: detektyw.,Word: detective.,"[""detective""]",929
+jedzie,goes,misc,Słowo: jedzie.,The word: going.,"[""goes""]",930
+chwilkę,momentarily,misc,Słowo: chwilkę.,Word: a while.,"[""momentarily""]",931
+ochotę,fancy,misc,Słowo: ochotę.,Word: desire.,"[""fancy""]",932
+bill,bill,misc,Słowo: bill.,Word: bill.,"[""bill""]",933
+kate,kate,misc,Słowo: kate.,Word: cate.,"[""kate""]",934
+kolej,rail,misc,Słowo: kolej.,The word: railroad.,"[""rail""]",935
+sytuacja,situation,misc,Słowo: sytuacja.,Word: situation.,"[""situation""]",936
+rozmowy,interviews,adjective,To jest bardzo rozmowy.,This is very much a conversation.,"[""interviews""]",937
+kontakt,contact,misc,Słowo: kontakt.,Word: contact.,"[""contact""]",938
+głupia,silly,misc,Słowo: głupia.,Word: stupid.,"[""silly""]",939
+in,in,misc,Słowo: in.,Word: in.,"[""in""]",940
+f,f,misc,Słowo: f.,Word: f.,"[""f""]",941
+hmm,hmm,misc,Słowo: hmm.,Word: hmm.,"[""hmm""]",942
+iż,that,misc,Słowo: iż.,Word: that.,"[""that""]",943
+książkę,book,misc,Słowo: książkę.,Word: book.,"[""book""]",944
+amy,amy,misc,Słowo: amy.,Word: amy.,"[""amy""]",945
+wrócisz,you're back,misc,Słowo: wrócisz.,Word: you'll be back.,"[""you're back""]",946
+nasi,our,misc,Słowo: nasi.,Word: ours.,"[""our""]",947
+miłego,Enjoy,misc,Słowo: miłego.,Word: nice.,"[""enjoy""]",948
+dumny,proud,adjective,To jest bardzo dumny.,It is very proud.,"[""proud""]",949
+mężczyzną,man,misc,Słowo: mężczyzną.,Word: male.,"[""man""]",950
+brać,take,verb,Lubię brać.,I like to take.,"[""take""]",951
+niektóre,some,misc,Słowo: niektóre.,Word: some.,"[""some""]",952
+mężczyzn,men,misc,Słowo: mężczyzn.,Word: men.,"[""men""]",953
+okno,window,misc,Słowo: okno.,Word: window.,"[""window""]",954
+błagam,please,misc,Słowo: błagam.,Word: plea.,"[""please""]",955
+miałbym,I would have,misc,Słowo: miałbym.,Word: would have.,"[""i would have""]",956
+stare,old,misc,Słowo: stare.,Word: old.,"[""old""]",957
+wynoś,take away,misc,Słowo: wynoś.,The word: takeaway.,"[""take away""]",958
+spójrzcie,take a look,noun,Widzę spójrzcie tutaj.,I see look here.,"[""take a look""]",959
+udział,share,misc,Słowo: udział.,Word: participation.,"[""share""]",960
+zabawy,plays,adjective,To jest bardzo zabawy.,It's a lot of fun.,"[""plays""]",961
+mamą,mom,misc,Słowo: mamą.,Word: mom.,"[""mom""]",962
+rozmowę,interview,misc,Słowo: rozmowę.,The word: conversation.,"[""interview""]",963
+szukamy,looking for,misc,Słowo: szukamy.,Word: we're looking.,"[""looking for""]",964
+prawdy,truths,misc,Słowo: prawdy.,Word: truths.,"[""truths""]",965
+głowa,head,adjective,To jest bardzo głowa.,It's very head.,"[""head""]",966
+kochać,love,verb,Lubię kochać.,I like to love.,"[""love""]",967
+nowych,new,misc,Słowo: nowych.,Word: new.,"[""new""]",968
+rozumie,understands,misc,Słowo: rozumie.,Word: understands.,"[""understands""]",969
+zmieni,will change,misc,Słowo: zmieni.,The word: will change.,"[""will change""]",970
+doceniam,appreciate,misc,Słowo: doceniam.,Word: appreciate.,"[""appreciate""]",971
+morderstwa,murders,adjective,To jest bardzo morderstwa.,This is a very murderous thing to do.,"[""murders""]",972
+zrobiliśmy,we did,misc,Słowo: zrobiliśmy.,Word: we did.,"[""we did""]",973
+obraz,image,misc,Słowo: obraz.,Word: image.,"[""image""]",974
+mówimy,we say,misc,Słowo: mówimy.,Word: we say.,"[""we say""]",975
+idźcie,Go,noun,To jest idźcie.,It's a go.,"[""go""]",976
+dostanie,gets,noun,Widzę dostanie tutaj.,I can see getting it here.,"[""gets""]",977
+bobby,bobby,misc,Słowo: bobby.,Word: bobby.,"[""bobby""]",978
+dzwonił,called,misc,Słowo: dzwonił.,The word: called.,"[""called""]",979
+oddaj,donate,misc,Słowo: oddaj.,Word: donate.,"[""donate""]",980
+biuro,office,misc,Słowo: biuro.,Word: office.,"[""office""]",981
+najlepszego,the best,misc,Słowo: najlepszego.,Word: the best.,"[""the best"",""best""]",982
+ochrony,protection,adjective,To jest bardzo ochrony.,This is very protective.,"[""protection""]",983
+cudownie,wonderfully,adverb,Mówię cudownie po polsku.,I speak wonderful Polish.,"[""wonderfully""]",984
+wydarzyło,happened,misc,Słowo: wydarzyło.,The word: happened.,"[""happened""]",985
+wyglądają,look,misc,Słowo: wyglądają.,Word: look.,"[""look""]",986
+liczy,counts,misc,Słowo: liczy.,The word: counts.,"[""counts""]",987
+problemów,problems,misc,Słowo: problemów.,Word: problems.,"[""problems""]",988
+moge,can,misc,Słowo: moge.,Word: can.,"[""can""]",989
+wewnątrz,inside,misc,Słowo: wewnątrz.,Word: inside.,"[""inside""]",990
+przypadku,case,misc,Słowo: przypadku.,Word: case.,"[""case""]",991
+osiem,eight,misc,Słowo: osiem.,Word: eight.,"[""eight""]",992
+niebezpieczne,dangerous,adjective,To jest bardzo niebezpieczne.,This is very dangerous.,"[""dangerous""]",993
+czekam,looking forward,misc,Słowo: czekam.,Word: waiting.,"[""looking forward""]",994
+podać,enter,verb,Lubię podać.,I like to specify.,"[""enter""]",995
+rzeczą,thing,misc,Słowo: rzeczą.,Word: the thing.,"[""thing""]",996
+wyniki,results,misc,Słowo: wyniki.,Word: results.,"[""results""]",997
+chętnie,gladly,adverb,Mówię chętnie po polsku.,I speak Polish willingly.,"[""gladly""]",998
+otwarte,open,misc,Słowo: otwarte.,Word: open.,"[""open""]",999
+komu,to whom,misc,Słowo: komu.,Word: to whom.,"[""to whom"",""whom""]",1000
+potrzebny,needed,adjective,To jest bardzo potrzebny.,It is a much-needed one.,"[""needed""]",1001
+swego,its,misc,Słowo: swego.,Word: his.,"[""its""]",1002
+dostanę,get,misc,Słowo: dostanę.,The word: get.,"[""get""]",1003
+prosze,please,misc,Słowo: prosze.,Word: ask.,"[""please""]",1004
+rozmawiałem,I talked,misc,Słowo: rozmawiałem.,Word: talked.,"[""i talked""]",1005
+inną,another,misc,Słowo: inną.,Word: other.,"[""another""]",1006
+leży,lies,misc,Słowo: leży.,The word: lies.,"[""lies""]",1007
+karty,cards,misc,Słowo: karty.,Word: cards.,"[""cards""]",1008
+siedzi,sits,misc,Słowo: siedzi.,Word: sits.,"[""sits""]",1009
+szefem,head of,misc,Słowo: szefem.,The word: boss.,"[""head of""]",1010
+chris,chris,misc,Słowo: chris.,Word: chris.,"[""chris""]",1011
+słońce,sun,misc,Słowo: słońce.,The word: sun.,"[""sun""]",1012
+spojrzeć,look,verb,Lubię spojrzeć.,I like to look.,"[""look""]",1013
+niewiele,few,misc,Słowo: niewiele.,Word: not much.,"[""few""]",1014
+widzicie,you can see,noun,To jest widzicie.,This is you see.,"[""you can see""]",1015
+jesli,if,misc,Słowo: jesli.,Word: if.,"[""if""]",1016
+wyprawiasz,you're doing,misc,Słowo: wyprawiasz.,Word: you're doing an expedition.,"[""you're doing""]",1017
+dziewczynka,girl,noun,Widzę dziewczynka tutaj.,I see a girl here.,"[""girl""]",1018
+zimno,cold,misc,Słowo: zimno.,The word: cold.,"[""cold""]",1019
+wybaczyć,forgive,verb,Lubię wybaczyć.,I like to forgive.,"[""forgive""]",1020
+pomaga,helps,misc,Słowo: pomaga.,The word: helps.,"[""helps""]",1021
+uczucia,feelings,misc,Słowo: uczucia.,The word: feelings.,"[""feelings""]",1022
+tamtej,that,misc,Słowo: tamtej.,Word: there.,"[""that""]",1023
+pory,pores,misc,Słowo: pory.,Word: pores.,"[""pores""]",1024
+zmienia,changes,noun,Widzę zmienia tutaj.,I see it changing here.,"[""changes""]",1025
+inna,different,adjective,To jest bardzo inna.,This is very different.,"[""different""]",1026
+wraca,returns,misc,Słowo: wraca.,Word: it's coming back.,"[""returns""]",1027
+zazwyczaj,usually,misc,Słowo: zazwyczaj.,Word: usually.,"[""usually""]",1028
+decyzję,decision,misc,Słowo: decyzję.,Word: decision.,"[""decision""]",1029
+przypadek,case,noun,To jest przypadek.,This is a case in point.,"[""case""]",1030
+najlepsza,best,misc,Słowo: najlepsza.,Word: best.,"[""best""]",1031
+sens,sense,misc,Słowo: sens.,Word: sense.,"[""sense""]",1032
+stracić,miss,verb,Lubię stracić.,I like to lose.,"[""miss""]",1033
+żart,joke,misc,Słowo: żart.,Word: joke.,"[""joke""]",1034
+opuścić,leave,verb,Lubię opuścić.,I like to leave.,"[""leave""]",1035
+okolicy,neighborhood,misc,Słowo: okolicy.,Word: neighborhood.,"[""neighborhood""]",1036
+prezydent,president,misc,Słowo: prezydent.,Word: president.,"[""president""]",1037
+wyjdź,go out,misc,Słowo: wyjdź.,Word: get out.,"[""go out""]",1038
+przestańcie,stop,noun,Widzę przestańcie tutaj.,I see stop here.,"[""stop""]",1039
+kasę,checkout,misc,Słowo: kasę.,The word: cash.,"[""checkout""]",1040
+telewizji,TV,misc,Słowo: telewizji.,Word: television.,"[""tv""]",1041
+ilu,how many,misc,Słowo: ilu.,Word: how many.,"[""how many""]",1042
+zabawa,fun,adjective,To jest bardzo zabawa.,This is very entertaining.,"[""fun""]",1043
+lekarzem,doctor,misc,Słowo: lekarzem.,Word: doctor.,"[""doctor""]",1044
+króla,king,misc,Słowo: króla.,Word: king.,"[""king""]",1045
+test,test,misc,Słowo: test.,Word: test.,"[""test""]",1046
+lee,lee,misc,Słowo: lee.,Word: lee.,"[""lee""]",1047
+dolców,bucks,misc,Słowo: dolców.,The word: bucks.,"[""bucks""]",1048
+dziećmi,children,misc,Słowo: dziećmi.,Word: children.,"[""children""]",1049
+grę,game,misc,Słowo: grę.,Word: game.,"[""game""]",1050
+uwagi,comments,misc,Słowo: uwagi.,Word: comments.,"[""comments""]",1051
+oglądać,view,verb,Lubię oglądać.,I like to watch.,"[""view""]",1052
+poruczniku,lieutenant,misc,Słowo: poruczniku.,Word: lieutenant.,"[""lieutenant""]",1053
+przyjemność,pleasure,noun,To jest przyjemność.,It's a pleasure.,"[""pleasure""]",1054
+słów,words,misc,Słowo: słów.,Word: words.,"[""words""]",1055
+umrze,will die,adverb,Mówię umrze po polsku.,I say die in Polish.,"[""will die""]",1056
+zaczynam,starting,misc,Słowo: zaczynam.,Word: starting.,"[""starting""]",1057
+wygrać,win,verb,Muszę wygrać dzisiaj.,I have to win today.,"[""win""]",1058
+waszej,your,misc,Słowo: waszej.,Word: yours.,"[""your""]",1059
+zastanawiam,wonder,misc,Słowo: zastanawiam.,Word: wonder.,"[""wonder""]",1060
+poradzę,advise,misc,Słowo: poradzę.,Word: advise.,"[""advise""]",1061
+zostaje,stays,misc,Słowo: zostaje.,The word: stays.,"[""stays""]",1062
+działać,act,verb,Lubię działać.,I like to act.,"[""act""]",1063
+zacznie,will start,adverb,Mówię zacznie po polsku.,I'm going to start speaking Polish.,"[""will start""]",1064
+wydostać,get out,verb,Muszę wydostać dzisiaj.,I need to get out today.,"[""get out""]",1065
+ładna,nice,adjective,To jest bardzo ładna.,This is a very nice one.,"[""nice""]",1066
+poziom,level,misc,Słowo: poziom.,Word: level.,"[""level""]",1067
+tysiące,thousands,misc,Słowo: tysiące.,Word: thousands.,"[""thousands""]",1068
+obaj,both,misc,Słowo: obaj.,Word: both of them.,"[""both""]",1069
+listę,list,misc,Słowo: listę.,Word: list.,"[""list""]",1070
+godzina,hour,adjective,To jest bardzo godzina.,This is very hourly.,"[""hour""]",1071
+bliżej,closer to,misc,Słowo: bliżej.,Word: closer.,"[""closer to""]",1072
+drugim,second,misc,Słowo: drugim.,Word: second.,"[""second""]",1073
+zaufaj,trust,misc,Słowo: zaufaj.,The word: trust.,"[""trust""]",1074
+wybrać,select,verb,Lubię wybrać.,I like to choose.,"[""select""]",1075
+straciłem,I lost,misc,Słowo: straciłem.,Word: lost.,"[""i lost""]",1076
+przynieś,bring,misc,Słowo: przynieś.,Word: bring.,"[""bring""]",1077
+ej,ej,misc,Słowo: ej.,Word: ej.,"[""ej""]",1078
+linii,line,misc,Słowo: linii.,Word: line.,"[""line""]",1079
+cos,cos,misc,Słowo: cos.,Word: cos.,"[""cos""]",1080
+ostatnią,last,misc,Słowo: ostatnią.,Word: the last one.,"[""last""]",1081
+ryan,ryan,misc,Słowo: ryan.,Word: ryan.,"[""ryan""]",1082
+taty,dads,misc,Słowo: taty.,Word: dads.,"[""dads""]",1083
+dobrej,good,misc,Słowo: dobrej.,Word: good.,"[""good""]",1084
+bratem,brother,misc,Słowo: bratem.,Word: brother.,"[""brother""]",1085
+e,e,misc,Słowo: e.,Word: e.,"[""e""]",1086
+małego,small,misc,Słowo: małego.,Word: small.,"[""small""]",1087
+wyjście,output,noun,Widzę wyjście tutaj.,I see a way out here.,"[""output""]",1088
+zdrowie,health,adverb,Mówię zdrowie po polsku.,I speak health in Polish.,"[""health""]",1089
+lewo,left,misc,Słowo: lewo.,Word: left.,"[""left""]",1090
+oczach,eyes,misc,Słowo: oczach.,Word: eyes.,"[""eyes""]",1091
+spodoba,will like,misc,Słowo: spodoba.,Word: will like.,"[""will like""]",1092
+liście,leaves,noun,To jest liście.,It's leaves.,"[""leaves""]",1093
+owi,those,misc,Słowo: owi.,Word: ov.,"[""those""]",1094
+niespodzianka,surprise,noun,To jest niespodzianka.,Here's a surprise.,"[""surprise""]",1095
+mózg,brain,misc,Słowo: mózg.,Word: brain.,"[""brain""]",1096
+przekonać,convince,verb,Muszę przekonać dzisiaj.,I have to convince today.,"[""convince""]",1097
+lecieć,fly,verb,Muszę lecieć dzisiaj.,I have to fly today.,"[""fly""]",1098
+szalony,mad,adjective,To jest bardzo szalony.,This is very crazy.,"[""mad""]",1099
+dowie,prove,adverb,Mówię dowie po polsku.,I'm going to prove in Polish.,"[""prove""]",1100
+głodny,hungry,adjective,To jest bardzo głodny.,It is very hungry.,"[""hungry""]",1101
+pomożesz,help,misc,Słowo: pomożesz.,Word: you will help.,"[""help""]",1102
+innej,another,misc,Słowo: innej.,Word: other.,"[""another""]",1103
+zmiany,changes,adjective,To jest bardzo zmiany.,This is a very change.,"[""changes""]",1104
+boską,divine,misc,Słowo: boską.,Word: divine.,"[""divine""]",1105
+odłóż,put down,misc,Słowo: odłóż.,The word: put down.,"[""put down""]",1106
+banku,bank,misc,Słowo: banku.,Word: bank.,"[""bank""]",1107
+kazał,ordered,misc,Słowo: kazał.,The word: preached.,"[""ordered""]",1108
+myślicie,think,noun,Widzę myślicie tutaj.,I see you are thinking here.,"[""think""]",1109
+wysłać,send,verb,Lubię wysłać.,I like to send.,"[""send""]",1110
+akurat,acct,misc,Słowo: akurat.,Word: acurate.,"[""acct""]",1111
+muzyka,music,noun,Widzę muzyka tutaj.,I see the musician here.,"[""music""]",1112
+abym,so that I,misc,Słowo: abym.,Word: abym.,"[""so that i""]",1113
+własnej,own,misc,Słowo: własnej.,Word: own.,"[""own""]",1114
+ostatnich,last,misc,Słowo: ostatnich.,Word: recent.,"[""last""]",1115
+decyzja,decision,misc,Słowo: decyzja.,The word: decision.,"[""decision""]",1116
+długi,long,misc,Słowo: długi.,Word: long.,"[""long""]",1117
+przodu,front,misc,Słowo: przodu.,Word: front.,"[""front""]",1118
+ah,ah,misc,Słowo: ah.,Word: ah.,"[""ah""]",1119
+obu,both,misc,Słowo: obu.,Word: both.,"[""both""]",1120
+kierunku,direction,misc,Słowo: kierunku.,Word: direction.,"[""direction""]",1121
+wyglądać,look,verb,Lubię wyglądać.,I like the look.,"[""look""]",1122
+miła,nice,misc,Słowo: miła.,Word: nice.,"[""nice""]",1123
+pytasz,you ask,misc,Słowo: pytasz.,Word: you ask.,"[""you ask""]",1124
+chłopca,boy,misc,Słowo: chłopca.,The word: boy.,"[""boy""]",1125
+jestes,you are,misc,Słowo: jestes.,Word: you are.,"[""you are""]",1126
+mieszkania,apartments,noun,To jest mieszkania.,This is housing.,"[""apartments""]",1127
+gadać,talk,verb,Lubię gadać.,I like to talk.,"[""talk""]",1128
+ha,ha,misc,Słowo: ha.,Word: ha.,"[""ha""]",1129
+przyszedłeś,you came,misc,Słowo: przyszedłeś.,Word: you have come.,"[""you came""]",1130
+warto,worth,misc,Słowo: warto.,Word: it's worth it.,"[""worth""]",1131
+de,de,misc,Słowo: de.,Word: de.,"[""de""]",1132
+uwierz,believe,misc,Słowo: uwierz.,Word: believe.,"[""believe""]",1133
+śmiercią,death,misc,Słowo: śmiercią.,The word: death.,"[""death""]",1134
+nazwiska,names,noun,Widzę nazwiska tutaj.,I see the names here.,"[""names""]",1135
+przeszłości,past,misc,Słowo: przeszłości.,Word: past.,"[""past""]",1136
+ojcu,father,misc,Słowo: ojcu.,Word: father.,"[""father""]",1137
+eddie,eddie,misc,Słowo: eddie.,Word: eddie.,"[""eddie""]",1138
+uciekł,escaped,misc,Słowo: uciekł.,The word: escaped.,"[""escaped""]",1139
+uciekać,run away,verb,Muszę uciekać dzisiaj.,I have to run today.,"[""run away""]",1140
+dupę,ass,misc,Słowo: dupę.,Word: ass.,"[""ass""]",1141
+szanse,opportunities,misc,Słowo: szanse.,Word: opportunities.,"[""opportunities""]",1142
+zaczęło,started,misc,Słowo: zaczęło.,The word: started.,"[""started""]",1143
+faceci,guys,misc,Słowo: faceci.,Word: guys.,"[""guys""]",1144
+biorę,I take,misc,Słowo: biorę.,Word: take.,"[""i take""]",1145
+moze,maybe,misc,Słowo: moze.,Word: may.,"[""maybe""]",1146
+zgoda,approval,misc,Słowo: zgoda.,The word: consent.,"[""approval""]",1147
+małżeństwo,marriage,noun,Widzę małżeństwo tutaj.,I see marriage here.,"[""marriage""]",1148
+zmarł,died,misc,Słowo: zmarł.,Word: died.,"[""died""]",1149
+doczekać,wait,verb,Lubię doczekać.,I like to wait.,"[""wait""]",1150
+prawdziwym,real,misc,Słowo: prawdziwym.,Word: real.,"[""real""]",1151
+myślałeś,thought,misc,Słowo: myślałeś.,Word: thought.,"[""thought""]",1152
+jazda,driving,misc,Słowo: jazda.,The word: driving.,"[""driving""]",1153
+klasy,classes,misc,Słowo: klasy.,Word: classes.,"[""classes""]",1154
+rzuć,drop,misc,Słowo: rzuć.,The word: quit.,"[""drop""]",1155
+richard,richard,misc,Słowo: richard.,Word: richard.,"[""richard""]",1156
+szczególnie,especially,adverb,Mówię szczególnie po polsku.,I speak Polish in particular.,"[""especially""]",1157
+wątpię,doubt,misc,Słowo: wątpię.,Word: doubt.,"[""doubt""]",1158
+obie,both,misc,Słowo: obie.,Word: both.,"[""both""]",1159
+zaufać,trust,verb,Lubię zaufać.,I like to trust.,"[""trust""]",1160
+pułkowniku,Colonel,misc,Słowo: pułkowniku.,Word: colonel.,"[""colonel""]",1161
+nikim,no one,misc,Słowo: nikim.,The word: nobody.,"[""no one""]",1162
+powiedzmy,say,misc,Słowo: powiedzmy.,Word: say.,"[""say""]",1163
+widziała,seen,misc,Słowo: widziała.,Word: she saw.,"[""seen""]",1164
+sarah,sarah,misc,Słowo: sarah.,Word: sarah.,"[""sarah""]",1165
+mecz,match,misc,Słowo: mecz.,The word: match.,"[""match""]",1166
+randkę,date,misc,Słowo: randkę.,The word: date.,"[""date""]",1167
+następnego,next,misc,Słowo: następnego.,Word: next.,"[""next""]",1168
+wojnę,war,misc,Słowo: wojnę.,The word: war.,"[""war""]",1169
+indziej,elsewhere,misc,Słowo: indziej.,Word: elsewhere.,"[""elsewhere""]",1170
+metrów,meters,misc,Słowo: metrów.,Word: meters.,"[""meters""]",1171
+dniu,day,misc,Słowo: dniu.,Word: day.,"[""day""]",1172
+widzieliśmy,we saw,misc,Słowo: widzieliśmy.,Word: we saw.,"[""we saw""]",1173
+operacji,operations,misc,Słowo: operacji.,Word: operations.,"[""operations""]",1174
+skończyłem,finished,misc,Słowo: skończyłem.,Word: finished.,"[""finished""]",1175
+mark,mark,misc,Słowo: mark.,Word: mark.,"[""mark""]",1176
+różnych,various,misc,Słowo: różnych.,Word: miscellaneous.,"[""various""]",1177
+interesuje,interests,misc,Słowo: interesuje.,Word: interesting.,"[""interests""]",1178
+umiem,I can,misc,Słowo: umiem.,Word: able.,"[""i can""]",1179
+potrzebne,needed,adjective,To jest bardzo potrzebne.,This is much needed.,"[""needed""]",1180
+gliny,clay,adjective,To jest bardzo gliny.,It is very much a cop out.,"[""clay""]",1181
+pić,drink,verb,Lubię pić.,I like to drink.,"[""drink""]",1182
+zobaczyłem,saw,misc,Słowo: zobaczyłem.,Word: saw.,"[""saw""]",1183
+śmiało,go ahead,misc,Słowo: śmiało.,The word: bold.,"[""go ahead""]",1184
+dała,gave,misc,Słowo: dała.,The word: gave.,"[""gave""]",1185
+widok,view,misc,Słowo: widok.,Word: view.,"[""view""]",1186
+podziękować,thank,verb,Muszę podziękować dzisiaj.,I have to thank you today.,"[""thank""]",1187
+dowodów,proofs,misc,Słowo: dowodów.,Word: evidence.,"[""proofs""]",1188
+lubią,like,misc,Słowo: lubią.,Word: like.,"[""like""]",1189
+absolutnie,absolutely,adverb,Mówię absolutnie po polsku.,I speak absolute Polish.,"[""absolutely""]",1190
+każde,each,misc,Słowo: każde.,Word: each.,"[""each""]",1191
+znaczyć,mean,verb,Muszę znaczyć dzisiaj.,I have to mean today.,"[""mean""]",1192
+naprzód,forward,misc,Słowo: naprzód.,The word: forward.,"[""forward""]",1193
+różnica,difference,misc,Słowo: różnica.,Word: difference.,"[""difference""]",1194
+zniknął,disappeared,misc,Słowo: zniknął.,The word: disappeared.,"[""disappeared""]",1195
+punkt,point,misc,Słowo: punkt.,Word: point.,"[""point""]",1196
+wrócimy,we'll be back,misc,Słowo: wrócimy.,Word: we'll be back.,"[""we'll be back""]",1197
+kasy,cash registers,misc,Słowo: kasy.,Word: checkout.,"[""cash registers""]",1198
+utrzymać,keep,verb,Lubię utrzymać.,I like to maintain.,"[""keep""]",1199
+ofiara,victim,misc,Słowo: ofiara.,The word: sacrifice.,"[""victim""]",1200
+pozwoli,will allow,misc,Słowo: pozwoli.,Word: will allow.,"[""will allow""]",1201
+potrzebują,need,misc,Słowo: potrzebują.,Word: need.,"[""need""]",1202
+żegnaj,farewell,misc,Słowo: żegnaj.,Word: goodbye.,"[""farewell""]",1203
+wiedzieli,knew,misc,Słowo: wiedzieli.,Word: they knew.,"[""knew""]",1204
+danych,data,misc,Słowo: danych.,Word: data.,"[""data""]",1205
+san,san,misc,Słowo: san.,Word: san.,"[""san""]",1206
+kyle,kyle,misc,Słowo: kyle.,Word: kyle.,"[""kyle""]",1207
+szaleństwo,madness,noun,Widzę szaleństwo tutaj.,I see the craziness here.,"[""madness""]",1208
+własnego,own,misc,Słowo: własnego.,Word: own.,"[""own""]",1209
+myślał,thought,misc,Słowo: myślał.,The word: thought.,"[""thought""]",1210
+brian,brian,misc,Słowo: brian.,Word: brian.,"[""brian""]",1211
+pomyśleć,think,verb,Lubię pomyśleć.,I like to think.,"[""think""]",1212
+umysł,mind,misc,Słowo: umysł.,Word: mind.,"[""mind""]",1213
+martwię,I worry,misc,Słowo: martwię.,Word: worry.,"[""i worry""]",1214
+bawić,entertain,verb,Lubię bawić.,I like to entertain.,"[""entertain""]",1215
+sprawdzę,check out,misc,Słowo: sprawdzę.,Word: check.,"[""check out""]",1216
+zabiorę,I'll take,misc,Słowo: zabiorę.,Word: will take.,"[""i'll take""]",1217
+drugiego,second,misc,Słowo: drugiego.,Word: the other.,"[""second""]",1218
+prowadzić,run,verb,Lubię prowadzić.,I like to drive.,"[""run""]",1219
+nowej,new,misc,Słowo: nowej.,Word: new.,"[""new""]",1220
+emily,emily,misc,Słowo: emily.,Word: emily.,"[""emily""]",1221
+claire,claire,misc,Słowo: claire.,Word: claire.,"[""claire""]",1222
+usta,mouth,misc,Słowo: usta.,Word of mouth.,"[""mouth""]",1223
+daleka,far,noun,Widzę daleka tutaj.,I can see far away here.,"[""far""]",1224
+miliony,millions,adjective,To jest bardzo miliony.,This is very millions.,"[""millions""]",1225
+mężem,husband,misc,Słowo: mężem.,Word: husband.,"[""husband""]",1226
+mamę,mom,misc,Słowo: mamę.,Word: mom.,"[""mom""]",1227
+spotkania,meetings,noun,To jest spotkania.,This is the meetings.,"[""meetings""]",1228
+ładne,nice,adjective,To jest bardzo ładne.,This is very nice.,"[""nice""]",1229
+oczu,eyes,misc,Słowo: oczu.,Word: eyes.,"[""eyes""]",1230
+rękach,hands,misc,Słowo: rękach.,Word: hands.,"[""hands""]",1231
+żył,veins,misc,Słowo: żył.,The word: lived.,"[""veins""]",1232
+sali,hall,misc,Słowo: sali.,Word: hall.,"[""hall""]",1233
+państwo,country,noun,To jest państwo.,This is the state.,"[""country""]",1234
+słyszeć,hear,verb,Lubię słyszeć.,I like to hear.,"[""hear""]",1235
+własny,own,adjective,To jest bardzo własny.,It is very much its own.,"[""own""]",1236
+okropne,awful,adjective,To jest bardzo okropne.,This is very awful.,"[""awful""]",1237
+szans,opportunities,misc,Słowo: szans.,Word: opportunities.,"[""opportunities""]",1238
+widzimy,we see,misc,Słowo: widzimy.,Word: we see.,"[""we see""]",1239
+wyszła,came out,misc,Słowo: wyszła.,Word: she left.,"[""came out""]",1240
+pański,Your,adjective,To jest bardzo pański.,It is very much yours.,"[""your""]",1241
+zapewne,probably,adjective,To jest bardzo zapewne.,This is very probably.,"[""probably""]",1242
+żadna,none,adjective,To jest bardzo żadna.,This is very none.,"[""none""]",1243
+dzwoni,calls,misc,Słowo: dzwoni.,The word: rings a bell.,"[""calls""]",1244
+żadne,none,adjective,To jest bardzo żadne.,This is very much none.,"[""none""]",1245
+stop,stop,misc,Słowo: stop.,The word: stop.,"[""stop""]",1246
+strzelać,snap,verb,Lubię strzelać.,I like to shoot.,"[""snap""]",1247
+powietrze,air,adverb,Mówię powietrze po polsku.,I speak the air in Polish.,"[""air""]",1248
+wspaniała,great,misc,Słowo: wspaniała.,The word: great.,"[""great""]",1249
+mówili,said,misc,Słowo: mówili.,Word: they said.,"[""said""]",1250
+lepszego,better,misc,Słowo: lepszego.,Word: better.,"[""better""]",1251
+spróbuję,I'll try,misc,Słowo: spróbuję.,Word: I'll give it a try.,"[""i'll try""]",1252
+bronią,arms,misc,Słowo: bronią.,Word: weapons.,"[""arms""]",1253
+bierze,takes,adverb,Mówię bierze po polsku.,I say take Polish.,"[""takes""]",1254
+andy,andy,misc,Słowo: andy.,Word: andy.,"[""andy""]",1255
+facetów,guys,misc,Słowo: facetów.,Word: guys.,"[""guys""]",1256
+staje,becomes,misc,Słowo: staje.,Word: becomes.,"[""becomes""]",1257
+b,b,misc,Słowo: b.,Word: b.,"[""b""]",1258
+swoimi,with their,misc,Słowo: swoimi.,Word: their own.,"[""with their""]",1259
+miałby,would have,misc,Słowo: miałby.,Word: would have.,"[""would have""]",1260
+przypomina,reminds,adjective,To jest bardzo przypomina.,This is very reminiscent.,"[""reminds""]",1261
+czarny,black,adjective,To jest bardzo czarny.,It is very black.,"[""black""]",1262
+mil,miles,misc,Słowo: mil.,Word: miles.,"[""miles""]",1263
+zabij,kill,misc,Słowo: zabij.,The word: kill.,"[""kill""]",1264
+wróciła,returned,misc,Słowo: wróciła.,Word: she's back.,"[""returned""]",1265
+małym,small,misc,Słowo: małym.,Word: small.,"[""small""]",1266
+słońca,suns,misc,Słowo: słońca.,Word: suns.,"[""suns""]",1267
+czułem,felt,misc,Słowo: czułem.,Word: felt.,"[""felt""]",1268
+ubrania,clothes,noun,Widzę ubrania tutaj.,I can see the clothes here.,"[""clothes""]",1269
+dziwnego,strange,misc,Słowo: dziwnego.,Word: strange.,"[""strange""]",1270
+wychodzę,I'm leaving,misc,Słowo: wychodzę.,Word: I'm leaving.,"[""i'm leaving""]",1271
+udowodnić,prove,verb,Muszę udowodnić dzisiaj.,I have to prove today.,"[""prove""]",1272
+grupy,groups,misc,Słowo: grupy.,Word: groups.,"[""groups""]",1273
+nóż,knife,misc,Słowo: nóż.,The word: knife.,"[""knife""]",1274
+akta,file,misc,Słowo: akta.,The word: file.,"[""file""]",1275
+imprezę,event,misc,Słowo: imprezę.,The word: party.,"[""event""]",1276
+umiera,dies,misc,Słowo: umiera.,The word: dies.,"[""dies""]",1277
+musiało,must have,misc,Słowo: musiało.,The word: had to.,"[""must have""]",1278
+wraz,along with,misc,Słowo: wraz.,Word: along with.,"[""along with""]",1279
+zasadzie,principle,misc,Słowo: zasadzie.,Word: principle.,"[""principle""]",1280
+nieprawdaż,not true,misc,Słowo: nieprawdaż.,Word: not true.,"[""not true""]",1281
+bedzie,will be,misc,Słowo: bedzie.,Word: will.,"[""will be""]",1282
+mojemu,my,misc,Słowo: mojemu.,Word: mine.,"[""my""]",1283
+znaczenie,meaning,noun,To jest znaczenie.,That's the significance.,"[""meaning""]",1284
+minęło,past,misc,Słowo: minęło.,Word: passed.,"[""past""]",1285
+sklepu,store,misc,Słowo: sklepu.,Word: store.,"[""store""]",1286
+odnaleźć,find,misc,Słowo: odnaleźć.,The word: find.,"[""find""]",1287
+woli,will,misc,Słowo: woli.,Word: will.,"[""will""]",1288
+usa,usa,misc,Słowo: usa.,Word: usa.,"[""usa""]",1289
+komputer,computer,misc,Słowo: komputer.,The word: computer.,"[""computer""]",1290
+nadchodzi,coming,misc,Słowo: nadchodzi.,Word: it's coming.,"[""coming""]",1291
+firma,company,misc,Słowo: firma.,Word: company.,"[""company""]",1292
+zmieniło,changed,misc,Słowo: zmieniło.,The word: changed.,"[""changed""]",1293
+spytać,ask,verb,Muszę spytać dzisiaj.,I have to ask today.,"[""ask""]",1294
+stacji,stations,misc,Słowo: stacji.,Word: stations.,"[""stations""]",1295
+jasna,bright,adjective,To jest bardzo jasna.,This is very clear.,"[""bright""]",1296
+kłopotów,trouble,misc,Słowo: kłopotów.,The word: trouble.,"[""trouble""]",1297
+sprawą,matter,misc,Słowo: sprawą.,Word: case.,"[""matter""]",1298
+kod,code,misc,Słowo: kod.,Word: code.,"[""code""]",1299
+doktora,PhD,misc,Słowo: doktora.,Word: doctor.,"[""phd""]",1300
