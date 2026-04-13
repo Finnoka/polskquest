@@ -1,0 +1,3001 @@
+polish,english,category,subtext,accepted_answers,frequency_rank
+nie,no,misc,,"[""no"",""not"",""nope"",""nah""]",1
+to,this,misc,,"[""this"",""it"",""that""]",2
+się,oneself,misc,,"[""oneself"",""self"",""himself"",""herself"",""itself""]",3
+w,in,misc,,"[""in"",""at"",""into""]",4
+na,on,misc,,"[""on"",""at"",""onto"",""for""]",5
+i,and,misc,,"[""and""]",6
+że,that,misc,,"[""that""]",7
+z,from,misc,,"[""from"",""with"",""of"",""out of""]",8
+co,what,misc,,"[""what"",""which""]",9
+jest,is,misc,,"[""is"",""it is""]",10
+do,to,misc,,"[""to"",""until"",""into""]",11
+tak,yes,misc,,"[""yes"",""yeah"",""yep"",""so"",""thus""]",12
+o,about,misc,,"[""about"",""of"",""at""]",13
+jak,how,misc,,"[""how"",""like"",""as""]",14
+a,a,misc,,"[""a""]",15
+ale,but,misc,,"[""but"",""however""]",16
+mnie,me,misc,,"[""me""]",17
+mi,me,misc,,"[""me"",""to me""]",18
+za,behind,misc,,"[""behind"",""for"",""after"",""in""]",19
+ja,me,misc,,"[""me""]",20
+tym,including,misc,,"[""including"",""to including""]",21
+tego,of this,misc,,"[""of this""]",22
+ci,those,misc,,"[""those"",""to those""]",23
+czy,whether,misc,,"[""whether"",""or"",""if""]",24
+go,him,misc,,"[""him"",""it""]",25
+tylko,only,misc,,"[""only"",""just""]",26
+tu,here,misc,,"[""here"",""to here""]",27
+po,after,misc,,"[""after"",""along"",""for"",""in""]",28
+może,maybe,misc,,"[""maybe"",""perhaps"",""can"",""might""]",29
+jestem,i am,misc,,"[""i am"",""i'm""]",30
+ty,you,misc,,"[""you""]",31
+ma,has,misc,,"[""has""]",32
+cię,you,misc,,"[""you""]",33
+mam,i have,misc,,"[""i have""]",34
+jesteś,you are,misc,,"[""you are"",""you're""]",35
+już,already,misc,,"[""already"",""now""]",36
+dla,for,misc,,"[""for""]",37
+jeśli,if,misc,,"[""if""]",38
+wiem,i know,misc,,"[""i know""]",39
+coś,something,misc,,"[""something"",""to something""]",40
+więc,so,misc,,"[""so""]",41
+dobrze,okay,misc,,"[""okay"",""ok"",""good"",""well"",""fine"",""alright""]",42
+teraz,now,misc,,"[""now""]",43
+od,from,misc,,"[""from"",""since"",""than""]",44
+pan,mr,misc,,"[""mr"",""sir"",""mister"",""you""]",45
+wszystko,everything,misc,,"[""everything"",""to everything""]",46
+być,to be,misc,,"[""to be"",""be""]",47
+masz,you have,misc,,"[""you have""]",48
+nic,nothing,misc,,"[""nothing"",""to nothing""]",49
+tam,there,misc,,"[""there"",""to there""]",50
+będzie,will be,misc,,"[""will be""]",51
+proszę,please,misc,,"[""please"",""here you go"",""you're welcome""]",52
+mogę,i can,misc,,"[""i can""]",53
+są,are,misc,,"[""are"",""they are""]",54
+jej,her,misc,,"[""her"",""its"",""hers""]",55
+on,on,misc,,"[""on""]",56
+ten,this,misc,,"[""this"",""that"",""the""]",57
+gdzie,where,misc,,"[""where"",""to where""]",58
+kiedy,when,misc,,"[""when"",""to when""]",59
+ze,from,misc,,"[""from"",""with"",""out of""]",60
+ciebie,you,misc,,"[""you""]",61
+wiesz,you know,misc,,"[""you know""]",62
+sobie,yourself,misc,,"[""yourself"",""to yourself""]",63
+był,was,misc,,"[""was""]",64
+bardzo,very,misc,,"[""very"",""really"",""quite""]",65
+by,would,misc,,"[""would"",""by""]",66
+było,was,misc,,"[""was""]",67
+przez,through,misc,,"[""through"",""by"",""across"",""for""]",68
+jego,its,misc,,"[""its""]",69
+dlaczego,why,misc,,"[""why""]",70
+chcę,i want,misc,,"[""i want""]",71
+jeszcze,still,misc,,"[""still"",""yet"",""even""]",72
+mój,my,misc,,"[""my""]",73
+ją,it,misc,,"[""it""]",74
+pani,mrs,misc,,"[""mrs"",""ms"",""miss"",""madam"",""you""]",75
+nas,us,misc,,"[""us""]",76
+no,no,misc,,"[""no"",""nope"",""nah""]",77
+żeby,to,misc,,"[""to""]",78
+chcesz,you want,misc,,"[""you want""]",79
+ich,their,misc,,"[""their"",""them"",""theirs""]",80
+tutaj,here,misc,,"[""here"",""to here""]",81
+bo,because,misc,,"[""because"",""to because""]",82
+też,also,misc,,"[""also"",""too"",""as well""]",83
+nigdy,never,misc,,"[""never"",""to never""]",84
+naprawdę,really,misc,,"[""really"",""to really""]",85
+mamy,we have,misc,,"[""we have""]",86
+kto,who,misc,,"[""who""]",87
+możesz,you can,misc,,"[""you can""]",88
+przepraszam,sorry,misc,,"[""sorry"",""excuse me"",""pardon"",""i'm sorry""]",89
+dobra,goods,misc,,"[""goods"",""to goods""]",90
+mu,him,misc,,"[""him"",""to him""]",91
+porządku,order,misc,,"[""order"",""to order""]",92
+muszę,i must,misc,,"[""i must""]",93
+ona,she,misc,,"[""she""]",94
+nawet,even,misc,,"[""even"",""to even""]",95
+chyba,probably,misc,,"[""probably"",""to probably""]",96
+dziękuję,thank you,misc,,"[""thank you"",""thanks"",""thank u""]",97
+gdy,when,misc,,"[""when"",""to when""]",98
+domu,home,misc,,"[""home"",""to home""]",99
+zrobić,make,misc,,"[""make"",""to make""]",100
+prawda,truth,misc,,"[""truth"",""to truth""]",101
+właśnie,just,misc,,"[""just"",""to just""]",102
+hej,hey,misc,,"[""hey""]",103
+była,was,misc,,"[""was""]",104
+będę,i will be,misc,,"[""i will be""]",105
+te,these,misc,,"[""these"",""to these""]",106
+zawsze,always,misc,,"[""always"",""to always""]",107
+nam,us,misc,,"[""us""]",108
+moja,my,misc,,"[""my""]",109
+nim,before,misc,,"[""before"",""to before""]",110
+musisz,you must,misc,,"[""you must""]",111
+je,them,misc,,"[""them"",""it""]",112
+trochę,some,misc,,"[""some"",""to some""]",113
+tej,this,misc,,"[""this"",""of this""]",114
+dzięki,thanks to,misc,,"[""thanks to""]",115
+bez,without,misc,,"[""without""]",116
+ktoś,someone,misc,,"[""someone"",""to someone""]",117
+panie,mr,misc,,"[""mr""]",118
+jesteśmy,we are,misc,,"[""we are""]",119
+moje,my,misc,,"[""my""]",120
+powiedzieć,say,misc,,"[""say""]",121
+który,which,misc,,"[""which"",""to which""]",122
+twój,your,misc,,"[""your"",""to your""]",123
+czas,time,misc,,"[""time"",""to time""]",124
+więcej,more,misc,,"[""more"",""to more""]",125
+lat,years,misc,,"[""years"",""to years""]",126
+prostu,simply,misc,,"[""simply"",""to simply""]",127
+chce,wants,misc,,"[""wants"",""to wants""]",128
+ta,this,misc,,"[""this"",""to this""]",129
+musimy,we must,misc,,"[""we must""]",130
+wszyscy,all,misc,,"[""all""]",131
+tobą,you,misc,,"[""you""]",132
+możemy,we can,misc,,"[""we can""]",133
+albo,or,misc,,"[""or""]",134
+chodzi,walks,misc,,"[""walks"",""to walks""]",135
+cześć,hi,misc,,"[""hi"",""hello"",""hey"",""bye""]",136
+razem,together,misc,,"[""together"",""to together""]",137
+stało,stood,misc,,"[""stood"",""to stood""]",138
+czego,of which,misc,,"[""of which""]",139
+mną,me,misc,,"[""me""]",140
+sam,itself,misc,,"[""itself"",""to itself""]",141
+myślę,think,misc,,"[""think"",""to think""]",142
+boże,god,misc,,"[""god""]",143
+pana,mr,misc,,"[""mr""]",144
+ok,about,misc,,"[""about"",""to about""]",145
+dalej,further,misc,,"[""further"",""to further""]",146
+raz,once,misc,,"[""once"",""to once""]",147
+przed,before,misc,,"[""before"",""in front of"",""ago""]",148
+będziesz,you will be,misc,,"[""you will be""]",149
+ludzie,people,misc,,"[""people"",""to people""]",150
+czym,with what,misc,,"[""with what""]",151
+niż,than,misc,,"[""than"",""to than""]",152
+czemu,why,misc,,"[""why""]",153
+was,you,misc,,"[""you""]",154
+dobry,good,misc,,"[""good"",""to good""]",155
+ludzi,people,misc,,"[""people"",""to people""]",156
+życie,life,misc,,"[""life"",""to life""]",157
+lepiej,better,misc,,"[""better"",""to better""]",158
+przy,at,misc,,"[""at"",""by"",""near"",""with""]",159
+rzeczy,stuff,misc,,"[""stuff"",""to stuff""]",160
+dzień,day,misc,,"[""day""]",161
+twoja,your,misc,,"[""your"",""to your""]",162
+miał,had,misc,,"[""had""]",163
+robisz,you do,misc,,"[""you do""]",164
+czasu,time,misc,,"[""time"",""to time""]",165
+niech,let,misc,,"[""let""]",166
+myślisz,think,misc,,"[""think"",""to think""]",167
+kim,kim,misc,,"[""kim""]",168
+daj,give,misc,,"[""give"",""to give""]",169
+temu,to this,misc,,"[""to this"",""this""]",170
+chodź,come,misc,,"[""come"",""to come""]",171
+my,us,misc,,"[""us""]",172
+cóż,well,misc,,"[""well"",""to well""]",173
+które,which,misc,,"[""which"",""to which""]",174
+powiedział,said,misc,,"[""said"",""to said""]",175
+moim,my,misc,,"[""my""]",176
+tych,these,misc,,"[""these"",""to these""]",177
+siebie,yourself,misc,,"[""yourself"",""to yourself""]",178
+niego,him,misc,,"[""him""]",179
+twoje,your,misc,,"[""your"",""to your""]",180
+oczywiście,of course,misc,,"[""of course""]",181
+u,u,misc,,"[""u""]",182
+nikt,no one,misc,,"[""no one""]",183
+musi,must,misc,,"[""must"",""to must""]",184
+aby,to,misc,,"[""to""]",185
+powiedz,say,misc,,"[""say""]",186
+pod,under,misc,,"[""under"",""below"",""beneath""]",187
+dlatego,therefore,misc,,"[""therefore"",""to therefore""]",188
+wtedy,then,misc,,"[""then"",""to then""]",189
+jeden,one,misc,,"[""one""]",190
+wygląda,looks,misc,,"[""looks"",""to looks""]",191
+pewnie,probably,misc,,"[""probably"",""to probably""]",192
+mojego,my,misc,,"[""my""]",193
+mówi,says,misc,,"[""says"",""to says""]",194
+im,them,misc,,"[""them"",""to them""]",195
+taki,such,misc,,"[""such"",""to such""]",196
+oni,them,misc,,"[""them"",""to them""]",197
+znaczy,i.e,misc,,"[""i.e""]",198
+wszystkie,all,misc,,"[""all""]",199
+mieć,have,misc,,"[""have"",""to have""]",200
+takie,such,misc,,"[""such"",""to such""]",201
+dziś,today,misc,,"[""today"",""to today""]",202
+dwa,two,misc,,"[""two""]",203
+jako,as,misc,,"[""as""]",204
+stąd,hence,misc,,"[""hence"",""to hence""]",205
+wie,knows,misc,,"[""knows"",""to knows""]",206
+potem,then,misc,,"[""then"",""to then""]",207
+dzieje,history,misc,,"[""history"",""to history""]",208
+moją,my,misc,,"[""my""]",209
+będziemy,we will,misc,,"[""we will""]",210
+nią,it,misc,,"[""it""]",211
+mojej,my,misc,,"[""my""]",212
+dużo,much,misc,,"[""much"",""to much""]",213
+wiele,many,misc,,"[""many"",""to many""]",214
+rozumiem,i understand,misc,,"[""i understand""]",215
+iść,go,misc,,"[""go""]",216
+miejsce,location,misc,,"[""location"",""to location""]",217
+kilka,some,misc,,"[""some"",""to some""]",218
+pomóc,help,misc,,"[""help"",""to help""]",219
+myśli,thoughts,misc,,"[""thoughts"",""to thoughts""]",220
+sie,yourself,misc,,"[""yourself"",""to yourself""]",221
+byłem,i was,misc,,"[""i was""]",222
+ile,how much,misc,,"[""how much""]",223
+swoje,its,misc,,"[""its""]",224
+jasne,clear,misc,,"[""clear"",""to clear""]",225
+cały,whole,misc,,"[""whole"",""to whole""]",226
+skąd,from where,misc,,"[""from where""]",227
+dzieci,children,misc,,"[""children"",""to children""]",228
+nich,them,misc,,"[""them"",""to them""]",229
+wiedzieć,know,misc,,"[""know"",""to know""]",230
+można,can be,misc,,"[""can be""]",231
+jakieś,some,misc,,"[""some"",""to some""]",232
+przykro,sorry,misc,,"[""sorry"",""to sorry""]",233
+jakiś,some,misc,,"[""some"",""to some""]",234
+wam,you,misc,,"[""you""]",235
+sposób,way,misc,,"[""way""]",236
+wszystkich,all,misc,,"[""all""]",237
+nad,above,misc,,"[""above"",""over"",""by""]",238
+która,which,misc,,"[""which"",""to which""]",239
+mają,have,misc,,"[""have"",""to have""]",240
+trzeba,must,misc,,"[""must"",""to must""]",241
+mówisz,you say,misc,,"[""you say""]",242
+zanim,before,misc,,"[""before"",""to before""]",243
+robić,do,misc,,"[""do""]",244
+tę,this,misc,,"[""this"",""to this""]",245
+zbyt,too,misc,,"[""too""]",246
+niej,it,misc,,"[""it""]",247
+kogoś,someone,misc,,"[""someone"",""to someone""]",248
+bardziej,more,misc,,"[""more"",""to more""]",249
+szybko,fast,misc,,"[""fast"",""to fast""]",250
+dzisiaj,today,misc,,"[""today"",""to today""]",251
+pracy,work,misc,,"[""work"",""to work""]",252
+tyle,so much,misc,,"[""so much""]",253
+tobie,to you,misc,,"[""to you"",""you""]",254
+zaraz,coming soon,misc,,"[""coming soon""]",255
+kocham,i love,misc,,"[""i love""]",256
+takiego,such,misc,,"[""such"",""to such""]",257
+kochanie,love,misc,,"[""love"",""to love""]",258
+miałem,i had,misc,,"[""i had""]",259
+zobaczyć,see,misc,,"[""see""]",260
+świetnie,great,misc,,"[""great"",""to great""]",261
+jaki,which,misc,,"[""which"",""to which""]",262
+mówię,i say,misc,,"[""i say""]",263
+tą,this,misc,,"[""this"",""to this""]",264
+ponieważ,because,misc,,"[""because"",""to because""]",265
+oh,oh,misc,,"[""oh""]",266
+ojciec,father,misc,,"[""father"",""to father""]",267
+myślałem,thought,misc,,"[""thought"",""to thought""]",268
+pewno,certainly,misc,,"[""certainly"",""to certainly""]",269
+cholera,cholera,misc,,"[""cholera"",""to cholera""]",270
+rację,right,misc,,"[""right"",""to right""]",271
+robi,does,misc,,"[""does"",""to does""]",272
+ani,neither,misc,,"[""neither"",""to neither""]",273
+stary,old,misc,,"[""old""]",274
+trzy,three,misc,,"[""three"",""to three""]",275
+później,later,misc,,"[""later"",""to later""]",276
+idź,go,misc,,"[""go""]",277
+życia,life,misc,,"[""life"",""to life""]",278
+stanie,state,misc,,"[""state"",""to state""]",279
+nadal,still,misc,,"[""still"",""to still""]",280
+twoim,your,misc,,"[""your"",""to your""]",281
+przestań,stop,misc,,"[""stop"",""to stop""]",282
+mamo,mum,misc,,"[""mum""]",283
+kiedyś,sometime,misc,,"[""sometime"",""to sometime""]",284
+swoją,its,misc,,"[""its""]",285
+jutro,tomorrow,misc,,"[""tomorrow"",""to tomorrow""]",286
+długo,long,misc,,"[""long"",""to long""]",287
+nadzieję,hope,misc,,"[""hope"",""to hope""]",288
+kurwa,fuck,misc,,"[""fuck"",""to fuck""]",289
+chciałem,i wanted,misc,,"[""i wanted""]",290
+widzisz,you see,misc,,"[""you see""]",291
+będą,will be,misc,,"[""will be""]",292
+widzę,i see,misc,,"[""i see""]",293
+aż,until,misc,,"[""until"",""to until""]",294
+tato,dad,misc,,"[""dad""]",295
+problem,problem,misc,,"[""problem"",""to problem""]",296
+żebyś,so that,misc,,"[""so that""]",297
+każdy,each,misc,,"[""each"",""to each""]",298
+mógł,could,misc,,"[""could"",""to could""]",299
+dni,days,misc,,"[""days"",""to days""]",300
+wciąż,still,misc,,"[""still"",""to still""]",301
+taka,such,misc,,"[""such"",""to such""]",302
+nocy,nights,misc,,"[""nights"",""to nights""]",303
+znowu,again,misc,,"[""again"",""to again""]",304
+twojej,your,misc,,"[""your"",""to your""]",305
+potrzebuję,i need,misc,,"[""i need""]",306
+dziecko,child,misc,,"[""child"",""to child""]",307
+dnia,on,misc,,"[""on""]",308
+słuchaj,listen to,misc,,"[""listen to""]",309
+znaleźć,find,misc,,"[""find"",""to find""]",310
+pierwszy,first,misc,,"[""first"",""to first""]",311
+pieniądze,money,misc,,"[""money"",""to money""]",312
+powiem,say,misc,,"[""say""]",313
+dokładnie,precisely,misc,,"[""precisely"",""to precisely""]",314
+nami,us,misc,,"[""us""]",315
+sama,itself,misc,,"[""itself"",""to itself""]",316
+czuję,i feel,misc,,"[""i feel""]",317
+zrobił,made,misc,,"[""made"",""to made""]",318
+nasz,our,misc,,"[""our""]",319
+nasze,our,misc,,"[""our""]",320
+twoją,your,misc,,"[""your"",""to your""]",321
+widziałem,seen,misc,,"[""seen"",""to seen""]",322
+razie,for now,misc,,"[""for now""]",323
+gdyby,if,misc,,"[""if""]",324
+jakie,which,misc,,"[""which"",""to which""]",325
+spokój,calm,misc,,"[""calm"",""to calm""]",326
+dobre,good,misc,,"[""good"",""to good""]",327
+wy,you,misc,,"[""you""]",328
+samo,itself,misc,,"[""itself"",""to itself""]",329
+miała,had,misc,,"[""had""]",330
+koniec,end,misc,,"[""end""]",331
+były,former,misc,,"[""former"",""to former""]",332
+znam,i know,misc,,"[""i know""]",333
+chciał,wanted,misc,,"[""wanted"",""to wanted""]",334
+wszystkim,all,misc,,"[""all""]",335
+został,was,misc,,"[""was""]",336
+chciałbym,i would like to,misc,,"[""i would like to""]",337
+och,oh,misc,,"[""oh""]",338
+mama,mum,misc,,"[""mum""]",339
+spójrz,see,misc,,"[""see""]",340
+wcześniej,previously,misc,,"[""previously"",""to previously""]",341
+zostać,become,misc,,"[""become"",""to become""]",342
+żyje,lives,misc,,"[""lives"",""to lives""]",343
+czegoś,something,misc,,"[""something"",""to something""]",344
+sobą,yourself,misc,,"[""yourself"",""to yourself""]",345
+zabić,kill,misc,,"[""kill"",""to kill""]",346
+którzy,who,misc,,"[""who""]",347
+mówić,say,misc,,"[""say""]",348
+bym,i would,misc,,"[""i would""]",349
+imię,name,misc,,"[""name"",""to name""]",350
+chwilę,moment,misc,,"[""moment"",""to moment""]",351
+roku,year,misc,,"[""year"",""to year""]",352
+porozmawiać,talk,misc,,"[""talk"",""to talk""]",353
+lub,or,misc,,"[""or""]",354
+we,at,misc,,"[""at""]",355
+poza,beyond,misc,,"[""beyond"",""to beyond""]",356
+mogą,may,misc,,"[""may""]",357
+dom,home,misc,,"[""home"",""to home""]",358
+minut,minutes,misc,,"[""minutes"",""to minutes""]",359
+twojego,your,misc,,"[""your"",""to your""]",360
+sir,sir,misc,,"[""sir""]",361
+drzwi,doors,misc,,"[""doors"",""to doors""]",362
+powiedziałem,i said,misc,,"[""i said""]",363
+miło,nice,misc,,"[""nice"",""to nice""]",364
+posłuchaj,listen to,misc,,"[""listen to""]",365
+prawie,almost,misc,,"[""almost"",""to almost""]",366
+kogo,whom,misc,,"[""whom"",""to whom""]",367
+jakby,like,misc,,"[""like"",""to like""]",368
+jeżeli,if,misc,,"[""if""]",369
+jesteście,you are,misc,,"[""you are"",""you're""]",370
+którą,which,misc,,"[""which"",""to which""]",371
+wydaje,issues,misc,,"[""issues"",""to issues""]",372
+czekaj,wait,misc,,"[""wait"",""to wait""]",373
+człowiek,man,misc,,"[""man""]",374
+powodu,due to,misc,,"[""due to""]",375
+powinniśmy,we should,misc,,"[""we should""]",376
+lubię,i like,misc,,"[""i like""]",377
+gdzieś,somewhere,misc,,"[""somewhere"",""to somewhere""]",378
+przecież,after all,misc,,"[""after all""]",379
+sprawy,matters,misc,,"[""matters"",""to matters""]",380
+mów,say,misc,,"[""say""]",381
+końcu,finally,misc,,"[""finally"",""to finally""]",382
+moich,my,misc,,"[""my""]",383
+byłam,i was,misc,,"[""i was""]",384
+byłeś,you were,misc,,"[""you were""]",385
+c,c,misc,,"[""c""]",386
+pomysł,idea,misc,,"[""idea"",""to idea""]",387
+żadnych,no,misc,,"[""no"",""nope"",""nah""]",388
+broń,arms,misc,,"[""arms"",""to arms""]",389
+panu,mr,misc,,"[""mr""]",390
+razy,times,misc,,"[""times"",""to times""]",391
+innego,other,misc,,"[""other"",""to other""]",392
+zrobię,i'll do,misc,,"[""i'll do""]",393
+pomocy,assistance,misc,,"[""assistance"",""to assistance""]",394
+ciągle,still,misc,,"[""still"",""to still""]",395
+facet,guy,misc,,"[""guy""]",396
+wiemy,we know,misc,,"[""we know""]",397
+jednak,however,misc,,"[""however"",""to however""]",398
+noc,night,misc,,"[""night"",""to night""]",399
+żebym,that,misc,,"[""that"",""to that""]",400
+podoba,like,misc,,"[""like"",""to like""]",401
+macie,you have,misc,,"[""you have""]",402
+mówiłem,i said,misc,,"[""i said""]",403
+którego,of which,misc,,"[""of which""]",404
+dość,quite,misc,,"[""quite"",""to quite""]",405
+miejscu,site,misc,,"[""site"",""to site""]",406
+źle,wrong,misc,,"[""wrong"",""to wrong""]",407
+powinieneś,you should,misc,,"[""you should""]",408
+właściwie,properly,misc,,"[""properly"",""to properly""]",409
+powiedziała,she said,misc,,"[""she said""]",410
+ojca,father,misc,,"[""father"",""to father""]",411
+lata,years,misc,,"[""years"",""to years""]",412
+idziemy,we go,misc,,"[""we go""]",413
+pamiętasz,remember,misc,,"[""remember"",""to remember""]",414
+pokoju,room,misc,,"[""room"",""to room""]",415
+pewien,certain,misc,,"[""certain"",""to certain""]",416
+niczego,nothing,misc,,"[""nothing"",""to nothing""]",417
+takim,such,misc,,"[""such"",""to such""]",418
+sprawa,case,misc,,"[""case"",""to case""]",419
+ego,ego,misc,,"[""ego""]",420
+jedno,one,misc,,"[""one""]",421
+znasz,you know,misc,,"[""you know""]",422
+bądź,be,misc,,"[""be""]",423
+dwie,two,misc,,"[""two""]",424
+skoro,since,misc,,"[""since"",""to since""]",425
+którym,which,misc,,"[""which"",""to which""]",426
+sądzę,think,misc,,"[""think"",""to think""]",427
+swój,its,misc,,"[""its""]",428
+swojego,its,misc,,"[""its""]",429
+chodźmy,let's go,misc,,"[""let's go""]",430
+zamknij,close,misc,,"[""close"",""to close""]",431
+the,the,misc,,"[""the""]",432
+byś,would you,misc,,"[""would you""]",433
+rozumiesz,you understand,misc,,"[""you understand""]",434
+samochód,car,misc,,"[""car""]",435
+jedną,one,misc,,"[""one""]",436
+idę,i'm going,misc,,"[""i'm going""]",437
+myślałam,thought,misc,,"[""thought"",""to thought""]",438
+spokojnie,quietly,misc,,"[""quietly"",""to quietly""]",439
+musiał,must have,misc,,"[""must have""]",440
+oczy,eyes,misc,,"[""eyes"",""to eyes""]",441
+mały,small,misc,,"[""small"",""to small""]",442
+nowy,new,misc,,"[""new""]",443
+również,also,misc,,"[""also"",""to also""]",444
+rzecz,thing,misc,,"[""thing"",""to thing""]",445
+swoim,with its,misc,,"[""with its""]",446
+których,of which,misc,,"[""of which""]",447
+życiu,life,misc,,"[""life"",""to life""]",448
+podczas,during,misc,,"[""during"",""to during""]",449
+wystarczy,enough,misc,,"[""enough"",""to enough""]",450
+której,of which,misc,,"[""of which""]",451
+matka,mother,misc,,"[""mother"",""to mother""]",452
+wczoraj,yesterday,misc,,"[""yesterday"",""to yesterday""]",453
+rano,morning,misc,,"[""morning"",""to morning""]",454
+świat,world,misc,,"[""world"",""to world""]",455
+całą,entire,misc,,"[""entire"",""to entire""]",456
+byli,were,misc,,"[""were"",""to were""]",457
+pozwól,let,misc,,"[""let""]",458
+chciałam,i wanted,misc,,"[""i wanted""]",459
+weź,take,misc,,"[""take"",""to take""]",460
+sprawę,case,misc,,"[""case"",""to case""]",461
+nimi,with them,misc,,"[""with them""]",462
+powinienem,i should,misc,,"[""i should""]",463
+dwóch,two,misc,,"[""two""]",464
+miałam,i had,misc,,"[""i had""]",465
+jedna,one,misc,,"[""one""]",466
+oto,here's,misc,,"[""here's"",""to here's""]",467
+poważnie,seriously,misc,,"[""seriously"",""to seriously""]",468
+dać,give,misc,,"[""give"",""to give""]",469
+telefon,phone,misc,,"[""phone"",""to phone""]",470
+numer,number,misc,,"[""number"",""to number""]",471
+całe,whole,misc,,"[""whole"",""to whole""]",472
+wiedziałem,i knew,misc,,"[""i knew""]",473
+dziewczyna,girl,misc,,"[""girl"",""to girl""]",474
+pracę,work,misc,,"[""work"",""to work""]",475
+czujesz,feel,misc,,"[""feel"",""to feel""]",476
+idzie,goes,misc,,"[""goes"",""to goes""]",477
+da,da,misc,,"[""da""]",478
+chcą,want,misc,,"[""want"",""to want""]",479
+cokolwiek,whatever,misc,,"[""whatever"",""to whatever""]",480
+wina,wines,misc,,"[""wines"",""to wines""]",481
+dopóki,as long as,misc,,"[""as long as""]",482
+powiedziałeś,you said,misc,,"[""you said""]",483
+trzymaj,keep,misc,,"[""keep"",""to keep""]",484
+śmierci,death,misc,,"[""death"",""to death""]",485
+nikogo,no one,misc,,"[""no one""]",486
+prawdę,truth,misc,,"[""truth"",""to truth""]",487
+wrócić,return,misc,,"[""return"",""to return""]",488
+miejsca,sites,misc,,"[""sites"",""to sites""]",489
+mówił,said,misc,,"[""said"",""to said""]",490
+świecie,world,misc,,"[""world"",""to world""]",491
+swojej,its,misc,,"[""its""]",492
+powiesz,say,misc,,"[""say""]",493
+zrobiłem,i made,misc,,"[""i made""]",494
+pamiętam,i remember,misc,,"[""i remember""]",495
+halo,halo,misc,,"[""halo"",""to halo""]",496
+swoich,its,misc,,"[""its""]",497
+śmierć,death,misc,,"[""death"",""to death""]",498
+przynajmniej,at least,misc,,"[""at least""]",499
+najpierw,firstly,misc,,"[""firstly"",""to firstly""]",500
+pytanie,question,misc,,"[""question"",""to question""]",501
+wyglądasz,you look,misc,,"[""you look""]",502
+między,between,misc,,"[""between"",""among""]",503
+widzieć,see,misc,,"[""see""]",504
+jednego,one,misc,,"[""one""]",505
+dam,i'll give,misc,,"[""i'll give""]",506
+znów,again,misc,,"[""again"",""to again""]",507
+innych,other,misc,,"[""other"",""to other""]",508
+kobiety,women,misc,,"[""women"",""to women""]",509
+inaczej,otherwise,misc,,"[""otherwise"",""to otherwise""]",510
+brzmi,sounds,misc,,"[""sounds"",""to sounds""]",511
+pieniędzy,money,misc,,"[""money"",""to money""]",512
+gdybym,if i had,misc,,"[""if i had""]",513
+miłość,love,misc,,"[""love"",""to love""]",514
+robię,i do,misc,,"[""i do""]",515
+tata,dad,misc,,"[""dad""]",516
+całkiem,quite,misc,,"[""quite"",""to quite""]",517
+prawo,law,misc,,"[""law""]",518
+ręce,hands,misc,,"[""hands"",""to hands""]",519
+potrzebuje,needs,misc,,"[""needs"",""to needs""]",520
+także,also,misc,,"[""also"",""to also""]",521
+zrobiłeś,done,misc,,"[""done"",""to done""]",522
+wielu,many,misc,,"[""many"",""to many""]",523
+tłumaczenie,translation,misc,,"[""translation"",""to translation""]",524
+dokąd,where,misc,,"[""where"",""to where""]",525
+wierzę,i believe,misc,,"[""i believe""]",526
+zrób,do,misc,,"[""do""]",527
+super,super,misc,,"[""super"",""to super""]",528
+s,s,misc,,"[""s""]",529
+możliwe,possible,misc,,"[""possible"",""to possible""]",530
+inne,other,misc,,"[""other"",""to other""]",531
+naszej,our,misc,,"[""our""]",532
+drogi,dear,misc,,"[""dear"",""to dear""]",533
+pójdę,i'll go,misc,,"[""i'll go""]",534
+ważne,important,misc,,"[""important"",""to important""]",535
+jednym,one,misc,,"[""one""]",536
+kobieta,woman,misc,,"[""woman"",""to woman""]",537
+dziewczyny,girls,misc,,"[""girls"",""to girls""]",538
+każdym,each,misc,,"[""each"",""to each""]",539
+słyszałem,heard,misc,,"[""heard"",""to heard""]",540
+żona,wife,misc,,"[""wife"",""to wife""]",541
+nasza,our,misc,,"[""our""]",542
+chwili,moment,misc,,"[""moment"",""to moment""]",543
+wiecie,you know,misc,,"[""you know""]",544
+ogóle,at all,misc,,"[""at all""]",545
+działa,works,misc,,"[""works"",""to works""]",546
+pewna,certain,misc,,"[""certain"",""to certain""]",547
+wiedział,knew,misc,,"[""knew"",""to knew""]",548
+mówią,say,misc,,"[""say""]",549
+chcemy,we want,misc,,"[""we want""]",550
+poznać,explore,misc,,"[""explore"",""to explore""]",551
+gra,game,misc,,"[""game"",""to game""]",552
+dopiero,only,misc,,"[""only"",""to only""]",553
+serce,heart,misc,,"[""heart"",""to heart""]",554
+inny,other,misc,,"[""other"",""to other""]",555
+patrz,see,misc,,"[""see""]",556
+parę,few,misc,,"[""few""]",557
+dostać,get,misc,,"[""get""]",558
+powinien,should,misc,,"[""should"",""to should""]",559
+witam,welcome,misc,,"[""welcome"",""to welcome""]",560
+diabła,devil,misc,,"[""devil"",""to devil""]",561
+wcale,at all,misc,,"[""at all""]",562
+udało,succeeded,misc,,"[""succeeded"",""to succeeded""]",563
+byłoby,would be,misc,,"[""would be""]",564
+pojęcia,concepts,misc,,"[""concepts"",""to concepts""]",565
+godziny,hours,misc,,"[""hours"",""to hours""]",566
+cieszę,enjoy,misc,,"[""enjoy"",""to enjoy""]",567
+każdego,each,misc,,"[""each"",""to each""]",568
+przeciwko,against,misc,,"[""against"",""to against""]",569
+cholery,cholera,misc,,"[""cholera"",""to cholera""]",570
+naszych,our,misc,,"[""our""]",571
+została,has been,misc,,"[""has been""]",572
+wiadomość,message,misc,,"[""message"",""to message""]",573
+naszego,our,misc,,"[""our""]",574
+ciało,body,misc,,"[""body"",""to body""]",575
+nowego,new,misc,,"[""new""]",576
+naszym,our,misc,,"[""our""]",577
+jack,jack,misc,,"[""jack"",""to jack""]",578
+twoich,your,misc,,"[""your"",""to your""]",579
+zostaw,leave,misc,,"[""leave"",""to leave""]",580
+jaką,which,misc,,"[""which"",""to which""]",581
+słowa,words,misc,,"[""words"",""to words""]",582
+bóg,god,misc,,"[""god""]",583
+człowieka,man,misc,,"[""man""]",584
+pięć,five,misc,,"[""five"",""to five""]",585
+panowie,gentlemen,misc,,"[""gentlemen"",""to gentlemen""]",586
+raczej,rather,misc,,"[""rather"",""to rather""]",587
+czymś,something,misc,,"[""something"",""to something""]",588
+ziemi,land,misc,,"[""land"",""to land""]",589
+czasie,time,misc,,"[""time"",""to time""]",590
+witaj,hello,misc,,"[""hello"",""to hello""]",591
+stać,stand,misc,,"[""stand"",""to stand""]",592
+mogła,could,misc,,"[""could"",""to could""]",593
+martw,worry,misc,,"[""worry"",""to worry""]",594
+powrotem,back,misc,,"[""back"",""to back""]",595
+dziwne,strange,misc,,"[""strange"",""to strange""]",596
+wybacz,pardon,misc,,"[""pardon"",""to pardon""]",597
+oznacza,means,misc,,"[""means"",""to means""]",598
+żyć,live,misc,,"[""live"",""to live""]",599
+zabrać,take,misc,,"[""take"",""to take""]",600
+rób,do,misc,,"[""do""]",601
+plan,plan,misc,,"[""plan"",""to plan""]",602
+żadnego,no,misc,,"[""no"",""nope"",""nah""]",603
+czasem,sometimes,misc,,"[""sometimes"",""to sometimes""]",604
+one,them,misc,,"[""them"",""to them""]",605
+miałeś,you had,misc,,"[""you had""]",606
+rozmawiać,talk,misc,,"[""talk"",""to talk""]",607
+nazywa,calls,misc,,"[""calls"",""to calls""]",608
+szczęście,happiness,misc,,"[""happiness"",""to happiness""]",609
+takich,such,misc,,"[""such"",""to such""]",610
+godzin,hours,misc,,"[""hours"",""to hours""]",611
+ostatnio,most recently,misc,,"[""most recently""]",612
+natychmiast,immediately,misc,,"[""immediately"",""to immediately""]",613
+nieźle,not bad,misc,,"[""not bad""]",614
+ostatni,last,misc,,"[""last"",""to last""]",615
+syn,son of,misc,,"[""son of""]",616
+john,john,misc,,"[""john"",""to john""]",617
+widziałeś,have you seen,misc,,"[""have you seen""]",618
+zabił,killed,misc,,"[""killed"",""to killed""]",619
+krwi,blood,misc,,"[""blood"",""to blood""]",620
+rodziny,families,misc,,"[""families"",""to families""]",621
+wszystkiego,everything,misc,,"[""everything"",""to everything""]",622
+widziałam,seen,misc,,"[""seen"",""to seen""]",623
+możecie,you can,misc,,"[""you can""]",624
+zrobimy,we will do,misc,,"[""we will do""]",625
+panią,ms,misc,,"[""ms""]",626
+szkoły,schools,misc,,"[""schools"",""to schools""]",627
+słucham,i listen to,misc,,"[""i listen to""]",628
+czasami,sometimes,misc,,"[""sometimes"",""to sometimes""]",629
+zaczekaj,wait,misc,,"[""wait"",""to wait""]",630
+wyjść,exit,misc,,"[""exit"",""to exit""]",631
+idziesz,you go,misc,,"[""you go""]",632
+potrzebujemy,we need,misc,,"[""we need""]",633
+mąż,husband,misc,,"[""husband"",""to husband""]",634
+zrobisz,you will do,misc,,"[""you will do""]",635
+powinnaś,you should,misc,,"[""you should""]",636
+sprawie,on,misc,,"[""on""]",637
+uwierzyć,believe,misc,,"[""believe"",""to believe""]",638
+mieliśmy,we had,misc,,"[""we had""]",639
+byliśmy,we were,misc,,"[""we were""]",640
+mieli,had,misc,,"[""had""]",641
+doktorze,dr,misc,,"[""dr""]",642
+taką,such,misc,,"[""such"",""to such""]",643
+uważaj,watch out,misc,,"[""watch out""]",644
+mogłem,i could,misc,,"[""i could""]",645
+syna,son of,misc,,"[""son of""]",646
+ciężko,hard,misc,,"[""hard"",""to hard""]",647
+jaka,which,misc,,"[""which"",""to which""]",648
+zgadza,agrees,misc,,"[""agrees"",""to agrees""]",649
+wielki,great,misc,,"[""great"",""to great""]",650
+zobaczenia,see you,misc,,"[""see you""]",651
+pomoc,assistance,misc,,"[""assistance"",""to assistance""]",652
+drodze,way,misc,,"[""way""]",653
+skarbie,treasure,misc,,"[""treasure"",""to treasure""]",654
+najbardziej,most,misc,,"[""most"",""to most""]",655
+końca,end of,misc,,"[""end of""]",656
+głowy,heads,misc,,"[""heads"",""to heads""]",657
+świata,of the world,misc,,"[""of the world""]",658
+wieczór,evening,misc,,"[""evening"",""to evening""]",659
+kiedykolwiek,ever,misc,,"[""ever"",""to ever""]",660
+należy,please,misc,,"[""please"",""to please""]",661
+dolarów,dollars,misc,,"[""dollars"",""to dollars""]",662
+chciała,wanted,misc,,"[""wanted"",""to wanted""]",663
+część,part of,misc,,"[""part of""]",664
+strony,pages,misc,,"[""pages"",""to pages""]",665
+brat,brother,misc,,"[""brother"",""to brother""]",666
+zły,bad,misc,,"[""bad""]",667
+pokój,room,misc,,"[""room"",""to room""]",668
+kimś,someone,misc,,"[""someone"",""to someone""]",669
+cała,entire,misc,,"[""entire"",""to entire""]",670
+poczekaj,wait,misc,,"[""wait"",""to wait""]",671
+cztery,four,misc,,"[""four"",""to four""]",672
+byłaś,you were,misc,,"[""you were""]",673
+zostało,has been,misc,,"[""has been""]",674
+twarz,face,misc,,"[""face"",""to face""]",675
+policja,police,misc,,"[""police"",""to police""]",676
+zostanie,will be,misc,,"[""will be""]",677
+powinnam,i should,misc,,"[""i should""]",678
+gotowy,ready,misc,,"[""ready"",""to ready""]",679
+uda,thighs,misc,,"[""thighs"",""to thighs""]",680
+obchodzi,celebrates,misc,,"[""celebrates"",""to celebrates""]",681
+blisko,close to,misc,,"[""close to""]",682
+temat,topic,misc,,"[""topic"",""to topic""]",683
+daleko,far,misc,,"[""far""]",684
+taa,taa,misc,,"[""taa""]",685
+chcecie,you want,misc,,"[""you want""]",686
+potrzebujesz,you need,misc,,"[""you need""]",687
+mógłbym,i could,misc,,"[""i could""]",688
+okay,okay,misc,,"[""okay"",""to okay""]",689
+miasta,cities,misc,,"[""cities"",""to cities""]",690
+serio,seriously,misc,,"[""seriously"",""to seriously""]",691
+chłopaki,guys,misc,,"[""guys"",""to guys""]",692
+wspaniale,great,misc,,"[""great"",""to great""]",693
+ode,from,misc,,"[""from"",""to from""]",694
+środku,centre,misc,,"[""centre"",""to centre""]",695
+powiedziałam,i said,misc,,"[""i said""]",696
+innym,other,misc,,"[""other"",""to other""]",697
+naszą,our,misc,,"[""our""]",698
+dobranoc,good night,misc,,"[""good night""]",699
+wieczorem,evening,misc,,"[""evening"",""to evening""]",700
+rok,year,misc,,"[""year"",""to year""]",701
+pół,half,misc,,"[""half"",""to half""]",702
+racja,rationale,misc,,"[""rationale"",""to rationale""]",703
+lecz,but,misc,,"[""but""]",704
+człowiekiem,man,misc,,"[""man""]",705
+czyli,i.e,misc,,"[""i.e""]",706
+radę,advice,misc,,"[""advice"",""to advice""]",707
+szybciej,faster,misc,,"[""faster"",""to faster""]",708
+chociaż,although,misc,,"[""although"",""to although""]",709
+jezu,jesus,misc,,"[""jesus"",""to jesus""]",710
+krew,blood,misc,,"[""blood"",""to blood""]",711
+późno,late,misc,,"[""late"",""to late""]",712
+dr,dr,misc,,"[""dr""]",713
+spotkanie,meeting,misc,,"[""meeting"",""to meeting""]",714
+you,you,misc,,"[""you""]",715
+zewnątrz,outside,misc,,"[""outside"",""to outside""]",716
+kapitanie,captain,misc,,"[""captain"",""to captain""]",717
+głowę,head,misc,,"[""head"",""to head""]",718
+lubisz,you like,misc,,"[""you like""]",719
+chciałabym,i would like,misc,,"[""i would like""]",720
+zależy,depends,misc,,"[""depends"",""to depends""]",721
+robota,robot,misc,,"[""robot"",""to robot""]",722
+d,d,misc,,"[""d""]",723
+lubi,likes,misc,,"[""likes"",""to likes""]",724
+słowo,word,misc,,"[""word"",""to word""]",725
+wziąć,take,misc,,"[""take"",""to take""]",726
+gdybyś,if you,misc,,"[""if you""]",727
+powinno,should,misc,,"[""should"",""to should""]",728
+mówiąc,saying,misc,,"[""saying"",""to saying""]",729
+mała,small,misc,,"[""small"",""to small""]",730
+wypadek,accident,misc,,"[""accident"",""to accident""]",731
+znalazłem,found,misc,,"[""found"",""to found""]",732
+dawaj,give,misc,,"[""give"",""to give""]",733
+miesięcy,months,misc,,"[""months"",""to months""]",734
+pójść,go,misc,,"[""go""]",735
+wejść,enter,misc,,"[""enter"",""to enter""]",736
+nowe,new,misc,,"[""new""]",737
+robimy,we do,misc,,"[""we do""]",738
+stronie,website,misc,,"[""website"",""to website""]",739
+zobaczymy,we'll see,misc,,"[""we'll see""]",740
+wrócę,i'll be back,misc,,"[""i'll be back""]",741
+mniej,less,misc,,"[""less"",""to less""]",742
+praca,work,misc,,"[""work"",""to work""]",743
+moi,my,misc,,"[""my""]",744
+pierwsze,first,misc,,"[""first"",""to first""]",745
+tydzień,week,misc,,"[""week"",""to week""]",746
+zupełnie,entirely,misc,,"[""entirely"",""to entirely""]",747
+rodzina,family,misc,,"[""family"",""to family""]",748
+boga,god,misc,,"[""god""]",749
+czeka,waits,misc,,"[""waits"",""to waits""]",750
+zna,knows,misc,,"[""knows"",""to knows""]",751
+wody,waters,misc,,"[""waters"",""to waters""]",752
+zrobi,will do,misc,,"[""will do""]",753
+prawdopodobnie,probably,misc,,"[""probably"",""to probably""]",754
+serca,hearts,misc,,"[""hearts"",""to hearts""]",755
+widział,seen,misc,,"[""seen"",""to seen""]",756
+prawa,rights,misc,,"[""rights"",""to rights""]",757
+nieważne,never mind,misc,,"[""never mind""]",758
+złe,bad,misc,,"[""bad""]",759
+mogli,could,misc,,"[""could"",""to could""]",760
+jakoś,somehow,misc,,"[""somehow"",""to somehow""]",761
+mógłbyś,you could,misc,,"[""you could""]",762
+człowieku,man,misc,,"[""man""]",763
+doktor,dr,misc,,"[""dr""]",764
+sprawdzić,check,misc,,"[""check"",""to check""]",765
+chłopak,boyfriend,misc,,"[""boyfriend"",""to boyfriend""]",766
+film,film,misc,,"[""film"",""to film""]",767
+pracować,work,misc,,"[""work"",""to work""]",768
+według,by,misc,,"[""by""]",769
+szansę,chance,misc,,"[""chance"",""to chance""]",770
+mieście,city,misc,,"[""city"",""to city""]",771
+robią,do,misc,,"[""do""]",772
+wiedziałam,i knew,misc,,"[""i knew""]",773
+spotkać,meet,misc,,"[""meet"",""to meet""]",774
+jechać,go,misc,,"[""go""]",775
+mówiłeś,you said,misc,,"[""you said""]",776
+sądzisz,think,misc,,"[""think"",""to think""]",777
+wspólnego,common,misc,,"[""common"",""to common""]",778
+spać,sleep,misc,,"[""sleep"",""to sleep""]",779
+ojcem,father,misc,,"[""father"",""to father""]",780
+małe,small,misc,,"[""small"",""to small""]",781
+tymi,with these,misc,,"[""with these""]",782
+mógłby,could,misc,,"[""could"",""to could""]",783
+gówno,shit,misc,,"[""shit"",""to shit""]",784
+koleś,dude,misc,,"[""dude"",""to dude""]",785
+ciała,bodies,misc,,"[""bodies"",""to bodies""]",786
+pracuje,works,misc,,"[""works"",""to works""]",787
+ponad,over,misc,,"[""over"",""to over""]",788
+chwila,moment,misc,,"[""moment"",""to moment""]",789
+uwagę,attention,misc,,"[""attention"",""to attention""]",790
+problemy,problems,misc,,"[""problems"",""to problems""]",791
+wystarczająco,enough,misc,,"[""enough"",""to enough""]",792
+brak,no,misc,,"[""no"",""nope"",""nah""]",793
+zdjęcia,photos,misc,,"[""photos"",""to photos""]",794
+miasto,city,misc,,"[""city"",""to city""]",795
+wkrótce,coming soon,misc,,"[""coming soon""]",796
+rękę,hand,misc,,"[""hand"",""to hand""]",797
+okej,okay,misc,,"[""okay"",""to okay""]",798
+kilku,several,misc,,"[""several"",""to several""]",799
+myśleć,think,misc,,"[""think"",""to think""]",800
+wasza,your,misc,,"[""your"",""to your""]",801
+mało,little,misc,,"[""little"",""to little""]",802
+góry,mountains,misc,,"[""mountains"",""to mountains""]",803
+uh,uh,misc,,"[""uh""]",804
+charlie,charlie,misc,,"[""charlie"",""to charlie""]",805
+michael,michael,misc,,"[""michael"",""to michael""]",806
+znać,know,misc,,"[""know"",""to know""]",807
+zatrzymać,stop,misc,,"[""stop"",""to stop""]",808
+jakąś,some,misc,,"[""some"",""to some""]",809
+nazywam,i call,misc,,"[""i call""]",810
+wiedzą,knowledge,misc,,"[""knowledge"",""to knowledge""]",811
+całym,all,misc,,"[""all""]",812
+broni,arms,misc,,"[""arms"",""to arms""]",813
+drogę,road,misc,,"[""road"",""to road""]",814
+gotowa,ready,misc,,"[""ready"",""to ready""]",815
+pogadać,chat,misc,,"[""chat"",""to chat""]",816
+droga,road,misc,,"[""road"",""to road""]",817
+wszędzie,everywhere,misc,,"[""everywhere"",""to everywhere""]",818
+przyjaciół,friends,misc,,"[""friends"",""to friends""]",819
+dał,gave,misc,,"[""gave"",""to gave""]",820
+stronę,website,misc,,"[""website"",""to website""]",821
+mówiłam,i said,misc,,"[""i said""]",822
+pomoże,will help,misc,,"[""will help""]",823
+prosto,straight,misc,,"[""straight"",""to straight""]",824
+pomóż,help,misc,,"[""help"",""to help""]",825
+wami,you,misc,,"[""you""]",826
+wielkie,great,misc,,"[""great"",""to great""]",827
+powiedziałaś,you said,misc,,"[""you said""]",828
+niemożliwe,impossible,misc,,"[""impossible"",""to impossible""]",829
+ostatnie,last,misc,,"[""last"",""to last""]",830
+przyjaciel,friend,misc,,"[""friend"",""to friend""]",831
+samochodu,car,misc,,"[""car""]",832
+zdjęcie,photo,misc,,"[""photo"",""to photo""]",833
+dziewczynę,girl,misc,,"[""girl"",""to girl""]",834
+pokaż,show,misc,,"[""show"",""to show""]",835
+zapomnij,forget,misc,,"[""forget"",""to forget""]",836
+pa,bye,misc,,"[""bye""]",837
+słyszysz,you can hear,misc,,"[""you can hear""]",838
+nagle,suddenly,misc,,"[""suddenly"",""to suddenly""]",839
+zmienić,amend,misc,,"[""amend"",""to amend""]",840
+razu,straight away,misc,,"[""straight away""]",841
+samego,itself,misc,,"[""itself"",""to itself""]",842
+brata,brother,misc,,"[""brother"",""to brother""]",843
+miłości,love,misc,,"[""love"",""to love""]",844
+nazwisko,name,misc,,"[""name"",""to name""]",845
+roboty,works,misc,,"[""works"",""to works""]",846
+drugi,second,misc,,"[""second"",""to second""]",847
+wracaj,return,misc,,"[""return"",""to return""]",848
+rodzice,parents,misc,,"[""parents"",""to parents""]",849
+popatrz,look at,misc,,"[""look at""]",850
+kłopoty,trouble,misc,,"[""trouble"",""to trouble""]",851
+większość,most,misc,,"[""most"",""to most""]",852
+czuje,feels,misc,,"[""feels"",""to feels""]",853
+trudno,difficult,misc,,"[""difficult"",""to difficult""]",854
+żaden,no,misc,,"[""no"",""nope"",""nah""]",855
+zaczyna,starts,misc,,"[""starts"",""to starts""]",856
+drugiej,second,misc,,"[""second"",""to second""]",857
+dół,bottom,misc,,"[""bottom"",""to bottom""]",858
+odejść,leave,misc,,"[""leave"",""to leave""]",859
+szkole,school,misc,,"[""school"",""to school""]",860
+pozwolić,allow,misc,,"[""allow"",""to allow""]",861
+frank,frank,misc,,"[""frank"",""to frank""]",862
+zobacz,see,misc,,"[""see""]",863
+zrobiła,she did,misc,,"[""she did""]",864
+dobrym,good,misc,,"[""good"",""to good""]",865
+głowie,head,misc,,"[""head"",""to head""]",866
+ruszaj,move,misc,,"[""move"",""to move""]",867
+często,often,misc,,"[""often"",""to often""]",868
+faceta,guy,misc,,"[""guy""]",869
+muszą,must,misc,,"[""must"",""to must""]",870
+szkoda,pity,misc,,"[""pity"",""to pity""]",871
+żadnej,no,misc,,"[""no"",""nope"",""nah""]",872
+jedziemy,we go,misc,,"[""we go""]",873
+początku,beginning of,misc,,"[""beginning of""]",874
+dziecka,child,misc,,"[""child"",""to child""]",875
+matki,mothers,misc,,"[""mothers"",""to mothers""]",876
+zacząć,start,misc,,"[""start"",""to start""]",877
+całkowicie,entirely,misc,,"[""entirely"",""to entirely""]",878
+piękna,beautiful,misc,,"[""beautiful"",""to beautiful""]",879
+godzinę,one hour,misc,,"[""one hour""]",880
+głupi,stupid,misc,,"[""stupid"",""to stupid""]",881
+choć,although,misc,,"[""although"",""to although""]",882
+policji,police,misc,,"[""police"",""to police""]",883
+musiałem,i had to,misc,,"[""i had to""]",884
+chłopcy,boys,misc,,"[""boys"",""to boys""]",885
+błąd,error,misc,,"[""error"",""to error""]",886
+niestety,unfortunately,misc,,"[""unfortunately"",""to unfortunately""]",887
+przykład,example,misc,,"[""example"",""to example""]",888
+dowiedzieć,find out,misc,,"[""find out""]",889
+pierwsza,first,misc,,"[""first"",""to first""]",890
+czekać,wait,misc,,"[""wait"",""to wait""]",891
+pomyślałem,thought,misc,,"[""thought"",""to thought""]",892
+jakaś,some,misc,,"[""some"",""to some""]",893
+zadzwonić,call,misc,,"[""call"",""to call""]",894
+zabawne,funny,misc,,"[""funny"",""to funny""]",895
+zostań,become,misc,,"[""become"",""to become""]",896
+widzenia,sightings,misc,,"[""sightings"",""to sightings""]",897
+trzech,three,misc,,"[""three"",""to three""]",898
+górę,top,misc,,"[""top""]",899
+synu,son,misc,,"[""son""]",900
+najlepszy,best,misc,,"[""best"",""to best""]",901
+córka,daughter,misc,,"[""daughter"",""to daughter""]",902
+pewnego,certain,misc,,"[""certain"",""to certain""]",903
+trzymać,hold,misc,,"[""hold"",""to hold""]",904
+szefie,chief,misc,,"[""chief"",""to chief""]",905
+dawno,long time,misc,,"[""long time""]",906
+rany,wounds,misc,,"[""wounds"",""to wounds""]",907
+pokazać,show,misc,,"[""show"",""to show""]",908
+miało,had,misc,,"[""had""]",909
+przyszedł,came,misc,,"[""came"",""to came""]",910
+joe,joe,misc,,"[""joe""]",911
+siostra,sister,misc,,"[""sister"",""to sister""]",912
+sami,themselves,misc,,"[""themselves"",""to themselves""]",913
+ponownie,again,misc,,"[""again"",""to again""]",914
+zostawić,leave,misc,,"[""leave"",""to leave""]",915
+jedynie,only,misc,,"[""only"",""to only""]",916
+nowym,new,misc,,"[""new""]",917
+zamiast,instead of,misc,,"[""instead of""]",918
+inni,others,misc,,"[""others"",""to others""]",919
+jakim,which,misc,,"[""which"",""to which""]",920
+jednej,one,misc,,"[""one""]",921
+historia,history,misc,,"[""history"",""to history""]",922
+kraju,country,misc,,"[""country"",""to country""]",923
+obiecuję,i promise,misc,,"[""i promise""]",924
+tygodniu,week,misc,,"[""week"",""to week""]",925
+obok,next to,misc,,"[""next to""]",926
+spróbuj,try,misc,,"[""try""]",927
+wieku,age,misc,,"[""age""]",928
+środka,measure,misc,,"[""measure"",""to measure""]",929
+musicie,you must,misc,,"[""you must""]",930
+powie,will say,misc,,"[""will say""]",931
+hey,hey,misc,,"[""hey""]",932
+dłużej,longer,misc,,"[""longer"",""to longer""]",933
+george,george,misc,,"[""george"",""to george""]",934
+chciałeś,you wanted,misc,,"[""you wanted""]",935
+łatwo,easily,misc,,"[""easily"",""to easily""]",936
+będziecie,you will,misc,,"[""you will""]",937
+okazji,occasions,misc,,"[""occasions"",""to occasions""]",938
+statek,ship,misc,,"[""ship"",""to ship""]",939
+zamierzam,i intend to,misc,,"[""i intend to""]",940
+uważam,i believe,misc,,"[""i believe""]",941
+wróci,will return,misc,,"[""will return""]",942
+niczym,like,misc,,"[""like"",""to like""]",943
+dasz,give,misc,,"[""give"",""to give""]",944
+pracuję,i work,misc,,"[""i work""]",945
+rady,tips,misc,,"[""tips"",""to tips""]",946
+mike,mike,misc,,"[""mike"",""to mike""]",947
+znaleźliśmy,we found,misc,,"[""we found""]",948
+oraz,and,misc,,"[""and""]",949
+oboje,both,misc,,"[""both"",""to both""]",950
+nikomu,to no one,misc,,"[""to no one"",""no one""]",951
+złego,bad,misc,,"[""bad""]",952
+samym,alone,misc,,"[""alone"",""to alone""]",953
+rodzinę,family,misc,,"[""family"",""to family""]",954
+cicho,quietly,misc,,"[""quietly"",""to quietly""]",955
+istnieje,there is,misc,,"[""there is""]",956
+zrobiłam,i made,misc,,"[""i made""]",957
+mimo,despite,misc,,"[""despite"",""to despite""]",958
+odkąd,since,misc,,"[""since"",""to since""]",959
+uważasz,consider,misc,,"[""consider"",""to consider""]",960
+musiała,must have,misc,,"[""must have""]",961
+leci,flies,misc,,"[""flies"",""to flies""]",962
+jakiegoś,of some,misc,,"[""of some""]",963
+spróbować,try,misc,,"[""try""]",964
+męża,husband,misc,,"[""husband"",""to husband""]",965
+kupić,purchase,misc,,"[""purchase"",""to purchase""]",966
+moment,moment,misc,,"[""moment"",""to moment""]",967
+zatem,so,misc,,"[""so""]",968
+prawdziwe,real,misc,,"[""real"",""to real""]",969
+zła,bad,misc,,"[""bad""]",970
+cie,thou,misc,,"[""thou"",""to thou""]",971
+osób,persons,misc,,"[""persons"",""to persons""]",972
+wezmę,i'll take,misc,,"[""i'll take""]",973
+takiej,such,misc,,"[""such"",""to such""]",974
+mówiła,said,misc,,"[""said"",""to said""]",975
+wiadomości,news,misc,,"[""news"",""to news""]",976
+sześć,six,misc,,"[""six""]",977
+żonę,wife,misc,,"[""wife"",""to wife""]",978
+gość,guest,misc,,"[""guest"",""to guest""]",979
+dziewczyną,girl,misc,,"[""girl"",""to girl""]",980
+słyszałeś,you heard,misc,,"[""you heard""]",981
+około,about,misc,,"[""about"",""to about""]",982
+fbi,fbi,misc,,"[""fbi""]",983
+mężczyzna,man,misc,,"[""man""]",984
+boję,i'm afraid,misc,,"[""i'm afraid""]",985
+tędy,this way,misc,,"[""this way""]",986
+znajdziemy,find,misc,,"[""find"",""to find""]",987
+walczyć,fight,misc,,"[""fight"",""to fight""]",988
+zamiar,intention,misc,,"[""intention"",""to intention""]",989
+kocha,loves,misc,,"[""loves"",""to loves""]",990
+zajmę,i will take,misc,,"[""i will take""]",991
+osobą,the person,misc,,"[""the person"",""person""]",992
+historii,stories,misc,,"[""stories"",""to stories""]",993
+ciągu,string,misc,,"[""string"",""to string""]",994
+wasze,your,misc,,"[""your"",""to your""]",995
+boli,hurts,misc,,"[""hurts"",""to hurts""]",996
+panno,miss,misc,,"[""miss"",""to miss""]",997
+powinna,should,misc,,"[""should"",""to should""]",998
+strasznie,terribly,misc,,"[""terribly"",""to terribly""]",999
+and,and,misc,,"[""and""]",1000
+powodzenia,good luck,misc,,"[""good luck""]",1001
+panem,mr,misc,,"[""mr""]",1002
+bracie,brother,misc,,"[""brother"",""to brother""]",1003
+zwykle,usually,misc,,"[""usually"",""to usually""]",1004
+czyż,czyż,misc,,"[""czyż"",""to czyż""]",1005
+wracam,back,misc,,"[""back"",""to back""]",1006
+tom,volume,misc,,"[""volume"",""to volume""]",1007
+niby,supposedly,misc,,"[""supposedly"",""to supposedly""]",1008
+umrzeć,die,misc,,"[""die""]",1009
+następnym,next,misc,,"[""next"",""to next""]",1010
+zadzwonię,i will call,misc,,"[""i will call""]",1011
+gotowi,ready,misc,,"[""ready"",""to ready""]",1012
+niedługo,soon,misc,,"[""soon"",""to soon""]",1013
+ojcze,father,misc,,"[""father"",""to father""]",1014
+przyjdzie,come,misc,,"[""come"",""to come""]",1015
+myśl,thought,misc,,"[""thought"",""to thought""]",1016
+przyjacielem,friend,misc,,"[""friend"",""to friend""]",1017
+włosy,hair,misc,,"[""hair"",""to hair""]",1018
+proste,simple,misc,,"[""simple"",""to simple""]",1019
+prawdziwy,real,misc,,"[""real"",""to real""]",1020
+nowa,new,misc,,"[""new""]",1021
+daje,gives,misc,,"[""gives"",""to gives""]",1022
+dzieckiem,child,misc,,"[""child"",""to child""]",1023
+pewnością,certainly,misc,,"[""certainly"",""to certainly""]",1024
+pytania,questions,misc,,"[""questions"",""to questions""]",1025
+nienawidzę,i hate,misc,,"[""i hate""]",1026
+wrócił,returned,misc,,"[""returned"",""to returned""]",1027
+najlepsze,best,misc,,"[""best"",""to best""]",1028
+kobietą,woman,misc,,"[""woman"",""to woman""]",1029
+ulicy,street,misc,,"[""street"",""to street""]",1030
+najlepiej,preferably,misc,,"[""preferably"",""to preferably""]",1031
+widać,can be seen,misc,,"[""can be seen""]",1032
+znajdę,i find,misc,,"[""i find""]",1033
+stan,state,misc,,"[""state"",""to state""]",1034
+przyjaciele,friends,misc,,"[""friends"",""to friends""]",1035
+ludźmi,people,misc,,"[""people"",""to people""]",1036
+zabierz,take,misc,,"[""take"",""to take""]",1037
+jedzenie,eating,misc,,"[""eating"",""to eating""]",1038
+wracać,return,misc,,"[""return"",""to return""]",1039
+zostały,have been,misc,,"[""have been""]",1040
+powód,reason,misc,,"[""reason"",""to reason""]",1041
+nigdzie,nowhere,misc,,"[""nowhere"",""to nowhere""]",1042
+kochasz,you love,misc,,"[""you love""]",1043
+seks,sex,misc,,"[""sex""]",1044
+ludziom,people,misc,,"[""people"",""to people""]",1045
+próbuję,i'm trying,misc,,"[""i'm trying""]",1046
+zadzwoń,call,misc,,"[""call"",""to call""]",1047
+sporo,a lot,misc,,"[""a lot"",""lot""]",1048
+ziemię,land,misc,,"[""land"",""to land""]",1049
+potrafię,i can,misc,,"[""i can""]",1050
+same,alone,misc,,"[""alone"",""to alone""]",1051
+piękne,beautiful,misc,,"[""beautiful"",""to beautiful""]",1052
+zająć,occupy,misc,,"[""occupy"",""to occupy""]",1053
+przysięgam,i swear,misc,,"[""i swear""]",1054
+szpitala,hospital,misc,,"[""hospital"",""to hospital""]",1055
+spokoju,peace,misc,,"[""peace"",""to peace""]",1056
+słyszałam,heard,misc,,"[""heard"",""to heard""]",1057
+szczerze,sincerely,misc,,"[""sincerely"",""to sincerely""]",1058
+przestać,cease,misc,,"[""cease"",""to cease""]",1059
+twarzy,face,misc,,"[""face"",""to face""]",1060
+żartujesz,you're kidding,misc,,"[""you're kidding""]",1061
+pewny,reliable,misc,,"[""reliable"",""to reliable""]",1062
+póki,as long as,misc,,"[""as long as""]",1063
+przyjaciółmi,friends,misc,,"[""friends"",""to friends""]",1064
+tysięcy,thousands,misc,,"[""thousands"",""to thousands""]",1065
+nogi,legs,misc,,"[""legs"",""to legs""]",1066
+zrobiłaś,you made,misc,,"[""you made""]",1067
+znalazł,found,misc,,"[""found"",""to found""]",1068
+wolno,slowly,misc,,"[""slowly"",""to slowly""]",1069
+mieszka,lives,misc,,"[""lives"",""to lives""]",1070
+miałaś,you had,misc,,"[""you had""]",1071
+głos,voice,misc,,"[""voice"",""to voice""]",1072
+pasuje,fits,misc,,"[""fits"",""to fits""]",1073
+robił,made,misc,,"[""made"",""to made""]",1074
+mogłam,i could,misc,,"[""i could""]",1075
+otwórz,open,misc,,"[""open"",""to open""]",1076
+wyboru,selection,misc,,"[""selection"",""to selection""]",1077
+zrozumieć,understand,misc,,"[""understand"",""to understand""]",1078
+chwileczkę,a moment,misc,,"[""a moment"",""moment""]",1079
+każdej,each,misc,,"[""each"",""to each""]",1080
+m,m,misc,,"[""m""]",1081
+powstrzymać,halt,misc,,"[""halt"",""to halt""]",1082
+tyłu,back,misc,,"[""back"",""to back""]",1083
+mogłeś,you could,misc,,"[""you could""]",1084
+słyszę,i hear,misc,,"[""i hear""]",1085
+grać,play,misc,,"[""play"",""to play""]",1086
+kolację,dinner,misc,,"[""dinner"",""to dinner""]",1087
+uwielbiam,i love,misc,,"[""i love""]",1088
+uciec,flee,misc,,"[""flee"",""to flee""]",1089
+moglibyśmy,we could,misc,,"[""we could""]",1090
+zabiję,i will kill,misc,,"[""i will kill""]",1091
+uspokój,calm down,misc,,"[""calm down""]",1092
+centrum,centre,misc,,"[""centre"",""to centre""]",1093
+żony,wives,misc,,"[""wives"",""to wives""]",1094
+wreszcie,finally,misc,,"[""finally"",""to finally""]",1095
+przyjść,come,misc,,"[""come"",""to come""]",1096
+y,y,misc,,"[""y""]",1097
+kolejny,another,misc,,"[""another"",""to another""]",1098
+cel,purpose,misc,,"[""purpose"",""to purpose""]",1099
+dobrego,good,misc,,"[""good"",""to good""]",1100
+szczęśliwy,happy,misc,,"[""happy"",""to happy""]",1101
+biura,offices,misc,,"[""offices"",""to offices""]",1102
+kapitan,captain,misc,,"[""captain"",""to captain""]",1103
+tacy,such,misc,,"[""such"",""to such""]",1104
+mocno,heavily,misc,,"[""heavily"",""to heavily""]",1105
+musieli,must have,misc,,"[""must have""]",1106
+znaczenia,meanings,misc,,"[""meanings"",""to meanings""]",1107
+trudne,difficult,misc,,"[""difficult"",""to difficult""]",1108
+świetny,great,misc,,"[""great"",""to great""]",1109
+poszedł,went,misc,,"[""went"",""to went""]",1110
+młody,young,misc,,"[""young"",""to young""]",1111
+tygodni,weeks,misc,,"[""weeks"",""to weeks""]",1112
+odpowiedź,reply,misc,,"[""reply"",""to reply""]",1113
+stój,stand,misc,,"[""stand"",""to stand""]",1114
+bogu,god,misc,,"[""god""]",1115
+david,david,misc,,"[""david"",""to david""]",1116
+szukam,i'm looking for,misc,,"[""i'm looking for""]",1117
+duży,large,misc,,"[""large"",""to large""]",1118
+korekta,proofreading,misc,,"[""proofreading"",""to proofreading""]",1119
+niektórzy,some,misc,,"[""some"",""to some""]",1120
+t,t,misc,,"[""t""]",1121
+widziałaś,have you seen,misc,,"[""have you seen""]",1122
+chodźcie,come on,misc,,"[""come on""]",1123
+gościa,guest,misc,,"[""guest"",""to guest""]",1124
+żoną,wife,misc,,"[""wife"",""to wife""]",1125
+części,parts,misc,,"[""parts"",""to parts""]",1126
+obawiam,i'm afraid,misc,,"[""i'm afraid""]",1127
+henry,henry,misc,,"[""henry"",""to henry""]",1128
+następny,next,misc,,"[""next"",""to next""]",1129
+tygodnie,weeks,misc,,"[""weeks"",""to weeks""]",1130
+informacje,information,misc,,"[""information"",""to information""]",1131
+sekund,seconds,misc,,"[""seconds"",""to seconds""]",1132
+fajnie,cool,misc,,"[""cool"",""to cool""]",1133
+pewne,certain,misc,,"[""certain"",""to certain""]",1134
+jedyną,the only,misc,,"[""the only"",""only""]",1135
+wow,wow,misc,,"[""wow""]",1136
+samej,itself,misc,,"[""itself"",""to itself""]",1137
+yeah,yeah,misc,,"[""yeah"",""to yeah""]",1138
+wielka,great,misc,,"[""great"",""to great""]",1139
+wojny,wars,misc,,"[""wars"",""to wars""]",1140
+mocy,power,misc,,"[""power"",""to power""]",1141
+wieści,news,misc,,"[""news"",""to news""]",1142
+ból,pain,misc,,"[""pain"",""to pain""]",1143
+matką,mother,misc,,"[""mother"",""to mother""]",1144
+związek,link,misc,,"[""link"",""to link""]",1145
+zobaczysz,see,misc,,"[""see""]",1146
+tony,tons,misc,,"[""tons"",""to tons""]",1147
+jakbym,as if,misc,,"[""as if""]",1148
+dajcie,give,misc,,"[""give"",""to give""]",1149
+żebyśmy,so that,misc,,"[""so that""]",1150
+pierwszym,first,misc,,"[""first"",""to first""]",1151
+górze,top,misc,,"[""top""]",1152
+mnóstwo,lots of,misc,,"[""lots of""]",1153
+ktokolwiek,anyone,misc,,"[""anyone"",""to anyone""]",1154
+jakiego,of which,misc,,"[""of which""]",1155
+peter,peter,misc,,"[""peter"",""to peter""]",1156
+przyjaciela,friend,misc,,"[""friend"",""to friend""]",1157
+reszta,the rest,misc,,"[""the rest"",""rest""]",1158
+lepsze,better,misc,,"[""better"",""to better""]",1159
+facetem,guy,misc,,"[""guy""]",1160
+pozwolę,let me,misc,,"[""let me""]",1161
+pytań,questions,misc,,"[""questions"",""to questions""]",1162
+policję,police,misc,,"[""police"",""to police""]",1163
+ach,ah,misc,,"[""ah""]",1164
+hotelu,hotel,misc,,"[""hotel"",""to hotel""]",1165
+stoi,stands,misc,,"[""stands"",""to stands""]",1166
+łóżka,beds,misc,,"[""beds"",""to beds""]",1167
+list,letter,misc,,"[""letter"",""to letter""]",1168
+sądzie,court,misc,,"[""court"",""to court""]",1169
+małą,small,misc,,"[""small"",""to small""]",1170
+osoba,person,misc,,"[""person"",""to person""]",1171
+niesamowite,amazing,misc,,"[""amazing"",""to amazing""]",1172
+zapytać,ask,misc,,"[""ask""]",1173
+światło,light,misc,,"[""light"",""to light""]",1174
+sensu,sense,misc,,"[""sense"",""to sense""]",1175
+wasz,your,misc,,"[""your"",""to your""]",1176
+dostał,got,misc,,"[""got""]",1177
+los,fate,misc,,"[""fate"",""to fate""]",1178
+ruszać,move,misc,,"[""move"",""to move""]",1179
+wiedziała,knew,misc,,"[""knew"",""to knew""]",1180
+prezent,gift,misc,,"[""gift"",""to gift""]",1181
+nową,new,misc,,"[""new""]",1182
+resztę,the rest,misc,,"[""the rest"",""rest""]",1183
+dostałem,got,misc,,"[""got""]",1184
+ciekawe,interesting,misc,,"[""interesting"",""to interesting""]",1185
+uwaga,attention,misc,,"[""attention"",""to attention""]",1186
+l,l,misc,,"[""l""]",1187
+martwy,dead,misc,,"[""dead"",""to dead""]",1188
+jedynym,the only,misc,,"[""the only"",""only""]",1189
+więzienia,prisons,misc,,"[""prisons"",""to prisons""]",1190
+obiad,dinner,misc,,"[""dinner"",""to dinner""]",1191
+przyszłość,future,misc,,"[""future"",""to future""]",1192
+uważa,considers,misc,,"[""considers"",""to considers""]",1193
+chodziło,was about,misc,,"[""was about""]",1194
+tyłek,butt,misc,,"[""butt"",""to butt""]",1195
+potrafi,can,misc,,"[""can""]",1196
+poszło,went,misc,,"[""went"",""to went""]",1197
+osoby,persons,misc,,"[""persons"",""to persons""]",1198
+pomiędzy,between,misc,,"[""between"",""to between""]",1199
+walki,fights,misc,,"[""fights"",""to fights""]",1200
+wspaniałe,wonderful,misc,,"[""wonderful"",""to wonderful""]",1201
+szukać,seek,misc,,"[""seek"",""to seek""]",1202
+rodziców,parents,misc,,"[""parents"",""to parents""]",1203
+związku,link,misc,,"[""link"",""to link""]",1204
+zobaczę,see,misc,,"[""see""]",1205
+twoi,your,misc,,"[""your"",""to your""]",1206
+kobietę,woman,misc,,"[""woman"",""to woman""]",1207
+danny,danny,misc,,"[""danny"",""to danny""]",1208
+jorku,york,misc,,"[""york"",""to york""]",1209
+dobrą,good,misc,,"[""good"",""to good""]",1210
+aaccff,aaccff,misc,,"[""aaccff"",""to aaccff""]",1211
+dostaniesz,get,misc,,"[""get""]",1212
+zaczął,started,misc,,"[""started"",""to started""]",1213
+martwić,worry,misc,,"[""worry"",""to worry""]",1214
+szansa,opportunity,misc,,"[""opportunity"",""to opportunity""]",1215
+pójdziesz,you go,misc,,"[""you go""]",1216
+nieprawda,untrue,misc,,"[""untrue"",""to untrue""]",1217
+james,james,misc,,"[""james"",""to james""]",1218
+system,system,misc,,"[""system"",""to system""]",1219
+sen,sleep,misc,,"[""sleep"",""to sleep""]",1220
+ben,ben,misc,,"[""ben""]",1221
+zabije,will kill,misc,,"[""will kill""]",1222
+całej,of the whole,misc,,"[""of the whole""]",1223
+widzi,sees,misc,,"[""sees"",""to sees""]",1224
+ślub,wedding,misc,,"[""wedding"",""to wedding""]",1225
+jimmy,jimmy,misc,,"[""jimmy"",""to jimmy""]",1226
+zajmie,will take,misc,,"[""will take""]",1227
+sytuacji,situation,misc,,"[""situation"",""to situation""]",1228
+niezły,nice,misc,,"[""nice"",""to nice""]",1229
+wierzysz,you believe,misc,,"[""you believe""]",1230
+szpitalu,hospital,misc,,"[""hospital"",""to hospital""]",1231
+zatrzymaj,stop,misc,,"[""stop"",""to stop""]",1232
+szef,chief,misc,,"[""chief"",""to chief""]",1233
+częścią,part of,misc,,"[""part of""]",1234
+własne,own,misc,,"[""own""]",1235
+mowy,speech,misc,,"[""speech"",""to speech""]",1236
+moc,power,misc,,"[""power"",""to power""]",1237
+kobiet,women,misc,,"[""women"",""to women""]",1238
+it,it,misc,,"[""it""]",1239
+coraz,increasingly,misc,,"[""increasingly"",""to increasingly""]",1240
+skończyć,finish,misc,,"[""finish"",""to finish""]",1241
+gry,games,misc,,"[""games"",""to games""]",1242
+dzieciak,kid,misc,,"[""kid""]",1243
+gotowe,ready,misc,,"[""ready"",""to ready""]",1244
+jedyny,the only,misc,,"[""the only"",""only""]",1245
+próbował,tried,misc,,"[""tried"",""to tried""]",1246
+patrzeć,look,misc,,"[""look"",""to look""]",1247
+mogło,could,misc,,"[""could"",""to could""]",1248
+jedyne,the only,misc,,"[""the only"",""only""]",1249
+chcieli,wanted,misc,,"[""wanted"",""to wanted""]",1250
+pamiętaj,remember,misc,,"[""remember"",""to remember""]",1251
+ofiary,victims,misc,,"[""victims"",""to victims""]",1252
+pójdzie,will go,misc,,"[""will go""]",1253
+miesiąc,month,misc,,"[""month"",""to month""]",1254
+pomogę,i will help,misc,,"[""i will help""]",1255
+skończy,will finish,misc,,"[""will finish""]",1256
+miły,nice,misc,,"[""nice"",""to nice""]",1257
+zamierzasz,intend,misc,,"[""intend"",""to intend""]",1258
+słuchać,listen to,misc,,"[""listen to""]",1259
+lepszy,better,misc,,"[""better"",""to better""]",1260
+wypadku,accident,misc,,"[""accident"",""to accident""]",1261
+siły,forces,misc,,"[""forces"",""to forces""]",1262
+stara,old,misc,,"[""old""]",1263
+interes,business,misc,,"[""business"",""to business""]",1264
+dna,bottoms,misc,,"[""bottoms"",""to bottoms""]",1265
+jedź,go,misc,,"[""go""]",1266
+zdanie,statement,misc,,"[""statement"",""to statement""]",1267
+przyjęcie,adoption,misc,,"[""adoption"",""to adoption""]",1268
+zjeść,eat,misc,,"[""eat""]",1269
+usłyszeć,hear,misc,,"[""hear"",""to hear""]",1270
+przejść,pass,misc,,"[""pass"",""to pass""]",1271
+robotę,job,misc,,"[""job""]",1272
+dowód,proof,misc,,"[""proof"",""to proof""]",1273
+próbowałem,i tried,misc,,"[""i tried""]",1274
+paul,paul,misc,,"[""paul"",""to paul""]",1275
+jakbyś,as if,misc,,"[""as if""]",1276
+wstawaj,stand up,misc,,"[""stand up""]",1277
+robicie,you are doing,misc,,"[""you are doing""]",1278
+wokół,around,misc,,"[""around"",""to around""]",1279
+jeść,eat,misc,,"[""eat""]",1280
+mary,mary,misc,,"[""mary"",""to mary""]",1281
+max,max,misc,,"[""max""]",1282
+rodzaju,kind of,misc,,"[""kind of""]",1283
+stylu,style,misc,,"[""style"",""to style""]",1284
+pójdziemy,we'll go,misc,,"[""we'll go""]",1285
+odpowiedzi,answers,misc,,"[""answers"",""to answers""]",1286
+wybór,selection,misc,,"[""selection"",""to selection""]",1287
+milionów,millions,misc,,"[""millions"",""to millions""]",1288
+pomyśl,think,misc,,"[""think"",""to think""]",1289
+dosyć,quite,misc,,"[""quite"",""to quite""]",1290
+duże,large,misc,,"[""large"",""to large""]",1291
+dzieciaki,kids,misc,,"[""kids"",""to kids""]",1292
+wspaniały,wonderful,misc,,"[""wonderful"",""to wonderful""]",1293
+powiedzieli,said,misc,,"[""said"",""to said""]",1294
+usiądź,sit down,misc,,"[""sit down""]",1295
+staram,i try,misc,,"[""i try""]",1296
+najwyraźniej,apparently,misc,,"[""apparently"",""to apparently""]",1297
+chronić,protect,misc,,"[""protect"",""to protect""]",1298
+byłby,would be,misc,,"[""would be""]",1299
+morderstwo,murder,misc,,"[""murder"",""to murder""]",1300
+wysoki,high,misc,,"[""high"",""to high""]",1301
+próbuje,tries,misc,,"[""tries"",""to tries""]",1302
+otworzyć,open,misc,,"[""open"",""to open""]",1303
+śmieszne,funny,misc,,"[""funny"",""to funny""]",1304
+oko,eye,misc,,"[""eye""]",1305
+ogień,fire,misc,,"[""fire"",""to fire""]",1306
+celu,purpose,misc,,"[""purpose"",""to purpose""]",1307
+wiedziałeś,you knew,misc,,"[""you knew""]",1308
+juz,already,misc,,"[""already"",""to already""]",1309
+prosić,please,misc,,"[""please"",""to please""]",1310
+miesiące,months,misc,,"[""months"",""to months""]",1311
+pies,dog,misc,,"[""dog""]",1312
+jakimś,some,misc,,"[""some"",""to some""]",1313
+nieco,somewhat,misc,,"[""somewhat"",""to somewhat""]",1314
+historię,history,misc,,"[""history"",""to history""]",1315
+znalazłam,i found,misc,,"[""i found""]",1316
+drugie,second,misc,,"[""second"",""to second""]",1317
+harry,harry,misc,,"[""harry"",""to harry""]",1318
+sprawdź,check out,misc,,"[""check out""]",1319
+komuś,to sb,misc,,"[""to sb"",""sb""]",1320
+statku,ship,misc,,"[""ship"",""to ship""]",1321
+ależ,but,misc,,"[""but""]",1322
+drugą,second,misc,,"[""second"",""to second""]",1323
+ostatniej,last,misc,,"[""last"",""to last""]",1324
+wejdź,go to,misc,,"[""go to""]",1325
+spoko,cool,misc,,"[""cool"",""to cool""]",1326
+telefonu,phone,misc,,"[""phone"",""to phone""]",1327
+samochodzie,car,misc,,"[""car""]",1328
+jedyna,the only,misc,,"[""the only"",""only""]",1329
+stamtąd,from here,misc,,"[""from here""]",1330
+me,me,misc,,"[""me""]",1331
+ciąży,pregnancy,misc,,"[""pregnancy"",""to pregnancy""]",1332
+patrzcie,see,misc,,"[""see""]",1333
+spraw,matters,misc,,"[""matters"",""to matters""]",1334
+pracujesz,you work,misc,,"[""you work""]",1335
+wielkiego,great,misc,,"[""great"",""to great""]",1336
+jadę,i'm going,misc,,"[""i'm going""]",1337
+piękny,beautiful,misc,,"[""beautiful"",""to beautiful""]",1338
+znajdziesz,find,misc,,"[""find"",""to find""]",1339
+chłopaka,boyfriend,misc,,"[""boyfriend"",""to boyfriend""]",1340
+spotkamy,meet,misc,,"[""meet"",""to meet""]",1341
+brakuje,missing,misc,,"[""missing"",""to missing""]",1342
+dole,bottom of,misc,,"[""bottom of""]",1343
+światła,lights,misc,,"[""lights"",""to lights""]",1344
+mogłabym,i could,misc,,"[""i could""]",1345
+boisz,you are afraid,misc,,"[""you are afraid""]",1346
+uratować,rescue,misc,,"[""rescue"",""to rescue""]",1347
+ostatnia,last,misc,,"[""last"",""to last""]",1348
+alex,alex,misc,,"[""alex"",""to alex""]",1349
+przyszedłem,come,misc,,"[""come"",""to come""]",1350
+buty,shoes,misc,,"[""shoes"",""to shoes""]",1351
+zbrodni,crimes,misc,,"[""crimes"",""to crimes""]",1352
+zrobili,made,misc,,"[""made"",""to made""]",1353
+program,programme,misc,,"[""programme"",""to programme""]",1354
+potrzeba,need,misc,,"[""need"",""to need""]",1355
+więzieniu,prison,misc,,"[""prison"",""to prison""]",1356
+córkę,daughter,misc,,"[""daughter"",""to daughter""]",1357
+głupie,silly,misc,,"[""silly"",""to silly""]",1358
+wcześnie,early,misc,,"[""early"",""to early""]",1359
+wyjaśnić,explain,misc,,"[""explain"",""to explain""]",1360
+użyć,use,misc,,"[""use""]",1361
+zdobyć,get,misc,,"[""get""]",1362
+psa,dog,misc,,"[""dog""]",1363
+laboratorium,laboratory,misc,,"[""laboratory"",""to laboratory""]",1364
+wiec,so,misc,,"[""so""]",1365
+abyś,so that,misc,,"[""so that""]",1366
+bob,bob,misc,,"[""bob""]",1367
+pobliżu,near,misc,,"[""near"",""to near""]",1368
+myślą,thought,misc,,"[""thought"",""to thought""]",1369
+puść,release,misc,,"[""release"",""to release""]",1370
+gorzej,worse,misc,,"[""worse"",""to worse""]",1371
+klucz,key,misc,,"[""key""]",1372
+ładnie,nice,misc,,"[""nice"",""to nice""]",1373
+mózgu,brain,misc,,"[""brain"",""to brain""]",1374
+pokażę,show,misc,,"[""show"",""to show""]",1375
+słuchajcie,listen to,misc,,"[""listen to""]",1376
+informacji,information,misc,,"[""information"",""to information""]",1377
+chłopiec,boy,misc,,"[""boy""]",1378
+samą,alone,misc,,"[""alone"",""to alone""]",1379
+drinka,drink,misc,,"[""drink"",""to drink""]",1380
+atak,attack,misc,,"[""attack"",""to attack""]",1381
+zasady,rules,misc,,"[""rules"",""to rules""]",1382
+potrafisz,you can,misc,,"[""you can""]",1383
+tommy,tommy,misc,,"[""tommy"",""to tommy""]",1384
+zabiłeś,you killed,misc,,"[""you killed""]",1385
+firmy,companies,misc,,"[""companies"",""to companies""]",1386
+miłe,nice,misc,,"[""nice"",""to nice""]",1387
+koło,wheel,misc,,"[""wheel"",""to wheel""]",1388
+szczęśliwa,happy,misc,,"[""happy"",""to happy""]",1389
+kolego,colleague,misc,,"[""colleague"",""to colleague""]",1390
+siedem,seven,misc,,"[""seven"",""to seven""]",1391
+adres,address,misc,,"[""address"",""to address""]",1392
+zamknąć,close,misc,,"[""close"",""to close""]",1393
+biurze,office,misc,,"[""office"",""to office""]",1394
+dziesięć,ten,misc,,"[""ten""]",1395
+siadaj,sit down,misc,,"[""sit down""]",1396
+umarł,died,misc,,"[""died"",""to died""]",1397
+osobiście,in person,misc,,"[""in person""]",1398
+problemu,problem,misc,,"[""problem"",""to problem""]",1399
+nauczyć,teach,misc,,"[""teach"",""to teach""]",1400
+matkę,mother,misc,,"[""mother"",""to mother""]",1401
+poproszę,please,misc,,"[""please"",""to please""]",1402
+potrzebował,needed,misc,,"[""needed"",""to needed""]",1403
+przyszłości,future,misc,,"[""future"",""to future""]",1404
+wychodzi,comes out,misc,,"[""comes out""]",1405
+woda,water,misc,,"[""water"",""to water""]",1406
+piwo,beer,misc,,"[""beer"",""to beer""]",1407
+samolot,plane,misc,,"[""plane"",""to plane""]",1408
+najlepszym,best,misc,,"[""best"",""to best""]",1409
+owszem,yes,misc,,"[""yes"",""yeah"",""yep""]",1410
+chłopcze,boy,misc,,"[""boy""]",1411
+słychać,can be heard,misc,,"[""can be heard""]",1412
+rodziną,family,misc,,"[""family"",""to family""]",1413
+bezpieczeństwa,security,misc,,"[""security"",""to security""]",1414
+wielkim,great,misc,,"[""great"",""to great""]",1415
+wojna,war,misc,,"[""war""]",1416
+znajdzie,finds,misc,,"[""finds"",""to finds""]",1417
+pierwszą,first,misc,,"[""first"",""to first""]",1418
+uczucie,feeling,misc,,"[""feeling"",""to feeling""]",1419
+mówiłaś,you said,misc,,"[""you said""]",1420
+em,em,misc,,"[""em""]",1421
+minuty,minutes,misc,,"[""minutes"",""to minutes""]",1422
+załatwić,get,misc,,"[""get""]",1423
+jaja,eggs,misc,,"[""eggs"",""to eggs""]",1424
+tuż,just,misc,,"[""just"",""to just""]",1425
+książki,books,misc,,"[""books"",""to books""]",1426
+łóżku,bed,misc,,"[""bed""]",1427
+nick,nickname,misc,,"[""nickname"",""to nickname""]",1428
+of,of,misc,,"[""of""]",1429
+prowadzi,runs,misc,,"[""runs"",""to runs""]",1430
+zniszczyć,destroy,misc,,"[""destroy"",""to destroy""]",1431
+wolny,free,misc,,"[""free"",""to free""]",1432
+siedzieć,sit,misc,,"[""sit""]",1433
+pierwszej,first,misc,,"[""first"",""to first""]",1434
+wolę,i prefer,misc,,"[""i prefer""]",1435
+złapać,catch,misc,,"[""catch"",""to catch""]",1436
+przyjacielu,friend,misc,,"[""friend"",""to friend""]",1437
+powiedzenia,sayings,misc,,"[""sayings"",""to sayings""]",1438
+pięknie,beautifully,misc,,"[""beautifully"",""to beautifully""]",1439
+billy,billy,misc,,"[""billy"",""to billy""]",1440
+budynku,building,misc,,"[""building"",""to building""]",1441
+powoli,slowly,misc,,"[""slowly"",""to slowly""]",1442
+siostry,sisters,misc,,"[""sisters"",""to sisters""]",1443
+pracował,worked,misc,,"[""worked"",""to worked""]",1444
+zajęty,busy,misc,,"[""busy"",""to busy""]",1445
+gratulacje,congratulations,misc,,"[""congratulations"",""to congratulations""]",1446
+całego,of the entire,misc,,"[""of the entire""]",1447
+każda,each,misc,,"[""each"",""to each""]",1448
+mieszkanie,flat,misc,,"[""flat"",""to flat""]",1449
+don,don,misc,,"[""don""]",1450
+codziennie,daily,misc,,"[""daily"",""to daily""]",1451
+ślady,traces,misc,,"[""traces"",""to traces""]",1452
+doskonale,perfectly,misc,,"[""perfectly"",""to perfectly""]",1453
+zabrał,took,misc,,"[""took"",""to took""]",1454
+zostanę,i will stay,misc,,"[""i will stay""]",1455
+zostawił,left,misc,,"[""left"",""to left""]",1456
+kawałek,piece of,misc,,"[""piece of""]",1457
+byśmy,by,misc,,"[""by""]",1458
+przygotować,prepare,misc,,"[""prepare"",""to prepare""]",1459
+wielką,great,misc,,"[""great"",""to great""]",1460
+straszne,terrible,misc,,"[""terrible"",""to terrible""]",1461
+ostrożnie,carefully,misc,,"[""carefully"",""to carefully""]",1462
+zespół,team,misc,,"[""team"",""to team""]",1463
+początek,beginning of,misc,,"[""beginning of""]",1464
+wierzyć,believe,misc,,"[""believe"",""to believe""]",1465
+chory,sick,misc,,"[""sick"",""to sick""]",1466
+martwi,dead,misc,,"[""dead"",""to dead""]",1467
+jedzenia,eating,misc,,"[""eating"",""to eating""]",1468
+życiem,life,misc,,"[""life"",""to life""]",1469
+prawdziwa,genuine,misc,,"[""genuine"",""to genuine""]",1470
+badania,research,misc,,"[""research"",""to research""]",1471
+wiadomo,known,misc,,"[""known"",""to known""]",1472
+pomyślałam,thought,misc,,"[""thought"",""to thought""]",1473
+znajdź,find,misc,,"[""find"",""to find""]",1474
+niezła,nice,misc,,"[""nice"",""to nice""]",1475
+oprócz,apart from,misc,,"[""apart from""]",1476
+mogłabyś,you could,misc,,"[""you could""]",1477
+stał,stood,misc,,"[""stood"",""to stood""]",1478
+zapomnieć,forget,misc,,"[""forget"",""to forget""]",1479
+urodziny,birthday,misc,,"[""birthday"",""to birthday""]",1480
+bycie,being,misc,,"[""being"",""to being""]",1481
+innymi,other,misc,,"[""other"",""to other""]",1482
+jane,jane,misc,,"[""jane"",""to jane""]",1483
+dane,data,misc,,"[""data"",""to data""]",1484
+jim,jim,misc,,"[""jim""]",1485
+dala,dala,misc,,"[""dala"",""to dala""]",1486
+dowody,evidence,misc,,"[""evidence"",""to evidence""]",1487
+znak,sign,misc,,"[""sign"",""to sign""]",1488
+jake,jake,misc,,"[""jake"",""to jake""]",1489
+wyszedł,came out,misc,,"[""came out""]",1490
+wśród,among,misc,,"[""among"",""to among""]",1491
+jakiej,of which,misc,,"[""of which""]",1492
+druga,second,misc,,"[""second"",""to second""]",1493
+zginął,died,misc,,"[""died"",""to died""]",1494
+zgadzam,i agree,misc,,"[""i agree""]",1495
+zostaniesz,you will be,misc,,"[""you will be""]",1496
+zeszłym,last,misc,,"[""last"",""to last""]",1497
+kawę,coffee,misc,,"[""coffee"",""to coffee""]",1498
+kuchni,kitchen,misc,,"[""kitchen"",""to kitchen""]",1499
+witamy,welcome,misc,,"[""welcome"",""to welcome""]",1500
+lekarza,doctor,misc,,"[""doctor"",""to doctor""]",1501
+podaj,give,misc,,"[""give"",""to give""]",1502
+weekend,weekend,misc,,"[""weekend"",""to weekend""]",1503
+znamy,we know,misc,,"[""we know""]",1504
+założę,i will set up,misc,,"[""i will set up""]",1505
+rozkaz,order,misc,,"[""order"",""to order""]",1506
+dwoje,two,misc,,"[""two""]",1507
+wyjdzie,comes out,misc,,"[""comes out""]",1508
+wysokość,height,misc,,"[""height"",""to height""]",1509
+naprawić,fix,misc,,"[""fix""]",1510
+grupa,group,misc,,"[""group"",""to group""]",1511
+król,king,misc,,"[""king"",""to king""]",1512
+przyznać,admit,misc,,"[""admit"",""to admit""]",1513
+podobno,reportedly,misc,,"[""reportedly"",""to reportedly""]",1514
+steve,steve,misc,,"[""steve"",""to steve""]",1515
+kawy,coffees,misc,,"[""coffees"",""to coffees""]",1516
+dziękuje,thank you,misc,,"[""thank you""]",1517
+gości,visitors,misc,,"[""visitors"",""to visitors""]",1518
+rodzinie,family,misc,,"[""family"",""to family""]",1519
+zrozumiałem,understood,misc,,"[""understood"",""to understood""]",1520
+zdecydowanie,definitely,misc,,"[""definitely"",""to definitely""]",1521
+plany,plans,misc,,"[""plans"",""to plans""]",1522
+nazywasz,you call,misc,,"[""you call""]",1523
+dziękujemy,thank you,misc,,"[""thank you""]",1524
+odebrać,collect,misc,,"[""collect"",""to collect""]",1525
+przede,primarily,misc,,"[""primarily"",""to primarily""]",1526
+ruch,movement,misc,,"[""movement"",""to movement""]",1527
+córki,daughters,misc,,"[""daughters"",""to daughters""]",1528
+świetne,great,misc,,"[""great"",""to great""]",1529
+własną,own,misc,,"[""own""]",1530
+znalazłeś,found,misc,,"[""found"",""to found""]",1531
+damy,ladies,misc,,"[""ladies"",""to ladies""]",1532
+chciałbyś,you would like,misc,,"[""you would like""]",1533
+imieniu,on behalf of,misc,,"[""on behalf of""]",1534
+zaczynamy,starting,misc,,"[""starting"",""to starting""]",1535
+pora,season,misc,,"[""season"",""to season""]",1536
+ray,ray,misc,,"[""ray""]",1537
+chryste,christ,misc,,"[""christ"",""to christ""]",1538
+zadanie,task,misc,,"[""task"",""to task""]",1539
+zapomniałem,i forgot,misc,,"[""i forgot""]",1540
+poczekać,wait,misc,,"[""wait"",""to wait""]",1541
+uciekaj,run away,misc,,"[""run away""]",1542
+raport,report,misc,,"[""report"",""to report""]",1543
+święta,holidays,misc,,"[""holidays"",""to holidays""]",1544
+świetna,great,misc,,"[""great"",""to great""]",1545
+zróbmy,let's do,misc,,"[""let's do""]",1546
+zobaczmy,see,misc,,"[""see""]",1547
+dziwnie,strangely,misc,,"[""strangely"",""to strangely""]",1548
+napisy,subtitles,misc,,"[""subtitles"",""to subtitles""]",1549
+sprawia,makes,misc,,"[""makes"",""to makes""]",1550
+wobec,towards,misc,,"[""towards"",""to towards""]",1551
+kończy,concludes,misc,,"[""concludes"",""to concludes""]",1552
+różne,various,misc,,"[""various"",""to various""]",1553
+twierdzi,says,misc,,"[""says"",""to says""]",1554
+lunch,lunch,misc,,"[""lunch"",""to lunch""]",1555
+la,la,misc,,"[""la""]",1556
+przysługę,favour,misc,,"[""favour"",""to favour""]",1557
+chodzić,walk,misc,,"[""walk"",""to walk""]",1558
+wyglądam,i look,misc,,"[""i look""]",1559
+zdaje,passes,misc,,"[""passes"",""to passes""]",1560
+johnny,johnny,misc,,"[""johnny"",""to johnny""]",1561
+fakt,fact,misc,,"[""fact"",""to fact""]",1562
+moimi,my,misc,,"[""my""]",1563
+kolejne,further,misc,,"[""further"",""to further""]",1564
+synem,son of,misc,,"[""son of""]",1565
+latach,years,misc,,"[""years"",""to years""]",1566
+zostałem,i was,misc,,"[""i was""]",1567
+bierz,take,misc,,"[""take"",""to take""]",1568
+kości,bones,misc,,"[""bones"",""to bones""]",1569
+pozbyć,shed,misc,,"[""shed"",""to shed""]",1570
+musiałam,i had to,misc,,"[""i had to""]",1571
+szczęścia,happiness,misc,,"[""happiness"",""to happiness""]",1572
+agent,agent,misc,,"[""agent"",""to agent""]",1573
+wodę,water,misc,,"[""water"",""to water""]",1574
+um,um,misc,,"[""um""]",1575
+kraj,country,misc,,"[""country"",""to country""]",1576
+momencie,moment,misc,,"[""moment"",""to moment""]",1577
+listy,letters,misc,,"[""letters"",""to letters""]",1578
+zwłaszcza,especially,misc,,"[""especially"",""to especially""]",1579
+ostatnim,last,misc,,"[""last"",""to last""]",1580
+młoda,young,misc,,"[""young"",""to young""]",1581
+szuka,seeks,misc,,"[""seeks"",""to seeks""]",1582
+znaleźli,found,misc,,"[""found"",""to found""]",1583
+żyjesz,you live,misc,,"[""you live""]",1584
+dałem,i gave,misc,,"[""i gave""]",1585
+rodzaj,kind of,misc,,"[""kind of""]",1586
+rząd,government,misc,,"[""government"",""to government""]",1587
+musze,must,misc,,"[""must"",""to must""]",1588
+zgodnie,according to,misc,,"[""according to""]",1589
+przychodzi,comes,misc,,"[""comes"",""to comes""]",1590
+przyszła,future,misc,,"[""future"",""to future""]",1591
+wrażenie,impression,misc,,"[""impression"",""to impression""]",1592
+rozmawialiśmy,discussed,misc,,"[""discussed"",""to discussed""]",1593
+rana,wound,misc,,"[""wound"",""to wound""]",1594
+odejdź,go away,misc,,"[""go away""]",1595
+względu,due to,misc,,"[""due to""]",1596
+odzyskać,recover,misc,,"[""recover"",""to recover""]",1597
+przeciw,against,misc,,"[""against"",""to against""]",1598
+usiąść,sit,misc,,"[""sit""]",1599
+czuć,feel,misc,,"[""feel"",""to feel""]",1600
+wziął,took,misc,,"[""took"",""to took""]",1601
+poszła,went,misc,,"[""went"",""to went""]",1602
+chciałaś,you wanted,misc,,"[""you wanted""]",1603
+zabiłem,i killed,misc,,"[""i killed""]",1604
+oddać,donate,misc,,"[""donate"",""to donate""]",1605
+wyjścia,outputs,misc,,"[""outputs"",""to outputs""]",1606
+dawna,former,misc,,"[""former"",""to former""]",1607
+możliwości,opportunities,misc,,"[""opportunities"",""to opportunities""]",1608
+pierwszego,first,misc,,"[""first"",""to first""]",1609
+will,will,misc,,"[""will"",""to will""]",1610
+każdą,any,misc,,"[""any""]",1611
+powinni,they should,misc,,"[""they should""]",1612
+niezłe,not bad,misc,,"[""not bad""]",1613
+podróż,travel,misc,,"[""travel"",""to travel""]",1614
+krok,step,misc,,"[""step"",""to step""]",1615
+ognia,fire,misc,,"[""fire"",""to fire""]",1616
+trzyma,holds,misc,,"[""holds"",""to holds""]",1617
+rachel,rachel,misc,,"[""rachel"",""to rachel""]",1618
+sygnał,signal,misc,,"[""signal"",""to signal""]",1619
+chciałby,would like,misc,,"[""would like""]",1620
+śniadanie,breakfast,misc,,"[""breakfast"",""to breakfast""]",1621
+panna,miss,misc,,"[""miss"",""to miss""]",1622
+gotów,ready,misc,,"[""ready"",""to ready""]",1623
+żyją,live,misc,,"[""live"",""to live""]",1624
+zapłacić,pay,misc,,"[""pay""]",1625
+lekarz,doctor,misc,,"[""doctor"",""to doctor""]",1626
+rzeczywiście,indeed,misc,,"[""indeed"",""to indeed""]",1627
+szukasz,looking for,misc,,"[""looking for""]",1628
+detektyw,detective,misc,,"[""detective"",""to detective""]",1629
+jedzie,goes,misc,,"[""goes"",""to goes""]",1630
+chwilkę,a moment,misc,,"[""a moment"",""moment""]",1631
+ochotę,fancy,misc,,"[""fancy"",""to fancy""]",1632
+bill,bill,misc,,"[""bill"",""to bill""]",1633
+kate,kate,misc,,"[""kate"",""to kate""]",1634
+kolej,rail,misc,,"[""rail"",""to rail""]",1635
+sytuacja,situation,misc,,"[""situation"",""to situation""]",1636
+rozmowy,interviews,misc,,"[""interviews"",""to interviews""]",1637
+kontakt,contact,misc,,"[""contact"",""to contact""]",1638
+głupia,silly,misc,,"[""silly"",""to silly""]",1639
+in,in,misc,,"[""in""]",1640
+f,f,misc,,"[""f""]",1641
+hmm,hmm,misc,,"[""hmm""]",1642
+iż,that,misc,,"[""that"",""to that""]",1643
+książkę,book,misc,,"[""book"",""to book""]",1644
+amy,amy,misc,,"[""amy""]",1645
+wrócisz,you'll be back,misc,,"[""you'll be back""]",1646
+nasi,our,misc,,"[""our""]",1647
+miłego,enjoy,misc,,"[""enjoy"",""to enjoy""]",1648
+dumny,proud,misc,,"[""proud"",""to proud""]",1649
+mężczyzną,a man,misc,,"[""a man"",""man""]",1650
+brać,take,misc,,"[""take"",""to take""]",1651
+niektóre,some,misc,,"[""some"",""to some""]",1652
+mężczyzn,men,misc,,"[""men""]",1653
+okno,window,misc,,"[""window"",""to window""]",1654
+błagam,please,misc,,"[""please"",""to please""]",1655
+miałbym,i would have,misc,,"[""i would have""]",1656
+stare,old,misc,,"[""old""]",1657
+wynoś,take away,misc,,"[""take away""]",1658
+spójrzcie,take a look,misc,,"[""take a look""]",1659
+udział,share,misc,,"[""share"",""to share""]",1660
+zabawy,plays,misc,,"[""plays"",""to plays""]",1661
+mamą,mum,misc,,"[""mum""]",1662
+rozmowę,interview,misc,,"[""interview"",""to interview""]",1663
+szukamy,looking for,misc,,"[""looking for""]",1664
+prawdy,truths,misc,,"[""truths"",""to truths""]",1665
+głowa,head,misc,,"[""head"",""to head""]",1666
+kochać,love,misc,,"[""love"",""to love""]",1667
+nowych,new,misc,,"[""new""]",1668
+rozumie,understands,misc,,"[""understands"",""to understands""]",1669
+zmieni,will change,misc,,"[""will change""]",1670
+doceniam,i appreciate,misc,,"[""i appreciate""]",1671
+morderstwa,murders,misc,,"[""murders"",""to murders""]",1672
+zrobiliśmy,we made,misc,,"[""we made""]",1673
+obraz,image,misc,,"[""image"",""to image""]",1674
+mówimy,we say,misc,,"[""we say""]",1675
+idźcie,go,misc,,"[""go""]",1676
+dostanie,gets,misc,,"[""gets"",""to gets""]",1677
+bobby,bobby,misc,,"[""bobby"",""to bobby""]",1678
+dzwonił,called,misc,,"[""called"",""to called""]",1679
+oddaj,donate,misc,,"[""donate"",""to donate""]",1680
+biuro,office,misc,,"[""office"",""to office""]",1681
+najlepszego,the best,misc,,"[""the best"",""best""]",1682
+ochrony,protection,misc,,"[""protection"",""to protection""]",1683
+cudownie,wonderfully,misc,,"[""wonderfully"",""to wonderfully""]",1684
+wydarzyło,happened,misc,,"[""happened"",""to happened""]",1685
+wyglądają,look,misc,,"[""look"",""to look""]",1686
+liczy,counts,misc,,"[""counts"",""to counts""]",1687
+problemów,problems,misc,,"[""problems"",""to problems""]",1688
+moge,can,misc,,"[""can""]",1689
+wewnątrz,inside,misc,,"[""inside"",""to inside""]",1690
+przypadku,case,misc,,"[""case"",""to case""]",1691
+osiem,eight,misc,,"[""eight"",""to eight""]",1692
+niebezpieczne,dangerous,misc,,"[""dangerous"",""to dangerous""]",1693
+czekam,looking forward to,misc,,"[""looking forward to""]",1694
+podać,give,misc,,"[""give"",""to give""]",1695
+rzeczą,thing,misc,,"[""thing"",""to thing""]",1696
+wyniki,results,misc,,"[""results"",""to results""]",1697
+chętnie,gladly,misc,,"[""gladly"",""to gladly""]",1698
+otwarte,open,misc,,"[""open"",""to open""]",1699
+komu,to whom,misc,,"[""to whom"",""whom""]",1700
+potrzebny,needed,misc,,"[""needed"",""to needed""]",1701
+swego,its,misc,,"[""its""]",1702
+dostanę,get,misc,,"[""get""]",1703
+prosze,please,misc,,"[""please"",""to please""]",1704
+rozmawiałem,talked to,misc,,"[""talked to""]",1705
+inną,another,misc,,"[""another"",""to another""]",1706
+leży,lies,misc,,"[""lies"",""to lies""]",1707
+karty,cards,misc,,"[""cards"",""to cards""]",1708
+siedzi,sits,misc,,"[""sits"",""to sits""]",1709
+szefem,head of,misc,,"[""head of""]",1710
+chris,chris,misc,,"[""chris"",""to chris""]",1711
+słońce,sun,misc,,"[""sun""]",1712
+spojrzeć,look,misc,,"[""look"",""to look""]",1713
+niewiele,not much,misc,,"[""not much""]",1714
+widzicie,you can see,misc,,"[""you can see""]",1715
+jesli,if,misc,,"[""if""]",1716
+wyprawiasz,you are doing,misc,,"[""you are doing""]",1717
+dziewczynka,girl,misc,,"[""girl"",""to girl""]",1718
+zimno,cold,misc,,"[""cold"",""to cold""]",1719
+wybaczyć,forgive,misc,,"[""forgive"",""to forgive""]",1720
+pomaga,helps,misc,,"[""helps"",""to helps""]",1721
+uczucia,feelings,misc,,"[""feelings"",""to feelings""]",1722
+tamtej,that,misc,,"[""that"",""to that""]",1723
+pory,pores,misc,,"[""pores"",""to pores""]",1724
+zmienia,changes,misc,,"[""changes"",""to changes""]",1725
+inna,other,misc,,"[""other"",""to other""]",1726
+wraca,returns,misc,,"[""returns"",""to returns""]",1727
+zazwyczaj,usually,misc,,"[""usually"",""to usually""]",1728
+decyzję,decision,misc,,"[""decision"",""to decision""]",1729
+przypadek,case,misc,,"[""case"",""to case""]",1730
+najlepsza,best,misc,,"[""best"",""to best""]",1731
+sens,sense,misc,,"[""sense"",""to sense""]",1732
+stracić,miss,misc,,"[""miss"",""to miss""]",1733
+żart,joke,misc,,"[""joke"",""to joke""]",1734
+opuścić,leave,misc,,"[""leave"",""to leave""]",1735
+okolicy,area,misc,,"[""area"",""to area""]",1736
+prezydent,president,misc,,"[""president"",""to president""]",1737
+wyjdź,exit,misc,,"[""exit"",""to exit""]",1738
+przestańcie,stop,misc,,"[""stop"",""to stop""]",1739
+kasę,cash box,misc,,"[""cash box""]",1740
+telewizji,tv,misc,,"[""tv""]",1741
+ilu,how many,misc,,"[""how many""]",1742
+zabawa,fun,misc,,"[""fun""]",1743
+lekarzem,doctor,misc,,"[""doctor"",""to doctor""]",1744
+króla,king,misc,,"[""king"",""to king""]",1745
+test,test,misc,,"[""test"",""to test""]",1746
+lee,lee,misc,,"[""lee""]",1747
+dolców,bucks,misc,,"[""bucks"",""to bucks""]",1748
+dziećmi,children,misc,,"[""children"",""to children""]",1749
+grę,game,misc,,"[""game"",""to game""]",1750
+uwagi,comments,misc,,"[""comments"",""to comments""]",1751
+oglądać,watch,misc,,"[""watch"",""to watch""]",1752
+poruczniku,lieutenant,misc,,"[""lieutenant"",""to lieutenant""]",1753
+przyjemność,pleasure,misc,,"[""pleasure"",""to pleasure""]",1754
+słów,words,misc,,"[""words"",""to words""]",1755
+umrze,dies,misc,,"[""dies"",""to dies""]",1756
+zaczynam,starting,misc,,"[""starting"",""to starting""]",1757
+wygrać,win,misc,,"[""win""]",1758
+waszej,your,misc,,"[""your"",""to your""]",1759
+zastanawiam,i wonder,misc,,"[""i wonder""]",1760
+poradzę,advise,misc,,"[""advise"",""to advise""]",1761
+zostaje,stays,misc,,"[""stays"",""to stays""]",1762
+działać,act,misc,,"[""act""]",1763
+zacznie,will start,misc,,"[""will start""]",1764
+wydostać,get out,misc,,"[""get out""]",1765
+ładna,nice,misc,,"[""nice"",""to nice""]",1766
+poziom,level,misc,,"[""level"",""to level""]",1767
+tysiące,thousands,misc,,"[""thousands"",""to thousands""]",1768
+obaj,both,misc,,"[""both"",""to both""]",1769
+listę,list,misc,,"[""list"",""to list""]",1770
+godzina,hour,misc,,"[""hour"",""to hour""]",1771
+bliżej,closer to,misc,,"[""closer to""]",1772
+drugim,second,misc,,"[""second"",""to second""]",1773
+zaufaj,trust,misc,,"[""trust"",""to trust""]",1774
+wybrać,select,misc,,"[""select"",""to select""]",1775
+straciłem,i have lost,misc,,"[""i have lost""]",1776
+przynieś,bring,misc,,"[""bring"",""to bring""]",1777
+ej,ej,misc,,"[""ej""]",1778
+linii,line,misc,,"[""line"",""to line""]",1779
+cos,cos,misc,,"[""cos""]",1780
+ostatnią,last,misc,,"[""last"",""to last""]",1781
+ryan,ryan,misc,,"[""ryan"",""to ryan""]",1782
+taty,dads,misc,,"[""dads"",""to dads""]",1783
+dobrej,good,misc,,"[""good"",""to good""]",1784
+bratem,brother,misc,,"[""brother"",""to brother""]",1785
+e,e,misc,,"[""e""]",1786
+małego,small,misc,,"[""small"",""to small""]",1787
+wyjście,output,misc,,"[""output"",""to output""]",1788
+zdrowie,health,misc,,"[""health"",""to health""]",1789
+lewo,left,misc,,"[""left"",""to left""]",1790
+oczach,eyes,misc,,"[""eyes"",""to eyes""]",1791
+spodoba,like,misc,,"[""like"",""to like""]",1792
+liście,leaves,misc,,"[""leaves"",""to leaves""]",1793
+owi,to,misc,,"[""to""]",1794
+niespodzianka,surprise,misc,,"[""surprise"",""to surprise""]",1795
+mózg,brain,misc,,"[""brain"",""to brain""]",1796
+przekonać,convince,misc,,"[""convince"",""to convince""]",1797
+lecieć,fly,misc,,"[""fly""]",1798
+szalony,mad,misc,,"[""mad""]",1799
+dowie,prove,misc,,"[""prove"",""to prove""]",1800
+głodny,hungry,misc,,"[""hungry"",""to hungry""]",1801
+pomożesz,you will help,misc,,"[""you will help""]",1802
+innej,other,misc,,"[""other"",""to other""]",1803
+zmiany,changes,misc,,"[""changes"",""to changes""]",1804
+boską,divine,misc,,"[""divine"",""to divine""]",1805
+odłóż,put down,misc,,"[""put down""]",1806
+banku,bank,misc,,"[""bank"",""to bank""]",1807
+kazał,ordered,misc,,"[""ordered"",""to ordered""]",1808
+myślicie,think,misc,,"[""think"",""to think""]",1809
+wysłać,send,misc,,"[""send"",""to send""]",1810
+akurat,acct,misc,,"[""acct"",""to acct""]",1811
+muzyka,music,misc,,"[""music"",""to music""]",1812
+abym,so that,misc,,"[""so that""]",1813
+własnej,own,misc,,"[""own""]",1814
+ostatnich,last,misc,,"[""last"",""to last""]",1815
+decyzja,decision,misc,,"[""decision"",""to decision""]",1816
+długi,long,misc,,"[""long"",""to long""]",1817
+przodu,front,misc,,"[""front"",""to front""]",1818
+ah,ah,misc,,"[""ah""]",1819
+obu,both,misc,,"[""both"",""to both""]",1820
+kierunku,direction,misc,,"[""direction"",""to direction""]",1821
+wyglądać,look,misc,,"[""look"",""to look""]",1822
+miła,nice,misc,,"[""nice"",""to nice""]",1823
+pytasz,you ask,misc,,"[""you ask""]",1824
+chłopca,boy,misc,,"[""boy""]",1825
+jestes,you are,misc,,"[""you are"",""you're""]",1826
+mieszkania,flats,misc,,"[""flats"",""to flats""]",1827
+gadać,talk,misc,,"[""talk"",""to talk""]",1828
+ha,ha,misc,,"[""ha""]",1829
+przyszedłeś,you came,misc,,"[""you came""]",1830
+warto,worth,misc,,"[""worth"",""to worth""]",1831
+de,de,misc,,"[""de""]",1832
+uwierz,believe,misc,,"[""believe"",""to believe""]",1833
+śmiercią,death,misc,,"[""death"",""to death""]",1834
+nazwiska,names,misc,,"[""names"",""to names""]",1835
+przeszłości,past,misc,,"[""past"",""to past""]",1836
+ojcu,father,misc,,"[""father"",""to father""]",1837
+eddie,eddie,misc,,"[""eddie"",""to eddie""]",1838
+uciekł,escaped,misc,,"[""escaped"",""to escaped""]",1839
+uciekać,run away,misc,,"[""run away""]",1840
+dupę,ass,misc,,"[""ass""]",1841
+szanse,opportunities,misc,,"[""opportunities"",""to opportunities""]",1842
+zaczęło,started,misc,,"[""started"",""to started""]",1843
+faceci,guys,misc,,"[""guys"",""to guys""]",1844
+biorę,i take,misc,,"[""i take""]",1845
+moze,maybe,misc,,"[""maybe"",""to maybe""]",1846
+zgoda,consent,misc,,"[""consent"",""to consent""]",1847
+małżeństwo,marriage,misc,,"[""marriage"",""to marriage""]",1848
+zmarł,died,misc,,"[""died"",""to died""]",1849
+doczekać,wait,misc,,"[""wait"",""to wait""]",1850
+prawdziwym,real,misc,,"[""real"",""to real""]",1851
+myślałeś,thought,misc,,"[""thought"",""to thought""]",1852
+jazda,driving,misc,,"[""driving"",""to driving""]",1853
+klasy,classes,misc,,"[""classes"",""to classes""]",1854
+rzuć,throw,misc,,"[""throw"",""to throw""]",1855
+richard,richard,misc,,"[""richard"",""to richard""]",1856
+szczególnie,especially,misc,,"[""especially"",""to especially""]",1857
+wątpię,doubtful,misc,,"[""doubtful"",""to doubtful""]",1858
+obie,both,misc,,"[""both"",""to both""]",1859
+zaufać,trust,misc,,"[""trust"",""to trust""]",1860
+pułkowniku,colonel,misc,,"[""colonel"",""to colonel""]",1861
+nikim,nobody,misc,,"[""nobody"",""to nobody""]",1862
+powiedzmy,say,misc,,"[""say""]",1863
+widziała,seen,misc,,"[""seen"",""to seen""]",1864
+sarah,sarah,misc,,"[""sarah"",""to sarah""]",1865
+mecz,match,misc,,"[""match"",""to match""]",1866
+randkę,date,misc,,"[""date"",""to date""]",1867
+następnego,next,misc,,"[""next"",""to next""]",1868
+wojnę,war,misc,,"[""war""]",1869
+indziej,elsewhere,misc,,"[""elsewhere"",""to elsewhere""]",1870
+metrów,metres,misc,,"[""metres"",""to metres""]",1871
+dniu,day,misc,,"[""day""]",1872
+widzieliśmy,we have seen,misc,,"[""we have seen""]",1873
+operacji,operations,misc,,"[""operations"",""to operations""]",1874
+skończyłem,finished,misc,,"[""finished"",""to finished""]",1875
+mark,mark,misc,,"[""mark"",""to mark""]",1876
+różnych,various,misc,,"[""various"",""to various""]",1877
+interesuje,is interested in,misc,,"[""is interested in""]",1878
+umiem,i can,misc,,"[""i can""]",1879
+potrzebne,needed,misc,,"[""needed"",""to needed""]",1880
+gliny,clay,misc,,"[""clay"",""to clay""]",1881
+pić,drink,misc,,"[""drink"",""to drink""]",1882
+zobaczyłem,seen,misc,,"[""seen"",""to seen""]",1883
+śmiało,go ahead,misc,,"[""go ahead""]",1884
+dała,gave,misc,,"[""gave"",""to gave""]",1885
+widok,view,misc,,"[""view"",""to view""]",1886
+podziękować,thank you,misc,,"[""thank you""]",1887
+dowodów,evidence,misc,,"[""evidence"",""to evidence""]",1888
+lubią,like,misc,,"[""like"",""to like""]",1889
+absolutnie,absolutely,misc,,"[""absolutely"",""to absolutely""]",1890
+każde,each,misc,,"[""each"",""to each""]",1891
+znaczyć,mean,misc,,"[""mean"",""to mean""]",1892
+naprzód,forward,misc,,"[""forward"",""to forward""]",1893
+różnica,difference,misc,,"[""difference"",""to difference""]",1894
+zniknął,disappeared,misc,,"[""disappeared"",""to disappeared""]",1895
+punkt,point,misc,,"[""point"",""to point""]",1896
+wrócimy,we'll be back,misc,,"[""we'll be back""]",1897
+kasy,cash registers,misc,,"[""cash registers""]",1898
+utrzymać,maintain,misc,,"[""maintain"",""to maintain""]",1899
+ofiara,victim,misc,,"[""victim"",""to victim""]",1900
+pozwoli,will allow,misc,,"[""will allow""]",1901
+potrzebują,need,misc,,"[""need"",""to need""]",1902
+żegnaj,goodbye,misc,,"[""goodbye"",""to goodbye""]",1903
+wiedzieli,they knew,misc,,"[""they knew""]",1904
+danych,data,misc,,"[""data"",""to data""]",1905
+san,san,misc,,"[""san""]",1906
+kyle,kyle,misc,,"[""kyle"",""to kyle""]",1907
+szaleństwo,madness,misc,,"[""madness"",""to madness""]",1908
+własnego,own,misc,,"[""own""]",1909
+myślał,thought,misc,,"[""thought"",""to thought""]",1910
+brian,brian,misc,,"[""brian"",""to brian""]",1911
+pomyśleć,think,misc,,"[""think"",""to think""]",1912
+umysł,mind,misc,,"[""mind"",""to mind""]",1913
+martwię,i worry,misc,,"[""i worry""]",1914
+bawić,entertain,misc,,"[""entertain"",""to entertain""]",1915
+sprawdzę,i will check,misc,,"[""i will check""]",1916
+zabiorę,i will take,misc,,"[""i will take""]",1917
+drugiego,second,misc,,"[""second"",""to second""]",1918
+prowadzić,run,misc,,"[""run""]",1919
+nowej,new,misc,,"[""new""]",1920
+emily,emily,misc,,"[""emily"",""to emily""]",1921
+claire,claire,misc,,"[""claire"",""to claire""]",1922
+usta,mouth,misc,,"[""mouth"",""to mouth""]",1923
+daleka,far,misc,,"[""far""]",1924
+miliony,millions,misc,,"[""millions"",""to millions""]",1925
+mężem,husband,misc,,"[""husband"",""to husband""]",1926
+mamę,mum,misc,,"[""mum""]",1927
+spotkania,meetings,misc,,"[""meetings"",""to meetings""]",1928
+ładne,nice,misc,,"[""nice"",""to nice""]",1929
+oczu,eyes,misc,,"[""eyes"",""to eyes""]",1930
+rękach,hands,misc,,"[""hands"",""to hands""]",1931
+żył,veins,misc,,"[""veins"",""to veins""]",1932
+sali,room,misc,,"[""room"",""to room""]",1933
+państwo,country,misc,,"[""country"",""to country""]",1934
+słyszeć,hear,misc,,"[""hear"",""to hear""]",1935
+własny,own,misc,,"[""own""]",1936
+okropne,awful,misc,,"[""awful"",""to awful""]",1937
+szans,opportunities,misc,,"[""opportunities"",""to opportunities""]",1938
+widzimy,see,misc,,"[""see""]",1939
+wyszła,came out,misc,,"[""came out""]",1940
+pański,your,misc,,"[""your"",""to your""]",1941
+zapewne,probably,misc,,"[""probably"",""to probably""]",1942
+żadna,none,misc,,"[""none"",""to none""]",1943
+dzwoni,calls,misc,,"[""calls"",""to calls""]",1944
+żadne,none,misc,,"[""none"",""to none""]",1945
+stop,stop,misc,,"[""stop"",""to stop""]",1946
+strzelać,shoot,misc,,"[""shoot"",""to shoot""]",1947
+powietrze,air,misc,,"[""air""]",1948
+wspaniała,great,misc,,"[""great"",""to great""]",1949
+mówili,said,misc,,"[""said"",""to said""]",1950
+lepszego,better,misc,,"[""better"",""to better""]",1951
+spróbuję,i will try,misc,,"[""i will try""]",1952
+bronią,arms,misc,,"[""arms"",""to arms""]",1953
+bierze,takes,misc,,"[""takes"",""to takes""]",1954
+andy,andy,misc,,"[""andy"",""to andy""]",1955
+facetów,guys,misc,,"[""guys"",""to guys""]",1956
+staje,becomes,misc,,"[""becomes"",""to becomes""]",1957
+b,b,misc,,"[""b""]",1958
+swoimi,with its,misc,,"[""with its""]",1959
+miałby,would have,misc,,"[""would have""]",1960
+przypomina,reminds,misc,,"[""reminds"",""to reminds""]",1961
+czarny,black,misc,,"[""black"",""to black""]",1962
+mil,miles,misc,,"[""miles"",""to miles""]",1963
+zabij,kill,misc,,"[""kill"",""to kill""]",1964
+wróciła,returned,misc,,"[""returned"",""to returned""]",1965
+małym,small,misc,,"[""small"",""to small""]",1966
+słońca,sunshine,misc,,"[""sunshine"",""to sunshine""]",1967
+czułem,felt,misc,,"[""felt"",""to felt""]",1968
+ubrania,clothing,misc,,"[""clothing"",""to clothing""]",1969
+dziwnego,strange,misc,,"[""strange"",""to strange""]",1970
+wychodzę,i'm leaving,misc,,"[""i'm leaving""]",1971
+udowodnić,prove,misc,,"[""prove"",""to prove""]",1972
+grupy,groups,misc,,"[""groups"",""to groups""]",1973
+nóż,knife,misc,,"[""knife"",""to knife""]",1974
+akta,file,misc,,"[""file"",""to file""]",1975
+imprezę,event,misc,,"[""event"",""to event""]",1976
+umiera,dies,misc,,"[""dies"",""to dies""]",1977
+musiało,must have,misc,,"[""must have""]",1978
+wraz,together with,misc,,"[""together with""]",1979
+zasadzie,principle,misc,,"[""principle"",""to principle""]",1980
+nieprawdaż,not true,misc,,"[""not true""]",1981
+bedzie,will be,misc,,"[""will be""]",1982
+mojemu,my,misc,,"[""my""]",1983
+znaczenie,importance of,misc,,"[""importance of""]",1984
+minęło,passed,misc,,"[""passed"",""to passed""]",1985
+sklepu,shop,misc,,"[""shop"",""to shop""]",1986
+odnaleźć,find,misc,,"[""find"",""to find""]",1987
+woli,will,misc,,"[""will"",""to will""]",1988
+usa,usa,misc,,"[""usa""]",1989
+komputer,computer,misc,,"[""computer"",""to computer""]",1990
+nadchodzi,coming,misc,,"[""coming"",""to coming""]",1991
+firma,company,misc,,"[""company"",""to company""]",1992
+zmieniło,has changed,misc,,"[""has changed""]",1993
+spytać,ask,misc,,"[""ask""]",1994
+stacji,stations,misc,,"[""stations"",""to stations""]",1995
+jasna,bright,misc,,"[""bright"",""to bright""]",1996
+kłopotów,trouble,misc,,"[""trouble"",""to trouble""]",1997
+sprawą,matter,misc,,"[""matter"",""to matter""]",1998
+kod,code,misc,,"[""code"",""to code""]",1999
+doktora,dr,misc,,"[""dr""]",2000
+potrzeby,needs,misc,,"[""needs"",""to needs""]",2001
+biały,white,misc,,"[""white"",""to white""]",2002
+pełne,full,misc,,"[""full"",""to full""]",2003
+energii,energies,misc,,"[""energies"",""to energies""]",2004
+ziemia,land,misc,,"[""land"",""to land""]",2005
+wujek,uncle,misc,,"[""uncle"",""to uncle""]",2006
+ruchy,moves,misc,,"[""moves"",""to moves""]",2007
+zostali,have been,misc,,"[""have been""]",2008
+liceum,high school,misc,,"[""high school""]",2009
+pieprzyć,fuck,misc,,"[""fuck"",""to fuck""]",2010
+równie,equally,misc,,"[""equally"",""to equally""]",2011
+nieba,heaven,misc,,"[""heaven"",""to heaven""]",2012
+podróży,travel,misc,,"[""travel"",""to travel""]",2013
+ataku,attack,misc,,"[""attack"",""to attack""]",2014
+zachować,keep,misc,,"[""keep"",""to keep""]",2015
+wiary,faith,misc,,"[""faith"",""to faith""]",2016
+pieprzony,fucking,misc,,"[""fucking"",""to fucking""]",2017
+zamknięte,closed,misc,,"[""closed"",""to closed""]",2018
+dostęp,access,misc,,"[""access"",""to access""]",2019
+akcji,shares,misc,,"[""shares"",""to shares""]",2020
+idą,go,misc,,"[""go""]",2021
+dobrych,good,misc,,"[""good"",""to good""]",2022
+złym,bad,misc,,"[""bad""]",2023
+znacznie,significantly,misc,,"[""significantly"",""to significantly""]",2024
+pochodzi,comes from,misc,,"[""comes from""]",2025
+sierżancie,sergeant,misc,,"[""sergeant"",""to sergeant""]",2026
+stracił,lost,misc,,"[""lost"",""to lost""]",2027
+warte,worth,misc,,"[""worth"",""to worth""]",2028
+wracamy,back,misc,,"[""back"",""to back""]",2029
+odszedł,gone,misc,,"[""gone"",""to gone""]",2030
+szkodzi,harms,misc,,"[""harms"",""to harms""]",2031
+czasy,times,misc,,"[""times"",""to times""]",2032
+milion,million,misc,,"[""million"",""to million""]",2033
+luke,luke,misc,,"[""luke"",""to luke""]",2034
+pytam,i ask,misc,,"[""i ask""]",2035
+pięciu,five,misc,,"[""five"",""to five""]",2036
+domem,home,misc,,"[""home"",""to home""]",2037
+budynek,building,misc,,"[""building"",""to building""]",2038
+szefa,head of,misc,,"[""head of""]",2039
+zajmuje,occupies,misc,,"[""occupies"",""to occupies""]",2040
+mogłaby,could,misc,,"[""could"",""to could""]",2041
+celem,purpose,misc,,"[""purpose"",""to purpose""]",2042
+nr,no,misc,,"[""no"",""nope"",""nah""]",2043
+mogłaś,you could,misc,,"[""you could""]",2044
+daję,i give,misc,,"[""i give""]",2045
+przejmuj,take over,misc,,"[""take over""]",2046
+sprzedać,sell,misc,,"[""sell"",""to sell""]",2047
+umowę,contract,misc,,"[""contract"",""to contract""]",2048
+córką,daughter,misc,,"[""daughter"",""to daughter""]",2049
+pojechać,go,misc,,"[""go""]",2050
+drogą,via,misc,,"[""via""]",2051
+porozmawiamy,we'll talk,misc,,"[""we'll talk""]",2052
+pomocą,with the help of,misc,,"[""with the help of""]",2053
+założyć,set up,misc,,"[""set up""]",2054
+znalazła,found,misc,,"[""found"",""to found""]",2055
+matt,matt,misc,,"[""matt"",""to matt""]",2056
+wynocha,get out,misc,,"[""get out""]",2057
+zobaczy,see,misc,,"[""see""]",2058
+mamie,mum,misc,,"[""mum""]",2059
+dotykaj,touch,misc,,"[""touch"",""to touch""]",2060
+waszym,your,misc,,"[""your"",""to your""]",2061
+nazywają,call,misc,,"[""call"",""to call""]",2062
+miały,had,misc,,"[""had""]",2063
+słyszałaś,have you heard,misc,,"[""have you heard""]",2064
+zaczniemy,start,misc,,"[""start"",""to start""]",2065
+gdybyśmy,if we,misc,,"[""if we""]",2066
+język,language,misc,,"[""language"",""to language""]",2067
+duża,large,misc,,"[""large"",""to large""]",2068
+byłaby,would be,misc,,"[""would be""]",2069
+pistolet,pistol,misc,,"[""pistol"",""to pistol""]",2070
+that,that,misc,,"[""that"",""to that""]",2071
+możliwość,possibility,misc,,"[""possibility"",""to possibility""]",2072
+mężczyźni,men,misc,,"[""men""]",2073
+auto,auto,misc,,"[""auto"",""to auto""]",2074
+poznałem,i met,misc,,"[""i met""]",2075
+trwa,ongoing,misc,,"[""ongoing"",""to ongoing""]",2076
+łatwe,easy,misc,,"[""easy"",""to easy""]",2077
+musiałeś,you must have,misc,,"[""you must have""]",2078
+żyję,i live,misc,,"[""i live""]",2079
+restauracji,restaurants,misc,,"[""restaurants"",""to restaurants""]",2080
+próbujesz,you are trying,misc,,"[""you are trying""]",2081
+bólu,pain,misc,,"[""pain"",""to pain""]",2082
+czterech,four,misc,,"[""four"",""to four""]",2083
+zaczęła,started,misc,,"[""started"",""to started""]",2084
+dupy,asses,misc,,"[""asses"",""to asses""]",2085
+proces,process,misc,,"[""process"",""to process""]",2086
+wierzy,believes,misc,,"[""believes"",""to believes""]",2087
+obudź,wake up,misc,,"[""wake up""]",2088
+jedziesz,you go,misc,,"[""you go""]",2089
+kwiaty,flowers,misc,,"[""flowers"",""to flowers""]",2090
+dave,dave,misc,,"[""dave"",""to dave""]",2091
+mogłoby,could,misc,,"[""could"",""to could""]",2092
+spędzić,spend,misc,,"[""spend"",""to spend""]",2093
+winny,guilty,misc,,"[""guilty"",""to guilty""]",2094
+ufać,trust,misc,,"[""trust"",""to trust""]",2095
+układ,system,misc,,"[""system"",""to system""]",2096
+przeszkadza,disturbs,misc,,"[""disturbs"",""to disturbs""]",2097
+pokładzie,board,misc,,"[""board"",""to board""]",2098
+new,new,misc,,"[""new""]",2099
+własnym,own,misc,,"[""own""]",2100
+poprzez,via,misc,,"[""via""]",2101
+znajduje,finds,misc,,"[""finds"",""to finds""]",2102
+jerry,jerry,misc,,"[""jerry"",""to jerry""]",2103
+upewnić,make sure,misc,,"[""make sure""]",2104
+babcia,grandmother,misc,,"[""grandmother"",""to grandmother""]",2105
+zmęczony,tired,misc,,"[""tired"",""to tired""]",2106
+umiesz,you can,misc,,"[""you can""]",2107
+winy,faults,misc,,"[""faults"",""to faults""]",2108
+carter,carter,misc,,"[""carter"",""to carter""]",2109
+jakiejś,of which,misc,,"[""of which""]",2110
+czasów,times,misc,,"[""times"",""to times""]",2111
+bank,bank,misc,,"[""bank"",""to bank""]",2112
+zmienił,changed,misc,,"[""changed"",""to changed""]",2113
+posłuchać,listen to,misc,,"[""listen to""]",2114
+wróciłem,returned,misc,,"[""returned"",""to returned""]",2115
+ku,towards,misc,,"[""towards"",""to towards""]",2116
+dałeś,you gave,misc,,"[""you gave""]",2117
+opowiedz,tell,misc,,"[""tell"",""to tell""]",2118
+seksu,sex,misc,,"[""sex""]",2119
+następne,next,misc,,"[""next"",""to next""]",2120
+ducha,spirit,misc,,"[""spirit"",""to spirit""]",2121
+konia,horse,misc,,"[""horse"",""to horse""]",2122
+clark,clark,misc,,"[""clark"",""to clark""]",2123
+wyszło,came out,misc,,"[""came out""]",2124
+wyobrazić,image,misc,,"[""image"",""to image""]",2125
+pete,pete,misc,,"[""pete"",""to pete""]",2126
+strach,fear,misc,,"[""fear"",""to fear""]",2127
+alarm,alarm,misc,,"[""alarm"",""to alarm""]",2128
+joey,joey,misc,,"[""joey"",""to joey""]",2129
+eric,eric,misc,,"[""eric"",""to eric""]",2130
+wolności,freedoms,misc,,"[""freedoms"",""to freedoms""]",2131
+dostałeś,you got it,misc,,"[""you got it""]",2132
+robiłem,i did,misc,,"[""i did""]",2133
+leo,leo,misc,,"[""leo""]",2134
+teren,site,misc,,"[""site"",""to site""]",2135
+kontroli,control,misc,,"[""control"",""to control""]",2136
+pociąg,train,misc,,"[""train"",""to train""]",2137
+siostrę,sister,misc,,"[""sister"",""to sister""]",2138
+skrzywdzić,harm,misc,,"[""harm"",""to harm""]",2139
+waszą,your,misc,,"[""your"",""to your""]",2140
+zapach,fragrance,misc,,"[""fragrance"",""to fragrance""]",2141
+śpi,sleeps,misc,,"[""sleeps"",""to sleeps""]",2142
+mogliśmy,we could,misc,,"[""we could""]",2143
+wyglądało,looked,misc,,"[""looked"",""to looked""]",2144
+ufam,i trust,misc,,"[""i trust""]",2145
+ted,ted,misc,,"[""ted""]",2146
+przyjdę,i will come,misc,,"[""i will come""]",2147
+rozkazy,orders,misc,,"[""orders"",""to orders""]",2148
+parku,park,misc,,"[""park"",""to park""]",2149
+uczyć,teach,misc,,"[""teach"",""to teach""]",2150
+sumie,total,misc,,"[""total"",""to total""]",2151
+najważniejsze,highlights,misc,,"[""highlights"",""to highlights""]",2152
+zadzwonił,called,misc,,"[""called"",""to called""]",2153
+zabójca,killer,misc,,"[""killer"",""to killer""]",2154
+osobę,person,misc,,"[""person"",""to person""]",2155
+zdarza,happens,misc,,"[""happens"",""to happens""]",2156
+pamięć,memory,misc,,"[""memory"",""to memory""]",2157
+duch,spirit,misc,,"[""spirit"",""to spirit""]",2158
+annie,annie,misc,,"[""annie"",""to annie""]",2159
+następnie,then,misc,,"[""then"",""to then""]",2160
+zacząłem,started,misc,,"[""started"",""to started""]",2161
+łódź,boat,misc,,"[""boat"",""to boat""]",2162
+scott,scott,misc,,"[""scott"",""to scott""]",2163
+wyjechać,leave,misc,,"[""leave"",""to leave""]",2164
+waszych,your,misc,,"[""your"",""to your""]",2165
+kontrolę,control,misc,,"[""control"",""to control""]",2166
+sercu,heart,misc,,"[""heart"",""to heart""]",2167
+dostałam,got,misc,,"[""got""]",2168
+interesy,interests,misc,,"[""interests"",""to interests""]",2169
+strzał,shot,misc,,"[""shot"",""to shot""]",2170
+skończył,finished,misc,,"[""finished"",""to finished""]",2171
+walka,fight,misc,,"[""fight"",""to fight""]",2172
+wszystkimi,all,misc,,"[""all""]",2173
+móc,may,misc,,"[""may""]",2174
+czekajcie,wait,misc,,"[""wait"",""to wait""]",2175
+prawdziwą,real,misc,,"[""real"",""to real""]",2176
+ładny,nice,misc,,"[""nice"",""to nice""]",2177
+zamian,in return,misc,,"[""in return""]",2178
+sklep,shop,misc,,"[""shop"",""to shop""]",2179
+napisał,he wrote,misc,,"[""he wrote""]",2180
+słodki,sweet,misc,,"[""sweet"",""to sweet""]",2181
+sądu,court,misc,,"[""court"",""to court""]",2182
+filmu,film,misc,,"[""film"",""to film""]",2183
+stanu,state,misc,,"[""state"",""to state""]",2184
+czytać,read,misc,,"[""read"",""to read""]",2185
+wóz,car,misc,,"[""car""]",2186
+czyżby,be,misc,,"[""be""]",2187
+wyluzuj,relax,misc,,"[""relax"",""to relax""]",2188
+barze,bar,misc,,"[""bar""]",2189
+zostawię,i will leave,misc,,"[""i will leave""]",2190
+cholernie,damn,misc,,"[""damn"",""to damn""]",2191
+najszybciej,fastest,misc,,"[""fastest"",""to fastest""]",2192
+daniel,daniel,misc,,"[""daniel"",""to daniel""]",2193
+jenny,jenny,misc,,"[""jenny"",""to jenny""]",2194
+niezbyt,not very,misc,,"[""not very""]",2195
+silny,strong,misc,,"[""strong"",""to strong""]",2196
+ledwo,barely,misc,,"[""barely"",""to barely""]",2197
+tatuś,daddy,misc,,"[""daddy"",""to daddy""]",2198
+próbowałam,i tried,misc,,"[""i tried""]",2199
+potrzebna,needed,misc,,"[""needed"",""to needed""]",2200
+studia,studies,misc,,"[""studies"",""to studies""]",2201
+byłbym,i would be,misc,,"[""i would be""]",2202
+cia,cia,misc,,"[""cia""]",2203
+potrzebować,need,misc,,"[""need"",""to need""]",2204
+towar,product,misc,,"[""product"",""to product""]",2205
+przekazać,donate,misc,,"[""donate"",""to donate""]",2206
+szkoła,school,misc,,"[""school"",""to school""]",2207
+pamięta,remembers,misc,,"[""remembers"",""to remembers""]",2208
+używać,use,misc,,"[""use""]",2209
+dan,dan,misc,,"[""dan""]",2210
+larry,larry,misc,,"[""larry"",""to larry""]",2211
+park,park,misc,,"[""park"",""to park""]",2212
+cenę,price,misc,,"[""price"",""to price""]",2213
+niedaleko,near,misc,,"[""near"",""to near""]",2214
+głęboko,deep,misc,,"[""deep"",""to deep""]",2215
+ocalić,save,misc,,"[""save"",""to save""]",2216
+psy,dogs,misc,,"[""dogs"",""to dogs""]",2217
+angeles,angeles,misc,,"[""angeles"",""to angeles""]",2218
+spadaj,drop,misc,,"[""drop"",""to drop""]",2219
+kevin,kevin,misc,,"[""kevin"",""to kevin""]",2220
+czyni,makes,misc,,"[""makes"",""to makes""]",2221
+klubu,club,misc,,"[""club"",""to club""]",2222
+przeprosić,apologise,misc,,"[""apologise"",""to apologise""]",2223
+wolność,freedom,misc,,"[""freedom"",""to freedom""]",2224
+liczyć,count,misc,,"[""count"",""to count""]",2225
+pewnym,certain,misc,,"[""certain"",""to certain""]",2226
+gościem,guest,misc,,"[""guest"",""to guest""]",2227
+dziadek,grandfather,misc,,"[""grandfather"",""to grandfather""]",2228
+wyglądał,looked,misc,,"[""looked"",""to looked""]",2229
+gorąco,hot,misc,,"[""hot""]",2230
+przyjaciółka,friend,misc,,"[""friend"",""to friend""]",2231
+powrót,return,misc,,"[""return"",""to return""]",2232
+ręki,hand,misc,,"[""hand"",""to hand""]",2233
+cisza,silence,misc,,"[""silence"",""to silence""]",2234
+mieszkam,i live,misc,,"[""i live""]",2235
+bezpiecznie,safely,misc,,"[""safely"",""to safely""]",2236
+czekają,await,misc,,"[""await"",""to await""]",2237
+wróć,return,misc,,"[""return"",""to return""]",2238
+byc,be,misc,,"[""be""]",2239
+pole,field,misc,,"[""field"",""to field""]",2240
+lisa,fox,misc,,"[""fox""]",2241
+sto,one hundred,misc,,"[""one hundred""]",2242
+gdziekolwiek,anywhere,misc,,"[""anywhere"",""to anywhere""]",2243
+kompletnie,completely,misc,,"[""completely"",""to completely""]",2244
+starego,old,misc,,"[""old""]",2245
+byliście,you were,misc,,"[""you were""]",2246
+mistrzu,master,misc,,"[""master"",""to master""]",2247
+przeszłość,past,misc,,"[""past"",""to past""]",2248
+jutra,tomorrow,misc,,"[""tomorrow"",""to tomorrow""]",2249
+normalnie,normally,misc,,"[""normally"",""to normally""]",2250
+stóp,feet,misc,,"[""feet"",""to feet""]",2251
+siłę,strength,misc,,"[""strength"",""to strength""]",2252
+zechcesz,you want,misc,,"[""you want""]",2253
+przyszłam,came,misc,,"[""came"",""to came""]",2254
+tamtego,that,misc,,"[""that"",""to that""]",2255
+bezpieczny,safe,misc,,"[""safe"",""to safe""]",2256
+klientów,customers,misc,,"[""customers"",""to customers""]",2257
+auta,cars,misc,,"[""cars"",""to cars""]",2258
+duszę,soul,misc,,"[""soul"",""to soul""]",2259
+poprostu,simply,misc,,"[""simply"",""to simply""]",2260
+sądziłem,thought,misc,,"[""thought"",""to thought""]",2261
+przyjechał,arrived,misc,,"[""arrived"",""to arrived""]",2262
+sztuki,arts,misc,,"[""arts"",""to arts""]",2263
+przyniosę,i'll bring,misc,,"[""i'll bring""]",2264
+oczywiste,obvious,misc,,"[""obvious"",""to obvious""]",2265
+pewność,reassurance,misc,,"[""reassurance"",""to reassurance""]",2266
+zadowolony,pleased,misc,,"[""pleased"",""to pleased""]",2267
+dzwonię,call,misc,,"[""call"",""to call""]",2268
+pierdol,fuck,misc,,"[""fuck"",""to fuck""]",2269
+gwiazdy,stars,misc,,"[""stars"",""to stars""]",2270
+planu,plan,misc,,"[""plan"",""to plan""]",2271
+charles,charles,misc,,"[""charles"",""to charles""]",2272
+kotku,kitty,misc,,"[""kitty"",""to kitty""]",2273
+napisane,written,misc,,"[""written"",""to written""]",2274
+ukryć,hide,misc,,"[""hide"",""to hide""]",2275
+rozmowa,interview,misc,,"[""interview"",""to interview""]",2276
+najlepszych,best,misc,,"[""best"",""to best""]",2277
+długa,long,misc,,"[""long"",""to long""]",2278
+normalne,normal,misc,,"[""normal"",""to normal""]",2279
+przynieść,bring,misc,,"[""bring"",""to bring""]",2280
+jakich,which,misc,,"[""which"",""to which""]",2281
+rose,rose,misc,,"[""rose"",""to rose""]",2282
+piątek,friday,misc,,"[""friday"",""to friday""]",2283
+bierzesz,you take,misc,,"[""you take""]",2284
+wyjdziesz,come out,misc,,"[""come out""]",2285
+matko,mother,misc,,"[""mother"",""to mother""]",2286
+potrwa,will last,misc,,"[""will last""]",2287
+biorąc,taking,misc,,"[""taking"",""to taking""]",2288
+wątpliwości,doubts,misc,,"[""doubts"",""to doubts""]",2289
+czasach,times,misc,,"[""times"",""to times""]",2290
+pamięci,memories,misc,,"[""memories"",""to memories""]",2291
+chicago,chicago,misc,,"[""chicago"",""to chicago""]",2292
+mego,my,misc,,"[""my""]",2293
+wolne,free,misc,,"[""free"",""to free""]",2294
+zero,zero,misc,,"[""zero"",""to zero""]",2295
+którymi,which,misc,,"[""which"",""to which""]",2296
+niebo,sky,misc,,"[""sky""]",2297
+dokumenty,documents,misc,,"[""documents"",""to documents""]",2298
+śmieci,rubbish,misc,,"[""rubbish"",""to rubbish""]",2299
+drużyny,teams,misc,,"[""teams"",""to teams""]",2300
+najlepszą,best,misc,,"[""best"",""to best""]",2301
+impreza,event,misc,,"[""event"",""to event""]",2302
+powinniście,you should,misc,,"[""you should""]",2303
+żebyście,so that you,misc,,"[""so that you""]",2304
+nawzajem,each other,misc,,"[""each other""]",2305
+zajęcia,activities,misc,,"[""activities"",""to activities""]",2306
+piłkę,ball,misc,,"[""ball"",""to ball""]",2307
+spotkałem,i met,misc,,"[""i met""]",2308
+głową,head,misc,,"[""head"",""to head""]",2309
+samobójstwo,suicide,misc,,"[""suicide"",""to suicide""]",2310
+problemem,problem,misc,,"[""problem"",""to problem""]",2311
+klucze,keys,misc,,"[""keys"",""to keys""]",2312
+minutę,minute,misc,,"[""minute"",""to minute""]",2313
+ryzyko,risk,misc,,"[""risk"",""to risk""]",2314
+pomógł,helped,misc,,"[""helped"",""to helped""]",2315
+boi,boi,misc,,"[""boi""]",2316
+patrzysz,you look,misc,,"[""you look""]",2317
+dziewczyn,girls,misc,,"[""girls"",""to girls""]",2318
+kamery,cameras,misc,,"[""cameras"",""to cameras""]",2319
+tygodnia,week,misc,,"[""week"",""to week""]",2320
+fajne,cool,misc,,"[""cool"",""to cool""]",2321
+udawać,pretend,misc,,"[""pretend"",""to pretend""]",2322
+wyciągnąć,pull,misc,,"[""pull"",""to pull""]",2323
+chora,sick,misc,,"[""sick"",""to sick""]",2324
+łatwiej,easier,misc,,"[""easier"",""to easier""]",2325
+grace,grace,misc,,"[""grace"",""to grace""]",2326
+odpowiada,corresponds to,misc,,"[""corresponds to""]",2327
+siostro,sister,misc,,"[""sister"",""to sister""]",2328
+waszego,your,misc,,"[""your"",""to your""]",2329
+zostaną,will be,misc,,"[""will be""]",2330
+wspomnienia,memories,misc,,"[""memories"",""to memories""]",2331
+ofiar,victims,misc,,"[""victims"",""to victims""]",2332
+dziwny,strange,misc,,"[""strange"",""to strange""]",2333
+bezpieczna,safe,misc,,"[""safe"",""to safe""]",2334
+północy,midnight,misc,,"[""midnight"",""to midnight""]",2335
+nos,nose,misc,,"[""nose"",""to nose""]",2336
+wymaga,requires,misc,,"[""requires"",""to requires""]",2337
+okazało,proved,misc,,"[""proved"",""to proved""]",2338
+podejdź,approach,misc,,"[""approach"",""to approach""]",2339
+wykorzystać,use,misc,,"[""use""]",2340
+lucy,lucy,misc,,"[""lucy"",""to lucy""]",2341
+poradzić,advise,misc,,"[""advise"",""to advise""]",2342
+wino,wine,misc,,"[""wine"",""to wine""]",2343
+badań,research,misc,,"[""research"",""to research""]",2344
+prezydenta,president,misc,,"[""president"",""to president""]",2345
+czynienia,dealing,misc,,"[""dealing"",""to dealing""]",2346
+ranny,injured,misc,,"[""injured"",""to injured""]",2347
+znaleziono,found,misc,,"[""found"",""to found""]",2348
+punkcie,point,misc,,"[""point"",""to point""]",2349
+większe,larger,misc,,"[""larger"",""to larger""]",2350
+generale,general,misc,,"[""general"",""to general""]",2351
+trakcie,during,misc,,"[""during"",""to during""]",2352
+pojawił,appeared,misc,,"[""appeared"",""to appeared""]",2353
+alan,alan,misc,,"[""alan"",""to alan""]",2354
+narkotyki,drugs,misc,,"[""drugs"",""to drugs""]",2355
+bycia,being,misc,,"[""being"",""to being""]",2356
+wchodzi,enters,misc,,"[""enters"",""to enters""]",2357
+idealnie,perfectly,misc,,"[""perfectly"",""to perfectly""]",2358
+projekt,project,misc,,"[""project"",""to project""]",2359
+pańskie,your,misc,,"[""your"",""to your""]",2360
+zęby,teeth,misc,,"[""teeth"",""to teeth""]",2361
+zamiaru,intention,misc,,"[""intention"",""to intention""]",2362
+wiedziałaś,you knew,misc,,"[""you knew""]",2363
+zmiana,change,misc,,"[""change"",""to change""]",2364
+szlag,hit,misc,,"[""hit""]",2365
+sekret,secret,misc,,"[""secret"",""to secret""]",2366
+południe,south,misc,,"[""south"",""to south""]",2367
+okoliczności,circumstances,misc,,"[""circumstances"",""to circumstances""]",2368
+pospiesz,hurry,misc,,"[""hurry"",""to hurry""]",2369
+państwa,states,misc,,"[""states"",""to states""]",2370
+naprawde,really,misc,,"[""really"",""to really""]",2371
+tęsknię,i miss,misc,,"[""i miss""]",2372
+ciężkie,heavy,misc,,"[""heavy"",""to heavy""]",2373
+dupek,asshole,misc,,"[""asshole"",""to asshole""]",2374
+zadać,inflict,misc,,"[""inflict"",""to inflict""]",2375
+zabili,killed,misc,,"[""killed"",""to killed""]",2376
+chuck,chuck,misc,,"[""chuck"",""to chuck""]",2377
+aha,aha,misc,,"[""aha""]",2378
+sklepie,shop,misc,,"[""shop"",""to shop""]",2379
+połowę,half,misc,,"[""half"",""to half""]",2380
+konieczne,necessary,misc,,"[""necessary"",""to necessary""]",2381
+jazdy,driving,misc,,"[""driving"",""to driving""]",2382
+km,km,misc,,"[""km""]",2383
+zrobione,made,misc,,"[""made"",""to made""]",2384
+przyjaciółką,friend,misc,,"[""friend"",""to friend""]",2385
+sytuację,situation,misc,,"[""situation"",""to situation""]",2386
+powinny,should,misc,,"[""should"",""to should""]",2387
+będąc,being,misc,,"[""being"",""to being""]",2388
+troszkę,a little,misc,,"[""a little"",""little""]",2389
+umarła,died,misc,,"[""died"",""to died""]",2390
+zrobienia,making,misc,,"[""making"",""to making""]",2391
+zeszłej,last,misc,,"[""last"",""to last""]",2392
+zabrali,taken,misc,,"[""taken"",""to taken""]",2393
+zaczekać,wait,misc,,"[""wait"",""to wait""]",2394
+pozwala,allows,misc,,"[""allows"",""to allows""]",2395
+trzeci,third,misc,,"[""third"",""to third""]",2396
+adam,adam,misc,,"[""adam"",""to adam""]",2397
+okazję,opportunity,misc,,"[""opportunity"",""to opportunity""]",2398
+stole,table,misc,,"[""table"",""to table""]",2399
+patrzę,i look,misc,,"[""i look""]",2400
+napisać,write,misc,,"[""write"",""to write""]",2401
+podobnie,likewise,misc,,"[""likewise"",""to likewise""]",2402
+nadszedł,has arrived,misc,,"[""has arrived""]",2403
+łodzi,boats,misc,,"[""boats"",""to boats""]",2404
+setki,hundreds,misc,,"[""hundreds"",""to hundreds""]",2405
+chłopakiem,boyfriend,misc,,"[""boyfriend"",""to boyfriend""]",2406
+zabiła,killed,misc,,"[""killed"",""to killed""]",2407
+samych,alone,misc,,"[""alone"",""to alone""]",2408
+chcieliśmy,we wanted,misc,,"[""we wanted""]",2409
+maggie,maggie,misc,,"[""maggie"",""to maggie""]",2410
+wujku,uncle,misc,,"[""uncle"",""to uncle""]",2411
+radio,radio,misc,,"[""radio"",""to radio""]",2412
+wydawało,issued,misc,,"[""issued"",""to issued""]",2413
+twoimi,your,misc,,"[""your"",""to your""]",2414
+poszedłem,i went to,misc,,"[""i went to""]",2415
+misji,missions,misc,,"[""missions"",""to missions""]",2416
+susan,susan,misc,,"[""susan"",""to susan""]",2417
+sa,sa,misc,,"[""sa""]",2418
+odciski,prints,misc,,"[""prints"",""to prints""]",2419
+dziewczynki,girls,misc,,"[""girls"",""to girls""]",2420
+najmniej,least,misc,,"[""least"",""to least""]",2421
+chłopcem,boy,misc,,"[""boy""]",2422
+spodnie,trousers,misc,,"[""trousers"",""to trousers""]",2423
+show,show,misc,,"[""show"",""to show""]",2424
+siostrą,sister,misc,,"[""sister"",""to sister""]",2425
+kelly,kelly,misc,,"[""kelly"",""to kelly""]",2426
+karen,karen,misc,,"[""karen"",""to karen""]",2427
+kwestia,issue,misc,,"[""issue"",""to issue""]",2428
+wyjdę,i will leave,misc,,"[""i will leave""]",2429
+zobaczył,saw,misc,,"[""saw""]",2430
+umowa,contract,misc,,"[""contract"",""to contract""]",2431
+kolor,colour,misc,,"[""colour"",""to colour""]",2432
+stała,fixed,misc,,"[""fixed"",""to fixed""]",2433
+zabija,kills,misc,,"[""kills"",""to kills""]",2434
+poważne,serious,misc,,"[""serious"",""to serious""]",2435
+walter,walter,misc,,"[""walter"",""to walter""]",2436
+gówna,shit,misc,,"[""shit"",""to shit""]",2437
+śledztwo,investigation,misc,,"[""investigation"",""to investigation""]",2438
+czysty,pure,misc,,"[""pure"",""to pure""]",2439
+przypuszczam,guess,misc,,"[""guess"",""to guess""]",2440
+chwilą,moment,misc,,"[""moment"",""to moment""]",2441
+nosić,carry,misc,,"[""carry"",""to carry""]",2442
+bezpieczne,safe,misc,,"[""safe"",""to safe""]",2443
+słodkie,sweet,misc,,"[""sweet"",""to sweet""]",2444
+doszło,occurred,misc,,"[""occurred"",""to occurred""]",2445
+cholerny,damn,misc,,"[""damn"",""to damn""]",2446
+biegnij,run,misc,,"[""run""]",2447
+dzieciaka,kid,misc,,"[""kid""]",2448
+van,van,misc,,"[""van""]",2449
+pańska,your,misc,,"[""your"",""to your""]",2450
+trzymasz,you hold,misc,,"[""you hold""]",2451
+pijany,drunk,misc,,"[""drunk"",""to drunk""]",2452
+obejrzeć,watch,misc,,"[""watch"",""to watch""]",2453
+mieszkaniu,flat,misc,,"[""flat"",""to flat""]",2454
+rzeczywistości,reality,misc,,"[""reality"",""to reality""]",2455
+jason,jason,misc,,"[""jason"",""to jason""]",2456
+pełni,full,misc,,"[""full"",""to full""]",2457
+zrobią,will do,misc,,"[""will do""]",2458
+kieszeni,pockets,misc,,"[""pockets"",""to pockets""]",2459
+mieszkasz,you live,misc,,"[""you live""]",2460
+odpowiedzialny,responsible,misc,,"[""responsible"",""to responsible""]",2461
+zacznij,start,misc,,"[""start"",""to start""]",2462
+wsparcie,support,misc,,"[""support"",""to support""]",2463
+julie,julie,misc,,"[""julie"",""to julie""]",2464
+mając,having,misc,,"[""having"",""to having""]",2465
+kościoła,church,misc,,"[""church"",""to church""]",2466
+kupiłem,i bought,misc,,"[""i bought""]",2467
+czekamy,looking forward to,misc,,"[""looking forward to""]",2468
+powietrza,air,misc,,"[""air""]",2469
+pozwolisz,allow,misc,,"[""allow"",""to allow""]",2470
+działo,gun,misc,,"[""gun""]",2471
+planety,planets,misc,,"[""planets"",""to planets""]",2472
+bój,fight,misc,,"[""fight"",""to fight""]",2473
+czerwony,red,misc,,"[""red""]",2474
+powodów,reasons,misc,,"[""reasons"",""to reasons""]",2475
+muzykę,music,misc,,"[""music"",""to music""]",2476
+lot,flight,misc,,"[""flight"",""to flight""]",2477
+vegas,vegas,misc,,"[""vegas"",""to vegas""]",2478
+świąt,holidays,misc,,"[""holidays"",""to holidays""]",2479
+nogę,leg,misc,,"[""leg""]",2480
+porucznik,lieutenant,misc,,"[""lieutenant"",""to lieutenant""]",2481
+kłamstwo,lie,misc,,"[""lie""]",2482
+martin,martin,misc,,"[""martin"",""to martin""]",2483
+żartuję,i'm kidding,misc,,"[""i'm kidding""]",2484
+poczucie,sense,misc,,"[""sense"",""to sense""]",2485
+tatą,daddy,misc,,"[""daddy"",""to daddy""]",2486
+łeb,head,misc,,"[""head"",""to head""]",2487
+obecnie,currently,misc,,"[""currently"",""to currently""]",2488
+zabierzcie,take,misc,,"[""take"",""to take""]",2489
+mieszkać,live,misc,,"[""live"",""to live""]",2490
+akt,act,misc,,"[""act""]",2491
+narkotyków,drugs,misc,,"[""drugs"",""to drugs""]",2492
+podobało,liked,misc,,"[""liked"",""to liked""]",2493
+kontrolować,control,misc,,"[""control"",""to control""]",2494
+wieczoru,evening,misc,,"[""evening"",""to evening""]",2495
+sprzęt,equipment,misc,,"[""equipment"",""to equipment""]",2496
+straciliśmy,we have lost,misc,,"[""we have lost""]",2497
+dajesz,give,misc,,"[""give"",""to give""]",2498
+wsiadaj,get on,misc,,"[""get on""]",2499
+piosenkę,song,misc,,"[""song"",""to song""]",2500
+muzyki,music,misc,,"[""music"",""to music""]",2501
+połóż,put,misc,,"[""put""]",2502
+leki,medicines,misc,,"[""medicines"",""to medicines""]",2503
+zwierzęta,animals,misc,,"[""animals"",""to animals""]",2504
+bilety,tickets,misc,,"[""tickets"",""to tickets""]",2505
+mężczyznę,man,misc,,"[""man""]",2506
+wprost,straightforward,misc,,"[""straightforward"",""to straightforward""]",2507
+ameryki,americas,misc,,"[""americas"",""to americas""]",2508
+zapomniałam,i forgot,misc,,"[""i forgot""]",2509
+umrę,i will die,misc,,"[""i will die""]",2510
+tatusiu,daddy,misc,,"[""daddy"",""to daddy""]",2511
+małej,small,misc,,"[""small"",""to small""]",2512
+napisów,subtitles,misc,,"[""subtitles"",""to subtitles""]",2513
+faktycznie,actually,misc,,"[""actually"",""to actually""]",2514
+armii,army,misc,,"[""army"",""to army""]",2515
+dotrzeć,reach,misc,,"[""reach"",""to reach""]",2516
+kolejna,next,misc,,"[""next"",""to next""]",2517
+pisze,writes,misc,,"[""writes"",""to writes""]",2518
+kurs,course,misc,,"[""course"",""to course""]",2519
+rzucić,quit,misc,,"[""quit"",""to quit""]",2520
+północ,north,misc,,"[""north"",""to north""]",2521
+wyjątkiem,except,misc,,"[""except"",""to except""]",2522
+gejem,gay,misc,,"[""gay""]",2523
+znał,knew,misc,,"[""knew"",""to knew""]",2524
+bracia,brothers,misc,,"[""brothers"",""to brothers""]",2525
+robiłeś,you did,misc,,"[""you did""]",2526
+n,n,misc,,"[""n""]",2527
+ruchu,traffic,misc,,"[""traffic"",""to traffic""]",2528
+przyszłym,future,misc,,"[""future"",""to future""]",2529
+królem,king,misc,,"[""king"",""to king""]",2530
+patrzy,looks,misc,,"[""looks"",""to looks""]",2531
+żałuję,i regret,misc,,"[""i regret""]",2532
+dużą,large,misc,,"[""large"",""to large""]",2533
+przedstawić,submit,misc,,"[""submit"",""to submit""]",2534
+czułam,felt,misc,,"[""felt"",""to felt""]",2535
+przyjąć,take,misc,,"[""take"",""to take""]",2536
+bomba,bomb,misc,,"[""bomb"",""to bomb""]",2537
+klasie,class,misc,,"[""class"",""to class""]",2538
+ukradł,stole,misc,,"[""stole"",""to stole""]",2539
+pisać,write,misc,,"[""write"",""to write""]",2540
+zdarzyło,happened,misc,,"[""happened"",""to happened""]",2541
+zabijać,kill,misc,,"[""kill"",""to kill""]",2542
+dźwięk,sound,misc,,"[""sound"",""to sound""]",2543
+czysto,purely,misc,,"[""purely"",""to purely""]",2544
+przyjemnością,pleasure,misc,,"[""pleasure"",""to pleasure""]",2545
+nosi,carries,misc,,"[""carries"",""to carries""]",2546
+paru,a few,misc,,"[""a few"",""few""]",2547
+chłopców,boys,misc,,"[""boys"",""to boys""]",2548
+pracowałem,i worked,misc,,"[""i worked""]",2549
+zajęta,busy,misc,,"[""busy"",""to busy""]",2550
+dupku,asshole,misc,,"[""asshole"",""to asshole""]",2551
+bzdury,nonsense,misc,,"[""nonsense"",""to nonsense""]",2552
+tv,tv,misc,,"[""tv""]",2553
+jezus,jesus,misc,,"[""jesus"",""to jesus""]",2554
+prawdą,truth,misc,,"[""truth"",""to truth""]",2555
+systemu,system,misc,,"[""system"",""to system""]",2556
+taylor,taylor,misc,,"[""taylor"",""to taylor""]",2557
+zachowanie,behaviour,misc,,"[""behaviour"",""to behaviour""]",2558
+wróciłeś,you're back,misc,,"[""you're back""]",2559
+mylisz,you are confusing,misc,,"[""you are confusing""]",2560
+dowiemy,find out,misc,,"[""find out""]",2561
+oddech,breath,misc,,"[""breath"",""to breath""]",2562
+chwile,moments,misc,,"[""moments"",""to moments""]",2563
+street,street,misc,,"[""street"",""to street""]",2564
+zbliża,brings  closer,misc,,"[""brings  closer""]",2565
+strachu,fear,misc,,"[""fear"",""to fear""]",2566
+sean,sean,misc,,"[""sean"",""to sean""]",2567
+wojnie,war,misc,,"[""war""]",2568
+przypadkiem,by chance,misc,,"[""by chance""]",2569
+prawdziwego,real,misc,,"[""real"",""to real""]",2570
+duszy,soul,misc,,"[""soul"",""to soul""]",2571
+wiatr,wind,misc,,"[""wind"",""to wind""]",2572
+pamiętać,remember,misc,,"[""remember"",""to remember""]",2573
+zdjęć,photos,misc,,"[""photos"",""to photos""]",2574
+gadasz,you talk,misc,,"[""you talk""]",2575
+lily,lily,misc,,"[""lily"",""to lily""]",2576
+działania,activities,misc,,"[""activities"",""to activities""]",2577
+klubie,club,misc,,"[""club"",""to club""]",2578
+dzwoń,call,misc,,"[""call"",""to call""]",2579
+książka,book,misc,,"[""book"",""to book""]",2580
+sąd,court,misc,,"[""court"",""to court""]",2581
+znajdą,find,misc,,"[""find"",""to find""]",2582
+zmarła,deceased,misc,,"[""deceased"",""to deceased""]",2583
+drzwiami,door,misc,,"[""door"",""to door""]",2584
+skończyliśmy,finished,misc,,"[""finished"",""to finished""]",2585
+zostałeś,you have been,misc,,"[""you have been""]",2586
+szacunku,respect,misc,,"[""respect"",""to respect""]",2587
+znacie,do you know,misc,,"[""do you know""]",2588
+słyszał,heard,misc,,"[""heard"",""to heard""]",2589
+kapitana,captain,misc,,"[""captain"",""to captain""]",2590
+wysłał,sent,misc,,"[""sent"",""to sent""]",2591
+hotel,hotel,misc,,"[""hotel"",""to hotel""]",2592
+rąk,hands,misc,,"[""hands"",""to hands""]",2593
+pokonać,overcome,misc,,"[""overcome"",""to overcome""]",2594
+kolejną,another,misc,,"[""another"",""to another""]",2595
+kawał,prank,misc,,"[""prank"",""to prank""]",2596
+bazy,bases,misc,,"[""bases"",""to bases""]",2597
+kochana,dear,misc,,"[""dear"",""to dear""]",2598
+wybierasz,you choose,misc,,"[""you choose""]",2599
+robert,robert,misc,,"[""robert"",""to robert""]",2600
+nakaz,injunction,misc,,"[""injunction"",""to injunction""]",2601
+darmo,free,misc,,"[""free"",""to free""]",2602
+matce,mother,misc,,"[""mother"",""to mother""]",2603
+lewej,left,misc,,"[""left"",""to left""]",2604
+kartę,card,misc,,"[""card"",""to card""]",2605
+doprawdy,truly,misc,,"[""truly"",""to truly""]",2606
+jasno,bright,misc,,"[""bright"",""to bright""]",2607
+zejdź,go down,misc,,"[""go down""]",2608
+uśmiech,smile,misc,,"[""smile"",""to smile""]",2609
+plecy,back,misc,,"[""back"",""to back""]",2610
+zginąć,die,misc,,"[""die""]",2611
+zaszczyt,honour,misc,,"[""honour"",""to honour""]",2612
+biedny,poor,misc,,"[""poor"",""to poor""]",2613
+powtarzam,repeat,misc,,"[""repeat"",""to repeat""]",2614
+widzieliście,have you seen,misc,,"[""have you seen""]",2615
+pełna,full,misc,,"[""full"",""to full""]",2616
+używa,uses,misc,,"[""uses"",""to uses""]",2617
+pragnę,i would like to,misc,,"[""i would like to""]",2618
+brawo,bravo,misc,,"[""bravo"",""to bravo""]",2619
+wakacje,holidays,misc,,"[""holidays"",""to holidays""]",2620
+strzelaj,shoot,misc,,"[""shoot"",""to shoot""]",2621
+pojadę,i will go,misc,,"[""i will go""]",2622
+wybaczcie,forgive,misc,,"[""forgive"",""to forgive""]",2623
+plaży,beach,misc,,"[""beach"",""to beach""]",2624
+odpowiedzieć,reply,misc,,"[""reply"",""to reply""]",2625
+zabiją,kill,misc,,"[""kill"",""to kill""]",2626
+ryby,fish,misc,,"[""fish"",""to fish""]",2627
+imienia,name,misc,,"[""name"",""to name""]",2628
+życzę,i wish,misc,,"[""i wish""]",2629
+chciałabyś,would you like to,misc,,"[""would you like to""]",2630
+piwnicy,basement,misc,,"[""basement"",""to basement""]",2631
+interesujące,interesting,misc,,"[""interesting"",""to interesting""]",2632
+alice,alice,misc,,"[""alice"",""to alice""]",2633
+rozmawiamy,we talk,misc,,"[""we talk""]",2634
+okres,period,misc,,"[""period"",""to period""]",2635
+odeszła,gone,misc,,"[""gone"",""to gone""]",2636
+bohaterem,hero,misc,,"[""hero"",""to hero""]",2637
+anglii,england,misc,,"[""england"",""to england""]",2638
+kurde,chicken,misc,,"[""chicken"",""to chicken""]",2639
+ciśnienie,pressure,misc,,"[""pressure"",""to pressure""]",2640
+przeżyć,experience,misc,,"[""experience"",""to experience""]",2641
+wszedł,entered,misc,,"[""entered"",""to entered""]",2642
+pogadamy,chat,misc,,"[""chat"",""to chat""]",2643
+niebie,heaven,misc,,"[""heaven"",""to heaven""]",2644
+zostawcie,leave,misc,,"[""leave"",""to leave""]",2645
+niedobrze,not good,misc,,"[""not good""]",2646
+chloe,chloe,misc,,"[""chloe"",""to chloe""]",2647
+zagrać,play,misc,,"[""play"",""to play""]",2648
+detektywie,detective,misc,,"[""detective"",""to detective""]",2649
+piekła,hell,misc,,"[""hell"",""to hell""]",2650
+pełen,full,misc,,"[""full"",""to full""]",2651
+abby,abby,misc,,"[""abby"",""to abby""]",2652
+przygotuj,prepare,misc,,"[""prepare"",""to prepare""]",2653
+uważać,beware,misc,,"[""beware"",""to beware""]",2654
+połączenie,link,misc,,"[""link"",""to link""]",2655
+udać,pretend,misc,,"[""pretend"",""to pretend""]",2656
+napić,drink,misc,,"[""drink"",""to drink""]",2657
+cudowne,wonderful,misc,,"[""wonderful"",""to wonderful""]",2658
+wchodzę,enter,misc,,"[""enter"",""to enter""]",2659
+trzymam,i hold,misc,,"[""i hold""]",2660
+klient,customer,misc,,"[""customer"",""to customer""]",2661
+zmęczona,tired,misc,,"[""tired"",""to tired""]",2662
+romans,romance,misc,,"[""romance"",""to romance""]",2663
+zauważyłem,noted,misc,,"[""noted"",""to noted""]",2664
+lesie,forest,misc,,"[""forest"",""to forest""]",2665
+boku,side,misc,,"[""side"",""to side""]",2666
+łączy,links,misc,,"[""links"",""to links""]",2667
+robin,robin,misc,,"[""robin"",""to robin""]",2668
+zamierza,intends,misc,,"[""intends"",""to intends""]",2669
+odpocząć,relax,misc,,"[""relax"",""to relax""]",2670
+przyjdź,come,misc,,"[""come"",""to come""]",2671
+zapytaj,ask,misc,,"[""ask""]",2672
+ciężki,heavy,misc,,"[""heavy"",""to heavy""]",2673
+ręka,hand,misc,,"[""hand"",""to hand""]",2674
+filmie,film,misc,,"[""film"",""to film""]",2675
+stopy,feet,misc,,"[""feet"",""to feet""]",2676
+city,city,misc,,"[""city"",""to city""]",2677
+przerwę,break,misc,,"[""break"",""to break""]",2678
+prysznic,shower,misc,,"[""shower"",""to shower""]",2679
+połowa,half of,misc,,"[""half of""]",2680
+okropnie,awful,misc,,"[""awful"",""to awful""]",2681
+ciele,body,misc,,"[""body"",""to body""]",2682
+szczery,sincere,misc,,"[""sincere"",""to sincere""]",2683
+amen,amen,misc,,"[""amen"",""to amen""]",2684
+kochał,loved,misc,,"[""loved"",""to loved""]",2685
+zakupy,shopping,misc,,"[""shopping"",""to shopping""]",2686
+klub,club,misc,,"[""club"",""to club""]",2687
+szpital,hospital,misc,,"[""hospital"",""to hospital""]",2688
+programu,programme,misc,,"[""programme"",""to programme""]",2689
+czyste,clean,misc,,"[""clean"",""to clean""]",2690
+tez,also,misc,,"[""also"",""to also""]",2691
+sądzi,judges,misc,,"[""judges"",""to judges""]",2692
+zacznę,i'll start,misc,,"[""i'll start""]",2693
+śladów,traces,misc,,"[""traces"",""to traces""]",2694
+szkołę,school,misc,,"[""school"",""to school""]",2695
+własnych,own,misc,,"[""own""]",2696
+kontynuować,continue,misc,,"[""continue"",""to continue""]",2697
+smith,smith,misc,,"[""smith"",""to smith""]",2698
+tajemnicy,secret,misc,,"[""secret"",""to secret""]",2699
+anna,anna,misc,,"[""anna"",""to anna""]",2700
+wysoko,highly,misc,,"[""highly"",""to highly""]",2701
+przyda,useful,misc,,"[""useful"",""to useful""]",2702
+kupił,bought,misc,,"[""bought"",""to bought""]",2703
+pozycji,item,misc,,"[""item"",""to item""]",2704
+sił,forces,misc,,"[""forces"",""to forces""]",2705
+thomas,thomas,misc,,"[""thomas"",""to thomas""]",2706
+biznes,business,misc,,"[""business"",""to business""]",2707
+wolałbym,i would prefer,misc,,"[""i would prefer""]",2708
+jackie,jackie,misc,,"[""jackie"",""to jackie""]",2709
+środek,measure,misc,,"[""measure"",""to measure""]",2710
+przeznaczenie,destination,misc,,"[""destination"",""to destination""]",2711
+skomplikowane,complex,misc,,"[""complex"",""to complex""]",2712
+samolotu,aircraft,misc,,"[""aircraft"",""to aircraft""]",2713
+wielkiej,great,misc,,"[""great"",""to great""]",2714
+ostatniego,last,misc,,"[""last"",""to last""]",2715
+piersi,breasts,misc,,"[""breasts"",""to breasts""]",2716
+betty,betty,misc,,"[""betty"",""to betty""]",2717
+łóżko,bed,misc,,"[""bed""]",2718
+morderca,murderer,misc,,"[""murderer"",""to murderer""]",2719
+para,couple,misc,,"[""couple"",""to couple""]",2720
+sprawić,make,misc,,"[""make"",""to make""]",2721
+tylu,so many,misc,,"[""so many""]",2722
+bar,bar,misc,,"[""bar""]",2723
+nadziei,hope,misc,,"[""hope"",""to hope""]",2724
+operację,operation,misc,,"[""operation"",""to operation""]",2725
+robiła,made,misc,,"[""made"",""to made""]",2726
+ważny,important,misc,,"[""important"",""to important""]",2727
+potrafią,can,misc,,"[""can""]",2728
+zakończyć,quit,misc,,"[""quit"",""to quit""]",2729
+al,al,misc,,"[""al""]",2730
+niedawno,recently,misc,,"[""recently"",""to recently""]",2731
+aresztowany,arrested,misc,,"[""arrested"",""to arrested""]",2732
+wroga,enemy,misc,,"[""enemy"",""to enemy""]",2733
+dookoła,around,misc,,"[""around"",""to around""]",2734
+idiota,idiot,misc,,"[""idiot"",""to idiot""]",2735
+pomyłka,mistake,misc,,"[""mistake"",""to mistake""]",2736
+sieci,networks,misc,,"[""networks"",""to networks""]",2737
+skończyła,finished,misc,,"[""finished"",""to finished""]",2738
+przyszłaś,you came,misc,,"[""you came""]",2739
+molly,molly,misc,,"[""molly"",""to molly""]",2740
+dotyczy,concerns,misc,,"[""concerns"",""to concerns""]",2741
+próba,test,misc,,"[""test"",""to test""]",2742
+pełno,full,misc,,"[""full"",""to full""]",2743
+nagranie,recording,misc,,"[""recording"",""to recording""]",2744
+wziąłem,i took,misc,,"[""i took""]",2745
+wierz,believe,misc,,"[""believe"",""to believe""]",2746
+piekło,hell,misc,,"[""hell"",""to hell""]",2747
+kolacji,dinners,misc,,"[""dinners"",""to dinners""]",2748
+forsę,money,misc,,"[""money"",""to money""]",2749
+włosów,hair,misc,,"[""hair"",""to hair""]",2750
+samochodem,by car,misc,,"[""by car""]",2751
+bilet,ticket,misc,,"[""ticket"",""to ticket""]",2752
+pozwólcie,let,misc,,"[""let""]",2753
+słuchasz,you listen to,misc,,"[""you listen to""]",2754
+kłamiesz,you lie,misc,,"[""you lie""]",2755
+dwaj,two,misc,,"[""two""]",2756
+huh,huh,misc,,"[""huh""]",2757
+czekał,waited,misc,,"[""waited"",""to waited""]",2758
+żołnierzy,soldiers,misc,,"[""soldiers"",""to soldiers""]",2759
+znieść,abolish,misc,,"[""abolish"",""to abolish""]",2760
+gratuluję,congratulations,misc,,"[""congratulations"",""to congratulations""]",2761
+miejsc,places,misc,,"[""places"",""to places""]",2762
+pracujemy,we work,misc,,"[""we work""]",2763
+złota,gold,misc,,"[""gold"",""to gold""]",2764
+obrony,defence,misc,,"[""defence"",""to defence""]",2765
+sensie,sense,misc,,"[""sense"",""to sense""]",2766
+ust,mouth,misc,,"[""mouth"",""to mouth""]",2767
+wpadł,dropped by,misc,,"[""dropped by""]",2768
+is,is,misc,,"[""is""]",2769
+raka,cancer,misc,,"[""cancer"",""to cancer""]",2770
+ramię,arm,misc,,"[""arm""]",2771
+nadzieje,hopes,misc,,"[""hopes"",""to hopes""]",2772
+połowie,half,misc,,"[""half"",""to half""]",2773
+rachunek,account,misc,,"[""account"",""to account""]",2774
+wpaść,drop by,misc,,"[""drop by""]",2775
+wstyd,shame,misc,,"[""shame"",""to shame""]",2776
+skończyło,finished,misc,,"[""finished"",""to finished""]",2777
+ślubu,wedding,misc,,"[""wedding"",""to wedding""]",2778
+witajcie,welcome,misc,,"[""welcome"",""to welcome""]",2779
+dotąd,so far,misc,,"[""so far""]",2780
+rozwiązanie,solution,misc,,"[""solution"",""to solution""]",2781
+miecz,sword,misc,,"[""sword"",""to sword""]",2782
+drużyna,team,misc,,"[""team"",""to team""]",2783
+las,forest,misc,,"[""forest"",""to forest""]",2784
+południu,south,misc,,"[""south"",""to south""]",2785
+kamień,stone,misc,,"[""stone"",""to stone""]",2786
+zajmij,take up,misc,,"[""take up""]",2787
+komórki,cells,misc,,"[""cells"",""to cells""]",2788
+najgorsze,worst,misc,,"[""worst"",""to worst""]",2789
+ono,it,misc,,"[""it""]",2790
+pomimo,despite,misc,,"[""despite"",""to despite""]",2791
+sędzia,referee,misc,,"[""referee"",""to referee""]",2792
+jednostki,units,misc,,"[""units"",""to units""]",2793
+załatwię,get,misc,,"[""get""]",2794
+nareszcie,finally,misc,,"[""finally"",""to finally""]",2795
+prawej,right,misc,,"[""right"",""to right""]",2796
+zdaniem,according to,misc,,"[""according to""]",2797
+kłamie,lies,misc,,"[""lies"",""to lies""]",2798
+sypialni,bedrooms,misc,,"[""bedrooms"",""to bedrooms""]",2799
+carl,carl,misc,,"[""carl"",""to carl""]",2800
+zasad,rules,misc,,"[""rules"",""to rules""]",2801
+mężczyzny,of men,misc,,"[""of men""]",2802
+miej,have,misc,,"[""have"",""to have""]",2803
+specjalnie,specially,misc,,"[""specially"",""to specially""]",2804
+ruszamy,we move,misc,,"[""we move""]",2805
+starszy,senior,misc,,"[""senior"",""to senior""]",2806
+spotkaliśmy,we met,misc,,"[""we met""]",2807
+stworzyć,establish,misc,,"[""establish"",""to establish""]",2808
+żonaty,married,misc,,"[""married"",""to married""]",2809
+zostawiła,left,misc,,"[""left"",""to left""]",2810
+pyta,asks,misc,,"[""asks"",""to asks""]",2811
+strona,website,misc,,"[""website"",""to website""]",2812
+profesorze,professor,misc,,"[""professor"",""to professor""]",2813
+dostaje,gets,misc,,"[""gets"",""to gets""]",2814
+starym,old,misc,,"[""old""]",2815
+okiem,eye of,misc,,"[""eye of""]",2816
+ludzkie,human,misc,,"[""human"",""to human""]",2817
+zespołu,team,misc,,"[""team"",""to team""]",2818
+swojemu,its,misc,,"[""its""]",2819
+dowiem,i will find out,misc,,"[""i will find out""]",2820
+poprosić,ask,misc,,"[""ask""]",2821
+łazienki,bathrooms,misc,,"[""bathrooms"",""to bathrooms""]",2822
+zostawiłem,i left,misc,,"[""i left""]",2823
+zapomniałeś,you forgot,misc,,"[""you forgot""]",2824
+władzy,power,misc,,"[""power"",""to power""]",2825
+oby,may,misc,,"[""may""]",2826
+nagrodę,award,misc,,"[""award"",""to award""]",2827
+cofnąć,retract,misc,,"[""retract"",""to retract""]",2828
+dumna,proud,misc,,"[""proud"",""to proud""]",2829
+troche,a bit,misc,,"[""a bit"",""bit""]",2830
+rolę,role of,misc,,"[""role of""]",2831
+stanów,states,misc,,"[""states"",""to states""]",2832
+szukałem,i was looking for,misc,,"[""i was looking for""]",2833
+ed,ed,misc,,"[""ed""]",2834
+ofiarą,victim of,misc,,"[""victim of""]",2835
+zabijesz,you will kill,misc,,"[""you will kill""]",2836
+starych,old,misc,,"[""old""]",2837
+tańczyć,dance,misc,,"[""dance"",""to dance""]",2838
+all,all,misc,,"[""all""]",2839
+odwiedzić,visit,misc,,"[""visit"",""to visit""]",2840
+rozmawiałam,talked to,misc,,"[""talked to""]",2841
+goście,visitors,misc,,"[""visitors"",""to visitors""]",2842
+szeryfie,sheriff,misc,,"[""sheriff"",""to sheriff""]",2843
+zabieraj,take,misc,,"[""take"",""to take""]",2844
+umie,can,misc,,"[""can""]",2845
+simon,simon,misc,,"[""simon"",""to simon""]",2846
+przyjdziesz,come,misc,,"[""come"",""to come""]",2847
+zadziała,will work,misc,,"[""will work""]",2848
+przeze,by me,misc,,"[""by me""]",2849
+odpowiedz,reply,misc,,"[""reply"",""to reply""]",2850
+cud,miracle,misc,,"[""miracle"",""to miracle""]",2851
+grasz,you play,misc,,"[""you play""]",2852
+sukces,success,misc,,"[""success"",""to success""]",2853
+zasługuje,merits,misc,,"[""merits"",""to merits""]",2854
+niewinny,innocent,misc,,"[""innocent"",""to innocent""]",2855
+położyć,put down,misc,,"[""put down""]",2856
+znałem,i knew,misc,,"[""i knew""]",2857
+trzymał,held,misc,,"[""held"",""to held""]",2858
+przystojny,handsome,misc,,"[""handsome"",""to handsome""]",2859
+wykonać,perform,misc,,"[""perform"",""to perform""]",2860
+dali,dali,misc,,"[""dali"",""to dali""]",2861
+dostała,got,misc,,"[""got""]",2862
+książę,prince,misc,,"[""prince"",""to prince""]",2863
+kolana,knees,misc,,"[""knees"",""to knees""]",2864
+postawić,place,misc,,"[""place"",""to place""]",2865
+wolna,free,misc,,"[""free"",""to free""]",2866
+suka,bitch,misc,,"[""bitch"",""to bitch""]",2867
+złoto,gold,misc,,"[""gold"",""to gold""]",2868
+bogiem,god,misc,,"[""god""]",2869
+dean,dean,misc,,"[""dean"",""to dean""]",2870
+palców,fingers,misc,,"[""fingers"",""to fingers""]",2871
+wyłącz,turn off,misc,,"[""turn off""]",2872
+litość,mercy,misc,,"[""mercy"",""to mercy""]",2873
+dachu,roof,misc,,"[""roof"",""to roof""]",2874
+tysiąc,thousand,misc,,"[""thousand"",""to thousand""]",2875
+królową,queen,misc,,"[""queen"",""to queen""]",2876
+okna,windows,misc,,"[""windows"",""to windows""]",2877
+złą,bad,misc,,"[""bad""]",2878
+szukają,seek,misc,,"[""seek"",""to seek""]",2879
+uderzył,hit,misc,,"[""hit""]",2880
+wszelkie,any,misc,,"[""any""]",2881
+siedział,sat,misc,,"[""sat""]",2882
+drzewa,trees,misc,,"[""trees"",""to trees""]",2883
+sprawiedliwości,justice,misc,,"[""justice"",""to justice""]",2884
+rzeczach,things,misc,,"[""things"",""to things""]",2885
+hank,hank,misc,,"[""hank"",""to hank""]",2886
+odsuń,push back,misc,,"[""push back""]",2887
+sara,sara,misc,,"[""sara"",""to sara""]",2888
+ciemności,darkness,misc,,"[""darkness"",""to darkness""]",2889
+głównie,mainly,misc,,"[""mainly"",""to mainly""]",2890
+meksyku,mexico,misc,,"[""mexico"",""to mexico""]",2891
+szansy,opportunity,misc,,"[""opportunity"",""to opportunity""]",2892
+typu,type,misc,,"[""type"",""to type""]",2893
+bronić,defend,misc,,"[""defend"",""to defend""]",2894
+prędzej,sooner,misc,,"[""sooner"",""to sooner""]",2895
+francji,france,misc,,"[""france"",""to france""]",2896
+miami,miami,misc,,"[""miami"",""to miami""]",2897
+skończę,i will finish,misc,,"[""i will finish""]",2898
+przerwy,breaks,misc,,"[""breaks"",""to breaks""]",2899
+zaczynasz,you start,misc,,"[""you start""]",2900
+zastanawiałem,i wondered,misc,,"[""i wondered""]",2901
+zabawny,hilarious,misc,,"[""hilarious"",""to hilarious""]",2902
+punktu,point,misc,,"[""point"",""to point""]",2903
+ważnego,important,misc,,"[""important"",""to important""]",2904
+filmy,films,misc,,"[""films"",""to films""]",2905
+urządzenie,device,misc,,"[""device"",""to device""]",2906
+poprzednio,previously,misc,,"[""previously"",""to previously""]",2907
+nienawidzi,hates,misc,,"[""hates"",""to hates""]",2908
+oddział,branch,misc,,"[""branch"",""to branch""]",2909
+lady,counters,misc,,"[""counters"",""to counters""]",2910
+piwa,beers,misc,,"[""beers"",""to beers""]",2911
+zwrócić,return,misc,,"[""return"",""to return""]",2912
+brakowało,missing,misc,,"[""missing"",""to missing""]",2913
+krwią,blood,misc,,"[""blood"",""to blood""]",2914
+martwa,dead,misc,,"[""dead"",""to dead""]",2915
+czekałem,waited,misc,,"[""waited"",""to waited""]",2916
+winien,owe,misc,,"[""owe""]",2917
+taniec,dance,misc,,"[""dance"",""to dance""]",2918
+miesiącu,month,misc,,"[""month"",""to month""]",2919
+majorze,major,misc,,"[""major"",""to major""]",2920
+sukinsyn,son of a bitch,misc,,"[""son of a bitch""]",2921
+musieliśmy,we had to,misc,,"[""we had to""]",2922
+phil,phil,misc,,"[""phil"",""to phil""]",2923
+rusz,move,misc,,"[""move"",""to move""]",2924
+ściany,walls,misc,,"[""walls"",""to walls""]",2925
+dowiedział,found out,misc,,"[""found out""]",2926
+gliną,clay,misc,,"[""clay"",""to clay""]",2927
+klienta,customer,misc,,"[""customer"",""to customer""]",2928
+słyszy,hears,misc,,"[""hears"",""to hears""]",2929
+zdejmij,take down,misc,,"[""take down""]",2930
+pozwolenie,permit,misc,,"[""permit"",""to permit""]",2931
+świadków,witnesses,misc,,"[""witnesses"",""to witnesses""]",2932
+odrobinę,a bit,misc,,"[""a bit"",""bit""]",2933
+polega,consists of,misc,,"[""consists of""]",2934
+your,your,misc,,"[""your"",""to your""]",2935
+porze,time,misc,,"[""time"",""to time""]",2936
+ważna,important,misc,,"[""important"",""to important""]",2937
+dzwonić,call,misc,,"[""call"",""to call""]",2938
+odbiór,reception,misc,,"[""reception"",""to reception""]",2939
+żonie,wife,misc,,"[""wife"",""to wife""]",2940
+królowa,queen,misc,,"[""queen"",""to queen""]",2941
+dziewięć,nine,misc,,"[""nine"",""to nine""]",2942
+rzeki,rivers,misc,,"[""rivers"",""to rivers""]",2943
+jackson,jackson,misc,,"[""jackson"",""to jackson""]",2944
+funtów,pounds,misc,,"[""pounds"",""to pounds""]",2945
+opowiedzieć,tell,misc,,"[""tell"",""to tell""]",2946
+marzenia,dreams,misc,,"[""dreams"",""to dreams""]",2947
+autobus,bus,misc,,"[""bus""]",2948
+mile,miles,misc,,"[""miles"",""to miles""]",2949
+wywiad,interview,misc,,"[""interview"",""to interview""]",2950
+ostrożny,cautious,misc,,"[""cautious"",""to cautious""]",2951
+naszymi,our,misc,,"[""our""]",2952
+piosenka,song,misc,,"[""song"",""to song""]",2953
+święty,saint,misc,,"[""saint"",""to saint""]",2954
+odnośnie,regarding,misc,,"[""regarding"",""to regarding""]",2955
+dar,gift,misc,,"[""gift"",""to gift""]",2956
+operacja,operation,misc,,"[""operation"",""to operation""]",2957
+znalazłaś,you found,misc,,"[""you found""]",2958
+zegarek,watch,misc,,"[""watch"",""to watch""]",2959
+przenieść,transfer,misc,,"[""transfer"",""to transfer""]",2960
+jemu,him,misc,,"[""him""]",2961
+pojedziemy,we will go,misc,,"[""we will go""]",2962
+obrazy,images,misc,,"[""images"",""to images""]",2963
+ameryce,america,misc,,"[""america"",""to america""]",2964
+niemal,almost,misc,,"[""almost"",""to almost""]",2965
+czerwone,red,misc,,"[""red""]",2966
+przyszło,came,misc,,"[""came"",""to came""]",2967
+pośpiesz,rush,misc,,"[""rush"",""to rush""]",2968
+wodą,water,misc,,"[""water"",""to water""]",2969
+trzymajcie,keep,misc,,"[""keep"",""to keep""]",2970
+firmę,company,misc,,"[""company"",""to company""]",2971
+usłyszałem,heard,misc,,"[""heard"",""to heard""]",2972
+herbaty,teas,misc,,"[""teas"",""to teas""]",2973
+maria,maria,misc,,"[""maria"",""to maria""]",2974
+twego,your,misc,,"[""your"",""to your""]",2975
+pokaz,show,misc,,"[""show"",""to show""]",2976
+większy,larger,misc,,"[""larger"",""to larger""]",2977
+szczegóły,details,misc,,"[""details"",""to details""]",2978
+twarzą,face,misc,,"[""face"",""to face""]",2979
+zdjąć,take down,misc,,"[""take down""]",2980
+szalone,crazy,misc,,"[""crazy"",""to crazy""]",2981
+mogły,could,misc,,"[""could"",""to could""]",2982
+pieprz,pepper,misc,,"[""pepper"",""to pepper""]",2983
+sprawach,matters,misc,,"[""matters"",""to matters""]",2984
+gary,gary,misc,,"[""gary"",""to gary""]",2985
+widzieli,have seen,misc,,"[""have seen""]",2986
+wziąłeś,you took,misc,,"[""you took""]",2987
+dziwka,whore,misc,,"[""whore"",""to whore""]",2988
+zło,evil,misc,,"[""evil"",""to evil""]",2989
+wdzięczny,grateful,misc,,"[""grateful"",""to grateful""]",2990
+zainteresowany,interested,misc,,"[""interested"",""to interested""]",2991
+podobne,similar,misc,,"[""similar"",""to similar""]",2992
+plus,plus,misc,,"[""plus"",""to plus""]",2993
+spod,from under,misc,,"[""from under""]",2994
+synchro,synchro,misc,,"[""synchro"",""to synchro""]",2995
+pozwolił,allowed,misc,,"[""allowed"",""to allowed""]",2996
+prosił,asked,misc,,"[""asked"",""to asked""]",2997
+rada,council,misc,,"[""council"",""to council""]",2998
+miejscach,sites,misc,,"[""sites"",""to sites""]",2999
+praktycznie,virtually,misc,,"[""virtually"",""to virtually""]",3000

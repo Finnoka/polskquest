@@ -332,110 +332,98 @@ function computeMasteryPct(ledger, dungeonTotalWords, allLedgerIds) {
    • A2, B1, B2, C1 fully stubbed with stages (for replay + progress testing)
    • CEFR word targets: A1=700, A2=2000, B1=3000, B2=5000, C1=10000
 ══════════════════════════════════════════════════════════════════════════════ */
+// Helper to generate stages for a dungeon
+function generateStages(dungeonId, totalWords, wordsPerStage = 50) {
+  const stageCount = Math.ceil(totalWords / wordsPerStage);
+  const stageThemes = [
+    { name: "The Gateway",        icon: "🚪" },
+    { name: "The Market",         icon: "🏪" },
+    { name: "The Forest",         icon: "🌲" },
+    { name: "The River",          icon: "🌊" },
+    { name: "The Mountain",       icon: "⛰" },
+    { name: "The Castle",         icon: "🏰" },
+    { name: "The Library",        icon: "📚" },
+    { name: "The Temple",         icon: "🏛" },
+    { name: "The Academy",        icon: "🎓" },
+    { name: "The Tower",          icon: "🗼" },
+  ];
+
+  return Array.from({ length: stageCount }, (_, i) => {
+    const theme    = stageThemes[i % stageThemes.length];
+    const stageNum = i + 1;
+    const chunkId  = `${dungeonId}-s${stageNum}`;
+
+    return {
+      id:      `${dungeonId}-s${stageNum}`,
+      index:   stageNum,
+      name:    `${theme.name} ${stageNum}`,
+      chunkId,
+      icon:    theme.icon,
+      color:   "#6366f1",
+      rooms: Array.from({ length: 5 }, (_, j) => ({
+        id:          `${dungeonId}-s${stageNum}-r${j+1}`,
+        name:        `Room ${j+1}`,
+        enemyName:   `Stage ${stageNum} Enemy ${j+1}`,
+        emoji:       ["👺","🧟","💀","👁","🗡"][j],
+        xp:          100 + (stageNum * 5),
+        gold:        40  + (stageNum * 2),
+        wordSlice:   [j * 10, j * 10 + 10],
+      })),
+      boss: {
+        id:               `${dungeonId}-s${stageNum}-boss`,
+        name:             `The ${theme.name} Guardian`,
+        enemyName:        `Guardian of Stage ${stageNum}`,
+        emoji:            "👑",
+        lore:             `Master of words ${(i * wordsPerStage) + 1}–${(i+1) * wordsPerStage}.`,
+        xp:               300 + (stageNum * 10),
+        gold:             150 + (stageNum * 5),
+        bossTimerSeconds: 10,
+        wordSlice:        [0, 50],
+      },
+    };
+  });
+}
+
 const DUNGEON_MANIFEST = [
   {
     id:"a1", name:"A1 Dungeon", subtitle:"700 Basic Polish Words",
     cefr:"A1", color:"#10b981", bg:"rgba(16,185,129,0.09)",
     border:"rgba(16,185,129,0.26)", icon:"🏰",
-    locked:false, isUnlocked:true, // DEV CHEAT
+    locked:false, isUnlocked:true,
     totalWords:700,
-    stages:[
-      {
-        id:"a1-s1", index:1, name:"The Forest of Greetings",
-        chunkId:"a1-s1", icon:"🌲", color:"#10b981",
-        rooms:[
-          { id:"a1-s1-r1", name:"The Gate",      enemyName:"The Rusty Greeter", emoji:"🧟", xp:80,  gold:30, wordSlice:[0,5]  },
-          { id:"a1-s1-r2", name:"The Path",       enemyName:"The Echo Imp",      emoji:"👺", xp:80,  gold:30, wordSlice:[3,8]  },
-          { id:"a1-s1-r3", name:"The Clearing",   enemyName:"The Mimic Spider",  emoji:"🕷", xp:80,  gold:30, wordSlice:[5,10] },
-          { id:"a1-s1-r4", name:"The Old Bridge", enemyName:"The Fog Specter",   emoji:"👁", xp:100, gold:40, wordSlice:[0,10] },
-          { id:"a1-s1-r5", name:"The Dark Tree",  enemyName:"The Hollow Knight", emoji:"🗡", xp:100, gold:40, wordSlice:[0,10] },
-        ],
-        boss:{ id:"a1-s1-boss", name:"The Ancient Oak", enemyName:"Sylvanus Rex",
-          emoji:"🌳", lore:"Guardian of the forest's tongue. Answer before the clock expires.",
-          xp:250, gold:150, bossTimerSeconds:10, wordSlice:[0,10] },
-      },
-      {
-        id:"a1-s2", index:2, name:"The Tavern of Food",
-        chunkId:"a1-s2", icon:"🍺", color:"#f59e0b",
-        rooms:[
-          { id:"a1-s2-r1", name:"The Bar",         enemyName:"The Thirsty Ghost",  emoji:"👻", xp:90,  gold:35, wordSlice:[0,5]  },
-          { id:"a1-s2-r2", name:"The Kitchen",     enemyName:"The Bread Golem",    emoji:"🥖", xp:90,  gold:35, wordSlice:[3,8]  },
-          { id:"a1-s2-r3", name:"The Cellar",      enemyName:"The Number Lich",    emoji:"💀", xp:90,  gold:35, wordSlice:[5,10] },
-          { id:"a1-s2-r4", name:"The Dining Hall", enemyName:"The Word Wyvern",    emoji:"🐲", xp:110, gold:45, wordSlice:[0,10] },
-          { id:"a1-s2-r5", name:"The Vault",       enemyName:"The Iron Sommelier", emoji:"🍷", xp:110, gold:45, wordSlice:[0,10] },
-        ],
-        boss:{ id:"a1-s2-boss", name:"The Tavern Keep", enemyName:"Grammaticus Rex",
-          emoji:"🐉", lore:"Ancient warden of food and numbers. Answer before the candle gutters.",
-          xp:300, gold:200, bossTimerSeconds:10, wordSlice:[0,10] },
-      },
-      ...Array.from({length:8},(_,i)=>({
-        id:`a1-s${i+3}`, index:i+3,
-        name:["The Market of Colours","The Temple of Time","The Castle of Family","The River of Verbs","The Mountain of Cases","The City of Questions","The Academy of Adjectives","The Final Fortress"][i],
-        chunkId:`a1-s${i+3}`, icon:["🎨","⏰","👨‍👩‍👧","🌊","⛰","🏙","🎓","🏯"][i], color:"#6366f1",
-        rooms:Array.from({length:5},(_,j)=>({ id:`a1-s${i+3}-r${j+1}`, name:`Room ${j+1}`, enemyName:"Coming Soon", emoji:"🔮", xp:100, gold:40, wordSlice:[j*2,j*2+5] })),
-        boss:{ id:`a1-s${i+3}-boss`, name:"Stage Boss", enemyName:"TBA", emoji:"❓", lore:"Coming in full release.", xp:300, gold:200, bossTimerSeconds:10, wordSlice:[0,10] },
-      })),
-    ],
+    stages: generateStages("a1", 700),  // 14 stages
   },
   {
     id:"a2", name:"A2 Dungeon", subtitle:"2000 Grammar & Intermediate Vocab",
     cefr:"A2", color:"#3b82f6", bg:"rgba(59,130,246,0.09)",
     border:"rgba(59,130,246,0.26)", icon:"🗼",
-    locked:false, isUnlocked:true, // DEV CHEAT
+    locked:false, isUnlocked:true,
     totalWords:2000,
-    stages:[
-      {
-        id:"a2-s1", index:1, name:"The Bridge of Grammar",
-        chunkId:"a2-s1", icon:"🌉", color:"#3b82f6",
-        rooms:Array.from({length:5},(_,j)=>({ id:`a2-s1-r${j+1}`, name:`Room ${j+1}`, enemyName:"Grammar Imp", emoji:"📚", xp:120, gold:50, wordSlice:[j*2,j*2+5] })),
-        boss:{ id:"a2-s1-boss", name:"The Grammar Golem", enemyName:"Gramaticus Rex", emoji:"🧱", lore:"Master of cases and declensions.", xp:350, gold:220, bossTimerSeconds:10, wordSlice:[0,10] },
-      },
-    ],
+    stages: generateStages("a2", 2000),  // 40 stages
   },
   {
     id:"b1", name:"B1 Dungeon", subtitle:"3000 Cases, Verbs of Motion & Beyond",
     cefr:"B1", color:"#a855f7", bg:"rgba(168,85,247,0.09)",
     border:"rgba(168,85,247,0.26)", icon:"⚔️",
-    locked:false, isUnlocked:true, // DEV CHEAT
+    locked:false, isUnlocked:true,
     totalWords:3000,
-    stages:[
-      {
-        id:"b1-s1", index:1, name:"The Valley of Cases",
-        chunkId:"b1-s1", icon:"🏔", color:"#a855f7",
-        rooms:Array.from({length:5},(_,j)=>({ id:`b1-s1-r${j+1}`, name:`Room ${j+1}`, enemyName:"Case Wraith", emoji:"👁", xp:150, gold:65, wordSlice:[j*2,j*2+5] })),
-        boss:{ id:"b1-s1-boss", name:"The Nominative Lich", enemyName:"Casus Rex", emoji:"💀", lore:"Seven cases, one victor.", xp:400, gold:280, bossTimerSeconds:10, wordSlice:[0,10] },
-      },
-    ],
+    stages: generateStages("b1", 3000),  // 60 stages
   },
   {
     id:"b2", name:"B2 Dungeon", subtitle:"5000 Advanced Fluency",
     cefr:"B2", color:"#f97316", bg:"rgba(249,115,22,0.09)",
     border:"rgba(249,115,22,0.26)", icon:"🏛",
-    locked:false, isUnlocked:true, // DEV CHEAT
+    locked:false, isUnlocked:true,
     totalWords:5000,
-    stages:[
-      {
-        id:"b2-s1", index:1, name:"The Tower of Aspects",
-        chunkId:"b2-s1", icon:"🗼", color:"#f97316",
-        rooms:Array.from({length:5},(_,j)=>({ id:`b2-s1-r${j+1}`, name:`Room ${j+1}`, enemyName:"Aspect Demon", emoji:"🔥", xp:180, gold:80, wordSlice:[j*2,j*2+5] })),
-        boss:{ id:"b2-s1-boss", name:"The Perfective Dragon", enemyName:"Aspectus Rex", emoji:"🐉", lore:"Master of perfective and imperfective.", xp:500, gold:350, bossTimerSeconds:10, wordSlice:[0,10] },
-      },
-    ],
+    stages: generateStages("b2", 5000),  // 100 stages
   },
   {
     id:"c1", name:"C1 Dungeon", subtitle:"10000 Near-Native Mastery",
     cefr:"C1", color:"#ec4899", bg:"rgba(236,72,153,0.09)",
     border:"rgba(236,72,153,0.26)", icon:"👑",
-    locked:false, isUnlocked:true, // DEV CHEAT
+    locked:false, isUnlocked:true,
     totalWords:10000,
-    stages:[
-      {
-        id:"c1-s1", index:1, name:"The Citadel of Idioms",
-        chunkId:"c1-s1", icon:"🏯", color:"#ec4899",
-        rooms:Array.from({length:5},(_,j)=>({ id:`c1-s1-r${j+1}`, name:`Room ${j+1}`, enemyName:"Idiom Phantom", emoji:"👻", xp:250, gold:120, wordSlice:[j*2,j*2+5] })),
-        boss:{ id:"c1-s1-boss", name:"The Grand Linguist", enemyName:"Polyglottus Rex", emoji:"👑", lore:"The final guardian of the Polish tongue.", xp:800, gold:600, bossTimerSeconds:8, wordSlice:[0,10] },
-      },
-    ],
+    stages: generateStages("c1", 10000),  // 200 stages
   },
 ];
 
