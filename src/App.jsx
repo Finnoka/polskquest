@@ -1,21 +1,31 @@
 import { useState, useEffect, useRef, useCallback, useMemo, useReducer } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-/* ── Supabase client ── initialised once from Vite env vars ── */
-const _supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SERVICE_KEY
-);
+/* ── Supabase client ── reads whichever key name you have set ── */
+const _supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const _supabaseKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  import.meta.env.VITE_SUPABASE_SERVICE_KEY;
+
+if (!_supabaseUrl || !_supabaseKey) {
+  document.body.innerHTML =
+    '<pre style="color:red;padding:20px">PolskQuest — missing env vars.<br>Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env or Vercel dashboard.</pre>';
+  throw new Error("Missing Supabase env vars — check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY");
+}
+
+const _supabase = createClient(_supabaseUrl, _supabaseKey);
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   POLSKQUEST — PHASE 12: SUPABASE LIVE DATA FOR ALL CEFR LEVELS
+   POLSKQUEST — PHASE 14: COMBAT HARDENING HOTFIXES
 
-   KEY CHANGES FROM PHASE 11:
+   KEY CHANGES FROM PHASE 13:
    ┌──────────────────────────────────────────────────────────────────────────┐
-   │  SUPABASE ON    fetchChunk & fetchAllForLevel now query Supabase live    │
-   │  CASE FLEXIBLE  tries uppercase cefr_level ("B2") then lowercase ("b2") │
-   │  NO MOCK BLEED  B2/C1 no longer fall back to placeholder "Słowo" names  │
-   │  CLIENT INIT    createClient() from VITE env vars, no window.__supabase  │
+   │  ENTER SPAM FIX  confirmAndAdvance stays locked until next q mounts     │
+   │  CO PRONUNCIATION AudioService overrides "co"→"tso" for correct TTS    │
+   │  MCQ DEDUP       duplicate english labels filtered from MCQ options     │
+   │  WRITING SYNONYMS all Polish words sharing english_main are accepted   │
+   │  WORD BANK FIX   reads VocabService cache (actual taught words)         │
+   │  DUNGEON COUNTS  totalWords = NEW words per dungeon, not cumulative     │
    └──────────────────────────────────────────────────────────────────────────┘
 ══════════════════════════════════════════════════════════════════════════════ */
 
@@ -52,17 +62,53 @@ class AudioServiceV2 {
     window.speechSynthesis.speak(u);
     this._warmed=true;
   }
+  /* Pronunciation overrides for words the browser TTS mispronounces.
+     We substitute a phonetic spelling that guides the engine correctly.
+     "co" (what) → browsers say "so"; correct Polish = "tso" (IPA: t͡sɔ).  */
+  /* _pronounce: applies only when the browser has NO Polish voice and falls back
+     to an English engine. Polish TTS engines handle these words natively — we
+     must NOT override for them or we corrupt the pronunciation further.
+     Detection: if this._voice?.lang starts with "pl" → Polish engine, no override.
+     English fallback overrides use English-readable phonetics.                  */
+  _pronounce(text) {
+    // If we have a genuine Polish voice, let it handle the word natively
+    if (this._voice?.lang?.startsWith("pl")) return text;
+
+    // English TTS fallback — phonetic approximations readable by English engines
+    const englishFallback = {
+      "co":        "tso",       // /t͡sɔ/
+      "Co":        "Tso",
+      "czy":       "chih",      // /t͡ʂɨ/ — "ch" + short "ih"
+      "Czy":       "Chih",
+      "cz":        "ch",
+      "sz":        "sh",
+      "rz":        "zh",
+      "dz":        "dz",
+      "dź":        "dj",
+      "dż":        "dzh",
+      "ź":         "zh",
+      "ż":         "zh",
+      "ń":         "ny",
+      "ś":         "sh",
+      "ć":         "ch",
+      "ł":         "w",
+    };
+    // Only exact single-word matches — never mangle phrases
+    return englishFallback[text.trim()] ?? text;
+  }
+
   speak(text, { rate=0.82, onEnd, onError }={}) {
     if (!window.speechSynthesis) { onError?.("unsupported"); return ()=>{}; }
-    if (window.speechSynthesis.paused) window.speechSynthesis.resume();
-    if (!window.speechSynthesis.speaking) window.speechSynthesis.cancel();
-    let cancelled=false;
-    const tid = setTimeout(() => {
+    text = this._pronounce(text);
+    window.speechSynthesis.cancel();
+    let cancelled = false;
+
+    const fire = () => {
       if (cancelled) return;
-      window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang="pl-PL"; u.rate=rate; u.pitch=1.0; u.volume=1.0;
-      if (this._voice) u.voice=this._voice;
+      u.lang = "pl-PL"; u.rate = rate; u.pitch = 1.0; u.volume = 1.0;
+      if (this._voice) u.voice = this._voice;
+      // Keepalive ping every 9 s to prevent Chrome from silently cutting off long speech
       const ka = setInterval(() => {
         if (!window.speechSynthesis.speaking) { clearInterval(ka); return; }
         window.speechSynthesis.pause(); window.speechSynthesis.resume();
@@ -70,8 +116,16 @@ class AudioServiceV2 {
       u.onend  = () => { clearInterval(ka); if (!cancelled) onEnd?.(); };
       u.onerror = e => { clearInterval(ka); if (!cancelled) onError?.(e.error); };
       window.speechSynthesis.speak(u);
-    }, 80);
-    return () => { cancelled=true; clearTimeout(tid); window.speechSynthesis.cancel(); };
+    };
+
+    // If voices are already loaded fire immediately; otherwise wait for them
+    if (this._voice) {
+      fire();
+    } else {
+      this.loadVoices().then(() => fire());
+    }
+
+    return () => { cancelled = true; window.speechSynthesis.cancel(); };
   }
   stop() { window.speechSynthesis?.cancel(); }
   get voices()        { return this._voices; }
@@ -80,6 +134,8 @@ class AudioServiceV2 {
   isSupported()       { return "speechSynthesis" in window; }
 }
 const AudioService = new AudioServiceV2();
+// Kick off voice loading immediately so the first speak() has no delay
+if (typeof window !== "undefined") AudioService.loadVoices();
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -157,16 +213,25 @@ const VocabService = {
 
     if (error) throw error;
 
-    const words = (data ?? []).map(r => ({
-      id:        r.id,
-      polish:    r.polish,
-      english:   r.english,
-      subtext:   r.subtext ?? null,
-      cat:       r.category ?? "misc",
-      accepted:  r.accepted_answers ?? [r.english.toLowerCase()],
-      cefrLevel: cefrLower,
-      stageId:   r.stage_id,
-    }));
+    /* Phase 13: map to synonym schema */
+    const words = (data ?? []).map(r => {
+      const main     = r.english ?? "";
+      const synonyms = Array.isArray(r.accepted_answers)
+        ? r.accepted_answers.map(s => String(s).toLowerCase())
+        : [main.toLowerCase()];
+      return {
+        id:               r.id,
+        polish:           r.polish,
+        english_main:     main,
+        accepted_synonyms:synonyms,
+        context_hint:     r.subtext ?? null,
+        cat:              r.category ?? "misc",
+        cefrLevel:        cefrLower,
+        stageId:          r.stage_id,
+        english:          main,      // legacy alias
+        accepted:         synonyms,  // legacy alias
+      };
+    });
     this._cache.set(chunkId, words);
     return words;
   },
@@ -194,16 +259,20 @@ const VocabService = {
 
     if (error) throw error;
 
-    const words = (data ?? []).map(r => ({
-      id:        r.id,
-      polish:    r.polish,
-      english:   r.english,
-      subtext:   r.subtext ?? null,
-      cat:       r.category ?? "misc",
-      accepted:  r.accepted_answers ?? [r.english.toLowerCase()],
-      cefrLevel: cefrLower,
-      stageId:   r.stage_id,
-    }));
+    const words = (data ?? []).map(r => {
+      const main     = r.english ?? "";
+      const synonyms = Array.isArray(r.accepted_answers)
+        ? r.accepted_answers.map(s => String(s).toLowerCase())
+        : [main.toLowerCase()];
+      return {
+        id: r.id, polish: r.polish,
+        english_main: main, accepted_synonyms: synonyms,
+        context_hint: r.subtext ?? null,
+        cat: r.category ?? "misc",
+        cefrLevel: cefrLower, stageId: r.stage_id,
+        english: main, accepted: synonyms,
+      };
+    });
     this._cache.set(key, words);
     return words;
   },
@@ -497,12 +566,19 @@ function generateDungeonStructure(dungeonId, totalWords, dungeonIndex = 0) {
 /* ══════════════════════════════════════════════════════════════════════════════
    §7  DUNGEON MANIFEST — fully procedural, no hardcoded stages
 ══════════════════════════════════════════════════════════════════════════════ */
-const DUNGEON_CONFIG = [
-  { id:"a1", name:"A1 Dungeon", subtitle:"700 Basic Polish Words",           cefr:"A1", color:"#10b981", bg:"rgba(16,185,129,0.09)", border:"rgba(16,185,129,0.26)", icon:"🏰", totalWords:700   },
-  { id:"a2", name:"A2 Dungeon", subtitle:"2000 Grammar & Intermediate",      cefr:"A2", color:"#3b82f6", bg:"rgba(59,130,246,0.09)", border:"rgba(59,130,246,0.26)", icon:"🗼", totalWords:2000  },
-  { id:"b1", name:"B1 Dungeon", subtitle:"3000 Cases & Verbs of Motion",     cefr:"B1", color:"#a855f7", bg:"rgba(168,85,247,0.09)", border:"rgba(168,85,247,0.26)", icon:"⚔️", totalWords:3000  },
-  { id:"b2", name:"B2 Dungeon", subtitle:"5000 Advanced Fluency",            cefr:"B2", color:"#f97316", bg:"rgba(249,115,22,0.09)", border:"rgba(249,115,22,0.26)", icon:"🏛", totalWords:5000  },
-  { id:"c1", name:"C1 Dungeon", subtitle:"10000 Near-Native Mastery",        cefr:"C1", color:"#ec4899", bg:"rgba(236,72,153,0.09)", border:"rgba(236,72,153,0.26)", icon:"👑", totalWords:10000 },
+const /* Phase 14: totalWords = NEW words this dungeon teaches (not cumulative).
+   Matches translate.cjs --offset slices in Supabase:
+     A1: offset=0,    count=700   → 700  new, 14 stages
+     A2: offset=700,  count=1300  → 1300 new, 26 stages  (2000 cumulative)
+     B1: offset=2000, count=1000  → 1000 new, 20 stages  (3000 cumulative)
+     B2: offset=3000, count=2000  → 2000 new, 40 stages  (5000 cumulative)
+     C1: offset=5000, count=5000  → 5000 new,100 stages  (10000 cumulative) */
+DUNGEON_CONFIG = [
+  { id:"a1", name:"A1 Dungeon", subtitle:"700 words · Beginner Foundations",        cefr:"A1", color:"#10b981", bg:"rgba(16,185,129,0.09)", border:"rgba(16,185,129,0.26)", icon:"🏰", totalWords:700,  cumulativeTotal:700   },
+  { id:"a2", name:"A2 Dungeon", subtitle:"1300 new words · 2000 total milestone",   cefr:"A2", color:"#3b82f6", bg:"rgba(59,130,246,0.09)", border:"rgba(59,130,246,0.26)", icon:"🗼", totalWords:1300, cumulativeTotal:2000  },
+  { id:"b1", name:"B1 Dungeon", subtitle:"1000 new words · 3000 total milestone",   cefr:"B1", color:"#a855f7", bg:"rgba(168,85,247,0.09)", border:"rgba(168,85,247,0.26)", icon:"⚔️", totalWords:1000, cumulativeTotal:3000  },
+  { id:"b2", name:"B2 Dungeon", subtitle:"2000 new words · 5000 total milestone",   cefr:"B2", color:"#f97316", bg:"rgba(249,115,22,0.09)", border:"rgba(249,115,22,0.26)", icon:"🏛", totalWords:2000, cumulativeTotal:5000  },
+  { id:"c1", name:"C1 Dungeon", subtitle:"5000 new words · 10000 total milestone",  cefr:"C1", color:"#ec4899", bg:"rgba(236,72,153,0.09)", border:"rgba(236,72,153,0.26)", icon:"👑", totalWords:5000, cumulativeTotal:10000 },
 ];
 
 const DUNGEON_MANIFEST = DUNGEON_CONFIG.map((cfg, idx) => ({
@@ -514,10 +590,11 @@ const DUNGEON_MANIFEST = DUNGEON_CONFIG.map((cfg, idx) => ({
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §8  VOCAB ENGINE v3 — session buffer aware
-   
-   Phase 11: generateQuestion now accepts a sessionBuffer (array of words) as
-   the primary pool. Review words (learning/mastered) are injected at 20%.
+   §8  VOCAB ENGINE v4 — synonym-aware validation + distractor guard
+
+   DISTRACTOR_CONFUSABLE_GROUPS:
+     Words in the same group must never appear together as MCQ distractors.
+     Prevents "mi" and "mnie" being offered side-by-side without clear case hint.
 ══════════════════════════════════════════════════════════════════════════════ */
 function removeDiacritics(s) {
   return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
@@ -558,40 +635,156 @@ function weightedPick(pool, ledger, excludeId) {
   return eligible[eligible.length - 1];
 }
 
-function pickDistractors(correct, pool, n=3) {
-  const candidates = pool.filter(w => w.id !== correct.id);
-  const diff = candidates.filter(w => w.cat !== correct.cat).sort(() => Math.random()-0.5);
-  const same = candidates.filter(w => w.cat === correct.cat).sort(() => Math.random()-0.5);
-  const picked = [...diff, ...same].slice(0, n);
-  while (picked.length < n) picked.push({ id:`_pad${picked.length}`, english:"—", subtext:null, cat:"_" });
-  return picked;
+/* Phase 13: confusable groups — words sharing a group never co-appear as MCQ options */
+const CONFUSABLE_GROUPS = {
+  "mi":"pronoun-me","mnie":"pronoun-me",
+  "go":"pronoun-him","jego":"pronoun-him",
+  "jej":"pronoun-her-gen","ją":"pronoun-her-acc",
+  "i":"conj-and","a":"conj-and",
+  "lub":"conj-or","albo":"conj-or","czy":"conj-or",
+  "być":"verb-be","jest":"verb-be","są":"verb-be",
+  "był":"verb-be-past","była":"verb-be-past","było":"verb-be-past",
+};
+function confusableGroup(word) {
+  return CONFUSABLE_GROUPS[word.polish?.toLowerCase()] ?? null;
 }
 
-function generateQuestion(pool, ledger, lastId) {
+/* pickDistractors: picks n unique-label distractors from pool.
+   If pool is too small (e.g. 10-word room slice with synonym duplicates),
+   falls back to fullPool for additional candidates.
+   Never produces "—" pads — always returns real words.               */
+function pickDistractors(correct, pool, n=3, fullPool=null) {
+  const correctGroup   = confusableGroup(correct);
+  const correctLabel   = optionLabel(correct).toLowerCase();
+  const seenLabels     = new Set([correctLabel]);
+
+  // Build candidate set: try pool first, then fall back to fullPool
+  const candidateSource = (fullPool && fullPool.length > pool.length)
+    ? [...pool, ...fullPool.filter(w => !pool.some(p => p.id === w.id))]
+    : pool;
+
+  const eligible = candidateSource.filter(w => {
+    if (w.id === correct.id) return false;
+    if (correctGroup && confusableGroup(w) === correctGroup) return false;
+    const lbl = optionLabel(w).toLowerCase();
+    if (seenLabels.has(lbl)) return false;  // skip duplicate English labels
+    return true;
+  });
+
+  const diff   = eligible.filter(w => w.cat !== correct.cat).sort(() => Math.random()-0.5);
+  const same   = eligible.filter(w => w.cat === correct.cat).sort(() => Math.random()-0.5);
+  const merged = [...diff, ...same];
+  const picked = [];
+
+  for (const w of merged) {
+    if (picked.length >= n) break;
+    const lbl = optionLabel(w).toLowerCase();
+    if (seenLabels.has(lbl)) continue;
+    seenLabels.add(lbl);
+    picked.push(w);
+  }
+
+  // If we genuinely can't find enough unique words (tiny pool), use what we have
+  // but never pad with "—" blanks
+  return picked.slice(0, n);
+}
+
+/* Returns display label for MCQ option — appends context_hint when present */
+function optionLabel(word) {
+  if (!word) return "—";
+  const base = word.english_main ?? word.english ?? "—";
+  return word.context_hint ? `${base} ${word.context_hint}` : base;
+}
+
+/* generateQuestion: fullPool is the complete battle pool (session buffer + review words).
+   It is used as a fallback distractor source when the room slice is too small
+   to produce 3 unique-label distractors. Pass null to use pool only.          */
+function generateQuestion(pool, ledger, lastId, fullPool=null) {
   if (!pool || pool.length === 0) return null;
   const word   = weightedPick(pool, ledger, lastId);
   const qTypes = ["reading","reading","listening","listening","writing","writing","writing"];
   const qtype  = qTypes[Math.floor(Math.random() * qTypes.length)];
 
+  const englishMain = word.english_main ?? word.english ?? "";
+  const displayLabel = word.context_hint
+    ? `${englishMain} ${word.context_hint}`
+    : englishMain;
+
   if (qtype === "reading") {
-    const distractors = pickDistractors(word, pool);
-    const options = [...distractors.map(d=>({ label:d.english, subtext:d.subtext })),
-                     { label:word.english, subtext:word.subtext }].sort(() => Math.random()-0.5);
-    return { id:`${word.id}-r-${Date.now()}`, type:"reading", wordId:word.id, polish:word.polish, english:word.english, options, answer:word.english, cat:word.cat };
+    // pickDistractors handles deduplication and fullPool fallback internally
+    const distractors = pickDistractors(word, pool, 3, fullPool);
+    const options = [
+      ...distractors.map(d => ({ label: optionLabel(d), wordId: d.id })),
+      { label: optionLabel(word), wordId: word.id },
+    ].sort(() => Math.random()-0.5);
+    return {
+      id: `${word.id}-r-${Date.now()}`, type: "reading",
+      wordId: word.id, polish: word.polish,
+      english_main: englishMain, displayLabel,
+      context_hint: word.context_hint ?? null,
+      options, correctWordId: word.id, cat: word.cat,
+    };
   }
+
   if (qtype === "listening") {
-    return { id:`${word.id}-l-${Date.now()}`, type:"listening", wordId:word.id, polish:word.polish, english:word.english, answer:word.english, accepted:word.accepted??[word.english.toLowerCase()], cat:word.cat };
+    // For listening: accept all synonyms the word carries from DB
+    return {
+      id: `${word.id}-l-${Date.now()}`, type: "listening",
+      wordId: word.id, polish: word.polish,
+      english_main: englishMain, displayLabel,
+      context_hint: word.context_hint ?? null,
+      accepted_synonyms: word.accepted_synonyms ?? word.accepted ?? [englishMain.toLowerCase()],
+      cat: word.cat,
+    };
   }
-  return { id:`${word.id}-w-${Date.now()}`, type:"writing", wordId:word.id, polish:word.polish, english:word.english, answer:word.polish, accepted:[word.polish.toLowerCase(), removeDiacritics(word.polish.toLowerCase())], cat:word.cat };
+
+  // writing: translate English → Polish.
+  // FIX: if multiple Polish words in the pool share the same english_main
+  // (e.g. "mi", "mnie", "ja" all mean "me"), ALL of them are valid Polish answers.
+  const sharedEnglish = englishMain.toLowerCase();
+  const allValidPolish = pool
+    .filter(w => {
+      const wMain = (w.english_main ?? w.english ?? "").toLowerCase();
+      return wMain === sharedEnglish;
+    })
+    .flatMap(w => [w.polish.toLowerCase(), removeDiacritics(w.polish.toLowerCase())]);
+  const acceptedPolish = [...new Set([
+    word.polish.toLowerCase(),
+    removeDiacritics(word.polish.toLowerCase()),
+    ...allValidPolish,
+  ])];
+
+  return {
+    id: `${word.id}-w-${Date.now()}`, type: "writing",
+    wordId: word.id, polish: word.polish,
+    english_main: englishMain, displayLabel,
+    context_hint: word.context_hint ?? null,
+    accepted_synonyms: acceptedPolish,
+    cat: word.cat,
+  };
 }
 
-function checkAnswer(q, raw) {
-  const input = raw.trim().toLowerCase();
-  if (q.type === "reading") return input === q.answer.toLowerCase();
-  const accepted = q.accepted ?? [q.answer.toLowerCase()];
-  const norm     = removeDiacritics(input);
-  return accepted.some(a => a === input || removeDiacritics(a) === norm);
+/* ── Phase 13: validateAnswer — single source of truth ──────────────────────
+   Reading:  raw = wordId of clicked option; correct if === question.correctWordId
+   Typing:   raw = user text; correct if matches english_main or any synonym
+   Diacritics are stripped for fuzzy matching on both sides.
+──────────────────────────────────────────────────────────────────────────── */
+function validateAnswer(question, raw) {
+  if (question.type === "reading") {
+    return raw === question.correctWordId;
+  }
+  const input = (raw ?? "").trim().toLowerCase();
+  if (!input) return false;
+  const normInput = removeDiacritics(input);
+  const synonyms  = question.accepted_synonyms ?? [question.english_main?.toLowerCase() ?? ""];
+  return synonyms.some(s => {
+    const sLow = s.toLowerCase();
+    return sLow === input || removeDiacritics(sLow) === normInput;
+  });
 }
+
+// Legacy alias
+const checkAnswer = validateAnswer;
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -837,58 +1030,90 @@ function PracticeMode({ sessionBuffer, wordPool, dungeon, stage, room, onComplet
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §12  QUESTION CARD  — Phase 10 500ms lock (unchanged)
+   §12  QUESTION CARD  — Phase 13: debounce lock + synonym validation + context hints
+
+   isProcessing (ref, not state): gates both submit and Strike to fire exactly once.
+   MCQ options carry wordId — validateAnswer compares IDs, never label strings.
+   Context hints shown in writing prompts and in wrong-answer correction row.
 ══════════════════════════════════════════════════════════════════════════════ */
 function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExpire, onOof }) {
   const [feedbackStep, setFeedbackStep] = useState("idle");
-  const [selected,     setSelected]     = useState(null);
+  const [selectedId,   setSelectedId]   = useState(null);   // wordId of chosen MCQ option
   const [typed,        setTyped]        = useState("");
   const [result,       setResult]       = useState(null);
   const [showTutor,    setShowTutor]    = useState(false);
-  const inputRef  = useRef(null);
-  const timerKey  = useRef(0);
-  const lockTimer = useRef(null);
+  const inputRef    = useRef(null);
+  const timerKey    = useRef(0);
+  const lockTimer   = useRef(null);
+  const isProcessing= useRef(false);  // Phase 13 debounce gate
 
   useEffect(()=>{
-    setFeedbackStep("idle"); setSelected(null); setTyped(""); setResult(null); setShowTutor(false);
-    timerKey.current++;
+    setFeedbackStep("idle"); setSelectedId(null); setTyped(""); setResult(null);
+    setShowTutor(false); isProcessing.current = false; timerKey.current++;
     if (lockTimer.current) { clearTimeout(lockTimer.current); lockTimer.current=null; }
     if (question.type !== "reading") setTimeout(()=>inputRef.current?.focus(), 150);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[question.id]);
   useEffect(()=>()=>{ if (lockTimer.current) clearTimeout(lockTimer.current); },[]);
 
+  /* Phase 13: checkAndReveal — debounce-locked, SFX fires exactly once */
   const checkAndReveal = useCallback(() => {
     if (feedbackStep !== "idle") return;
-    const raw = question.type === "reading" ? (selected ?? "") : typed;
-    if (!raw.trim()) return;
-    const ok  = checkAnswer(question, raw);
-    setResult(ok); setFeedbackStep("locked"); setShowTutor(true);
-    if (ok) SFX.successDing(); else SFX.incorrectBuzzer();
-    lockTimer.current = setTimeout(() => { setFeedbackStep("verified"); lockTimer.current=null; }, 500);
-  }, [feedbackStep, question, selected, typed]);
+    if (isProcessing.current) return;
+    isProcessing.current = true;
 
+    const raw = question.type === "reading" ? (selectedId ?? "") : typed;
+    if (question.type !== "reading" && !typed.trim()) { isProcessing.current = false; return; }
+    if (question.type === "reading" && !selectedId)   { isProcessing.current = false; return; }
+
+    const ok = validateAnswer(question, raw);
+    setResult(ok); setFeedbackStep("locked"); setShowTutor(true);
+    // SFX fires exactly once here — never again for this question
+    if (ok) SFX.successDing(); else SFX.incorrectBuzzer();
+
+    lockTimer.current = setTimeout(() => {
+      setFeedbackStep("verified");
+      lockTimer.current = null;
+      isProcessing.current = false;  // unlock after transition completes
+    }, 500);
+  }, [feedbackStep, question, selectedId, typed]);
+
+  /* Phase 13: confirmAndAdvance — permanently locks until next question mounts.
+     isProcessing.current is NOT released here — it stays true until the
+     question.id useEffect resets it when the new question arrives.
+     This is the only guaranteed way to stop Enter spam during the
+     spawn delay (280–380 ms in CombatScreen). */
   const confirmAndAdvance = useCallback(() => {
     if (feedbackStep !== "verified") return;
-    const raw = question.type === "reading" ? (selected ?? "") : typed;
-    if (result) { SFX.bladeSlash(); } else { SFX.oofImpact(); onOof?.(); }
-    setTimeout(() => onAnswer(result, raw), 120);
-  }, [feedbackStep, result, selected, typed, question, onAnswer, onOof]);
+    if (isProcessing.current) return;
+    isProcessing.current = true;   // stays locked — cleared by question-change effect
 
+    // SFX fires exactly once here — bladeSlash OR oofImpact, never both
+    if (result) { SFX.bladeSlash(); } else { SFX.oofImpact(); onOof?.(); }
+
+    // Advance immediately — lock persists until new question mounts
+    onAnswer(result, question.type === "reading" ? selectedId : typed);
+  }, [feedbackStep, result, selectedId, typed, question, onAnswer, onOof]);
+
+  /* Phase 13: timer expiry — debounce-locked */
   const handleTimerFire = useCallback(()=>{
     if (feedbackStep !== "idle") return;
+    if (isProcessing.current) return;
+    isProcessing.current = true;
     SFX.incorrectBuzzer();
     setResult(false); setFeedbackStep("locked"); setShowTutor(true);
     lockTimer.current = setTimeout(() => {
-      setFeedbackStep("verified"); lockTimer.current=null;
+      setFeedbackStep("verified"); lockTimer.current = null; isProcessing.current = false;
       setTimeout(() => { SFX.oofImpact(); onOof?.(); onTimerExpire?.(); }, 900);
     }, 500);
   }, [feedbackStep, onTimerExpire, onOof]);
 
+  /* Phase 13: Enter key — also guarded by isProcessing */
   useEffect(() => {
     const handler = (e) => {
       if (e.key !== "Enter") return;
       if (document.activeElement === inputRef.current) return;
+      if (isProcessing.current) return;
       if (feedbackStep === "idle" && canSubmit) { e.preventDefault(); checkAndReveal(); }
       else if (feedbackStep === "verified")      { e.preventDefault(); confirmAndAdvance(); }
     };
@@ -896,11 +1121,12 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
     return () => window.removeEventListener("keydown", handler);
   }, [feedbackStep, checkAndReveal, confirmAndAdvance]);
 
-  const canSubmit  = question.type === "reading" ? !!selected : typed.trim().length > 0;
-  const isTyping   = question.type !== "reading";
-  const isLocked   = feedbackStep === "locked";
-  const isVerified = feedbackStep === "verified";
-  const fbBtn      = result === true
+  const canSubmit      = question.type === "reading" ? !!selectedId : typed.trim().length > 0;
+  const submitDisabled = !canSubmit || isProcessing.current;
+  const isTyping       = question.type !== "reading";
+  const isLocked       = feedbackStep === "locked";
+  const isVerified     = feedbackStep === "verified";
+  const fbBtn          = result === true
     ? { label:"⚔  Strike!",     bg:"linear-gradient(135deg,#065f46,#047857)", border:"#10b981", color:"#ecfdf5", shadow:"0 4px 18px rgba(16,185,129,0.35)" }
     : { label:"Take Damage →",  bg:"linear-gradient(135deg,#7f1d1d,#991b1b)", border:"#ef4444", color:"#fecaca", shadow:"0 4px 18px rgba(239,68,68,0.3)" };
 
@@ -918,19 +1144,35 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
           <div style={{ fontFamily:"monospace" }}>
             {question.type==="reading"  && <div style={{ fontSize:24, fontWeight:900, color:"#f8fafc" }}>{question.polish}</div>}
             {question.type==="listening"&& <div style={{ fontSize:12, color:"#475569", fontStyle:"italic" }}>Translate what you hear</div>}
-            {question.type==="writing"  && <div><div style={{ fontSize:9, color:"#475569", marginBottom:3 }}>How do you say:</div><div style={{ fontSize:20, fontWeight:900, color:"#f8fafc" }}>{question.english}</div></div>}
+            {question.type==="writing"  && (
+              <div>
+                <div style={{ fontSize:9, color:"#475569", marginBottom:3, letterSpacing:"0.06em" }}>
+                  WRITE IN POLISH <span style={{ color:"#334155" }}>↓</span>
+                </div>
+                <div style={{ fontSize:20, fontWeight:900, color:"#f8fafc" }}>
+                  {question.displayLabel ?? question.english_main ?? question.english}
+                </div>
+                {question.context_hint && (
+                  <div style={{ fontSize:9, color:"#6366f1", fontStyle:"italic", marginTop:2 }}>
+                    {question.context_hint}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           {question.type==="reading" && <PlayAudio text={question.polish} size="sm"/>}
         </div>
+        {/* Phase 13: MCQ options — matched by wordId, labels include context hints */}
         {question.type==="reading" && (
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:7 }}>
             {question.options.map((opt,i)=>{
-              const sel   = selected===opt.label;
-              const right = (isVerified||isLocked) && opt.label.toLowerCase()===question.answer.toLowerCase();
-              const wrong = (isVerified||isLocked) && opt.label===selected && !right;
+              const sel   = selectedId === opt.wordId;
+              const right = (isVerified||isLocked) && opt.wordId === question.correctWordId;
+              const wrong = (isVerified||isLocked) && opt.wordId === selectedId && !right;
               return (
-                <button key={i} onClick={()=>feedbackStep==="idle"&&setSelected(opt.label)}
-                  style={{ padding:"10px 9px", borderRadius:10, textAlign:"center", fontFamily:"monospace", fontSize:12, fontWeight:sel?700:400, cursor:feedbackStep==="idle"?"pointer":"default", transition:"all 0.13s", display:"flex", flexDirection:"column", gap:2, alignItems:"center",
+                <button key={i}
+                  onClick={()=>{ if(feedbackStep==="idle" && !isProcessing.current) setSelectedId(opt.wordId); }}
+                  style={{ padding:"10px 9px", borderRadius:10, textAlign:"center", fontFamily:"monospace", fontSize:11, fontWeight:sel?700:400, cursor:feedbackStep==="idle"&&!isProcessing.current?"pointer":"default", transition:"all 0.13s", display:"flex", flexDirection:"column", gap:2, alignItems:"center",
                     border:`2px solid ${right?"rgba(16,185,129,0.6)":wrong?"rgba(239,68,68,0.5)":sel?"rgba(99,102,241,0.65)":"rgba(255,255,255,0.07)"}`,
                     background:right?"rgba(16,185,129,0.1)":wrong?"rgba(239,68,68,0.09)":sel?"rgba(99,102,241,0.11)":"rgba(255,255,255,0.02)",
                     color:right?"#6ee7b7":wrong?"#fca5a5":sel?"#c7d2fe":"#94a3b8" }}>
@@ -942,24 +1184,35 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
         )}
         {isTyping && (
           <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
-            <input ref={inputRef} value={typed} onChange={e=>feedbackStep==="idle"&&setTyped(e.target.value)}
-              onKeyDown={e=>{ if(e.key==="Enter"){e.preventDefault(); if(feedbackStep==="idle"&&canSubmit)checkAndReveal(); else if(feedbackStep==="verified")confirmAndAdvance(); }}}
+            <input ref={inputRef} value={typed}
+              onChange={e=>{ if(feedbackStep==="idle" && !isProcessing.current) setTyped(e.target.value); }}
+              onKeyDown={e=>{ if(e.key==="Enter"){ e.preventDefault(); if(isProcessing.current)return; if(feedbackStep==="idle"&&canSubmit)checkAndReveal(); else if(feedbackStep==="verified")confirmAndAdvance(); }}}
               disabled={isVerified||isLocked}
               placeholder={question.type==="listening"?"Type the English meaning…":"Type in Polish…"}
               style={{ padding:"11px 13px", borderRadius:9, fontFamily:"monospace", fontSize:14, background:(isVerified||isLocked)?(result?"rgba(16,185,129,0.09)":"rgba(239,68,68,0.07)"):"rgba(255,255,255,0.05)", border:`1px solid ${(isVerified||isLocked)?(result?"rgba(16,185,129,0.4)":"rgba(239,68,68,0.35)"):"rgba(255,255,255,0.09)"}`, color:"#f8fafc", outline:"none", transition:"border-color 0.2s" }}/>
             {(isVerified||isLocked) && !result && (
               <div style={{ display:"flex", alignItems:"center", gap:8, padding:"7px 10px", borderRadius:8, background:"rgba(16,185,129,0.07)", border:"1px solid rgba(16,185,129,0.18)" }}>
                 <PlayAudio text={question.polish} size="sm"/>
-                <span style={{ fontSize:12, color:"#6ee7b7", fontFamily:"monospace", fontWeight:700 }}>
-                  {question.type==="listening" ? question.english : question.polish}
-                </span>
+                <div style={{ display:"flex", flexDirection:"column" }}>
+                  <span style={{ fontSize:12, color:"#6ee7b7", fontFamily:"monospace", fontWeight:700 }}>
+                    {question.type==="listening"
+                      ? (question.displayLabel ?? question.english_main ?? question.english)
+                      : question.polish}
+                  </span>
+                  {question.context_hint && (
+                    <span style={{ fontSize:9, color:"#6366f1", fontFamily:"monospace", fontStyle:"italic" }}>
+                      {question.context_hint}
+                    </span>
+                  )}
+                </div>
               </div>
             )}
           </div>
         )}
+        {/* Phase 13: submit — disabled while isProcessing (debounce) */}
         {feedbackStep==="idle" && (
-          <button onClick={checkAndReveal} disabled={!canSubmit}
-            style={{ marginTop:10, width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, letterSpacing:"0.1em", background:canSubmit?"linear-gradient(135deg,#1d4ed8,#3b82f6)":"rgba(255,255,255,0.03)", border:`1px solid ${canSubmit?"#60a5fa":"rgba(255,255,255,0.05)"}`, color:canSubmit?"#eff6ff":"#1e293b", cursor:canSubmit?"pointer":"not-allowed", transition:"all 0.17s", boxShadow:canSubmit?"0 3px 16px rgba(59,130,246,0.28)":"none" }}>
+          <button onClick={checkAndReveal} disabled={submitDisabled}
+            style={{ marginTop:10, width:"100%", padding:"12px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:11, letterSpacing:"0.1em", background:!submitDisabled?"linear-gradient(135deg,#1d4ed8,#3b82f6)":"rgba(255,255,255,0.03)", border:`1px solid ${!submitDisabled?"#60a5fa":"rgba(255,255,255,0.05)"}`, color:!submitDisabled?"#eff6ff":"#1e293b", cursor:!submitDisabled?"pointer":"not-allowed", transition:"all 0.17s", boxShadow:!submitDisabled?"0 3px 16px rgba(59,130,246,0.28)":"none" }}>
             CHECK ANSWER <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
         )}
         {isLocked && (
@@ -975,8 +1228,9 @@ function QuestionCard({ question, onAnswer, isBoss, bossTimerSeconds, onTimerExp
             {showTutor?"✕ Close Explanation":"🎓 Explain This"}
           </button>
           {showTutor && <TutorPanel catKey={question.cat} onClose={()=>setShowTutor(false)}/>}
-          <button onClick={confirmAndAdvance}
-            style={{ padding:"13px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, letterSpacing:"0.1em", cursor:"pointer", background:fbBtn.bg, border:`1px solid ${fbBtn.border}`, color:fbBtn.color, boxShadow:fbBtn.shadow, transition:"all 0.17s" }}>
+          {/* Phase 13: Strike/Damage — disabled while isProcessing (prevents double-fire) */}
+          <button onClick={confirmAndAdvance} disabled={isProcessing.current}
+            style={{ padding:"13px", borderRadius:10, fontFamily:"monospace", fontWeight:900, fontSize:12, letterSpacing:"0.1em", cursor:isProcessing.current?"not-allowed":"pointer", background:fbBtn.bg, border:`1px solid ${fbBtn.border}`, color:fbBtn.color, boxShadow:fbBtn.shadow, transition:"all 0.17s", opacity:isProcessing.current?0.55:1 }}>
             {fbBtn.label} <span style={{ opacity:0.5, fontSize:9 }}>[Enter]</span></button>
         </div>
       )}
@@ -1084,7 +1338,8 @@ function CombatScreen({ dungeon, stage, room, isBoss, wordPool, sessionBuffer, l
   },[]);
 
   const spawn = useCallback((prevId) => {
-    const q = generateQuestion(battlePool, ledger, prevId);
+    // Pass battlePool as both the active pool and the fullPool fallback for distractor sourcing
+    const q = generateQuestion(battlePool, ledger, prevId, battlePool);
     if (q) setQuestion(q);
   }, [battlePool, ledger]);
 
@@ -1532,28 +1787,49 @@ function WordBankView({ ledger, onBack }) {
   const [cefrFilter, setCefrFilter] = useState("all");
   const [search,     setSearch]     = useState("");
 
-  const allVocab = useMemo(() => {
+  /* Phase 14: Word bank data comes from:
+     1. Words the player has SEEN — reconstructed from ledger IDs + VocabService cache
+     2. Total word counts — from DUNGEON_CONFIG.totalWords (correct totals)
+     The ledger key format is "<cefrLevel>-s<stage>-<pos>" e.g. "a1-s1-001"
+     VocabService._cache holds fetched chunks as arrays of word objects.           */
+  const seenVocab = useMemo(() => {
     const words = [];
-    for (const [chunkId, chunk] of Object.entries(MOCK_VOCAB_CHUNKS)) {
-      const cefrLevel = chunkId.split("-")[0];
+    // Pull every word object from the VocabService cache that has a ledger entry
+    for (const [, chunk] of VocabService._cache) {
+      if (!Array.isArray(chunk)) continue;
       for (const w of chunk) {
-        const tier = scoreToTier(ledger[w.id], w.id in ledger);
-        words.push({ ...w, tier, cefrLevel });
+        if (!(w.id in ledger)) continue;
+        const tier = scoreToTier(ledger[w.id], true);
+        words.push({
+          id: w.id,
+          polish:   w.polish,
+          english:  w.english_main ?? w.english ?? "—",
+          subtext:  w.context_hint ?? null,
+          tier,
+          cefrLevel: w.cefrLevel ?? w.id.split("-")[0],
+        });
       }
     }
-    return words;
+    // Sort: mastered first, then learning, then training
+    const order = { mastered:0, learning:1, training:2 };
+    return words.sort((a,b) => (order[a.tier]??3)-(order[b.tier]??3));
   }, [ledger]);
 
+  /* For the "N seen · M unseen" pills, derive totals from DUNGEON_CONFIG */
   const unseenByLevel = useMemo(() => {
+    const seenCounts = {};
+    for (const w of seenVocab) {
+      seenCounts[w.cefrLevel] = (seenCounts[w.cefrLevel] ?? 0) + 1;
+    }
     const m = {};
-    for (const w of allVocab) {
-      if (!m[w.cefrLevel]) m[w.cefrLevel] = { unseen:0, seen:0 };
-      if (w.tier === "unseen") m[w.cefrLevel].unseen++; else m[w.cefrLevel].seen++;
+    for (const cfg of DUNGEON_CONFIG) {
+      const seen   = seenCounts[cfg.id] ?? 0;
+      // Each dungeon teaches NEW words only (its own totalWords count from DB)
+      const total  = cfg.totalWords;
+      m[cfg.id] = { seen, unseen: Math.max(0, total - seen) };
     }
     return m;
-  }, [allVocab]);
-
-  const seenVocab = useMemo(() => allVocab.filter(w => w.tier !== "unseen"), [allVocab]);
+  }, [seenVocab]);
 
   const filtered = useMemo(() => {
     let list = seenVocab;
@@ -1637,7 +1913,7 @@ function StageClearedScreen({ stage, dungeon, xpEarned, goldEarned, isLastStage,
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   §20  ROOT APP — GAME STATE MACHINE (Phase 11)
+   §20  ROOT APP — GAME STATE MACHINE (Phase 13)
    
    Phase 11 additions:
    • sessionBuffer — built at room-entry time from unseen words in wordPool
@@ -1696,7 +1972,6 @@ export default function App() {
 
   const enterDungeon = useCallback((dungeon) => {
     if (!dungeon || !Array.isArray(dungeon.stages)) return;
-    setLives(3);
     goTo({ view:"dungeon_select", dungeon, stage:null, room:null, isReplay:false });
   }, [goTo]);
 
@@ -1705,17 +1980,23 @@ export default function App() {
     goTo({ view:"stage_map", dungeon, stage, room:null, isReplay });
   }, [goTo]);
 
+  /* Phase 13: initializeCombat — resets hearts to 3 on EVERY room/boss entry.
+     Hearts are session-scoped: they exist only during combat, not on dashboard. */
+  const initializeCombat = useCallback(() => { setLives(3); }, []);
+
   const enterRoom = useCallback((dungeon, stage, room, isReplay=false) => {
     if (!dungeon || !stage || !room) return;
+    initializeCombat();   // ← always reset to 3/3 before entering any room
     goTo({ view:"practice", dungeon, stage, room, isBoss:false, wordPool:null, sessionBuffer:null, poolReady:false, isReplay });
     loadPool(stage, room, ledger);
-  }, [goTo, loadPool, ledger]);
+  }, [goTo, loadPool, ledger, initializeCombat]);
 
   const enterBoss = useCallback((dungeon, stage, boss, isReplay=false) => {
     if (!dungeon || !stage || !boss) return;
+    initializeCombat();   // ← always reset to 3/3 before entering boss
     goTo({ view:"practice", dungeon, stage, room:boss, isBoss:true, wordPool:null, sessionBuffer:null, poolReady:false, isReplay });
     loadPool(stage, boss, ledger);
-  }, [goTo, loadPool, ledger]);
+  }, [goTo, loadPool, ledger, initializeCombat]);
 
   const skipToCombat = useCallback(() => goTo({ view:"combat" }), [goTo]);
 
@@ -1789,9 +2070,9 @@ export default function App() {
             <div>
               <h1 style={{ fontSize:15,fontWeight:900,letterSpacing:"0.15em",color:"#f97316",lineHeight:1 }}>
                 POLSK<span style={{ color:"#ef4444" }}>QUEST</span>
-                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 12</span>
+                <span style={{ fontSize:8,color:"#334155",marginLeft:7 }}>PHASE 14</span>
               </h1>
-              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>SUPABASE LIVE · PROC GEN · SESSION BUFFER · TRAINING FIX</p>
+              <p style={{ fontSize:7,color:"#1e293b",letterSpacing:"0.1em",marginTop:1 }}>ENTER FIX · CO AUDIO · MCQ DEDUP · WORD BANK · COUNTS</p>
             </div>
             <div style={{ display:"flex",gap:4,alignItems:"center" }}>
               {(view==="combat"||view==="practice") ? (

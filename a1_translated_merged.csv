@@ -1,0 +1,471 @@
+polish,english,category,subtext,accepted_answers,frequency_rank
+nie,no,core,"(also: no, żadnych)","[""no"",""not"",""nope"",""nah"",""nie"",""żadnych"",""zadnych""]",1
+to,this,pronoun,"(also: ten, tej, ta, temu, tę, tą)","[""this"",""it"",""that"",""to"",""ten"",""tej"",""ta"",""temu"",""tę"",""te"",""tą""]",2
+się,oneself,core,"(also: sobie, siebie, sie)","[""oneself"",""self"",""himself"",""herself"",""itself"",""themselves"",""yourself"",""się"",""sie"",""sobie"",""siebie""]",3
+w,in,preposition,,"[""in"",""at"",""into"",""within"",""inside""]",4
+na,on,preposition,"(also: on, dnia, sprawie)","[""on"",""at"",""onto"",""for"",""upon"",""na"",""dnia"",""sprawie""]",5
+i,and,conjunction,(also: a),"[""and"",""i"",""a""]",6
+że,that,conjunction,,"[""that"",""so that""]",7
+z,with,preposition,,"[""with"",""from"",""out of"",""of""]",8
+co,what,pronoun,"(also: jaki, jakie, jaka)","[""what"",""which"",""that"",""co"",""jaki"",""jakie"",""jaka""]",9
+jest,is,verb,,"[""is"",""it is"",""there is""]",10
+do,to,preposition,(also: aby),"[""to"",""into"",""until"",""up to"",""do"",""aby""]",11
+tak,yes,core,,"[""yes"",""yeah"",""yep"",""so"",""thus""]",12
+o,about,preposition,(also: ok),"[""about"",""of"",""at"",""for"",""around"",""o"",""ok""]",13
+jak,how,adverb,,"[""how"",""like"",""as"",""what""]",14
+ale,but,conjunction,,"[""but"",""however"",""yet""]",16
+mnie,me,adverb,"(also: mi, ja, mną)","[""me"",""mnie"",""mi"",""ja"",""mną"",""mna""]",17
+za,behind,preposition,,"[""behind"",""after"",""for"",""in"",""beyond"",""past""]",19
+tym,including,misc,,"[""including""]",21
+tego,of this,misc,,"[""of this""]",22
+ci,those,misc,,"[""those""]",23
+czy,whether,conjunction,,"[""whether"",""if"",""or"",""do"",""does"",""is"",""are""]",24
+go,him,pronoun,"(also: mu, niego)","[""him"",""it"",""his"",""go"",""mu"",""niego""]",25
+tylko,only,adverb,(also: dopiero),"[""only"",""just"",""solely"",""tylko"",""dopiero""]",26
+tu,here,adverb,(also: tutaj),"[""here"",""tu"",""tutaj""]",27
+po,after,preposition,,"[""after"",""along"",""for"",""in"",""by"",""per""]",28
+może,maybe,adverb,,"[""maybe"",""perhaps"",""possibly"",""can"",""could"",""may""]",29
+jestem,I'm,misc,,"[""i'm""]",30
+ty,you,misc,"(also: cię, ciebie, tobą, wam, tobie, wy)","[""you"",""ty"",""cię"",""cie"",""ciebie"",""tobą"",""toba"",""wam"",""tobie"",""wy""]",31
+ma,has,misc,,"[""has""]",32
+mam,I have,misc,,"[""i have""]",34
+jesteś,you are,misc,(also: jesteście),"[""you are"",""jesteś"",""jestes"",""jesteście"",""jestescie""]",35
+już,already,adverb,,"[""already"",""now"",""yet"",""anymore""]",36
+dla,for,misc,,"[""for""]",37
+jeśli,if,misc,"(also: gdyby, jeżeli)","[""if"",""jeśli"",""jesli"",""gdyby"",""jeżeli"",""jezeli""]",38
+wiem,know,misc,(also: wiedzieć),"[""know"",""wiem"",""wiedzieć"",""wiedziec""]",39
+coś,sth.,misc,(also: czegoś),"[""sth."",""coś"",""cos"",""czegoś"",""czegos""]",40
+więc,so,conjunction,,"[""so"",""therefore"",""thus"",""hence""]",41
+dobrze,well,adverb,(also: cóż),"[""well"",""good"",""okay"",""ok"",""alright"",""fine"",""dobrze"",""cóż"",""coz""]",42
+teraz,now,misc,,"[""now""]",43
+od,from,preposition,"(also: ze, ode)","[""from"",""since"",""of"",""away from"",""od"",""ze"",""ode""]",44
+pan,sir,noun,(also: sir),"[""sir"",""mr"",""you"",""gentleman"",""pan""]",45
+wszystko,everything,misc,(also: wszystkiego),"[""everything"",""wszystko"",""wszystkiego""]",46
+być,to be,verb,,"[""to be"",""be""]",47
+masz,you have,misc,(also: macie),"[""you have"",""masz"",""macie""]",48
+nic,nothing,misc,,"[""nothing""]",49
+tam,there,adverb,,"[""there""]",50
+będzie,will be,misc,"(also: będą, zostanie)","[""will be"",""będzie"",""bedzie"",""będą"",""beda"",""zostanie""]",51
+proszę,please,misc,(also: należy),"[""please"",""proszę"",""prosze"",""należy"",""nalezy""]",52
+mogę,I can,misc,,"[""i can""]",53
+są,are,verb,,"[""are"",""they are"",""there are""]",54
+jej,her,pronoun,,"[""her"",""hers"",""its""]",55
+gdzie,where,adverb,(also: dokąd),"[""where"",""wherever"",""gdzie"",""dokąd"",""dokad""]",58
+kiedy,when,adverb,(also: gdy),"[""when"",""while"",""as"",""whenever"",""kiedy"",""gdy""]",59
+wiesz,you know,misc,"(also: znasz, wiecie)","[""you know"",""wiesz"",""znasz"",""wiecie""]",62
+był,was,verb,"(also: było, była, was)","[""was"",""had been"",""był"",""byl"",""było"",""bylo"",""była"",""byla""]",64
+bardzo,very,adverb,,"[""very"",""much"",""greatly"",""a lot""]",65
+by,by,misc,,"[""by""]",66
+przez,through,preposition,,"[""through"",""across"",""by"",""via"",""for"",""because of""]",68
+jego,its,misc,"(also: swoje, swoją, swój, swojego, swojej, swoich)","[""its"",""jego"",""swoje"",""swoją"",""swoja"",""swój"",""swoj"",""swojego"",""swojej"",""swoich""]",69
+dlaczego,why,misc,(also: czemu),"[""why"",""dlaczego"",""czemu""]",70
+chcę,I want,misc,,"[""i want""]",71
+jeszcze,still,adverb,"(also: nadal, wciąż, ciągle)","[""still"",""yet"",""even"",""more"",""another"",""jeszcze"",""nadal"",""wciąż"",""wciaz"",""ciągle"",""ciagle""]",72
+mój,my,misc,"(also: moja, moje, moim, mojego, moją, mojej, moich)","[""my"",""mój"",""moj"",""moja"",""moje"",""moim"",""mojego"",""moją"",""mojej"",""moich""]",73
+ją,it,misc,"(also: nią, niej)","[""it"",""ją"",""ja"",""nią"",""nia"",""niej""]",74
+pani,ma'am,noun,,"[""ma'am"",""mrs"",""ms"",""miss"",""you"",""lady""]",75
+nas,us,misc,"(also: nam, my, nami)","[""us"",""nas"",""nam"",""my"",""nami""]",76
+żeby,so that,misc,(also: żebyś),"[""so that"",""żeby"",""zeby"",""żebyś"",""zebys""]",78
+chcesz,want,misc,"(also: chcą, chcecie)","[""want"",""chcesz"",""chcą"",""chca"",""chcecie""]",79
+ich,their,pronoun,,"[""their"",""theirs"",""them""]",80
+bo,because,conjunction,,"[""because"",""for"",""since"",""as""]",82
+też,also,adverb,"(also: również, także)","[""also"",""too"",""as well"",""też"",""tez"",""również"",""rowniez"",""także"",""takze""]",83
+nigdy,never,misc,,"[""never""]",84
+naprawdę,really,misc,,"[""really""]",85
+mamy,we have,misc,,"[""we have""]",86
+kto,who,misc,(also: którzy),"[""who"",""kto"",""którzy"",""ktorzy""]",87
+możesz,you can,misc,(also: możecie),"[""you can"",""możesz"",""mozesz"",""możecie"",""mozecie""]",88
+przepraszam,sorry,misc,(also: przykro),"[""sorry"",""przepraszam"",""przykro""]",89
+dobra,goods,misc,,"[""goods""]",90
+porządku,order,misc,,"[""order""]",92
+muszę,I have to,misc,,"[""i have to""]",93
+ona,she,adjective,,"[""she""]",94
+nawet,even,misc,,"[""even""]",95
+chyba,probably,misc,(also: pewnie),"[""probably"",""chyba"",""pewnie""]",96
+dziękuję,thank you,misc,,"[""thank you""]",97
+domu,home,misc,(also: dom),"[""home"",""domu"",""dom""]",99
+zrobić,make,verb,,"[""make""]",100
+prawda,truth,misc,(also: prawdę),"[""truth"",""prawda"",""prawdę"",""prawde""]",101
+właśnie,just,adverb,(also: wystarczy),"[""just"",""właśnie"",""wlasnie"",""wystarczy""]",102
+hej,Hey,misc,,"[""hey""]",103
+będę,I'll be,misc,,"[""i'll be""]",105
+te,these,misc,(also: tych),"[""these"",""te"",""tych""]",106
+zawsze,always,misc,,"[""always""]",107
+nim,before,misc,"(also: przed, zanim)","[""before"",""nim"",""przed"",""zanim""]",110
+musisz,you must,misc,,"[""you must""]",111
+je,them,misc,"(also: oni, nich, one)","[""them"",""je"",""oni"",""nich"",""one""]",112
+trochę,little,misc,(also: mały),"[""little"",""trochę"",""troche"",""mały"",""maly""]",113
+dzięki,thanks to,misc,,"[""thanks to""]",115
+bez,without,preposition,,"[""without""]",116
+ktoś,someone,misc,"(also: kogoś, kimś)","[""someone"",""ktoś"",""ktos"",""kogoś"",""kogos"",""kimś"",""kims""]",117
+panie,Mr.,noun,"(also: pana, panu)","[""mr."",""panie"",""pana"",""panu""]",118
+jesteśmy,we are,misc,,"[""we are""]",119
+powiedzieć,say,verb,"(also: powiedz, powiem, mów, powiesz, mówią)","[""say"",""powiedzieć"",""powiedziec"",""powiedz"",""powiem"",""mów"",""mow"",""powiesz"",""mówią"",""mowia""]",121
+który,which,pronoun,"(also: które, która, którą, którym, jaką)","[""which"",""who"",""that"",""który"",""ktory"",""które"",""ktore"",""która"",""ktora"",""którą"",""którym"",""ktorym"",""jaką"",""jaka""]",122
+twój,your,misc,"(also: twoja, twoje, twoim, twojej, twoją, twojego, twoich)","[""your"",""twój"",""twoj"",""twoja"",""twoje"",""twoim"",""twojej"",""twoją"",""twojego"",""twoich""]",123
+czas,time,misc,"(also: czasu, czasie)","[""time"",""czas"",""czasu"",""czasie""]",124
+więcej,more,misc,(also: bardziej),"[""more"",""więcej"",""wiecej"",""bardziej""]",125
+lat,years,misc,(also: lata),"[""years"",""lat"",""lata""]",126
+prostu,simply,misc,,"[""simply""]",127
+chce,wants,misc,,"[""wants""]",128
+musimy,we must,misc,,"[""we must""]",130
+wszyscy,all,misc,"(also: wszystkie, wszystkich, wszystkim)","[""all"",""wszyscy"",""wszystkie"",""wszystkich"",""wszystkim""]",131
+możemy,we can,misc,,"[""we can""]",133
+albo,or,misc,(also: lub),"[""or"",""albo"",""lub""]",134
+chodzi,goes,misc,(also: idzie),"[""goes"",""chodzi"",""idzie""]",135
+cześć,honor,misc,,"[""honor""]",136
+razem,together,misc,,"[""together""]",137
+stało,stood,misc,,"[""stood""]",138
+czego,of which,misc,"(also: którego, których, której)","[""of which"",""czego"",""którego"",""ktorego"",""których"",""ktorych"",""której"",""ktorej""]",139
+sam,alone,misc,(also: sama),"[""alone"",""sam"",""sama""]",141
+myślę,think,misc,(also: myślisz),"[""think"",""myślę"",""mysle"",""myślisz"",""myslisz""]",142
+boże,idol,misc,,"[""idol""]",143
+dalej,further,misc,,"[""further""]",146
+raz,once,misc,,"[""once""]",147
+będziesz,you'll be,misc,,"[""you'll be""]",149
+ludzie,people,misc,(also: ludzi),"[""people"",""ludzie"",""ludzi""]",150
+czym,with what,misc,,"[""with what""]",151
+niż,than,misc,,"[""than""]",152
+dobry,good,misc,(also: dobre),"[""good"",""dobry"",""dobre""]",155
+życie,life,noun,(also: życiu),"[""life"",""życie"",""zycie"",""życiu"",""zyciu""]",157
+lepiej,better,misc,,"[""better""]",158
+przy,near,preposition,,"[""near"",""by"",""at"",""with"",""next to""]",159
+rzeczy,stuff,misc,,"[""stuff""]",160
+dzień,day,misc,,"[""day""]",161
+miał,had,misc,(also: miała),"[""had"",""miał"",""mial"",""miała"",""miala""]",163
+robisz,you do,misc,,"[""you do""]",164
+niech,let,misc,(also: pozwól),"[""let"",""niech"",""pozwól"",""pozwol""]",166
+kim,kim,misc,,"[""kim""]",168
+daj,Give,misc,,"[""give""]",169
+chodź,come,misc,,"[""come""]",171
+powiedział,said,misc,"(also: powiedziałem, mówiłem, mówił)","[""said"",""powiedział"",""powiedzial"",""powiedziałem"",""powiedzialem"",""mówiłem"",""mowilem"",""mówił"",""mowil""]",175
+oczywiście,of course,noun,,"[""of course""]",181
+u,u,misc,,"[""u""]",182
+nikt,no one,misc,(also: nikogo),"[""no one"",""nikt"",""nikogo""]",183
+musi,must,misc,(also: trzeba),"[""must"",""musi"",""trzeba""]",184
+pod,under,preposition,,"[""under"",""below"",""beneath"",""near""]",187
+dlatego,therefore,misc,,"[""therefore""]",188
+wtedy,then,misc,(also: potem),"[""then"",""wtedy"",""potem""]",189
+jeden,one,misc,"(also: jedno, jedną, jedna, jednego, jednym)","[""one"",""jeden"",""jedno"",""jedną"",""jedna"",""jednego"",""jednym""]",190
+wygląda,looks,misc,,"[""looks""]",191
+mówi,says,misc,,"[""says""]",194
+im,im,misc,,"[""im""]",195
+taki,such,misc,"(also: takie, takiego, taka, takim, takich, taką)","[""such"",""taki"",""takie"",""takiego"",""taka"",""takim"",""takich"",""taką""]",196
+znaczy,means,misc,(also: oznacza),"[""means"",""znaczy"",""oznacza""]",198
+mieć,to have,verb,,"[""to have"",""have""]",200
+dziś,today,misc,(also: dzisiaj),"[""today"",""dziś"",""dzis"",""dzisiaj""]",202
+dwa,two,adjective,"(also: dwie, dwóch)","[""two"",""dwa"",""dwie"",""dwóch"",""dwoch""]",203
+jako,as,misc,,"[""as""]",204
+stąd,hence,misc,,"[""hence""]",205
+wie,knows,adverb,,"[""knows""]",206
+dzieje,history,misc,,"[""history""]",208
+będziemy,we will,misc,,"[""we will""]",210
+dużo,much,misc,(also: wiele),"[""much"",""dużo"",""duzo"",""wiele""]",213
+rozumiem,I understand,misc,,"[""i understand""]",215
+iść,go,misc,(also: idź),"[""go"",""iść"",""isc"",""idź"",""idz""]",216
+miejsce,location,misc,,"[""location""]",217
+kilka,several,misc,,"[""several""]",218
+pomóc,help,misc,"(also: pomocy, pomoc)","[""help"",""pomóc"",""pomoc"",""pomocy""]",219
+myśli,thoughts,misc,,"[""thoughts""]",220
+byłem,I was,misc,(also: byłam),"[""i was"",""byłem"",""bylem"",""byłam"",""bylam""]",222
+ile,how much,misc,,"[""how much""]",223
+jasne,bright,adjective,,"[""bright""]",225
+cały,whole,misc,"(also: całą, całe, cała)","[""whole"",""cały"",""caly"",""całą"",""cala"",""całe"",""cale"",""cała""]",226
+skąd,from where,misc,,"[""from where""]",227
+dzieci,children,misc,,"[""children""]",228
+można,can,adjective,,"[""can""]",231
+jakieś,some,misc,(also: jakiś),"[""some"",""jakieś"",""jakies"",""jakiś"",""jakis""]",232
+sposób,way,misc,(also: drodze),"[""way"",""sposób"",""sposob"",""drodze""]",236
+nad,above,preposition,,"[""above"",""over"",""by"",""at""]",238
+mają,have,misc,,"[""have""]",240
+mówisz,you say,misc,,"[""you say""]",242
+robić,do,verb,"(also: zrób, rób)","[""do"",""robić"",""robic"",""zrób"",""zrob"",""rób"",""rob""]",244
+zbyt,too,misc,,"[""too""]",246
+szybko,fast,misc,,"[""fast""]",250
+pracy,work,misc,(also: pracę),"[""work"",""pracy"",""pracę"",""prace""]",252
+tyle,so much,misc,,"[""so much""]",253
+zaraz,coming soon,misc,,"[""coming soon""]",255
+kocham,love,misc,"(also: kochanie, miłość)","[""love"",""kocham"",""kochanie"",""miłość"",""milosc""]",256
+miałem,I had,misc,(also: miałam),"[""i had"",""miałem"",""mialem"",""miałam"",""mialam""]",259
+zobaczyć,view,verb,,"[""view""]",260
+świetnie,great,adverb,"(also: wielki, wspaniale)","[""great"",""świetnie"",""swietnie"",""wielki"",""wspaniale""]",261
+mówię,I say,misc,,"[""i say""]",263
+ponieważ,since,misc,(also: skoro),"[""since"",""ponieważ"",""poniewaz"",""skoro""]",265
+oh,oh,misc,(also: och),"[""oh"",""och""]",266
+ojciec,father,misc,(also: ojca),"[""father"",""ojciec"",""ojca""]",267
+myślałem,thought,misc,(also: myślałam),"[""thought"",""myślałem"",""myslalem"",""myślałam"",""myslalam""]",268
+pewno,certainly,misc,,"[""certainly""]",269
+cholera,cholera,misc,(also: cholery),"[""cholera"",""cholery""]",270
+rację,right,misc,,"[""right""]",271
+robi,does,misc,,"[""does""]",272
+ani,neither,misc,,"[""neither""]",273
+stary,old,misc,,"[""old""]",274
+trzy,three,misc,,"[""three""]",275
+później,later,misc,,"[""later""]",276
+życia,lives,misc,(also: żyje),"[""lives"",""życia"",""zycia"",""żyje"",""zyje""]",278
+stanie,state,noun,,"[""state""]",279
+przestań,stop,misc,,"[""stop""]",282
+mamo,mom,misc,(also: mama),"[""mom"",""mamo"",""mama""]",283
+kiedyś,sometime,misc,,"[""sometime""]",284
+jutro,tomorrow,misc,,"[""tomorrow""]",286
+długo,long,misc,,"[""long""]",287
+nadzieję,hope,misc,,"[""hope""]",288
+kurwa,fuck,adjective,,"[""fuck""]",289
+chciałem,wanted,misc,"(also: chciał, chciała)","[""wanted"",""chciałem"",""chcialem"",""chciał"",""chcial"",""chciała"",""chciala""]",290
+widzisz,you see,misc,,"[""you see""]",291
+widzę,I see,misc,,"[""i see""]",293
+aż,until,misc,,"[""until""]",294
+tato,dad,misc,(also: tata),"[""dad"",""tato"",""tata""]",295
+problem,problem,misc,,"[""problem""]",296
+każdy,any,misc,,"[""any""]",298
+mógł,could,misc,(also: mogła),"[""could"",""mógł"",""mogl"",""mogła"",""mogla""]",299
+dni,days,misc,,"[""days""]",300
+nocy,nights,misc,,"[""nights""]",303
+znowu,again,misc,(also: znów),"[""again"",""znowu"",""znów"",""znow""]",304
+potrzebuję,I need,misc,,"[""i need""]",306
+dziecko,child,misc,,"[""child""]",307
+słuchaj,listen to,misc,(also: posłuchaj),"[""listen to"",""słuchaj"",""sluchaj"",""posłuchaj"",""posluchaj""]",309
+znaleźć,find,misc,,"[""find""]",310
+pierwszy,first,misc,(also: najpierw),"[""first"",""pierwszy"",""najpierw""]",311
+pieniądze,money,misc,(also: pieniędzy),"[""money"",""pieniądze"",""pieniadze"",""pieniędzy"",""pieniedzy""]",312
+dokładnie,thoroughly,adverb,,"[""thoroughly""]",314
+czuję,I feel,misc,,"[""i feel""]",317
+zrobił,made,misc,,"[""made""]",318
+nasz,our,misc,"(also: nasze, naszej, nasza, naszych, naszego, naszym, naszą)","[""our"",""nasz"",""nasze"",""naszej"",""nasza"",""naszych"",""naszego"",""naszym"",""naszą""]",319
+widziałem,seen,misc,(also: widziałam),"[""seen"",""widziałem"",""widzialem"",""widziałam"",""widzialam""]",322
+razie,so far,misc,,"[""so far""]",323
+spokój,calm,misc,,"[""calm""]",326
+samo,same,misc,,"[""same""]",329
+koniec,end,misc,,"[""end""]",331
+były,former,misc,,"[""former""]",332
+znam,I know,misc,,"[""i know""]",333
+został,has been,misc,"(also: została, zostało)","[""has been"",""został"",""zostal"",""została"",""zostala"",""zostało"",""zostalo""]",336
+chciałbym,I would like,misc,,"[""i would like""]",337
+spójrz,take a look,misc,,"[""take a look""]",340
+wcześniej,previously,misc,,"[""previously""]",341
+zostać,become,misc,,"[""become""]",342
+sobą,with each other,misc,,"[""with each other""]",345
+zabić,kill,verb,,"[""kill""]",346
+mówić,speak,verb,,"[""speak""]",348
+bym,I would,misc,,"[""i would""]",349
+imię,name,misc,,"[""name""]",350
+chwilę,moment,misc,(also: chwili),"[""moment"",""chwilę"",""chwile"",""chwili""]",351
+roku,year,misc,,"[""year""]",352
+porozmawiać,talk,misc,(also: rozmawiać),"[""talk"",""porozmawiać"",""porozmawiac"",""rozmawiać"",""rozmawiac""]",353
+we,at,adjective,,"[""at""]",355
+poza,beyond,misc,,"[""beyond""]",356
+mogą,may,misc,,"[""may""]",357
+minut,minutes,misc,,"[""minutes""]",359
+drzwi,door,misc,,"[""door""]",362
+miło,nice,misc,,"[""nice""]",364
+prawie,almost,adverb,,"[""almost""]",366
+kogo,whom,misc,,"[""whom""]",367
+jakby,like,misc,(also: podoba),"[""like"",""jakby"",""podoba""]",368
+wydaje,issues,misc,,"[""issues""]",372
+czekaj,wait,misc,"(also: zaczekaj, poczekaj)","[""wait"",""czekaj"",""zaczekaj"",""poczekaj""]",373
+człowiek,man,misc,(also: człowieka),"[""man"",""człowiek"",""czlowiek"",""człowieka"",""czlowieka""]",374
+powodu,due to,misc,,"[""due to""]",375
+powinniśmy,we should,misc,,"[""we should""]",376
+lubię,I like,misc,,"[""i like""]",377
+gdzieś,somewhere,misc,,"[""somewhere""]",378
+przecież,"after all,",misc,,"[""after all,"",""after all""]",379
+sprawy,matters,adjective,,"[""matters""]",380
+końcu,Finally,misc,,"[""finally""]",382
+byłeś,you were,misc,(also: byłaś),"[""you were"",""byłeś"",""byles"",""byłaś"",""bylas""]",385
+c,c,misc,,"[""c""]",386
+pomysł,idea,misc,,"[""idea""]",387
+broń,arms,misc,,"[""arms""]",389
+razy,times,misc,,"[""times""]",391
+innego,another,misc,,"[""another""]",392
+zrobię,I'll do,misc,,"[""i'll do""]",393
+facet,guy,misc,,"[""guy""]",396
+wiemy,we know,misc,,"[""we know""]",397
+jednak,however,misc,,"[""however""]",398
+noc,night,misc,,"[""night""]",399
+żebym,That I,misc,,"[""that i""]",400
+dość,quite,noun,(also: całkiem),"[""quite"",""dość"",""dosc"",""całkiem"",""calkiem""]",405
+miejscu,site,misc,,"[""site""]",406
+źle,wrong,misc,,"[""wrong""]",407
+powinieneś,you should,misc,(also: powinnaś),"[""you should"",""powinieneś"",""powinienes"",""powinnaś"",""powinnas""]",408
+właściwie,properly,adverb,,"[""properly""]",409
+powiedziała,she said,misc,,"[""she said""]",410
+idziemy,we go,misc,,"[""we go""]",413
+pamiętasz,remember,misc,,"[""remember""]",414
+pokoju,room,misc,(also: pokój),"[""room"",""pokoju"",""pokój"",""pokoj""]",415
+pewien,certain,misc,(also: pewna),"[""certain"",""pewien"",""pewna""]",416
+niczego,anything,misc,,"[""anything""]",417
+sprawa,case,adjective,,"[""case""]",419
+ego,ego,misc,,"[""ego""]",420
+bądź,be,misc,,"[""be""]",423
+sądzę,judge,misc,,"[""judge""]",427
+chodźmy,let's go,misc,,"[""let's go""]",430
+zamknij,close,misc,,"[""close""]",431
+the,the,misc,,"[""the""]",432
+byś,would you,misc,,"[""would you""]",433
+rozumiesz,understand,misc,,"[""understand""]",434
+samochód,car,misc,,"[""car""]",435
+idę,I'm going,misc,,"[""i'm going""]",437
+spokojnie,quietly,adverb,,"[""quietly""]",439
+musiał,had to,misc,,"[""had to""]",440
+oczy,eyes,misc,,"[""eyes""]",441
+nowy,new,adjective,(also: nowego),"[""new"",""nowy"",""nowego""]",443
+rzecz,thing,misc,,"[""thing""]",445
+swoim,with your,misc,,"[""with your""]",446
+podczas,during,misc,,"[""during""]",449
+matka,mother,misc,,"[""mother""]",452
+wczoraj,yesterday,misc,,"[""yesterday""]",453
+rano,morning,misc,,"[""morning""]",454
+świat,world,misc,"(also: świecie, świata)","[""world"",""świat"",""swiat"",""świecie"",""swiecie"",""świata"",""swiata""]",455
+byli,were,misc,,"[""were""]",457
+chciałam,I wanted,misc,,"[""i wanted""]",459
+weź,Take,misc,(also: zabrać),"[""take"",""weź"",""wez"",""zabrać"",""zabrac""]",460
+sprawę,matter,misc,,"[""matter""]",461
+nimi,with them,misc,,"[""with them""]",462
+powinienem,I should,misc,(also: powinnam),"[""i should"",""powinienem"",""powinnam""]",463
+oto,here's,misc,,"[""here's""]",467
+poważnie,seriously,adverb,(also: serio),"[""seriously"",""poważnie"",""powaznie"",""serio""]",468
+dać,yield,misc,,"[""yield""]",469
+telefon,phone,misc,,"[""phone""]",470
+numer,number,misc,,"[""number""]",471
+wiedziałem,I knew,misc,,"[""i knew""]",473
+dziewczyna,girl,adjective,,"[""girl""]",474
+czujesz,feel,misc,,"[""feel""]",476
+da,da,misc,,"[""da""]",478
+cokolwiek,whatever,misc,,"[""whatever""]",480
+wina,wines,adjective,,"[""wines""]",481
+dopóki,as long as,misc,,"[""as long as""]",482
+powiedziałeś,you said,misc,,"[""you said""]",483
+trzymaj,keep,misc,,"[""keep""]",484
+śmierci,death,misc,(also: śmierć),"[""death"",""śmierci"",""smierci"",""śmierć"",""smierc""]",485
+wrócić,return,verb,(also: powrotem),"[""return"",""wrócić"",""wrocic"",""powrotem""]",488
+miejsca,sites,misc,,"[""sites""]",489
+zrobiłem,I did,misc,,"[""i did""]",494
+pamiętam,I remember,misc,,"[""i remember""]",495
+halo,halo,misc,,"[""halo""]",496
+przynajmniej,at least,misc,,"[""at least""]",499
+pytanie,question,noun,,"[""question""]",501
+wyglądasz,you look,misc,,"[""you look""]",502
+między,between,misc,,"[""between""]",503
+widzieć,see,verb,(also: patrz),"[""see"",""widzieć"",""widziec"",""patrz""]",504
+dam,I'll give,misc,,"[""i'll give""]",506
+innych,other,misc,"(also: inne, inny, innym)","[""other"",""innych"",""inne"",""inny"",""innym""]",508
+kobiety,women,misc,,"[""women""]",509
+inaczej,otherwise,misc,,"[""otherwise""]",510
+brzmi,sounds,misc,,"[""sounds""]",511
+gdybym,if I,misc,,"[""if i""]",513
+robię,I make,misc,,"[""i make""]",515
+prawo,law,misc,,"[""law""]",518
+ręce,hands,misc,,"[""hands""]",519
+potrzebuje,needs,misc,,"[""needs""]",520
+zrobiłeś,you did,misc,,"[""you did""]",522
+wielu,many,misc,,"[""many""]",523
+tłumaczenie,translation,noun,,"[""translation""]",524
+wierzę,I believe,misc,,"[""i believe""]",526
+super,super,misc,,"[""super""]",528
+s,s,misc,,"[""s""]",529
+możliwe,possible,adjective,,"[""possible""]",530
+drogi,roads,misc,,"[""roads""]",533
+pójdę,I'll go,misc,,"[""i'll go""]",534
+ważne,important,adjective,,"[""important""]",535
+kobieta,woman,misc,,"[""woman""]",537
+dziewczyny,girls,adjective,,"[""girls""]",538
+każdym,each,misc,(also: każdego),"[""each"",""każdym"",""kazdym"",""każdego"",""kazdego""]",539
+słyszałem,heard,misc,,"[""heard""]",540
+żona,wife,adjective,,"[""wife""]",541
+ogóle,at all,misc,(also: wcale),"[""at all"",""ogóle"",""ogole"",""wcale""]",545
+działa,works,misc,,"[""works""]",546
+wiedział,knew,misc,,"[""knew""]",548
+chcemy,we want,misc,,"[""we want""]",550
+poznać,explore,misc,,"[""explore""]",551
+gra,game,misc,,"[""game""]",552
+serce,heart,misc,,"[""heart""]",554
+parę,few,misc,,"[""few""]",557
+dostać,get,misc,,"[""get""]",558
+powinien,should,misc,,"[""should""]",559
+witam,welcome,misc,(also: witaj),"[""welcome"",""witam"",""witaj""]",560
+diabła,devil,misc,,"[""devil""]",561
+udało,succeeded,misc,,"[""succeeded""]",563
+byłoby,would be,misc,,"[""would be""]",564
+pojęcia,terms,misc,,"[""terms""]",565
+godziny,hours,adjective,(also: godzin),"[""hours"",""godziny"",""godzin""]",566
+cieszę,enjoy,misc,,"[""enjoy""]",567
+przeciwko,against,misc,,"[""against""]",569
+wiadomość,message,noun,,"[""message""]",573
+ciało,body,misc,,"[""body""]",575
+jack,jack,misc,,"[""jack""]",578
+zostaw,leave,misc,,"[""leave""]",580
+słowa,words,adjective,,"[""words""]",582
+bóg,god,misc,,"[""god""]",583
+pięć,five,misc,,"[""five""]",585
+panowie,gentlemen,adverb,,"[""gentlemen""]",586
+raczej,rather,misc,,"[""rather""]",587
+czymś,something,misc,,"[""something""]",588
+ziemi,land,misc,,"[""land""]",589
+stać,stand,misc,,"[""stand""]",592
+martw,worry,misc,,"[""worry""]",594
+dziwne,strange,adjective,,"[""strange""]",596
+wybacz,pardon,misc,,"[""pardon""]",597
+żyć,live,verb,,"[""live""]",599
+plan,plan,misc,,"[""plan""]",602
+żadnego,none,misc,,"[""none""]",603
+czasem,sometimes,misc,(also: czasami),"[""sometimes"",""czasem"",""czasami""]",604
+miałeś,you had,misc,,"[""you had""]",606
+nazywa,calls,adjective,,"[""calls""]",608
+szczęście,happiness,noun,,"[""happiness""]",609
+ostatnio,most recently,misc,,"[""most recently""]",612
+natychmiast,immediately,misc,,"[""immediately""]",613
+nieźle,not bad,misc,,"[""not bad""]",614
+ostatni,last,misc,,"[""last""]",615
+syn,son of,misc,(also: syna),"[""son of"",""syn"",""syna""]",616
+john,john,misc,,"[""john""]",617
+widziałeś,have you seen,misc,,"[""have you seen""]",618
+zabił,killed,misc,,"[""killed""]",619
+krwi,blood,misc,,"[""blood""]",620
+rodziny,families,adjective,,"[""families""]",621
+zrobimy,we'll do,misc,,"[""we'll do""]",625
+panią,Ms.,misc,,"[""ms.""]",626
+szkoły,schools,misc,,"[""schools""]",627
+słucham,listening,misc,,"[""listening""]",628
+wyjść,exit,misc,,"[""exit""]",631
+idziesz,You go,misc,,"[""you go""]",632
+potrzebujemy,we need,misc,,"[""we need""]",633
+mąż,husband,misc,,"[""husband""]",634
+zrobisz,you'll do,misc,,"[""you'll do""]",635
+uwierzyć,believe,verb,,"[""believe""]",638
+mieliśmy,we had,misc,,"[""we had""]",639
+byliśmy,We were,misc,,"[""we were""]",640
+mieli,they had,misc,,"[""they had""]",641
+doktorze,Dr.,adverb,,"[""dr.""]",642
+uważaj,watch out,misc,,"[""watch out""]",644
+mogłem,I could,misc,(also: mógłbym),"[""i could"",""mogłem"",""moglem"",""mógłbym"",""moglbym""]",645
+ciężko,hard,misc,,"[""hard""]",647
+zgadza,agrees,misc,,"[""agrees""]",649
+zobaczenia,see you,noun,,"[""see you""]",651
+skarbie,treasure,misc,,"[""treasure""]",654
+najbardziej,most,misc,,"[""most""]",655
+końca,end of,misc,,"[""end of""]",656
+głowy,heads,adjective,,"[""heads""]",657
+wieczór,evening,misc,(also: wieczorem),"[""evening"",""wieczór"",""wieczor"",""wieczorem""]",659
+kiedykolwiek,ever,misc,,"[""ever""]",660
+dolarów,dollars,misc,,"[""dollars""]",662
+część,part of,misc,,"[""part of""]",664
+strony,websites,adjective,,"[""websites""]",665
+brat,brother,misc,,"[""brother""]",666
+zły,bad,misc,,"[""bad""]",667
+cztery,four,misc,,"[""four""]",672
+twarz,face,misc,,"[""face""]",675
+policja,police,misc,,"[""police""]",676
+gotowy,ready,adjective,,"[""ready""]",679
+uda,thighs,misc,,"[""thighs""]",680
+obchodzi,celebrates,misc,,"[""celebrates""]",681
+blisko,close to,misc,,"[""close to""]",682
+temat,topic,misc,,"[""topic""]",683
+daleko,far,misc,,"[""far""]",684
+taa,taa,misc,,"[""taa""]",685
+potrzebujesz,you need,misc,,"[""you need""]",687
+okay,okay,misc,,"[""okay""]",689
+miasta,cities,misc,,"[""cities""]",690
+chłopaki,guys,misc,,"[""guys""]",692
+środku,middle,misc,,"[""middle""]",695
+powiedziałam,I said,misc,,"[""i said""]",696
+dobranoc,goodnight,misc,,"[""goodnight""]",699
